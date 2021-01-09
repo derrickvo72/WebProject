@@ -1,9 +1,9 @@
 
 <div class="container-multi menu-lg" >
-    <ul class="menu clearfix">
+    <ul class="menu clearfix" style="margin-bottom: 0px;">
         <li><a href="${pageContext.request.contextPath}/Home/Index">Home</a></li>
         <li><a href="#">Categories</a>
-            <ul style="margin-top: 11px">
+            <ul>
                 <li><a href="#">Development</a>
                     <ul>
                         <li><a href="#">Web Dev</a>
@@ -57,31 +57,35 @@
             </ul>
         </li>
         <li><a href="#">Teach on Ucademy</a>
-        <ul style="min-width: 320px; min-height: 50px; margin-top: 11px; padding: 2px ">
+        <ul style="min-width: 320px; min-height: 50px; padding: 2px ">
             <li class="teach-font" style="text-align: center">
                 <h4>Turn what you know into an opportunity and reach millions around the world.</h4>
                 <a href="${pageContext.request.contextPath}/Home/Index" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Learn more</a>
             </li>
         </ul>
         </li>
-        <li style="float: right; margin-right:20px;">
-            <form action="${pageContext.request.contextPath}/Home/Sign">
-                <input class="btn btn-primary" type="submit" value="Apply">
-            </form>
+        <li style="text-align: center;">
+            <div class="form-group has-search" >
+                <span class="fa fa-search form-control-feedback errspan"></span>
+                <input type="text" class="form-control" placeholder="Search">
+
+
+            </div>
         </li>
+        <li style="float: right; padding-left:12.5px;padding-right:12.5px;"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></li>
         <li style="float: right; margin-right:10px;">
             <form action="${pageContext.request.contextPath}/Home/Login">
                 <button  type="submit" class="btn btn-outline-primary">Log in</button>
             </form>
 
         </li>
-        <li style="float: right; margin-right:25px;"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></li>
-        <li style="text-align: center; margin-left: 5px">
-            <div class="form-group has-search">
-                <span class="fa fa-search form-control-feedback"></span>
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
+        <li style="float: right;">
+            <form action="${pageContext.request.contextPath}/Home/Sign">
+                <input class="btn btn-primary" type="submit" value="Apply">
+            </form>
         </li>
+
+
 
     </ul>
 </div>

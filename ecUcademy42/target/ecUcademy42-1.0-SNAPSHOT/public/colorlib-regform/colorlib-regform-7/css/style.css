@@ -198,7 +198,8 @@ body {
   color: #222;
   background: #f8f8f8;
   font-weight: 400;
-  font-family: Poppins; }
+  font-family: sf pro display,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+}
 
 .container-ls {
   width: 900px;
@@ -316,9 +317,17 @@ figure {
 .form-group {
   position: relative;
   margin-bottom: 25px;
-  overflow: hidden; }
-  .form-group:last-child {
-    margin-bottom: 0px; }
+  overflow: hidden;
+}
+.form-group:last-child {
+  margin-bottom: 0px;
+}
+.form-group:before {
+  font-family: 'FontAwesome';
+  content: '\f002';
+  position: absolute;
+  right: 6px;
+}
 
 input {
   width: 100%;
@@ -326,7 +335,6 @@ input {
   border: none;
   border-bottom: 1px solid #999;
   padding: 6px 30px;
-  font-family: Poppins;
   box-sizing: border-box; }
   input::-webkit-input-placeholder {
     color: #999; }

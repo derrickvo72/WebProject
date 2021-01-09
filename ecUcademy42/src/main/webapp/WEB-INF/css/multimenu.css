@@ -3,21 +3,27 @@
 }
 
 .has-search .form-control-feedback {
-    position: absolute;
+    position: relative;
     z-index: 2;
     display: block;
-    width: 2.375rem;
-    height: 2.375rem;
+    width: 20px;
+    height: 20px;
     line-height: 2.375rem;
     text-align: center;
     pointer-events: none;
     color: #aaa;
+    float: right;
+    margin-right: 6px;
+    margin-top: -10px;
 }
 .form-control {
-    display: block;
-    width: 870px;
+    display: inline-block;
+    position: relative;
+    width: 680px;
     height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -32,6 +38,18 @@
     margin:0;
     padding: 0;
 }
+.has-search:after{
+    font-family: 'FontAwesome';
+    content: '\f002';
+    position: absolute;
+    right: 6px;
+}
+/*.form-control:before {*/
+/*    font-family: 'FontAwesome';*/
+/*    content: '\f274';*/
+/*    position: absolute;*/
+/*    right: 6px;*/
+/*}*/
 .container-multi-right {
     float: right;
 }
@@ -51,9 +69,12 @@
     clear: both;
 }
 .menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #ffffff;
     text-align: -moz-center;
-    padding-top:20px;
+    padding-top:0px;
     box-shadow: 0px 1px 3px lightgrey;
 }
 /*Cap 1*/
