@@ -1,0 +1,12 @@
+.banner{
+    width: 100%;
+    height: 450px;
+    overflow: hidden; // tránh lỗi hình quá lớn đè lên nội dung các phần khác
+    padding-left: 15px;
+    box-sizing: border-box; // cố định kích thước của slide
+}
+.container-fluid{
+    z-index: 0;
+    padding: 0px 0px 0px 0px;
+}
+.tab
