@@ -322,12 +322,12 @@ figure {
 .form-group:last-child {
   margin-bottom: 0px;
 }
-.form-group:before {
-  font-family: 'FontAwesome';
-  content: '\f002';
-  position: absolute;
-  right: 6px;
-}
+/*.form-group:before {*/
+/*  font-family: 'FontAwesome';*/
+/*  content: '\f002';*/
+/*  position: absolute;*/
+/*  right: 6px;*/
+/*}*/
 
 input {
   width: 100%;

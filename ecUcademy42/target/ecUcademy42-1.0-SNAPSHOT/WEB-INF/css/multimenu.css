@@ -1,5 +1,5 @@
 .has-search .form-control {
-    padding-left: 2.375rem;
+    padding-left: 15px;
 }
 
 .has-search .form-control-feedback {
@@ -38,18 +38,21 @@
     margin:0;
     padding: 0;
 }
-.has-search:after{
-    font-family: 'FontAwesome';
-    content: '\f002';
-    position: absolute;
-    right: 6px;
-}
-/*.form-control:before {*/
+/*.has-search:after{*/
 /*    font-family: 'FontAwesome';*/
-/*    content: '\f274';*/
+/*    content: '\f002';*/
 /*    position: absolute;*/
 /*    right: 6px;*/
 /*}*/
+/*.form-control:before {*/
+/*    font-family: 'FontAwesome';*/
+/*    content: '\f002';*/
+/*    position: absolute;*/
+/*    right: 6px;*/
+/*}*/
+input[type="text"] {
+    font-family: FontAwesome;
+}
 .container-multi-right {
     float: right;
 }

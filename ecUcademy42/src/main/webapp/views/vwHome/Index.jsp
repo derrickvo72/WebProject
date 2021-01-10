@@ -10,7 +10,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-caption">
                         <h1>
-                            <div class="goo" contenteditable="true">
+                            <div class="goo" contenteditable="false">
                                 Dream up <br>
                                 Ambition accepted. Learn the latest skills to reach your professional goals
                             </div>

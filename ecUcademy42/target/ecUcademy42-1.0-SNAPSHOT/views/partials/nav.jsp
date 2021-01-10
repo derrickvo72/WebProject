@@ -66,8 +66,8 @@
         </li>
         <li style="text-align: center;">
             <div class="form-group has-search" >
-                <span class="fa fa-search form-control-feedback errspan"></span>
-                <input type="text" class="form-control" placeholder="Search">
+<%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
+                <input type="text" class="form-control" placeholder="&#xf002; Search everything!">
 
 
             </div>
