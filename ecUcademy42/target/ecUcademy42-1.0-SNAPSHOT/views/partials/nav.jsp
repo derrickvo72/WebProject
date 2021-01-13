@@ -67,7 +67,7 @@
         <li style="text-align: center;">
             <div class="form-group has-search" >
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
-                <input type="text" class="form-control" placeholder="&#xf002; Search everything!">
+                <input type="text" class="form-control" placeholder="&#xf002;  Search everything!">
 
 
             </div>
@@ -90,66 +90,110 @@
     </ul>
 </div>
 
-<div class="menu-mini">
-    <div class="btn-show">
-        <span class="fa fa-bars"></span>
-    </div>
-    <div class="block-main">
+<%--menucon--%>
+<%--<div class="menu-mini">--%>
+<%--    <div class="btn-show">--%>
+<%--        <span class="fa fa-bars"></span>--%>
+<%--    </div>--%>
+<%--    <div class="block-main">--%>
 
-    </div>
-    <div class="sidebar navy ">
-        <ul>
-            <li><a>Login</a></li>
-            <li><a>Sign up</a></li>
-            <li><h6>Most popular</h6></li>
-            <li><a class="Web-btn">Development <span class="fa fa-caret-right first"></span> </a>
-                <ul class="Web-show">
-                    <li><a>Web Dev <span class="fa fa-caret-right" ></span> </a>
-                        <ul>
-                            <li><a>Javascript</a></li>
-                            <li><a>CSS</a></li>
-                            <li><a>Python</a></li>
-                        </ul>
-                    </li>
-                    <li><a>Mobile Dev <span class="fa fa-caret-right" ></span></a>
-                        <ul>
-                            <li><a>Android</a></li>
-                            <li><a>Ios</a></li>
-                        </ul>
-                    </li>
-                    <li><a>Game Dev <span class="fa fa-caret-right" ></span></a>
-                        <ul>
-                            <li><a>C#</a></li>
-                            <li><a>C++</a></li>
-                            <li><a>3D</a></li>
-                        </ul>
-                    </li>
+<%--    </div>--%>
+<%--    <div class="sidebar navy ">--%>
+<%--        <ul>--%>
+<%--            <li><a>Login</a></li>--%>
+<%--            <li><a>Sign up</a></li>--%>
+<%--            <li><h6>Most popular</h6></li>--%>
+<%--            <li><a class="Web-btn">Development <span class="fa fa-caret-right first"></span> </a>--%>
+<%--                <ul class="Web-show">--%>
+<%--                    <li><a>Web Dev <span class="fa fa-caret-right" ></span> </a>--%>
+<%--                        <ul>--%>
+<%--                            <li><a>Javascript</a></li>--%>
+<%--                            <li><a>CSS</a></li>--%>
+<%--                            <li><a>Python</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
+<%--                    <li><a>Mobile Dev <span class="fa fa-caret-right" ></span></a>--%>
+<%--                        <ul>--%>
+<%--                            <li><a>Android</a></li>--%>
+<%--                            <li><a>Ios</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
+<%--                    <li><a>Game Dev <span class="fa fa-caret-right" ></span></a>--%>
+<%--                        <ul>--%>
+<%--                            <li><a>C#</a></li>--%>
+<%--                            <li><a>C++</a></li>--%>
+<%--                            <li><a>3D</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
 
-                </ul>
-            </li>
-            <li><a class="Design-btn">Design <span class="fa fa-caret-right second" ></span></a>
-                <ul class="Design-show">
-                    <li><a>Web design <span class="fa fa-caret-right"></span></a>
-                        <ul>
-                            <li><a>Css</a></li>
-                            <li><a>Html</a></li>
-                            <li><a>WordPress</a></li>
-                        </ul>
-                    </li>
-                    <li><a>Game design <span class="fa fa-caret-right"></span></a>
-                        <ul>
-                            <li><a>Unity</a></li>
-                            <li><a>Blender</a></li>
-                            <li><a>Drawing</a></li>
-                            <li><a>Pix Art</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><h6>More from Udemy</h6></li>
-            <li><a>Udemy for teaching</a></li>
-            <li><a>Invited friend</a></li>
-            <li><a>Help</a></li>
-        </ul>
-    </div>
-</div>
+<%--                </ul>--%>
+<%--            </li>--%>
+<%--            <li><a class="Design-btn">Design <span class="fa fa-caret-right second" ></span></a>--%>
+<%--                <ul class="Design-show">--%>
+<%--                    <li><a>Web design <span class="fa fa-caret-right"></span></a>--%>
+<%--                        <ul>--%>
+<%--                            <li><a>Css</a></li>--%>
+<%--                            <li><a>Html</a></li>--%>
+<%--                            <li><a>WordPress</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
+<%--                    <li><a>Game design <span class="fa fa-caret-right"></span></a>--%>
+<%--                        <ul>--%>
+<%--                            <li><a>Unity</a></li>--%>
+<%--                            <li><a>Blender</a></li>--%>
+<%--                            <li><a>Drawing</a></li>--%>
+<%--                            <li><a>Pix Art</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </li>--%>
+<%--            <li><h6>More from Udemy</h6></li>--%>
+<%--            <li><a>Udemy for teaching</a></li>--%>
+<%--            <li><a>Invited friend</a></li>--%>
+<%--            <li><a>Help</a></li>--%>
+<%--        </ul>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<!-- ================================================== -->
+<!-- ========================= SECTION CONTENT ========================= -->
+
+<div class="container" style="margin-right: 0px; margin-left: 0px; padding-left: 5px; padding-right: 0px; padding-top: 5px; position: absolute;width: 61px;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+<%--        <a class="navbar-brand" href="#">Navbar</a>--%>
+        <button class="navbar-toggler" type="button" data-trigger="#main_nav" style="z-index: 100;">
+            <span class="navbar-toggler-icon" style="z-index: 100; color: transparent; background-color: #007bff; border-radius: .25rem;"></span>
+        </button>
+        <div class="navbar-collapse" id="main_nav" style="display: block">
+
+            <div class="offcanvas-header mt-3">
+                <button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
+                <h5 class="py-2 text-white">Main navbar</h5>
+            </div>
+
+            <ul class="navbar-nav">
+                <li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
+                <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More items  </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                        <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
+                <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Dropdown right </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                        <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> <!-- navbar-collapse.// -->
+    </nav>
+</div><!-- container //  -->
