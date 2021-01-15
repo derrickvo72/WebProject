@@ -72,7 +72,43 @@
 
             </div>
         </li>
-        <li style="float: right; padding-left:12.5px;padding-right:12.5px;"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></li>
+        <li class="dropdown" style="float: right;">
+            <a href="#" id="cart"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
+            <div class="dropdown-content">
+                <div class="shopping-cart">
+                    <div class="shopping-cart-header">
+                        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+                        <div class="shopping-cart-total">
+                            <span class="lighter-text">Total:</span>
+                            <span class="main-color-text">$2,229.97</span>
+                        </div>
+                    </div> <!--end shopping-cart-header -->
+                    <div class="shopping-cart-items">
+                        <div class="item-slot" id="item1">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+                            <span class="item-name">Sony DSC-RX100M III</span>
+                            <span class="item-price">$849.99</span>
+                            <p class="item-remove">Remove</p>
+                        </div>
+                        <div class="item-slot" id="item2">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+                            <span class="item-name">KS Automatic Mechanic...</span>
+                            <span class="item-price">$1,249.99</span>
+                            <p class="item-remove">Remove</p>
+                        </div>
+                        <div class="item-slot" id="item3">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+                            <span class="item-name">Kindle, 6" Glare-Free To...</span>
+                            <span class="item-price">$129.99</span>
+                            <p class="item-remove">Remove</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="button">Checkout</a>
+                </div> <!--end shopping-cart -->
+
+            </div> <!--end container -->
+        </li>
         <li style="float: right; margin-right:10px;">
             <form action="${pageContext.request.contextPath}/Home/Login">
                 <button  type="submit" class="btn btn-outline-primary">Log in</button>
@@ -91,75 +127,8 @@
 </div>
 
 <%--menucon--%>
-<%--<div class="menu-mini">--%>
-<%--    <div class="btn-show">--%>
-<%--        <span class="fa fa-bars"></span>--%>
-<%--    </div>--%>
-<%--    <div class="block-main">--%>
-
-<%--    </div>--%>
-<%--    <div class="sidebar navy ">--%>
-<%--        <ul>--%>
-<%--            <li><a>Login</a></li>--%>
-<%--            <li><a>Sign up</a></li>--%>
-<%--            <li><h6>Most popular</h6></li>--%>
-<%--            <li><a class="Web-btn">Development <span class="fa fa-caret-right first"></span> </a>--%>
-<%--                <ul class="Web-show">--%>
-<%--                    <li><a>Web Dev <span class="fa fa-caret-right" ></span> </a>--%>
-<%--                        <ul>--%>
-<%--                            <li><a>Javascript</a></li>--%>
-<%--                            <li><a>CSS</a></li>--%>
-<%--                            <li><a>Python</a></li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                    <li><a>Mobile Dev <span class="fa fa-caret-right" ></span></a>--%>
-<%--                        <ul>--%>
-<%--                            <li><a>Android</a></li>--%>
-<%--                            <li><a>Ios</a></li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                    <li><a>Game Dev <span class="fa fa-caret-right" ></span></a>--%>
-<%--                        <ul>--%>
-<%--                            <li><a>C#</a></li>--%>
-<%--                            <li><a>C++</a></li>--%>
-<%--                            <li><a>3D</a></li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li><a class="Design-btn">Design <span class="fa fa-caret-right second" ></span></a>--%>
-<%--                <ul class="Design-show">--%>
-<%--                    <li><a>Web design <span class="fa fa-caret-right"></span></a>--%>
-<%--                        <ul>--%>
-<%--                            <li><a>Css</a></li>--%>
-<%--                            <li><a>Html</a></li>--%>
-<%--                            <li><a>WordPress</a></li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                    <li><a>Game design <span class="fa fa-caret-right"></span></a>--%>
-<%--                        <ul>--%>
-<%--                            <li><a>Unity</a></li>--%>
-<%--                            <li><a>Blender</a></li>--%>
-<%--                            <li><a>Drawing</a></li>--%>
-<%--                            <li><a>Pix Art</a></li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li><h6>More from Udemy</h6></li>--%>
-<%--            <li><a>Udemy for teaching</a></li>--%>
-<%--            <li><a>Invited friend</a></li>--%>
-<%--            <li><a>Help</a></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<!-- ================================================== -->
-<!-- ========================= SECTION CONTENT ========================= -->
-
 <div class="container" style="margin-right: 0px; margin-left: 0px; padding-left: 5px; padding-right: 0px; padding-top: 5px; position: absolute;width: 61px;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
-<%--        <a class="navbar-brand" href="#">Navbar</a>--%>
         <button class="navbar-toggler" type="button" data-trigger="#main_nav" style="z-index: 100;">
             <span class="navbar-toggler-icon" style="z-index: 100; color: transparent; background-color: #007bff; border-radius: .25rem;"></span>
         </button>

@@ -111,7 +111,7 @@ input[type="text"] {
     /*display: none;*/
     visibility: hidden;
     opacity: 0;
-    transition: all 0.5s ease-in-out;
+    /*transition: all 0.5s ease-in-out;*/
 }
 .menu ul ul{
     top:0;
@@ -250,6 +250,8 @@ body.offcanvas-active{
     .navbar {
         display: block;
         z-index: 100;
+        position: fixed;
+        border-radius: 0.25rem;
     }
     .offcanvas-header{ display:block; }
     .navbar-collapse {
@@ -394,3 +396,165 @@ body.offcanvas-active{
     text-align: center;
     padding: 4px;
 }
+
+
+/*shoping cart menu*/
+.dropdown-content {
+    margin: auto;
+    width: 100%;
+    display: none;
+    position: absolute;
+    z-index: 5;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .shopping-cart-items {
+    opacity: 100;
+}
+.badge {
+    background-color: #6394f8;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.shopping-cart {
+    margin: 0 0;
+    float: right;
+    background: white;
+    width: 320px;
+    position: relative;
+    border-radius: 3px;
+    padding: 20px;
+}
+.shopping-cart .shopping-cart-header {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+}
+.shopping-cart .shopping-cart-header .shopping-cart-total {
+    float: right;
+}
+.shopping-cart .shopping-cart-items {
+    padding-top: 20px;
+}
+.shopping-cart .shopping-cart-items li {
+    margin-bottom: 18px;
+}
+.shopping-cart .shopping-cart-items img {
+    float: left;
+    margin-right: 12px;
+}
+.shopping-cart .shopping-cart-items .item-name {
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+}
+.shopping-cart .shopping-cart-items .item-price {
+    color: #6394F8;
+    margin-right: 8px;
+}
+.shopping-cart .shopping-cart-items .item-quantity {
+    color: #ABB0BE;
+}
+.shopping-cart:after {
+    bottom: 100%;
+    left: 89%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    border-width: 8px;
+    margin-left: -8px;
+}
+.cart-icon {
+    color: #515783;
+    font-size: 24px;
+    margin-right: 7px;
+    float: left;
+}
+.button {
+    background: #6394f8;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 25px 0 15px 0;
+}
+.button:hover {
+    background: #729ef9;
+}
+.item-slot:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.item-slot p {
+    line-height: 70px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+.shopping-cart-items .item-slot {
+    position: relative;
+}
+.item-remove {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(29, 106, 154, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+.shopping-cart-items .item-slot:hover .item-remove  {
+    visibility: visible;
+    opacity: 1;
+}
+/*.cd-img-replace {*/
+/*    !* replace text with a background-image *!*/
+/*    display: inline-block;*/
+/*    overflow: hidden;*/
+/*    text-indent: 100%;*/
+/*    white-space: nowrap;*/
+/*}*/
+/*.item-slot .cd-item-remove {*/
+/*    position: absolute;*/
+/*    right: 1em;*/
+/*    top: 50%;*/
+/*    bottom: auto;*/
+/*    -webkit-transform: translateY(-50%);*/
+/*    -moz-transform: translateY(-50%);*/
+/*    -ms-transform: translateY(-50%);*/
+/*    -o-transform: translateY(-50%);*/
+/*    transform: translateY(-50%);*/
+/*    width: 32px;*/
+/*    height: 32px;*/
+/*    border-radius: 50%;*/
+/*    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-remove-item.svg") no-repeat center center;*/
+/*}*/
+/*.item-slot .cd-item-remove:hover {*/
+/*    background-color: #e0e6ef;*/
+/*}*/
