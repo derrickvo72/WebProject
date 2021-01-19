@@ -1,5 +1,5 @@
 
-<div class="container-multi menu-lg" >
+<div class="container-multi menu-lg">
     <ul class="menu clearfix" style="margin-bottom: 0px;">
         <li><a href="${pageContext.request.contextPath}/Home/Index">Home</a></li>
         <li><a href="#">Categories</a>

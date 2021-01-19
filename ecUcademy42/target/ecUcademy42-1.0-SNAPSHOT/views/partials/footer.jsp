@@ -1,9 +1,9 @@
-<section class="footers bg-light pt-5 pb-3">
+<section class="footers bg-light pt-5 pb-3" style="height: 100%;">
     <div class="container pt-5">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
                 <div class="footers-logo">
-                    <img src="../../WEB-INF/public/images/logo.jpg" alt="Logo" style="width:120px;">
+                    <img src="${pageContext.request.contextPath}/public/images/default-meta-image.png" alt="sing up image">
                 </div>
                 <div class="footers-info mt-3">
                     <p>Trusted by companies of all sizes</p>

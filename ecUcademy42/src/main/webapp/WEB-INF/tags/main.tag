@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Courses - Learn Anything, On Your Schedule | Ucademy</title>
-    <link rel="icon" href="https://anonyviet.com/resource/phaohoa2/favicon.ico" type="image/x-ico"/>
+    <link rel="icon" href="${pageContext.request.contextPath}/public/images/udemy.png" type="image/x-ico"/>
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -22,15 +22,23 @@
         <%@include file="/WEB-INF/css/carousel.css"%>
         <%@include file="/WEB-INF/css/Font.css"%>
         <%@include file="/public/colorlib-regform/colorlib-regform-7/css/style.css"%>
+        <%@include file="/WEB-INF/css/TabStackUser.css"%>
     </style>
 </head>
 
 <body>
-<jsp:include page="../../views/partials/nav.jsp"/>
+<div>
+    <div style="width: 100px"></div>
+    <jsp:include page="../../views/partials/nav.jsp"/>
+</div>
 <div>
     <jsp:doBody/>
 </div>
-<jsp:include page="../../views/partials/footer.jsp"/>
+<%--foot--%>
+<div>
+    <jsp:include page="../../views/partials/footer.jsp"/>
+</div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -39,13 +47,7 @@
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/multiMenu.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-
-<%--<script type="text/javascript">--%>
-<%--    $('.feat-btn').click(function (){--%>
-<%--        $('.menu-mini-toggle ul .feat-show').toggleClass("show");--%>
-<%--    });--%>
-<%--</script>--%>
-
+<script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/UserStack.js"></script>
 </body>
 
 </html>
