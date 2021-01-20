@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="container-lg">
+        <div class="container-lg" style="padding-top: 20px">
             <!-- tab -->
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Python</a></li>
@@ -259,18 +259,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="row">
-                        <div class="col-sm-12 pt-5"> <h4>Development</h4> </div>
-                        <c:forEach begin="1" end="4">
-                        <div class="col-sm-12 pt-5">
-                            <a style="text-decoration: none" href="#"><h5>Java</h5></a>
-                            <p>23,692,500 students</p>
-                        </div>
-                        </c:forEach>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12 pt-5"> <h4>Business</h4> </div>
+                        <div class="col-sm-12 pt-5"><h4>Development</h4></div>
                         <c:forEach begin="1" end="4">
                             <div class="col-sm-12 pt-5">
                                 <a style="text-decoration: none" href="#"><h5>Java</h5></a>
@@ -281,7 +270,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="row">
-                        <div class="col-sm-12 pt-5"> <h4>IT and Software</h4> </div>
+                        <div class="col-sm-12 pt-5"><h4>Business</h4></div>
                         <c:forEach begin="1" end="4">
                             <div class="col-sm-12 pt-5">
                                 <a style="text-decoration: none" href="#"><h5>Java</h5></a>
@@ -292,7 +281,18 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="row">
-                        <div class="col-sm-12 pt-5"> <h4>Design</h4> </div>
+                        <div class="col-sm-12 pt-5"><h4>IT and Software</h4></div>
+                        <c:forEach begin="1" end="4">
+                            <div class="col-sm-12 pt-5">
+                                <a style="text-decoration: none" href="#"><h5>Java</h5></a>
+                                <p>23,692,500 students</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12 pt-5"><h4>Design</h4></div>
                         <c:forEach begin="1" end="4">
                             <div class="col-sm-12 pt-5">
                                 <a style="text-decoration: none" href="#"><h5>Java</h5></a>
@@ -421,19 +421,42 @@
             </div>
         </div>
 
+        <%--        Jumbotron cu--%>
+<%--        <div class="container py-5">--%>
+<%--            <div class="jumbotron text-white jumbotron-image shadow  d-flex "--%>
+<%--                 style="background-image: url(https://images.unsplash.com/photo-1552152974-19b9caf99137?fit=crop&w=1350&q=80);--%>
+<%--                    width: 100%; flex-wrap: wrap; align-content: center">--%>
+<%--                <div class="row">--%>
+<%--                    <div class="col-md-2">--%>
+<%--                        <c:forEach begin="1" end="10">--%>
+<%--                            <br>--%>
+<%--                        </c:forEach>--%>
+<%--                    </div>--%>
+<%--                    <div class="col-md-5">--%>
+<%--                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">--%>
+<%--                        </iframe>--%>
+<%--                    </div>--%>
+<%--                    <div class="col-md-5" style="align-items: center">--%>
+<%--                        <c:forEach begin="1" end="3">--%>
+<%--                            <br>--%>
+<%--                        </c:forEach>--%>
+<%--                        <h3 style="color: white">Transform your life through education</h3>--%>
+<%--                        <h5>Mohamad Alaloush launched a new career in software development by taking courses on Udemy.--%>
+<%--                            What will you be able to do?</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
-        <div class="container py-5">
-            <div class="jumbotron text-white jumbotron-image shadow  d-flex "
-                 style="background-image: url(https://images.unsplash.com/photo-1552152974-19b9caf99137?fit=crop&w=1350&q=80);
-width: 100%; flex-wrap: wrap; align-content: center">
-                <p class="mb-4 w-50" style="margin-left: auto">
-                    <iframe width="50%" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
-                </p>
-                <p class="mb-4 w-50" style="margin-left: auto">
-                    <iframe width="50%" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
-                </p>
+        <div class="jumbotron jumbotron-fruid">
+            <div class="container text-white">
+                <h1 class="display-4">Become an good developer</h1>
+                <hr class="my-4">
+                <p class="lead">"No one in the brief history of computing has ever written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
+                <hr class="my-4">
+                <p>"One of the best programming skills you can have is knowing when to walk away for awhile." - Oscar Godson</p>
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
 
