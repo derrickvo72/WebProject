@@ -23,5 +23,3 @@ $(function (){
         $('.profile-img img').attr('src', img);
     });
 });
-
-
