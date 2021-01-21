@@ -94,7 +94,7 @@
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                         </div>
-                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
                                                             <a style="font-size: smaller" href="#"
                                                                class="AddCart btn btn-info"><i
                                                                     class="fa fa-shopping-cart"
@@ -154,7 +154,7 @@
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                         </div>
-                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
                                                             <a style="font-size: smaller" href="#"
                                                                class="AddCart btn btn-info"><i
                                                                     class="fa fa-shopping-cart"
@@ -213,7 +213,7 @@
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                         </div>
-                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
                                                             <a style="font-size: smaller" href="#"
                                                                class="AddCart btn btn-info"><i
                                                                     class="fa fa-shopping-cart"
@@ -271,7 +271,7 @@
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                         </div>
-                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
                                                             <a style="font-size: smaller" href="#"
                                                                class="AddCart btn btn-info"><i
                                                                     class="fa fa-shopping-cart"
