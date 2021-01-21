@@ -1,4 +1,4 @@
-<section class="footers bg-light pt-5 pb-3" style="height: 100%;">
+<section class="footers bg-light pt-5 pb-3" style="height: 100%; border: none; box-shadow: 0px 1px 5px lightgrey;">
     <div class="container pt-5">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
@@ -49,17 +49,17 @@
         </div>
     </div>
 </section>
-<section class="disclaimer bg-light border">
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-12 py-2" style="text-align: center">
-                <small >
-                    <div id="google_translate_element"></div>
-                </small>
-            </div>
-        </div>
-    </div>
-</section>
+<%--<section class="disclaimer bg-light border">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row ">--%>
+<%--            <div class="col-md-12 py-2" style="text-align: center">--%>
+<%--                <small >--%>
+<%--                    <div id="google_translate_element"></div>--%>
+<%--                </small>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <section class="copyright border">
     <div class="container">
         <div class="row text-center">

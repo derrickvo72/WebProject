@@ -249,7 +249,17 @@
         </div>
         <!-- Nội dung -->
 
-        <div class="container-lg" style="padding-top: 20px; padding-bottom: 20px; border: 5px solid red;">
+        <div class="jumbotron jumbotron-fruid">
+            <div class="container text-white" style="text-align: center">
+                <h5 class="display-4"><b>Become an good developer</b></h5>
+                    <%--<hr class="my-4">--%>
+                <p style="font-size: medium" class="lead text-white">"No one in the brief history of computing has ever written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
+                <p style="font-size: medium"  class="lead text-white">"One of the best programming skills you can have is knowing when to walk away for awhile." - Oscar Godson</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div>
+        </div>
+
+        <div class="container-lg" style="padding-top: 20px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-md-12">
                     <h1 style="color: black;">Featured topics by category </h1>
@@ -311,7 +321,6 @@
             </div>
         </div>
 
-
         <%--        Intro our team--%>
         <div class="container-fluid">
             <div class="container py-5">
@@ -323,7 +332,7 @@
                         <div class="card border-dark">
                             <div class="card-body p-0 ">
                                 <img
-                                        src="${pageContext.request.contextPath}/public/images/PD.jpg" alt=""
+                                        src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
                                     <h5 class="mb-0">Admin</h5>
@@ -348,7 +357,7 @@
                         <div class="card border-dark">
                             <div class="card-body p-0 ">
                                 <img
-                                        src="${pageContext.request.contextPath}/public/images/LB.jpg" alt=""
+                                        src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
                                     <h5 class="mb-0">Admin</h5>
@@ -373,7 +382,7 @@
                         <div class="card border-dark">
                             <div class="card-body p-0 ">
                                 <img
-                                        src="${pageContext.request.contextPath}/public/images/udemy.png" alt=""
+                                        src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
                                     <h5 class="mb-0">Associate</h5>
@@ -398,7 +407,7 @@
                         <div class="card border-dark">
                             <div class="card-body p-0 ">
                                 <img
-                                        src="${pageContext.request.contextPath}/public/images/w3wlogo.png" alt=""
+                                        src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
                                     <h5 class="mb-0">Associate</h5>
@@ -420,6 +429,29 @@
                 </div>
             </div>
         </div>
+
+        <div class="jumbotron-teaching jumbotron-fruid-teaching" style="display: block;">
+            <div class="context-white">
+<%--                <div class="row">--%>
+
+                        <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" alt=""
+                            style="width: 400px; height: 400px;">
+
+<%--                </div>--%>
+            </div>
+
+            <div class="container-fluid">
+                <div class="res-text">
+                    <div class="res-content">
+                        <p style="font-size: medium; color: black;"  class="lead">
+                        <h5 class="display-4" style="color: black"><b>Become an instructor</b></h5>
+                            Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love</p>
+                        <a style="background-color: #003640;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start teaching today</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <%--        Jumbotron cu--%>
 <%--        <div class="container py-5">--%>
@@ -447,19 +479,6 @@
 <%--                </div>--%>
 <%--            </div>--%>
 <%--        </div>--%>
-
-        <div class="jumbotron jumbotron-fruid">
-            <div class="container text-white">
-                <h1 class="display-4">Become an good developer</h1>
-                <hr class="my-4">
-                <p class="lead">"No one in the brief history of computing has ever written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
-                <hr class="my-4">
-                <p>"One of the best programming skills you can have is knowing when to walk away for awhile." - Oscar Godson</p>
-                <hr class="my-4">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </div>
-        </div>
-
 
     </jsp:body>
 </t:main>
