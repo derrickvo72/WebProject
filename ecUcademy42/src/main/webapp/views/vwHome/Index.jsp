@@ -45,7 +45,7 @@
 
         <div class="container-lg" style="padding-top: 20px">
             <!-- tab -->
-            <ul class="nav nav-pills">
+            <ul class="nav nav-pills" style="padding-bottom: 4px">
                 <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Python</a></li>
                 <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Web develop</a></li>
                 <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Drawing</a></li>
@@ -54,98 +54,61 @@
 
             <div class="tab-content">
                 <div class="tab-pane container active" id="tab1">
-                    <div class="row mt-5 mb-5">
-                        <c:forEach begin="1" end="4">
-                            <div class="col-sm-3 mb-3">
-                                <div class="card rounded shadow-sm border-0">
-                                    <div class="card-body p-2"><img
-                                            src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg"
-                                            alt="" class=" card-img-top"/>
-<%--                                        <div class="overlay">--%>
-<%--                                            <div class="row" style="color: yellow">--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 class="card-title">--%>
-<%--                                                        The Web Developer Bootcamp 2021--%>
-<%--                                                    </h5>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="row" style="color: yellow">--%>
-<%--                                                <div class="col-sm-4">--%>
-<%--                                                    <h6 class="card-title" style="background-color: red">Best--%>
-<%--                                                        seller</h6>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-8">--%>
-<%--                                                    <h6 class="card-title" style="text-align: right;">Updated January--%>
-<%--                                                        2021</h6>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="row pt-4" style="color: yellow">--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 class="card-title"><i class="fa fa-thumbs-up"--%>
-<%--                                                                              aria-hidden="true"></i>--%>
-<%--                                                        COMPLETELY REDONE - The only course you need to learn web--%>
-<%--                                                        development - HTML, CSS, JS, Node, and More!--%>
-<%--                                                    </h5>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="row pt-2" style="color: yellow">--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 class="card-title"><i class="fa fa-check-circle"--%>
-<%--                                                                              aria-hidden="true"></i> 100 hourse</h5>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 class="card-title"><i class="fa fa-check-circle"--%>
-<%--                                                                              aria-hidden="true"></i> All level</h5>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 class="card-title"><i class="fa fa-check-circle"--%>
-<%--                                                                              aria-hidden="true"></i> Subtitles</h5>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-
-<%--                                        </div>--%>
-                                        <h5><a href="#" class="text-dark">Awesome product</a></h5>
-                                        <h5 class="card-title text-danger">
-                                            200.000 vnđ
-                                        </h5>
-                                        <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur
-                                            adipisicing elit.</p>
-                                        <ul class="list-inline small">
-                                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i>
-                                            </li>
-                                            <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i>
-                                            </li>
-                                            <i class="fa fa-thumbs-o-up" aria-hidden="true" style="float: right">150</i>
-                                        </ul>
-                                    </div>
-                                    <div class="card-footer text-muted">
-
-                                        <a class="btn btn-sm btn-outline-primary" href="#" role="button">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                            Detail
-                                        </a>
-                                        <a class="btn btn-sm btn-outline-danger" href="#" role="button">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                            Favorite
-                                        </a>
-                                        <a class="btn btn-sm btn-outline-secondary" href="#" role="button">
-                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                            Like
-                                        </a>
-                                        <a class="btn btn-sm btn-outline-success" href="#" role="button">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3>Product Slider</h3>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs">
+                            <div class="controls pull-right">
+                                <a class="left fa fa-chevron-left btn btn-info " href="#carousel-example"
+                                   data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-info"
+                                                            href="#carousel-example" data-slide="next"></a>
                             </div>
-                        </c:forEach>
+                        </div>
+                    </div>
+
+                    <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
+                        <div class="carousel-inner">
+                                <%--                            <div class="item active">--%>
+                            <div class="row">
+                                <c:forEach begin="1" end="4">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="slider-item">
+                                            <div class="slider-image">
+                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                     class="img-responsive" alt="a"/>
+                                            </div>
+                                            <div class="slider-main-detail">
+                                                <div class="slider-detail">
+                                                    <div class="product-detail">
+                                                        <h5>Product Name</h5>
+                                                        <h5 class="detail-price">$187.87</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-section">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                            <a style="font-size: smaller" href="#"
+                                                               class="AddCart btn btn-info"><i
+                                                                    class="fa fa-shopping-cart"
+                                                                    aria-hidden="true"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                                    <%--                                </div>--%>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -164,93 +127,172 @@
                         </div>
                     </div>
 
-                    <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
+                    <div id="carousel-example1" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
                         <div class="carousel-inner">
-<%--                            <div class="item active">--%>
-                                <div class="row">
-                                    <c:forEach begin="1" end="4">
-                                        <div class="col-md-3 col-sm-3 col-xs-12">
-                                            <div class="slider-item">
-                                                <div class="slider-image">
-                                                    <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
-                                                         class="img-responsive" alt="a"/>
-                                                </div>
-                                                <div class="slider-main-detail">
-                                                    <div class="slider-detail">
-                                                        <div class="product-detail">
-                                                            <h5>Product Name</h5>
-                                                            <h5 class="detail-price">$187.87</h5>
-                                                        </div>
+                                <%--                            <div class="item active">--%>
+                            <div class="row">
+                                <c:forEach begin="1" end="4">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="slider-item">
+                                            <div class="slider-image">
+                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                     class="img-responsive" alt="a"/>
+                                            </div>
+                                            <div class="slider-main-detail">
+                                                <div class="slider-detail">
+                                                    <div class="product-detail">
+                                                        <h5>Product Name</h5>
+                                                        <h5 class="detail-price">$187.87</h5>
                                                     </div>
-                                                    <div class="cart-section">
-                                                        <div class="row">
-                                                            <div class="col-md-6 col-sm-12 col-xs-6 review">
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                            </div>
-                                                            <div  class="col-md-6 col-sm-12 col-xs-6">
-                                                                <a  style="font-size: smaller" href="#" class="AddCart btn btn-info"><i
-                                                                        class="fa fa-shopping-cart"
-                                                                        aria-hidden="true"></i> Add to cart</a>
-                                                            </div>
+                                                </div>
+                                                <div class="cart-section">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                            <a style="font-size: smaller" href="#"
+                                                               class="AddCart btn btn-info"><i
+                                                                    class="fa fa-shopping-cart"
+                                                                    aria-hidden="true"></i> Add to cart</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </c:forEach>
-<%--                                </div>--%>
+                                    </div>
+                                </c:forEach>
+                                    <%--                                </div>--%>
                             </div>
-<%--&lt;%&ndash;                            <div class="item">&ndash;%&gt;--%>
-<%--                                <div class="row">--%>
-<%--                                    <div class="col-md-3 col-sm-3 col-xs-12">--%>
-<%--                                        <div class="slider-item">--%>
-<%--                                            <div class="slider-image">--%>
-<%--                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"--%>
-<%--                                                     class="img-responsive" alt="a"/>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="slider-main-detail">--%>
-<%--                                                <div class="slider-detail">--%>
-<%--                                                    <div class="product-detail">--%>
-<%--                                                        <h5>Product Name</h5>--%>
-<%--                                                        <h5 class="detail-price">$187.87</h5>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="cart-section">--%>
-<%--                                                    <div class="row">--%>
-<%--                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">--%>
-<%--                                                            <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                            <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                            <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                            <i class="fa fa-star-o" aria-hidden="true"></i>--%>
-<%--                                                            <i class="fa fa-star-o" aria-hidden="true"></i>--%>
-<%--                                                        </div>--%>
-<%--                                                        <div class="col-md-6 col-sm-12 col-xs-6">--%>
-<%--                                                            <a href="#" class="AddCart btn btn-info"><i--%>
-<%--                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i>--%>
-<%--                                                                Add To Cart</a>--%>
-<%--                                                        </div>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tab-pane container fade" id="tab3"><p>Thử thay đổi gì đó khi chuyển tab.</p></div>
-                <div class="tab-pane container fade" id="tab4"><p>Thử thay đổi gì đó khi chuyển tab.</p></div>
+                <div class="tab-pane container fade" id="tab3">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3>Product Slider</h3>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs">
+                            <div class="controls pull-right">
+                                <a class="left fa fa-chevron-left btn btn-info " href="#carousel-example"
+                                   data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-info"
+                                                            href="#carousel-example" data-slide="next"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="carousel-example2" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
+                        <div class="carousel-inner">
+                                <%--                            <div class="item active">--%>
+                            <div class="row">
+                                <c:forEach begin="1" end="4">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="slider-item">
+                                            <div class="slider-image">
+                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                     class="img-responsive" alt="a"/>
+                                            </div>
+                                            <div class="slider-main-detail">
+                                                <div class="slider-detail">
+                                                    <div class="product-detail">
+                                                        <h5>Product Name</h5>
+                                                        <h5 class="detail-price">$187.87</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-section">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                            <a style="font-size: smaller" href="#"
+                                                               class="AddCart btn btn-info"><i
+                                                                    class="fa fa-shopping-cart"
+                                                                    aria-hidden="true"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                                    <%--                                </div>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="tab4">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3>Product Slider</h3>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs">
+                            <div class="controls pull-right">
+                                <a class="left fa fa-chevron-left btn btn-info " href="#carousel-example"
+                                   data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-info"
+                                                            href="#carousel-example" data-slide="next"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="carousel-example3" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
+                        <div class="carousel-inner">
+                                <%--                            <div class="item active">--%>
+                            <div class="row">
+                                <c:forEach begin="1" end="4">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="slider-item">
+                                            <div class="slider-image">
+                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                     class="img-responsive" alt="a"/>
+                                            </div>
+                                            <div class="slider-main-detail">
+                                                <div class="slider-detail">
+                                                    <div class="product-detail">
+                                                        <h5>Product Name</h5>
+                                                        <h5 class="detail-price">$187.87</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-section">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-6">
+                                                            <a style="font-size: smaller" href="#"
+                                                               class="AddCart btn btn-info"><i
+                                                                    class="fa fa-shopping-cart"
+                                                                    aria-hidden="true"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                                    <%--                                </div>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Nội dung -->
 
-<%--        toppic--%>
+        <%--        toppic--%>
         <div class="container-lg" style="padding:30px 0 30px 0">
             <div class="row">
                 <div class col-md-12>
@@ -264,8 +306,10 @@
             <div class="container text-white" style="text-align: center">
                 <h5 class="display-4"><b>Become an good developer</b></h5>
                     <%--<hr class="my-4">--%>
-                <p style="font-size: medium" class="lead text-white">"No one in the brief history of computing has ever written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
-                <p style="font-size: medium"  class="lead text-white">"One of the best programming skills you can have is knowing when to walk away for awhile." - Oscar Godson</p>
+                <p style="font-size: medium" class="lead text-white">"No one in the brief history of computing has ever
+                    written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
+                <p style="font-size: medium" class="lead text-white">"One of the best programming skills you can have is
+                    knowing when to walk away for awhile." - Oscar Godson</p>
                 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
@@ -443,19 +487,21 @@
 
         <div class="jumbotron-teaching jumbotron-fruid-teaching" style="display: block;">
             <div class="context-white">
-<%--                <div class="row">--%>
-                        <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" alt=""
-                            style="width: 400px; height: 400px;">
-<%--                </div>--%>
+                    <%--                <div class="row">--%>
+                <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" alt=""
+                     style="width: 400px; height: 400px;">
+                    <%--                </div>--%>
             </div>
 
             <div class="container-fluid">
                 <div class="res-text" style="background-color: #fbfbf8">
                     <div class="res-content">
-                        <p style="font-size: medium; color: black;"  class="lead">
+                        <p style="font-size: medium; color: black;" class="lead">
                         <h5 style="color: black; font-size: 2em"><b>Become an instructor</b></h5>
-                            Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love</p>
-                        <a style="background-color: #003640;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start teaching today</b></a>
+                        Top instructors from around the world teach millions of students on Udemy. We provide the tools
+                        and skills to teach what you love</p>
+                        <a style="background-color: #003640;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start
+                            teaching today</b></a>
                     </div>
                 </div>
             </div>
