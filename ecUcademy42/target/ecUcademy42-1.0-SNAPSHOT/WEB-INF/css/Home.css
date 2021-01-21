@@ -44,5 +44,6 @@ body{
 }
 .tab-content{
     display: block;
-    border: 5px solid red;
+    /*border: 3px solid deepskyblue;*/
+    /*box-shadow: 0 4px 2px -3px;*/
 }

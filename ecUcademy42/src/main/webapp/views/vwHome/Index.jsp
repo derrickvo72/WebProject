@@ -61,49 +61,49 @@
                                     <div class="card-body p-2"><img
                                             src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg"
                                             alt="" class=" card-img-top"/>
-                                        <div class="overlay">
-                                            <div class="row" style="color: yellow">
-                                                <div class="col-sm-12">
-                                                    <h5 class="card-title">
-                                                        The Web Developer Bootcamp 2021
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="color: yellow">
-                                                <div class="col-sm-4">
-                                                    <h6 class="card-title" style="background-color: red">Best
-                                                        seller</h6>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <h6 class="card-title" style="text-align: right;">Updated January
-                                                        2021</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row pt-4" style="color: yellow">
-                                                <div class="col-sm-12">
-                                                    <h5 class="card-title"><i class="fa fa-thumbs-up"
-                                                                              aria-hidden="true"></i>
-                                                        COMPLETELY REDONE - The only course you need to learn web
-                                                        development - HTML, CSS, JS, Node, and More!
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                            <div class="row pt-2" style="color: yellow">
-                                                <div class="col-sm-12">
-                                                    <h5 class="card-title"><i class="fa fa-check-circle"
-                                                                              aria-hidden="true"></i> 100 hourse</h5>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <h5 class="card-title"><i class="fa fa-check-circle"
-                                                                              aria-hidden="true"></i> All level</h5>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <h5 class="card-title"><i class="fa fa-check-circle"
-                                                                              aria-hidden="true"></i> Subtitles</h5>
-                                                </div>
-                                            </div>
+<%--                                        <div class="overlay">--%>
+<%--                                            <div class="row" style="color: yellow">--%>
+<%--                                                <div class="col-sm-12">--%>
+<%--                                                    <h5 class="card-title">--%>
+<%--                                                        The Web Developer Bootcamp 2021--%>
+<%--                                                    </h5>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                            <div class="row" style="color: yellow">--%>
+<%--                                                <div class="col-sm-4">--%>
+<%--                                                    <h6 class="card-title" style="background-color: red">Best--%>
+<%--                                                        seller</h6>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="col-sm-8">--%>
+<%--                                                    <h6 class="card-title" style="text-align: right;">Updated January--%>
+<%--                                                        2021</h6>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                            <div class="row pt-4" style="color: yellow">--%>
+<%--                                                <div class="col-sm-12">--%>
+<%--                                                    <h5 class="card-title"><i class="fa fa-thumbs-up"--%>
+<%--                                                                              aria-hidden="true"></i>--%>
+<%--                                                        COMPLETELY REDONE - The only course you need to learn web--%>
+<%--                                                        development - HTML, CSS, JS, Node, and More!--%>
+<%--                                                    </h5>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                            <div class="row pt-2" style="color: yellow">--%>
+<%--                                                <div class="col-sm-12">--%>
+<%--                                                    <h5 class="card-title"><i class="fa fa-check-circle"--%>
+<%--                                                                              aria-hidden="true"></i> 100 hourse</h5>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="col-sm-12">--%>
+<%--                                                    <h5 class="card-title"><i class="fa fa-check-circle"--%>
+<%--                                                                              aria-hidden="true"></i> All level</h5>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="col-sm-12">--%>
+<%--                                                    <h5 class="card-title"><i class="fa fa-check-circle"--%>
+<%--                                                                              aria-hidden="true"></i> Subtitles</h5>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
 
-                                        </div>
+<%--                                        </div>--%>
                                         <h5><a href="#" class="text-dark">Awesome product</a></h5>
                                         <h5 class="card-title text-danger">
                                             200.000 vnđ
@@ -125,13 +125,10 @@
                                         </ul>
                                     </div>
                                     <div class="card-footer text-muted">
+
                                         <a class="btn btn-sm btn-outline-primary" href="#" role="button">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                             Detail
-                                        </a>
-                                        <a class="btn btn-sm btn-outline-success" href="#" role="button">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                            Add to cart
                                         </a>
                                         <a class="btn btn-sm btn-outline-danger" href="#" role="button">
                                             <i class="fa fa-heart" aria-hidden="true"></i>
@@ -140,6 +137,10 @@
                                         <a class="btn btn-sm btn-outline-secondary" href="#" role="button">
                                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                             Like
+                                        </a>
+                                        <a class="btn btn-sm btn-outline-success" href="#" role="button">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            Add to cart
                                         </a>
                                     </div>
                                 </div>
@@ -165,7 +166,7 @@
 
                     <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel" data-type="multi">
                         <div class="carousel-inner">
-                            <div class="item active">
+<%--                            <div class="item active">--%>
                                 <div class="row">
                                     <c:forEach begin="1" end="4">
                                         <div class="col-md-3 col-sm-3 col-xs-12">
@@ -190,8 +191,8 @@
                                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                                             </div>
-                                                            <div class="col-md-6 col-sm-12 col-xs-6">
-                                                                <a href="#" class="AddCart btn btn-info"><i
+                                                            <div  class="col-md-6 col-sm-12 col-xs-6">
+                                                                <a  style="font-size: smaller" href="#" class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
                                                                         aria-hidden="true"></i> Add to cart</a>
                                                             </div>
@@ -201,46 +202,46 @@
                                             </div>
                                         </div>
                                     </c:forEach>
-                                </div>
+<%--                                </div>--%>
                             </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="slider-item">
-                                            <div class="slider-image">
-                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
-                                                     class="img-responsive" alt="a"/>
-                                            </div>
-                                            <div class="slider-main-detail">
-                                                <div class="slider-detail">
-                                                    <div class="product-detail">
-                                                        <h5>Product Name</h5>
-                                                        <h5 class="detail-price">$187.87</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-section">
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-12 col-xs-6">
-                                                            <a href="#" class="AddCart btn btn-info"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                Add To Cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<%--&lt;%&ndash;                            <div class="item">&ndash;%&gt;--%>
+<%--                                <div class="row">--%>
+<%--                                    <div class="col-md-3 col-sm-3 col-xs-12">--%>
+<%--                                        <div class="slider-item">--%>
+<%--                                            <div class="slider-image">--%>
+<%--                                                <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"--%>
+<%--                                                     class="img-responsive" alt="a"/>--%>
+<%--                                            </div>--%>
+<%--                                            <div class="slider-main-detail">--%>
+<%--                                                <div class="slider-detail">--%>
+<%--                                                    <div class="product-detail">--%>
+<%--                                                        <h5>Product Name</h5>--%>
+<%--                                                        <h5 class="detail-price">$187.87</h5>--%>
+<%--                                                    </div>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="cart-section">--%>
+<%--                                                    <div class="row">--%>
+<%--                                                        <div class="col-md-6 col-sm-12 col-xs-6 review">--%>
+<%--                                                            <i class="fa fa-star" aria-hidden="true"></i>--%>
+<%--                                                            <i class="fa fa-star" aria-hidden="true"></i>--%>
+<%--                                                            <i class="fa fa-star" aria-hidden="true"></i>--%>
+<%--                                                            <i class="fa fa-star-o" aria-hidden="true"></i>--%>
+<%--                                                            <i class="fa fa-star-o" aria-hidden="true"></i>--%>
+<%--                                                        </div>--%>
+<%--                                                        <div class="col-md-6 col-sm-12 col-xs-6">--%>
+<%--                                                            <a href="#" class="AddCart btn btn-info"><i--%>
+<%--                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i>--%>
+<%--                                                                Add To Cart</a>--%>
+<%--                                                        </div>--%>
+<%--                                                    </div>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <div class="tab-pane container fade" id="tab3"><p>Thử thay đổi gì đó khi chuyển tab.</p></div>
@@ -248,6 +249,16 @@
             </div>
         </div>
         <!-- Nội dung -->
+
+<%--        toppic--%>
+        <div class="container-lg" style="padding:30px 0 30px 0">
+            <div class="row">
+                <div class col-md-12>
+                    <h1 style="color: black;">Top courses</h1>
+                </div>
+            </div>
+
+        </div>
 
         <div class="jumbotron jumbotron-fruid">
             <div class="container text-white" style="text-align: center">
@@ -433,18 +444,16 @@
         <div class="jumbotron-teaching jumbotron-fruid-teaching" style="display: block;">
             <div class="context-white">
 <%--                <div class="row">--%>
-
                         <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" alt=""
                             style="width: 400px; height: 400px;">
-
 <%--                </div>--%>
             </div>
 
             <div class="container-fluid">
-                <div class="res-text">
+                <div class="res-text" style="background-color: #fbfbf8">
                     <div class="res-content">
                         <p style="font-size: medium; color: black;"  class="lead">
-                        <h5 class="display-4" style="color: black"><b>Become an instructor</b></h5>
+                        <h5 style="color: black; font-size: 2em"><b>Become an instructor</b></h5>
                             Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love</p>
                         <a style="background-color: #003640;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start teaching today</b></a>
                     </div>
@@ -454,31 +463,28 @@
 
 
         <%--        Jumbotron cu--%>
-<%--        <div class="container py-5">--%>
-<%--            <div class="jumbotron text-white jumbotron-image shadow  d-flex "--%>
-<%--                 style="background-image: url(https://images.unsplash.com/photo-1552152974-19b9caf99137?fit=crop&w=1350&q=80);--%>
-<%--                    width: 100%; flex-wrap: wrap; align-content: center">--%>
-<%--                <div class="row">--%>
-<%--                    <div class="col-md-2">--%>
-<%--                        <c:forEach begin="1" end="10">--%>
-<%--                            <br>--%>
-<%--                        </c:forEach>--%>
-<%--                    </div>--%>
-<%--                    <div class="col-md-5">--%>
-<%--                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">--%>
-<%--                        </iframe>--%>
-<%--                    </div>--%>
-<%--                    <div class="col-md-5" style="align-items: center">--%>
-<%--                        <c:forEach begin="1" end="3">--%>
-<%--                            <br>--%>
-<%--                        </c:forEach>--%>
-<%--                        <h3 style="color: white">Transform your life through education</h3>--%>
-<%--                        <h5>Mohamad Alaloush launched a new career in software development by taking courses on Udemy.--%>
-<%--                            What will you be able to do?</h5>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <div class="container-fluid" style="margin: 0;">
+            <div class="jumbotron text-white jumbotron-image shadow  d-flex "
+                 style="background-color: #003640;
+                    width: 100%; flex-wrap: wrap; align-content: center">
+                <div class="row">
+                    <div class="col-md-2">
+                        <c:forEach begin="1" end="10">
+                            <br>
+                        </c:forEach>
+                    </div>
+                    <div class="col-md-5">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+                    </div>
+                    <div class="col-md-5" style="margin: 0; padding:30px 15px 0px 15px;">
+                        <h2 style="color: white">Transform your life through education</h2>
+                        <h5>Mohamad Alaloush launched a new career in software development by taking courses on Udemy.
+                            What will you be able to do?</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </jsp:body>
 </t:main>
