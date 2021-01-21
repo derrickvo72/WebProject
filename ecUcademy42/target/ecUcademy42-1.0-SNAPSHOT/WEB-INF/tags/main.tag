@@ -25,6 +25,7 @@
         <%@include file="/WEB-INF/css/multimenu.css"%>
         <%@include file="/WEB-INF/css/carousel.css"%>
         <%@include file="/WEB-INF/css/Font.css"%>
+        <%@include file="/WEB-INF/css/star.css"%>
         <%@include file="/public/colorlib-regform/colorlib-regform-7/css/style.css"%>
         <%@include file="/WEB-INF/css/TabStackUser.css"%>
     </style>

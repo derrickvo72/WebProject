@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <t:main>
     <jsp:body>
@@ -56,7 +57,21 @@
                 <div class="tab-pane container active" id="tab1">
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h3>Product Slider</h3>
+<%--                            <h3>Product Slider</h3>--%>
+                            <div class="stars">
+                                <form action="">
+                                    <input class="star star-5" id="star-5-2" type="radio" name="star">
+                                    <label class="star star-5" for="star-5-2" style="left: 120px"></label>
+                                    <input class="star star-4" id="star-4-2" type="radio" name="star">
+                                    <label class="star star-4" for="star-4-2" style="left: 90px"></label>
+                                    <input class="star star-3" id="star-3-2" type="radio" name="star">
+                                    <label class="star star-3" for="star-3-2" style="left: 60px"></label>
+                                    <input class="star star-2" id="star-2-2" type="radio" name="star">
+                                    <label class="star star-2" for="star-2-2" style="left: 30px"></label>
+                                    <input class="star star-1" id="star-1-2" type="radio" name="star">
+                                    <label class="star star-1" for="star-1-2"></label>
+                                </form>
+                            </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs">
                             <div class="controls pull-right">
@@ -104,11 +119,37 @@
                                                 <div class="cart-section">
                                                     <div class="row">
                                                         <div class="col-md-6 col-sm-12 col-xs-6 review">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <c:set var="rating" value="1"/>
+                                                            <fmt:formatNumber value="${rating}" maxFractionDigits="0" var="whole"/>
+                                                            <c:set var="fraction" value="${rating-whole}"/>
+                                                            <c:set var="nonerate" value="${5-whole}"/>
+                                                            <c:choose>
+                                                                <c:when test="${fraction<0}">
+                                                                    <c:set var="rating" value="${whole-1}"/>
+                                                                    <c:set var="fraction" value="1"/>
+                                                                    <c:forEach begin="1" end="${rating}">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </c:forEach>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <c:forEach begin="1" end="${whole}">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </c:forEach>
+                                                                    <c:choose>
+                                                                        <c:when test="${fraction>0}">
+                                                                            <c:set var="nonerate" value="${5-whole-1}"/>
+                                                                        </c:when>
+                                                                    </c:choose>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${fraction>0}">
+                                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                </c:when>
+                                                            </c:choose>
+                                                            <c:forEach begin="1" end="${nonerate}">
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            </c:forEach>
                                                         </div>
                                                         <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
                                                             <a style="font-size: smaller" href="#"
