@@ -166,10 +166,31 @@
 }
 
 /*Cardslide*/
+.course__description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(173,216,230,1.0);
+    /*background: rgba(0, 0, 0, 0.5); !* Black background with 0.5 opacity *!*/
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
 .slider-item{
+    position: relative;
+
     border: 1px solid #E1E1E1;
     border-radius: 5px;
     background: #FFF;
+}
+.slider-item:hover .course__description {
+    visibility: visible;
+    opacity: 1;
 }
 .slider-item .slider-image img{
     margin: 0 auto;
@@ -179,6 +200,7 @@
     padding: 10px;
     border-radius: 0 0 5px 5px;
 }
+/*hover chinh*/
 .slider-item:hover .slider-main-detail {
     background-color: #dbeeee !important;
 }
@@ -236,4 +258,29 @@
 .review {
     margin-bottom: 5px;
     padding-top:5px;
+}
+
+.center-1 {
+    text-align: center;
+    font-size:smaller;
+    color:black;
+    background:#ffe799;
+}
+.dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color:green;
+}
+.center-2{
+    text-align: center;
+    font-size:smaller;
+    color:darkgreen;
+    /*background:#ffe799;*/
+}
+.p3 {
+    font-family: Tahoma, Verdana, sans-serif;
+    color: black;
+    font-weight: bold;
 }

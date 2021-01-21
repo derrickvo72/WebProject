@@ -74,6 +74,22 @@
                                 <c:forEach begin="1" end="4">
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         <div class="slider-item">
+                                            <div class="course__description">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h5 style="color: black" class="card-title">The Web Developer Bootcamp 2021</h5>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="center-1"><b>Best seller</b></div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="center-2"><span class="dot"></span> <b>Updated January 2021</b></div>
+                                                    </div>
+                                                    <div class="col-sm-12 pt-2">
+                                                        <div class="p3"><i>The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!</i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="slider-image">
                                                 <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
                                                      class="img-responsive" alt="a"/>
@@ -134,6 +150,22 @@
                                 <c:forEach begin="1" end="4">
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         <div class="slider-item">
+                                            <div class="course__description">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h5 style="color: black" class="card-title">The Web Developer Bootcamp 2021</h5>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="center-1"><b>Best seller</b></div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="center-2"><span class="dot"></span> <b>Updated January 2021</b></div>
+                                                    </div>
+                                                    <div class="col-sm-12 pt-2">
+                                                        <div class="p3"><i>The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!</i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="slider-image">
                                                 <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
                                                      class="img-responsive" alt="a"/>
@@ -193,6 +225,22 @@
                                 <c:forEach begin="1" end="4">
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         <div class="slider-item">
+                                            <div class="course__description">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h5 style="color: black" class="card-title">The Web Developer Bootcamp 2021</h5>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="center-1"><b>Best seller</b></div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="center-2"><span class="dot"></span> <b>Updated January 2021</b></div>
+                                                    </div>
+                                                    <div class="col-sm-12 pt-2">
+                                                        <div class="p3"><i>The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!</i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="slider-image">
                                                 <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
                                                      class="img-responsive" alt="a"/>
@@ -251,6 +299,22 @@
                                 <c:forEach begin="1" end="4">
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         <div class="slider-item">
+                                            <div class="course__description">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h5 style="color: black" class="card-title">The Web Developer Bootcamp 2021</h5>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="center-1"><b>Best seller</b></div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="center-2"><span class="dot"></span> <b>Updated January 2021</b></div>
+                                                    </div>
+                                                    <div class="col-sm-12 pt-2">
+                                                        <div class="p3"><i>The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!</i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="slider-image">
                                                 <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
                                                      class="img-responsive" alt="a"/>
