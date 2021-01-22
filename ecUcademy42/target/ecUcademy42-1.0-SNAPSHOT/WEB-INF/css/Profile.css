@@ -26,6 +26,15 @@
     height:175px;
 }
 
+.profile-userpic img#Avatar.Avatar {
+    cursor: pointer;
+}
+
+input.hiddenbtn {
+    position: absolute;
+    left: -9999px;
+}
+
 .profile-usertitle {
     text-align: center;
     margin-top: 20px;
@@ -115,3 +124,4 @@
     color: white;
     background-color: #5b9bd1;
 }
+/*Avatar*/

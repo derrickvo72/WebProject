@@ -7,7 +7,7 @@
     <jsp:body>
 
 <%--Gioi thieu--%>
-        <div class="container-fluid" style="margin-right: 5rem; padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container-fluid" style="padding-top: 15px; padding-bottom: 15px;">
             <div class=”row banner”>
                 <div class="carousel slide" data-ride="carousel" style="width: 100%;">
                     <div class="carousel-inner">

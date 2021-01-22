@@ -12,17 +12,19 @@
                         <div class="profile-sidebar">
                             <!-- SIDEBAR USERPIC -->
                             <div class="profile-userpic">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="avatar">
+                                <input type="file" name="upAvatar" value="" id="upAvatar" class="hiddenbtn" data-errormsg="PhotoUploadErrorMsg">
+                                <img class="Avatar" id="Avatar" alt="Avatar" src="" onerror="this.onerror=null; this.src='../public/images/defaultavatar.jpg'" />
+<%--                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="avatar">--%>
                             </div>
                             <!-- END SIDEBAR USERPIC -->
                             <!-- SIDEBAR USER TITLE -->
                             <div style="margin-top: 15px" class="profile-usertitle" >
                                 <button type="button" class="cus btn btn-outline-primary">Edit</button>
                                 <div class="profile-usertitle-name">
-                                    Name
+                                    Username
                                 </div>
                                 <div class="profile-usertitle-job">
-                                    ID
+                                    Account permission
                                 </div>
                             </div>
                             <!-- END SIDEBAR USER TITLE -->
@@ -76,12 +78,12 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-6">
-                                                    <h6>Sex</h6>
+                                                    <h6>Birthday</h6>
                                                     <input style="width: 100%" type="email" class="form-control"
                                                            aria-describedby="emailHelp" placeholder="Birth">
                                                 </div>
                                                 <div class="col-6">
-                                                    <h6>Birth</h6>
+                                                    <h6>Sex</h6>
                                                     <select style="width: 100%" class="form-control">
                                                         <option>Male</option>
                                                         <option>Female</option>
@@ -110,7 +112,7 @@
                                             <h6>Account balance</h6>
                                             <div class="input-group">
                                                 <input type="text" class="form-control"
-                                                       aria-label="Dollar amount (with dot and two decimal places)">
+                                                       aria-label="Dollar amount (with dot and two decimal places)" disabled>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">$</span>
 

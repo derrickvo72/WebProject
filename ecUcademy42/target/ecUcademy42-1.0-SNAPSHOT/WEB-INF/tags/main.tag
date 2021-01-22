@@ -52,6 +52,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/multiMenu.js"></script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/UserStack.js"></script>
+<script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Profile.js"></script>
 <script src="${pageContext.request.contextPath}/public/OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/public/OwlCarousel2-2.3.4/dist/owl.carousel.js" type="text/javascript" ></script>
 <script type="text/javascript">
