@@ -4,9 +4,9 @@
 
 <t:main>
     <jsp:body>
-<%--        cha--%>
+<%-- cha--%>
         <div class="container-fluid" style=" height: auto; width: 100%;padding-top: 70px;">
-<%--            con--%>
+<%--con--%>
             <div class="container-fluid" style="display: block; width: 100%;">
                 <div class="tab">
                     <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">User information
@@ -30,6 +30,7 @@
                         <div class="col-sm-10">
                             <form action="/action_page.php">
                                 <div class="form-group">
+                                    Email
                                     <label for="email">Email address:</label>
                                     <input type="email" class="form-control" placeholder="Enter email" id="email">
                                 </div>
@@ -66,37 +67,6 @@
                     <br>
                     <h3>Courses</h3>
                     <hr style="border-top: 3px double #8c8b8b;">
-                        <%--            <table class="table table-hover">--%>
-                        <%--                <thead>--%>
-                        <%--   vd              <tr>--%>
-                        <%--                    <th scope="col-md-3">Id</th>--%>
-                        <%--                    <th scope="col-md-6">Name</th>--%>
-                        <%--                    <th scope="col-md-3">Price</th>--%>
-                        <%--                    <th scope="col-md-3">Date</th>--%>
-                        <%--                    <th scope="col-md-3">&nbsp;</th>--%>
-                        <%--                </tr>--%>
-                        <%--                </thead>--%>
-
-                        <%--                <tbody>--%>
-                        <%--                    <tr>--%>
-                        <%--                        <th scope="row">1</th>--%>
-                        <%--                        <th scope="row">HTML</th>--%>
-                        <%--                        <td>--%>
-                        <%--                            200.000--%>
-                        <%--                        </td>--%>
-                        <%--                        <td>--%>
-                        <%--                            19/01/2021--%>
-                        <%--                        </td>--%>
-                        <%--                        <td class="text-right">--%>
-                        <%--                            <a class="btn btn-sm btn-outline-primary" href="#" role="button">--%>
-                        <%--                                <i class="fa fa-trash" aria-hidden="true"></i>--%>
-                        <%--                            </a>--%>
-                        <%--                        </td>--%>
-                        <%--                    </tr>--%>
-                        <%--                </tbody>--%>
-                        <%--            </table>--%>
-                        <%--        </div>--%>
-
 
                     <div class="row p-5">
                         <div class="col-md-12">

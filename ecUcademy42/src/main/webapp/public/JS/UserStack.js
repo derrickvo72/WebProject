@@ -24,4 +24,11 @@ $(function (){
     });
 });
 
+$(function (){
+    $('#file-upload').change(function (e){
+        var img = URL.createObjectURL(e.target.files[0]);
+        $('.profile-userpic img').attr('src', img);
+    });
+});
+
 

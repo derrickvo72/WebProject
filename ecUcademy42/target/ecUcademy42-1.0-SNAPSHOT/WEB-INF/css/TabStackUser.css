@@ -86,11 +86,11 @@
 }
 
 /*xu ly hieu ung*/
-.img__wrap {
-    position: relative;
-    height: 200px;
-    width: 257px;
-}
+/*.img__wrap {*/
+/*    position: relative;*/
+/*    height: 200px;*/
+/*    width: 257px;*/
+/*}*/
 .img__description_layer {
     position: absolute;
     top: 0;
@@ -285,4 +285,12 @@
     font-family: Tahoma, Verdana, sans-serif;
     color: black;
     font-weight: bold;
+}
+.cus btn .btn-outline-primary{
+    color: white;
+    background-color: transparent;
+}
+.cus:hover btn .btn-outline-primary{
+    color: white;
+    background-color: #5b9bd1;
 }

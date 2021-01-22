@@ -29,6 +29,7 @@
         <%@include file="/WEB-INF/css/star.css"%>
         <%@include file="/public/colorlib-regform/colorlib-regform-7/css/style.css"%>
         <%@include file="/WEB-INF/css/TabStackUser.css"%>
+        <%@include file="/WEB-INF/css/Profile.css"%>
     </style>
 </head>
 
