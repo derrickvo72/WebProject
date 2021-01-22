@@ -5,41 +5,27 @@
 
 <t:main>
     <jsp:body>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-right: 5rem; padding-top: 5rem; padding-bottom: 5rem;">
             <div class=”row banner”>
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%;">
+                <div  class="carousel slide" data-ride="carousel" style="width: 100%;">
                     <div class="carousel-inner">
-                        <div class="carousel-caption">
-                            <h1>
-                                <div class="goo" contenteditable="false">
-                                    Dream up <br>
-                                    Ambition accepted. Learn the latest skills to reach your professional goals
-                                </div>
-                            </h1>
-                            <a href="#" class="btn btn-lg btn-primary">Get started</a>
+                        <div class="carousel-caption" style="top:4rem">
+                            <div class="col-md-6">
+                                <h1>
+                                    <div style="color: black" class="goo" contenteditable="false">
+                                        <h1 style="color: black">Dream up</h1>
+                                        <div class="col-md-12">"Ambition accepted.</div>
+                                        <div class="col-md-12"> Learn the latest skills to reach your professional goals !"<br></div>
+                                    </div>
+                                </h1>
+                            </div>
                         </div><!-- end carousel-caption -->
                         <div class="carousel-item active">
                             <img class="d-block w-100" style="width: 100%; height: 450px !important;"
-                                 src="${pageContext.request.contextPath}/public/images/ct-on-phone-big.jpg"
+                                 src="https://img-a.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?eBgLZCuUdmIEKzDIAdHnHY-aazMOGaZrvKreZzUx9seLi3COdWShrPJiUqNeYQCtm-ElFkFzt0zIXLSCrjA5XQEB7yjRYC1ZD5Cyi2p-07xbjw_88AKlp0gDI_-6ALB2mVGbsdDbJcff_bqUzHbQluVqEIf8IVps_BifwhhFON1Xx-EHBhrReQ"
                                  alt="First slide">
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" style="width: 100%; height: 450px !important;"
-                                 src="${pageContext.request.contextPath}/public/images/qc1.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" style="width: 100%; height: 450px !important;"
-                                 src="${pageContext.request.contextPath}/public/images/qc2.jpg" alt="Third slide">
-                        </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -369,6 +355,68 @@
             <div class="row">
                 <div class col-md-12>
                     <h1 style="color: black;">Top courses</h1>
+                </div>
+            </div>
+            <div class="container-lg">
+                <div class="owl-carousel owl-theme">
+                    <c:forEach begin="1" end="8">
+                        <div class="item">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="slider-item">
+                                    <div class="course__description">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h5 style="color: black" class="card-title">The Web
+                                                    Developer Bootcamp 2021</h5>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="center-1"><b>Best seller</b></div>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="center-2"><span class="dot"></span> <b>Updated
+                                                    January 2021</b></div>
+                                            </div>
+                                            <div class="col-sm-12 pt-2">
+                                                <div class="p3"><i>The modern JavaScript course for
+                                                    everyone! Master JavaScript with projects, challenges
+                                                    and theory. Many courses in one!</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-image">
+                                        <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                             class="img-responsive" alt="a"/>
+                                    </div>
+                                    <div class="slider-main-detail">
+                                        <div class="slider-detail">
+                                            <div class="product-detail">
+                                                <h5>Product Name</h5>
+                                                <h5 class="detail-price">$187.87</h5>
+                                            </div>
+                                        </div>
+                                        <div class="cart-section">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12 col-xs-6"
+                                                     style="text-align: right">
+                                                    <a style="font-size: smaller" href="#"
+                                                       class="AddCart btn btn-info"><i
+                                                            class="fa fa-shopping-cart"
+                                                            aria-hidden="true"></i> Add to cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
 
