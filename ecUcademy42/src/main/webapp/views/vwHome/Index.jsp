@@ -5,9 +5,11 @@
 
 <t:main>
     <jsp:body>
+
+<%--Gioi thieu--%>
         <div class="container-fluid" style="margin-right: 5rem; padding-top: 5rem; padding-bottom: 5rem;">
             <div class=”row banner”>
-                <div  class="carousel slide" data-ride="carousel" style="width: 100%;">
+                <div class="carousel slide" data-ride="carousel" style="width: 100%;">
                     <div class="carousel-inner">
                         <div class="carousel-caption" style="top:4rem">
                             <div class="col-md-6">
@@ -15,7 +17,8 @@
                                     <div style="color: black" class="goo" contenteditable="false">
                                         <h1 style="color: black">Dream up</h1>
                                         <div class="col-md-12">"Ambition accepted.</div>
-                                        <div class="col-md-12"> Learn the latest skills to reach your professional goals !"<br></div>
+                                        <div class="col-md-12"> Learn the latest skills to reach your professional goals
+                                            !"<br></div>
                                     </div>
                                 </h1>
                             </div>
@@ -30,9 +33,10 @@
             </div>
         </div>
 
+<%--Cac khoa hpoc theo tab--%>
         <div class="container-lg">
             <!-- tab -->
-            <ul class="nav nav-pills" style="padding-bottom: 4px">
+            <ul class="nav nav-pills" style="padding-bottom: 10px">
                 <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Python</a></li>
                 <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Web develop</a></li>
                 <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Drawing</a></li>
@@ -157,200 +161,198 @@
 
                 </div>
 
-
-            <div class="tab-pane container fade" id="tab2">
-                <div class="owl-carousel owl-theme">
-                    <c:forEach begin="1" end="8">
-                        <div class="item">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="slider-item">
-                                    <div class="course__description">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h5 style="color: black" class="card-title">The Web
-                                                    Developer Bootcamp 2021</h5>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="center-1"><b>Best seller</b></div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="center-2"><span class="dot"></span> <b>Updated
-                                                    January 2021</b></div>
-                                            </div>
-                                            <div class="col-sm-12 pt-2">
-                                                <div class="p3"><i>The modern JavaScript course for
-                                                    everyone! Master JavaScript with projects, challenges
-                                                    and theory. Many courses in one!</i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slider-image">
-                                        <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
-                                             class="img-responsive" alt="a"/>
-                                    </div>
-                                    <div class="slider-main-detail">
-                                        <div class="slider-detail">
-                                            <div class="product-detail">
-                                                <h5>Product Name</h5>
-                                                <h5 class="detail-price">$187.87</h5>
-                                            </div>
-                                        </div>
-                                        <div class="cart-section">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-12 col-xs-6 review">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="col-md-6 col-sm-12 col-xs-6"
-                                                     style="text-align: right">
-                                                    <a style="font-size: smaller" href="#"
-                                                       class="AddCart btn btn-info"><i
-                                                            class="fa fa-shopping-cart"
-                                                            aria-hidden="true"></i> Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
-            </div>
-            <div class="tab-pane container fade" id="tab3">
-                <div class="owl-carousel owl-theme">
-                    <c:forEach begin="1" end="8">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="tab-pane container fade" id="tab2">
+                    <div class="owl-carousel owl-theme">
+                        <c:forEach begin="1" end="8">
                             <div class="item">
-                                <div class="slider-item">
-                                    <div class="course__description">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h5 style="color: black" class="card-title">The Web
-                                                    Developer Bootcamp 2021</h5>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="center-1"><b>Best seller</b></div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="center-2"><span class="dot"></span> <b>Updated
-                                                    January 2021</b></div>
-                                            </div>
-                                            <div class="col-sm-12 pt-2">
-                                                <div class="p3"><i>The modern JavaScript course for
-                                                    everyone! Master JavaScript with projects, challenges
-                                                    and theory. Many courses in one!</i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slider-image">
-                                        <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
-                                             class="img-responsive" alt="a"/>
-                                    </div>
-                                    <div class="slider-main-detail">
-                                        <div class="slider-detail">
-                                            <div class="product-detail">
-                                                <h5>Product Name</h5>
-                                                <h5 class="detail-price">$187.87</h5>
-                                            </div>
-                                        </div>
-                                        <div class="cart-section">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="slider-item">
+                                        <div class="course__description">
                                             <div class="row">
-                                                <div class="col-md-6 col-sm-12 col-xs-6 review">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <div class="col-sm-12">
+                                                    <h5 style="color: black" class="card-title">The Web
+                                                        Developer Bootcamp 2021</h5>
                                                 </div>
-                                                <div class="col-md-6 col-sm-12 col-xs-6"
-                                                     style="text-align: right">
-                                                    <a style="font-size: smaller" href="#"
-                                                       class="AddCart btn btn-info"><i
-                                                            class="fa fa-shopping-cart"
-                                                            aria-hidden="true"></i> Add to cart</a>
+                                                <div class="col-sm-4">
+                                                    <div class="center-1"><b>Best seller</b></div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="center-2"><span class="dot"></span> <b>Updated
+                                                        January 2021</b></div>
+                                                </div>
+                                                <div class="col-sm-12 pt-2">
+                                                    <div class="p3"><i>The modern JavaScript course for
+                                                        everyone! Master JavaScript with projects, challenges
+                                                        and theory. Many courses in one!</i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-image">
+                                            <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                 class="img-responsive" alt="a"/>
+                                        </div>
+                                        <div class="slider-main-detail">
+                                            <div class="slider-detail">
+                                                <div class="product-detail">
+                                                    <h5>Product Name</h5>
+                                                    <h5 class="detail-price">$187.87</h5>
+                                                </div>
+                                            </div>
+                                            <div class="cart-section">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12 col-xs-6"
+                                                         style="text-align: right">
+                                                        <a style="font-size: smaller" href="#"
+                                                           class="AddCart btn btn-info"><i
+                                                                class="fa fa-shopping-cart"
+                                                                aria-hidden="true"></i> Add to cart</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                    </c:forEach>
+                        </c:forEach>
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane container fade" id="tab4">
-                <div class="owl-carousel owl-theme">
-                    <c:forEach begin="1" end="8">
-                        <div class="item">
+                <div class="tab-pane container fade" id="tab3">
+                    <div class="owl-carousel owl-theme">
+                        <c:forEach begin="1" end="8">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="slider-item">
-                                    <div class="course__description">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h5 style="color: black" class="card-title">The Web
-                                                    Developer Bootcamp 2021</h5>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="center-1"><b>Best seller</b></div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="center-2"><span class="dot"></span> <b>Updated
-                                                    January 2021</b></div>
-                                            </div>
-                                            <div class="col-sm-12 pt-2">
-                                                <div class="p3"><i>The modern JavaScript course for
-                                                    everyone! Master JavaScript with projects, challenges
-                                                    and theory. Many courses in one!</i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slider-image">
-                                        <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
-                                             class="img-responsive" alt="a"/>
-                                    </div>
-                                    <div class="slider-main-detail">
-                                        <div class="slider-detail">
-                                            <div class="product-detail">
-                                                <h5>Product Name</h5>
-                                                <h5 class="detail-price">$187.87</h5>
-                                            </div>
-                                        </div>
-                                        <div class="cart-section">
+                                <div class="item">
+                                    <div class="slider-item">
+                                        <div class="course__description">
                                             <div class="row">
-                                                <div class="col-md-6 col-sm-12 col-xs-6 review">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <div class="col-sm-12">
+                                                    <h5 style="color: black" class="card-title">The Web
+                                                        Developer Bootcamp 2021</h5>
                                                 </div>
-                                                <div class="col-md-6 col-sm-12 col-xs-6"
-                                                     style="text-align: right">
-                                                    <a style="font-size: smaller" href="#"
-                                                       class="AddCart btn btn-info"><i
-                                                            class="fa fa-shopping-cart"
-                                                            aria-hidden="true"></i> Add to cart</a>
+                                                <div class="col-sm-4">
+                                                    <div class="center-1"><b>Best seller</b></div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="center-2"><span class="dot"></span> <b>Updated
+                                                        January 2021</b></div>
+                                                </div>
+                                                <div class="col-sm-12 pt-2">
+                                                    <div class="p3"><i>The modern JavaScript course for
+                                                        everyone! Master JavaScript with projects, challenges
+                                                        and theory. Many courses in one!</i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-image">
+                                            <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                 class="img-responsive" alt="a"/>
+                                        </div>
+                                        <div class="slider-main-detail">
+                                            <div class="slider-detail">
+                                                <div class="product-detail">
+                                                    <h5>Product Name</h5>
+                                                    <h5 class="detail-price">$187.87</h5>
+                                                </div>
+                                            </div>
+                                            <div class="cart-section">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12 col-xs-6"
+                                                         style="text-align: right">
+                                                        <a style="font-size: smaller" href="#"
+                                                           class="AddCart btn btn-info"><i
+                                                                class="fa fa-shopping-cart"
+                                                                aria-hidden="true"></i> Add to cart</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </c:forEach>
+
+                        </c:forEach>
+                    </div>
                 </div>
+                <div class="tab-pane container fade" id="tab4">
+                    <div class="owl-carousel owl-theme">
+                        <c:forEach begin="1" end="8">
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="slider-item">
+                                        <div class="course__description">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h5 style="color: black" class="card-title">The Web
+                                                        Developer Bootcamp 2021</h5>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="center-1"><b>Best seller</b></div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="center-2"><span class="dot"></span> <b>Updated
+                                                        January 2021</b></div>
+                                                </div>
+                                                <div class="col-sm-12 pt-2">
+                                                    <div class="p3"><i>The modern JavaScript course for
+                                                        everyone! Master JavaScript with projects, challenges
+                                                        and theory. Many courses in one!</i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-image">
+                                            <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                 class="img-responsive" alt="a"/>
+                                        </div>
+                                        <div class="slider-main-detail">
+                                            <div class="slider-detail">
+                                                <div class="product-detail">
+                                                    <h5>Product Name</h5>
+                                                    <h5 class="detail-price">$187.87</h5>
+                                                </div>
+                                            </div>
+                                            <div class="cart-section">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12 col-xs-6"
+                                                         style="text-align: right">
+                                                        <a style="font-size: smaller" href="#"
+                                                           class="AddCart btn btn-info"><i
+                                                                class="fa fa-shopping-cart"
+                                                                aria-hidden="true"></i> Add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
             </div>
-
         </div>
-        </div>
-        <!-- Nội dung -->
 
-        <%--        toppic--%>
+<%--Top courses--%>
         <div class="container-lg" style="padding:30px 0 30px 0">
             <div class="row">
                 <div class col-md-12>
@@ -422,6 +424,7 @@
 
         </div>
 
+<%--Gioi thieu 2--%>
         <div class="jumbotron jumbotron-fruid">
             <div class="container text-white" style="text-align: center">
                 <h5 class="display-4"><b>Become an good developer</b></h5>
@@ -430,10 +433,12 @@
                     written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
                 <p style="font-size: medium" class="lead text-white">"One of the best programming skills you can have is
                     knowing when to walk away for awhile." - Oscar Godson</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <br>
+                <a style="color:white; border: 1px solid white" class="btn btn-outline-info btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
 
+<%--So nguoi dang ki theo muc--%>
         <div class="container-lg" style="padding-top: 20px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-md-12">
@@ -496,7 +501,7 @@
             </div>
         </div>
 
-        <%--        Intro our team--%>
+<%--Intro team--%>
         <div class="container-fluid">
             <div class="container py-5">
                 <h2 class="font-weight-bold mb-2">Our Team</h2>
@@ -605,12 +610,11 @@
             </div>
         </div>
 
+<%--Gioi thieu 3--%>
         <div class="jumbotron-teaching jumbotron-fruid-teaching" style="display: block;">
             <div class="context-white">
-                    <%--                <div class="row">--%>
                 <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" alt=""
                      style="width: 400px; height: 400px;">
-                    <%--                </div>--%>
             </div>
 
             <div class="container-fluid">
@@ -620,6 +624,7 @@
                         <h5 style="color: black; font-size: 2em"><b>Become an instructor</b></h5>
                         Top instructors from around the world teach millions of students on Udemy. We provide the tools
                         and skills to teach what you love</p>
+                        <br>
                         <a style="background-color: #003640;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start
                             teaching today</b></a>
                     </div>
@@ -627,8 +632,7 @@
             </div>
         </div>
 
-
-        <%--        Jumbotron cu--%>
+<%--Jumbotron video--%>
         <div class="container-fluid" style="margin: 0;">
             <div class="jumbotron text-white jumbotron-image shadow  d-flex "
                  style="background-color: #003640;
