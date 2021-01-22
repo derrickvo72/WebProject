@@ -172,8 +172,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    /*background: rgba(29, 106, 154, 0.72);*/
-    background: rgba(173,216,230,1.0); /* Fallback color */
+    background: rgba(173,216,230,1.0);
     /*background: rgba(0, 0, 0, 0.5); !* Black background with 0.5 opacity *!*/
     color: #fff;
     visibility: hidden;
@@ -261,12 +260,14 @@
     padding-top:5px;
 }
 
+/*detail cart*/
 .center-1 {
     text-align: center;
     font-size:smaller;
     color:black;
     background:#ffe799;
 }
+
 .dot {
     height: 8px;
     width: 8px;

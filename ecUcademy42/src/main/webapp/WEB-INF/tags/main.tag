@@ -8,16 +8,17 @@
     <title>Online Courses - Learn Anything, On Your Schedule | Ucademy</title>
     <link rel="icon" href="${pageContext.request.contextPath}/public/images/udemy.png" type="image/x-ico"/>
 
-<%--    moi them--%>
-<%--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--%>
-<%--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--%>
+    <%--moi them--%>
+    <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" type="text/css">
     <%--    moi them--%>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <%--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>--%>
     <style>
         <%@include file="/WEB-INF/css/dropdown.css"%>
         <%@include file="/WEB-INF/css/Home.css"%>
@@ -50,13 +51,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/multiMenu.js"></script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/UserStack.js"></script>
+<script src="${pageContext.request.contextPath}/public/OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/public/OwlCarousel2-2.3.4/dist/owl.carousel.js" type="text/javascript" ></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        // loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000, //2000ms = 2s;
+        autoplayHoverPause: true,
 
-<%--moi them--%>
-<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>--%>
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"></script>--%>
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css"></script>--%>
-<%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+        loop: true,
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
 
 </body>
 
