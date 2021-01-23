@@ -1,22 +1,23 @@
 package beans;
 
 public class category {
-    String category_id, category_name, category_info;
+    String category_name, category_info;
+    int category_id;
 
     public category() {
     }
 
-    public category(String category_id, String category_name, String category_info) {
+    public category(int category_id, String category_name, String category_info) {
         this.category_id = category_id;
         this.category_name = category_name;
         this.category_info = category_info;
     }
 
-    public String getCategory_id() {
+    public int getCategory_id() {
         return category_id;
     }
 
-    public void setCategory_id(String category_id) {
+    public void setCategory_id(int category_id) {
         this.category_id = category_id;
     }
 
