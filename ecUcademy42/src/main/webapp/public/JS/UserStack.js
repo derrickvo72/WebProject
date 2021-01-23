@@ -24,11 +24,7 @@ $(function (){
     });
 });
 
-$(function (){
-    $('#file-upload').change(function (e){
-        var img = URL.createObjectURL(e.target.files[0]);
-        $('.profile-userpic img').attr('src', img);
-    });
-});
+//Chon anh cho khoa hoc
+// Add the following code if you want the name of the file appear on select
 
 

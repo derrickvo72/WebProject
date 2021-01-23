@@ -286,11 +286,4 @@
     color: black;
     font-weight: bold;
 }
-.cus btn .btn-outline-primary{
-    color: white;
-    background-color: transparent;
-}
-.cus:hover btn .btn-outline-primary{
-    color: white;
-    background-color: #5b9bd1;
-}
+
