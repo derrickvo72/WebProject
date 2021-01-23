@@ -73,7 +73,8 @@
                                         <h4 class="price">current price: <span>$180</span></h4>
 
                                         <div class="action">
-                                            <button class="add-to-cart btn btn-default" type="button">add to cart</button>
+                                            <button style="background-color: red" class="add-to-cart btn btn-default" type="button">Buy</button>
+                                            <button class="add-to-cart btn btn-default" type="button">Add to cart</button>
                                             <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
                                         </div>
 
