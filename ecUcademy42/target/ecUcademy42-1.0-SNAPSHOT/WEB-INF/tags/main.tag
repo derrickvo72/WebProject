@@ -30,6 +30,7 @@
         <%@include file="/public/colorlib-regform/colorlib-regform-7/css/style.css"%>
         <%@include file="/WEB-INF/css/TabStackUser.css"%>
         <%@include file="/WEB-INF/css/Profile.css"%>
+<%--        <%@include file="/WEB-INF/css/InfoProduct.css"%>--%>
     </style>
 </head>
 
@@ -84,6 +85,7 @@
     });
 
 </script>
+<script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
 
 </body>
 
