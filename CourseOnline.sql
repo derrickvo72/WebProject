@@ -179,10 +179,19 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(50) NOT NULL,
-  `user_pass` longtext,
-  PRIMARY KEY (`user_id`,`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `user_username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `user_password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `user_fullname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `user_bday` date DEFAULT NULL,
+  `user_gender` varchar(1) DEFAULT NULL,
+  `user_phone` varchar(45) DEFAULT NULL,
+  `user_email` longtext,
+  `user_address` longtext,
+  `user_wallet` int DEFAULT NULL,
+  `img` tinytext,
+  `role_id` int DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,63 +200,8 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','123456'),(2,'student1','123456'),(3,'student2','123456'),(4,'teacher1','123456'),(5,'teacher2','123456');
+INSERT INTO `user` VALUES (-1,'student3','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0),(1,'admin1','123456',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,-1),(2,'student1','123456','Bùi Phúc Lâm',NULL,'M','0123456789','18110141@gmail.com','Bình Dương',NULL,NULL,0),(3,'student2','123456','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,0),(4,'teacher1','123456','Bùi Phúc Lâm',NULL,'M','0123456789','18110141@gmail.com','Bình Dương',NULL,NULL,1),(5,'teacher2','123456','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,1),(7,'student4','$2a$12$xzWXnMKdyIqkP8oEGZFGwOx24kxNG7ZSdfK1XauI.mxPyPKrwLZv2',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_info`
---
-
-DROP TABLE IF EXISTS `user_info`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_info` (
-  `user_id` int NOT NULL,
-  `user_fullname` longtext,
-  `user_bday` date DEFAULT NULL,
-  `user_gender` varchar(1) DEFAULT NULL,
-  `user_phone` varchar(45) DEFAULT NULL,
-  `user_email` longtext,
-  `user_address` longtext,
-  `user_wallet` int DEFAULT NULL,
-  `img` tinytext,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_info`
---
-
-LOCK TABLES `user_info` WRITE;
-/*!40000 ALTER TABLE `user_info` DISABLE KEYS */;
-INSERT INTO `user_info` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Bùi Phúc Lâm',NULL,'M','0123456789','18110141@gmail.com','Bình Dương',NULL,NULL),(3,'Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL),(4,'Bùi Phúc Lâm',NULL,'M','0123456789','18110141@gmail.com','Bình Dương',NULL,NULL),(5,'Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL);
-/*!40000 ALTER TABLE `user_info` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_role`
---
-
-DROP TABLE IF EXISTS `user_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_role` (
-  `user_id` int NOT NULL,
-  `role_id` int NOT NULL,
-  `role_name` longtext,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_role`
---
-
-LOCK TABLES `user_role` WRITE;
-/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -259,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-23 18:12:25
+-- Dump completed on 2021-01-24  5:16:42

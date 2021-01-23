@@ -3,6 +3,33 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <t:main>
+  <jsp:attribute name="css">
+  </jsp:attribute>
+
+    <jsp:attribute name="js">
+    <script>
+        $('#register-form').on('submit', function (e) {
+            e.preventDefault();
+
+            const username = $('#txtUsername').val();
+            if (username.length === 0) {
+                alert('Invalid username!');
+                return;
+            }
+
+            $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data) {
+                if (data === true) {
+                    $('#register-form').off('submit').submit();
+                } else {
+                    alert('Not available.');
+                }
+            });
+        });
+
+        $('#txtUsername').select();
+    </script>
+  </jsp:attribute>
+
    <jsp:body>
        <div class="main">
 
@@ -14,20 +41,20 @@
                            <h2 class="form-title">Sign up</h2>
                            <form method="POST" class="register-form" id="register-form">
                                <div class="form-group">
-                                   <label for="name"><i class="fa fa-user" aria-hidden="true"></i></label>
-                                   <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                   <label for="txtUsername"><i class="fa fa-user" aria-hidden="true"></i></label>
+                                   <input type="text" name="username" id="txtUsername" placeholder="Username"/>
                                </div>
                                <div class="form-group">
-                                   <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
-                                   <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                   <label for="txtEmail"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+                                   <input type="email" name="email" id="txtEmail" placeholder="Email"/>
                                </div>
                                <div class="form-group">
-                                   <label for="pass"><i class="fa fa-unlock-alt" aria-hidden="true"></i></label>
-                                   <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                   <label for="txtPassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i></label>
+                                   <input type="password" name="password" id="txtPassword" placeholder="Password"/>
                                </div>
                                <div class="form-group">
-                                   <label for="re_pass"><i class="fa fa-key" aria-hidden="true"></i></label>
-                                   <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                   <label for="txtRe_password"><i class="fa fa-key" aria-hidden="true"></i></label>
+                                   <input type="password" name="re_password" id="txtRe_password" placeholder="Repeat your password"/>
                                </div>
                                <div class="form-group">
                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />

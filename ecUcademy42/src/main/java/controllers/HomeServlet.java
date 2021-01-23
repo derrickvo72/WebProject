@@ -32,16 +32,16 @@ public class HomeServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwHome/Index.jsp",request,response);
                 break;
             case "/Login":
-                ServletUtils.forward("/views/vwHome/login.jsp",request,response);
+                ServletUtils.forward("/views/vwAccount/Login.jsp",request,response);
                 break;
             case "/Sign":
-                ServletUtils.forward("/views/vwHome/Resign.jsp",request,response);
+                ServletUtils.forward("/views/vwAccount/Resign.jsp",request,response);
                 break;
             case "/User":
                 ServletUtils.forward("/views/vwHome/User.jsp",request,response);
                 break;
             case "/Profile":
-                ServletUtils.forward("/views/vwHome/Profile.jsp",request,response);
+                ServletUtils.forward("/views/vwAccount/Profile.jsp",request,response);
                 break;
             case "/Detail":
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);

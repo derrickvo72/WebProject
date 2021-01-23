@@ -1,4 +1,9 @@
 <%@ tag pageEncoding="UTF-8" %>
+<%@attribute name="css" fragment="true" required="false" %>
+<%@attribute name="js" fragment="true" required="false" %>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +37,7 @@
         <%@include file="/WEB-INF/css/Profile.css"%>
 <%--        <%@include file="/WEB-INF/css/InfoProduct.css"%>--%>
     </style>
+    <jsp:invoke fragment="css"/>
 </head>
 
 <body>
@@ -86,7 +92,7 @@
 
 </script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
-
+<jsp:invoke fragment="js"/>
 </body>
 
 </html>

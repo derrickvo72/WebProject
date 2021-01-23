@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<jsp:useBean id="authUser" scope="session" type="beans.user"/>
 
 <div class="container-multi menu-lg">
     <ul class="menu clearfix" style="margin-bottom: 0px;">
@@ -109,17 +112,42 @@
 
             </div> <!--end container -->
         </li>
-        <li style="float: right; margin-right:10px;">
-            <form action="${pageContext.request.contextPath}/Home/Login">
-                <button  type="submit" class="btn btn-outline-primary">Log in</button>
-            </form>
+        <c:choose>
+            <c:when test="${auth}">
+                <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Hi, <b>${authUser.user_username}</b>!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+            </c:when>
+            <c:otherwise>
+                <li style="float: right; margin-right:10px;">
+                    <form action="${pageContext.request.contextPath}/Account/Login">
+                        <button  type="submit" class="btn btn-outline-primary">Log in</button>
+                    </form>
 
-        </li>
-        <li style="float: right;">
-            <form action="${pageContext.request.contextPath}/Home/Sign">
-                <input class="btn btn-primary" type="submit" value="Apply">
-            </form>
-        </li>
+                </li>
+                <li style="float: right;">
+                    <form action="${pageContext.request.contextPath}/Account/Sign">
+                        <input class="btn btn-primary" type="submit" value="Apply">
+                    </form>
+                </li>
+            </c:otherwise>
+        </c:choose>
+
 
 
 
