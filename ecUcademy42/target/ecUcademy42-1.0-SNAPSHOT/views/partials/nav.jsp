@@ -101,7 +101,7 @@
             </div>
         </li>
         <li class="dropdown" style="float: right;">
-            <a href="${pageContext.request.contextPath}/views/vwAccount/Profile.jsp#v-pills-cart" id="cart"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
+            <a href="${pageContext.request.contextPath}/views/vwProduct/Cart.jsp"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
             <div class="dropdown-content">
                 <div class="shopping-cart">
                     <div class="shopping-cart-header">
@@ -197,7 +197,7 @@
                     </li>
 
                     <li>
-                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/views/vwAccount/Profile.jsp#v-pills-cart?page=myCart"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
+                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/views/vwProduct/Cart.jsp"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
                     </li>
 
                     <li>

@@ -111,19 +111,6 @@
         document.documentElement.scrollTop = 0;
     }
 
-    // LINK GIO HANG
-    function  test()
-    {
-        let href=window.location.href
-        let queryE=href.split('?')[1]
-        console.log(href)
-        if(queryE==="page=myCart")
-        {
-            document.querySelector('#v-pills-cart-tab').click()
-        }
-    }
-    test()
-
 </script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
 <jsp:invoke fragment="js"/>
