@@ -38,7 +38,7 @@
             <!-- tab -->
             <ul class="nav nav-pills" style="padding-bottom: 10px">
                 <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Web develop</a></li>
-                <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Game develop</a></li>
+                <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Window develop</a></li>
                 <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Mobile develop</a></li>
 <%--                <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Design</a></li>--%>
             </ul>
@@ -72,7 +72,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="slider-image">
-                                                    <img src="${pageContext.request.contextPath}/public/course/${c.course_id}${c.img}"
+                                                    <img src="${pageContext.request.contextPath}/public/course/${c.course_id}/${c.img}"
                                                          class="img-responsive" alt="a"/>
                                                 </div>
                                                 <div class="slider-main-detail">
@@ -559,7 +559,7 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="row">
-                        <div class="col-sm-12 pt-5"><h4>Game Develop</h4></div>
+                        <div class="col-sm-12 pt-5"><h4>Window Develop</h4></div>
                         <c:forEach begin="0" end="3" var="c" items="${courses}">
                             <c:choose>
                                 <c:when test="${c.category_id==1}">

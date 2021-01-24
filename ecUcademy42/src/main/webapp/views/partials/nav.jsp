@@ -38,13 +38,12 @@
                     </ul>
                 </li>
 
-                <li><a href="#">Game develop</a>
+                <li><a href="#">Window develop</a>
                     <ul>
                         <li><a href="#">C#</a>
                             <ul>
                                 <li><b style="color: black">Popular topics</b></li>
                                 <li><a href="#">C# basic</a></li>
-                                <li><a href="#">Web form</a></li>
                                 <li><a href="#">Window form</a></li>
                                 <li><a href="#">Window phone</a></li>
                             </ul>
@@ -54,7 +53,7 @@
                                 <li><b style="color: black">Popular topics</b></li>
                                 <li><a href="#">Python basic</a></li>
                                 <li><a href="#">Complete Python</a></li>
-                                <li><a href="#">Python game core</a></li>
+                                <li><a href="#">Python application</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -220,10 +219,10 @@
 
 
                 <li style="margin-top: 50px" class="nav-item dropdown">
-                    <a style="color: white" class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  <h4>Courses</h4>  </a>
+                    <a style="color: white; display: flex" class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  <h4>Courses</h4>  </a>
                     <ul style=" border: none; background-color: black" class="dropdown-menu">
                         <li><a style="color: white"  class="dropdown-item" href="#"><h5> Web Develop</h5></a></li>
-                        <li><a style="color: white "  class="dropdown-item" href="#"> <h5>Game Develop</h5> </a></li>
+                        <li><a style="color: white "  class="dropdown-item" href="#"> <h5>Window Develop</h5> </a></li>
                         <li><a style="color: white"  class="dropdown-item" href="#"> <h5>Moblie Develop </h5></a></li>
                     </ul>
                 </li>
