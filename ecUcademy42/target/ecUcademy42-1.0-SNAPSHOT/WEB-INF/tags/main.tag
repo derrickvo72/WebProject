@@ -35,7 +35,7 @@
         <%@include file="/public/colorlib-regform/colorlib-regform-7/css/style.css"%>
         <%@include file="/WEB-INF/css/TabStackUser.css"%>
         <%@include file="/WEB-INF/css/Profile.css"%>
-<%--        <%@include file="/WEB-INF/css/InfoProduct.css"%>--%>
+        <%@include file="/WEB-INF/css/Cart.css"%>
     </style>
     <jsp:invoke fragment="css"/>
 </head>
