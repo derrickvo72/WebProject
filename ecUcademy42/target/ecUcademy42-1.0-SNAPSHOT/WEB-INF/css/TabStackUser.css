@@ -287,3 +287,6 @@
     font-weight: bold;
 }
 
+ .btn-outline-info:hover{
+    background-color: rgb(110, 26, 82);
+}

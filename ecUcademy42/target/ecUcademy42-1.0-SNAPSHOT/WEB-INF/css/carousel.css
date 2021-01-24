@@ -102,14 +102,23 @@
     }
 }
 
-/*@media screen and (max-width: 1092px) {*/
-/*    .jumbotron-teaching .container-fluid .res-text .res-content{*/
-/*        position: relative;*/
-/*        width: 40%;*/
-/*        left: 75%;*/
-/*        transform: translateX(-50%);*/
-/*    }*/
-/*    .jumbotron-teaching .context-white img{*/
-/*        max-width: fit-content;*/
-/*    }*/
-/*}*/
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #5b9bd1;
+    color: white;
+    cursor: pointer;
+    padding: 0 15px 0 15px;
+    border-radius: 4px;
+
+}
+
+#myBtn:hover {
+    background-color: #555;
+}

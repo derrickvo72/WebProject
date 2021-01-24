@@ -33,35 +33,134 @@
             </div>
         </div>
 
-<%--Cac khoa hpoc theo tab--%>
+<%--Cac khoa hoc theo tab--%>
         <div class="container-lg">
             <!-- tab -->
             <ul class="nav nav-pills" style="padding-bottom: 10px">
-                <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Window</a></li>
-                <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Web develop</a></li>
-<%--                <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Drawing</a></li>--%>
+                <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Web develop</a></li>
+                <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Game develop</a></li>
+                <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Mobile develop</a></li>
 <%--                <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Design</a></li>--%>
             </ul>
             <div class="tab-content">
+
+
                 <div class="tab-pane container active" id="tab1">
+                    <div class="owl-carousel owl-theme">
+                        <c:forEach var="c" items="${courses}">
+                            <c:choose>
+                                <c:when test="${c.category_id==2}">
+
+                                    <div class="item">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="slider-item">
+                                                <div class="course__description"
+                                                     onclick="location.href='${pageContext.request.contextPath}/views/vwProduct/Details.jsp';">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h5 style="color: black" class="card-title">${c.course_name}</h5>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="center-1"><b>Best seller</b></div>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="center-2"><span class="dot"></span> <b>Updated ${c.updated_at}</b></div>
+                                                        </div>
+                                                        <div class="col-sm-12 pt-2">
+                                                            <div class="p3"><i>${c.course_fullinfo}</i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="slider-image">
+                                                    <img src="${pageContext.request.contextPath}/public/course/${c.course_id}${c.img}"
+                                                         class="img-responsive" alt="a"/>
+                                                </div>
+                                                <div class="slider-main-detail">
+                                                    <div class="slider-detail">
+                                                        <div class="product-detail">
+                                                            <h5>${c.course_name}</h5>
+                                                            <h5 class="detail-price">$${c.course_price}</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cart-section">
+                                                        <div class="row">
+
+                                                                <%--                           Rating --%>
+                                                            <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                                <c:set var="rating" value="${c.course_rate}"/>
+                                                                <fmt:formatNumber value="${rating}" maxFractionDigits="0"
+                                                                                  var="whole"/>
+                                                                <c:set var="fraction" value="${rating-whole}"/>
+                                                                <c:set var="nonerate" value="${5-whole}"/>
+                                                                <c:choose>
+                                                                    <c:when test="${fraction<0}">
+                                                                        <c:set var="rating" value="${whole-1}"/>
+                                                                        <c:set var="fraction" value="1"/>
+                                                                        <c:forEach begin="1" end="${rating}">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </c:forEach>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <c:forEach begin="1" end="${whole}">
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        </c:forEach>
+                                                                        <c:choose>
+                                                                            <c:when test="${fraction>0}">
+                                                                                <c:set var="nonerate" value="${5-whole-1}"/>
+                                                                            </c:when>
+                                                                        </c:choose>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                                <c:choose>
+                                                                    <c:when test="${fraction>0}">
+                                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                    </c:when>
+                                                                </c:choose>
+                                                                <c:forEach begin="1" end="${nonerate}">
+                                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                </c:forEach>
+                                                            </div>
+                                                                <%--                           Rating --%>
+
+                                                            <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
+                                                                <a style="font-size: smaller" href="#"
+                                                                   class="AddCart btn btn-info"><i
+                                                                        class="fa fa-shopping-cart"
+                                                                        aria-hidden="true"></i> Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </c:when>
+                            </c:choose>
+
+                        </c:forEach>
+                    </div>
+                </div>
+
+                <div class="tab-pane container fade" id="tab2">
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
 
                                 <%--                           Rating --%>
-<%--                            <div class="stars">--%>
-<%--                                <form action="">--%>
-<%--                                    <input class="star star-5" id="star-5-2" type="radio" name="star">--%>
-<%--                                    <label class="star star-5" for="star-5-2" style="left: 120px"></label>--%>
-<%--                                    <input class="star star-4" id="star-4-2" type="radio" name="star">--%>
-<%--                                    <label class="star star-4" for="star-4-2" style="left: 90px"></label>--%>
-<%--                                    <input class="star star-3" id="star-3-2" type="radio" name="star">--%>
-<%--                                    <label class="star star-3" for="star-3-2" style="left: 60px"></label>--%>
-<%--                                    <input class="star star-2" id="star-2-2" type="radio" name="star">--%>
-<%--                                    <label class="star star-2" for="star-2-2" style="left: 30px"></label>--%>
-<%--                                    <input class="star star-1" id="star-1-2" type="radio" name="star">--%>
-<%--                                    <label class="star star-1" for="star-1-2"></label>--%>
-<%--                                </form>--%>
-<%--                            </div>--%>
+                                <%--                            <div class="stars">--%>
+                                <%--                                <form action="">--%>
+                                <%--                                    <input class="star star-5" id="star-5-2" type="radio" name="star">--%>
+                                <%--                                    <label class="star star-5" for="star-5-2" style="left: 120px"></label>--%>
+                                <%--                                    <input class="star star-4" id="star-4-2" type="radio" name="star">--%>
+                                <%--                                    <label class="star star-4" for="star-4-2" style="left: 90px"></label>--%>
+                                <%--                                    <input class="star star-3" id="star-3-2" type="radio" name="star">--%>
+                                <%--                                    <label class="star star-3" for="star-3-2" style="left: 60px"></label>--%>
+                                <%--                                    <input class="star star-2" id="star-2-2" type="radio" name="star">--%>
+                                <%--                                    <label class="star star-2" for="star-2-2" style="left: 30px"></label>--%>
+                                <%--                                    <input class="star star-1" id="star-1-2" type="radio" name="star">--%>
+                                <%--                                    <label class="star star-1" for="star-1-2"></label>--%>
+                                <%--                                </form>--%>
+                                <%--                            </div>--%>
                                 <%--                           Rating --%>
                         </div>
                     </div>
@@ -162,7 +261,7 @@
 
                 </div>
 
-                <div class="tab-pane container fade" id="tab2">
+                <div class="tab-pane container fade" id="tab3">
                     <div class="owl-carousel owl-theme">
                         <c:forEach var="c" items="${courses}">
                             <c:choose>
@@ -255,131 +354,69 @@
                         </c:forEach>
                     </div>
                 </div>
-<%--                <div class="tab-pane container fade" id="tab3">--%>
-<%--                    <div class="owl-carousel owl-theme">--%>
-<%--                        <c:forEach begin="1" end="8">--%>
-<%--                            <div class="col-md-12 col-sm-12 col-xs-12">--%>
-<%--                                <div class="item">--%>
-<%--                                    <div class="slider-item">--%>
-<%--                                        <div class="course__description">--%>
-<%--                                            <div class="row">--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 style="color: black" class="card-title">The Web--%>
-<%--                                                        Developer Bootcamp 2021</h5>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-4">--%>
-<%--                                                    <div class="center-1"><b>Best seller</b></div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-8">--%>
-<%--                                                    <div class="center-2"><span class="dot"></span> <b>Updated--%>
-<%--                                                        January 2021</b></div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-12 pt-2">--%>
-<%--                                                    <div class="p3"><i>The modern JavaScript course for--%>
-<%--                                                        everyone! Master JavaScript with projects, challenges--%>
-<%--                                                        and theory. Many courses in one!</i></div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="slider-image">--%>
-<%--                                            <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"--%>
-<%--                                                 class="img-responsive" alt="a"/>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="slider-main-detail">--%>
-<%--                                            <div class="slider-detail">--%>
-<%--                                                <div class="product-detail">--%>
-<%--                                                    <h5>Product Name</h5>--%>
-<%--                                                    <h5 class="detail-price">$187.87</h5>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="cart-section">--%>
-<%--                                                <div class="row">--%>
-<%--                                                    <div class="col-md-6 col-sm-12 col-xs-6 review">--%>
-<%--                                                        <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star-o" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star-o" aria-hidden="true"></i>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="col-md-6 col-sm-12 col-xs-6"--%>
-<%--                                                         style="text-align: right">--%>
-<%--                                                        <a style="font-size: smaller" href="#"--%>
-<%--                                                           class="AddCart btn btn-info"><i--%>
-<%--                                                                class="fa fa-shopping-cart"--%>
-<%--                                                                aria-hidden="true"></i> Add to cart</a>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
 
-<%--                        </c:forEach>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="tab-pane container fade" id="tab4">--%>
-<%--                    <div class="owl-carousel owl-theme">--%>
-<%--                        <c:forEach begin="1" end="8">--%>
-<%--                            <div class="item">--%>
-<%--                                <div class="col-md-12 col-sm-12 col-xs-12">--%>
-<%--                                    <div class="slider-item">--%>
-<%--                                        <div class="course__description">--%>
-<%--                                            <div class="row">--%>
-<%--                                                <div class="col-sm-12">--%>
-<%--                                                    <h5 style="color: black" class="card-title">The Web--%>
-<%--                                                        Developer Bootcamp 2021</h5>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-4">--%>
-<%--                                                    <div class="center-1"><b>Best seller</b></div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-8">--%>
-<%--                                                    <div class="center-2"><span class="dot"></span> <b>Updated--%>
-<%--                                                        January 2021</b></div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="col-sm-12 pt-2">--%>
-<%--                                                    <div class="p3"><i>The modern JavaScript course for--%>
-<%--                                                        everyone! Master JavaScript with projects, challenges--%>
-<%--                                                        and theory. Many courses in one!</i></div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="slider-image">--%>
-<%--                                            <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"--%>
-<%--                                                 class="img-responsive" alt="a"/>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="slider-main-detail">--%>
-<%--                                            <div class="slider-detail">--%>
-<%--                                                <div class="product-detail">--%>
-<%--                                                    <h5>Product Name</h5>--%>
-<%--                                                    <h5 class="detail-price">$187.87</h5>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="cart-section">--%>
-<%--                                                <div class="row">--%>
-<%--                                                    <div class="col-md-6 col-sm-12 col-xs-6 review">--%>
-<%--                                                        <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star-o" aria-hidden="true"></i>--%>
-<%--                                                        <i class="fa fa-star-o" aria-hidden="true"></i>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="col-md-6 col-sm-12 col-xs-6"--%>
-<%--                                                         style="text-align: right">--%>
-<%--                                                        <a style="font-size: smaller" href="#"--%>
-<%--                                                           class="AddCart btn btn-info"><i--%>
-<%--                                                                class="fa fa-shopping-cart"--%>
-<%--                                                                aria-hidden="true"></i> Add to cart</a>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </c:forEach>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <div class="tab-pane container fade" id="tab4">
+                    <div class="owl-carousel owl-theme">
+                        <c:forEach begin="1" end="8">
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="slider-item">
+                                        <div class="course__description">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h5 style="color: black" class="card-title">The Web
+                                                        Developer Bootcamp 2021</h5>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="center-1"><b>Best seller</b></div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="center-2"><span class="dot"></span> <b>Updated
+                                                        January 2021</b></div>
+                                                </div>
+                                                <div class="col-sm-12 pt-2">
+                                                    <div class="p3"><i>The modern JavaScript course for
+                                                        everyone! Master JavaScript with projects, challenges
+                                                        and theory. Many courses in one!</i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-image">
+                                            <img src="${pageContext.request.contextPath}/public/images/1_thumbs.jpg"
+                                                 class="img-responsive" alt="a"/>
+                                        </div>
+                                        <div class="slider-main-detail">
+                                            <div class="slider-detail">
+                                                <div class="product-detail">
+                                                    <h5>Product Name</h5>
+                                                    <h5 class="detail-price">$187.87</h5>
+                                                </div>
+                                            </div>
+                                            <div class="cart-section">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12 col-xs-6"
+                                                         style="text-align: right">
+                                                        <a style="font-size: smaller" href="#"
+                                                           class="AddCart btn btn-info"><i
+                                                                class="fa fa-shopping-cart"
+                                                                aria-hidden="true"></i> Add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -397,7 +434,8 @@
                                 <div class="item">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="slider-item">
-                                            <div class="course__description">
+                                            <div class="course__description"
+                                                 onclick="location.href='${pageContext.request.contextPath}/views/vwProduct/Details.jsp';">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -502,22 +540,8 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12 pt-5"><h4>Window Develop</h4></div>
-                        <c:forEach begin="0" end="3" var="c" items="${courses}">
-                            <c:choose>
-                                <c:when test="${c.category_id==1}">
-                                    <div class="col-sm-12 pt-5">
-                                        <a style="text-decoration: none" href="#"><h5>${c.course_name}</h5></a>
-                                        <p>${c.students} students</p>
-                                    </div>
-                                </c:when>
-                            </c:choose>
-                        </c:forEach>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="row">
                         <div class="col-sm-12 pt-5"><h4>Web Develop</h4></div>
                         <c:forEach begin="0" end="3" var="c" items="${courses}">
@@ -532,6 +556,41 @@
                         </c:forEach>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 pt-5"><h4>Game Develop</h4></div>
+                        <c:forEach begin="0" end="3" var="c" items="${courses}">
+                            <c:choose>
+                                <c:when test="${c.category_id==1}">
+                                    <div class="col-sm-12 pt-5">
+                                        <a style="text-decoration: none" href="#"><h5>${c.course_name}</h5></a>
+                                        <p>${c.students} students</p>
+                                    </div>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 pt-5"><h4>Moblie Develop</h4></div>
+                        <c:forEach begin="0" end="3" var="c" items="${courses}">
+                            <c:choose>
+                                <c:when test="${c.category_id==2}">
+                                    <div class="col-sm-12 pt-5">
+                                        <a style="text-decoration: none" href="#"><h5>${c.course_name}</h5></a>
+                                        <p>${c.students} students</p>
+                                    </div>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+
 <%--                <div class="col-lg-3 col-md-3 col-sm-3">--%>
 <%--                    <div class="row">--%>
 <%--                        <div class="col-sm-12 pt-5"><h4>IT and Software</h4></div>--%>
@@ -558,7 +617,7 @@
             <div class="row">
                 <div class="col-md-12 pt-5">
                     <form method="get" action="https://fontawesome.com/v4.7.0/icon/thumbs-up">
-                        <button type="submit" class="btn btn-primary btn-lg">Get more</button>
+                        <button style="background-color: #6394f8" type="submit" class="btn btn-primary btn-lg">Get more</button>
                     </form>
                 </div>
             </div>

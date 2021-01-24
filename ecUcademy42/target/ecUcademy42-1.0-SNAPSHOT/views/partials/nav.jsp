@@ -7,56 +7,82 @@
         <li><a href="${pageContext.request.contextPath}/Home/Index">Home</a></li>
         <li><a href="#">Categories</a>
             <ul>
-                <li><a href="#">Development</a>
+                <li><a href="#">Web develop</a>
                     <ul>
-                        <li><a href="#">Web Dev</a>
+                        <li><a href="#">Java</a>
                             <ul>
                                 <li><b style="color: black">Popular topics</b></li>
-                                <li><a href="#">JavaScript</a></li>
-                                <li><a href="#">CSS</a></li>
-                                <li><a href="#">Python</a></li>
+                                <li><a href="#">Java expedited course</a></li>
+                                <li><a href="#">Java basic</a></li>
+                                <li><a href="#">Java high level</a></li>
+                                <li><a href="#">Java a-z</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Mobile Dev</a>
+                        <li><a href="#">HTML/CSS</a>
                             <ul>
                                 <li><b style="color: black">Popular topics</b></li>
-                                <li><a href="#">IOS</a></li>
-                                <li><a href="#">Android</a></li>
+                                <li><a href="#">Basic HTML/CSS</a></li>
+                                <li><a href="#">Full skill CSS</a></li>
+                                <li><a href="#">CSS with bootstrap 4</a></li>
+                                <li><a href="#">HTML/CSS a-z</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Game Dev</a>
+                        <li><a href="#">JavaScript</a>
                             <ul>
                                 <li><b style="color: black">Popular topics</b></li>
-                                <li><a href="#">C#</a></li>
-                                <li><a href="#">C++</a></li>
-                                <li><a href="#">3D</a></li>
+                                <li><a href="#">Basic learn JS</a></li>
+                                <li><a href="#">Full skill Node JS</a></li>
+                                <li><a href="#">React Js high level </a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
 
-                <li><a href="#">Design</a>
+                <li><a href="#">Game develop</a>
                     <ul>
-                        <li><a href="#">Web design</a>
+                        <li><a href="#">C#</a>
                             <ul>
                                 <li><b style="color: black">Popular topics</b></li>
-                                <li><a href="#">CSS</a></li>
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="#">HTML5</a></li>
-                                <li><a href="#">WordPress</a></li>
+                                <li><a href="#">C# basic</a></li>
+                                <li><a href="#">Web form</a></li>
+                                <li><a href="#">Window form</a></li>
+                                <li><a href="#">Window phone</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Game design</a>
+                        <li><a href="#">Python</a>
                             <ul>
                                 <li><b style="color: black">Popular topics</b></li>
-                                <li><a href="#">Unity</a></li>
-                                <li><a href="#">Blender</a></li>
-                                <li><a href="#">Drawing</a></li>
-                                <li><a href="#">Pixal Art</a></li>
+                                <li><a href="#">Python basic</a></li>
+                                <li><a href="#">Complete Python</a></li>
+                                <li><a href="#">Python game core</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
+
+                <li><a href="#">Moblie develop</a>
+                    <ul>
+                        <li><a href="#">IOS develop</a>
+                            <ul>
+                                <li><b style="color: black">Popular topics</b></li>
+                                <li><a href="#">iOS & Swift - The Complete iOS App Development Bootcamp</a></li>
+                                <li><a href="#">iOS 11 & Swift 4 - The Complete iOS App Development Bootcamp</a></li>
+                                <li><a href="#">The Complete iOS 10 & Swift 3 Developer Course</a></li>
+                                <li><a href="#">iOS & Swift - The Complete iOS App Development Bootcamp</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Android develop</a>
+                            <ul>
+                                <li><b style="color: black">Popular topics</b></li>
+                                <li><a href="#">Complete Adroid</a></li>
+                                <li><a href="#">The Complete Android Oreo Developer Course - Build 23 Apps!</a></li>
+                                <li><a href="#">Android Java Masterclass - Become an App Developer</a></li>
+                                <li><a href="#">Android Java Masterclass - Become an App Developer</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </li>
         <li><a href="#">Teach on Ucademy</a>
@@ -70,13 +96,13 @@
         <li style="text-align: center;">
             <div class="form-group has-search" >
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
-                <input type="text" class="form-control" placeholder="&#xf002;  Search everything!">
+                <input  type="text" class="form-control " placeholder="&#xf002;  Search everything!">
 
 
             </div>
         </li>
         <li class="dropdown" style="float: right;">
-            <a href="#" id="cart"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
+            <a href="${pageContext.request.contextPath}/views/vwAccount/Profile.jsp#v-pills-cart-tab" id="cart"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
             <div class="dropdown-content">
                 <div class="shopping-cart">
                     <div class="shopping-cart-header">
@@ -136,20 +162,17 @@
             <c:otherwise>
                 <li style="float: right; margin-right:10px;">
                     <form action="${pageContext.request.contextPath}/Account/Login">
-                        <button  type="submit" class="btn btn-outline-primary">Log in</button>
+                        <button style=" color: #5b9bd1; border: 2px solid #5b9bd1"  type="submit" class="btn btn-outline">Log in</button>
                     </form>
 
                 </li>
                 <li style="float: right;">
                     <form action="${pageContext.request.contextPath}/Account/Sign">
-                        <input class="btn btn-primary" type="submit" value="Apply">
+                        <input style="background-color: #5b9bd1" class="btn btn-primary" type="submit" value="Apply">
                     </form>
                 </li>
             </c:otherwise>
         </c:choose>
-
-
-
 
     </ul>
 </div>
@@ -158,38 +181,56 @@
 <div class="container" style="margin-right: 0px; margin-left: 0px; padding-left: 5px; padding-right: 0px; padding-top: 5px; position: absolute;width: 61px;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
         <button class="navbar-toggler" type="button" data-trigger="#main_nav" style="z-index: 100;">
-            <span class="navbar-toggler-icon" style="z-index: 100; color: transparent; background-color: #007bff; border-radius: .25rem;"></span>
+            <span class="navbar-toggler-icon" style="z-index: 100; color: transparent; background-color: #5b9bd1; border-radius: .25rem;"></span>
         </button>
         <div class="navbar-collapse" id="main_nav" style="display: block">
 
             <div class="offcanvas-header mt-3">
-                <button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
-                <h5 class="py-2 text-white">Main navbar</h5>
+                <button  class="btn btn-outline-danger btn-close float-right"> &times Close </button>
             </div>
 
-            <ul class="navbar-nav">
-                <li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
-                <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
-                <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More items  </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
-                        <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+<%--            <ul class="navbar-nav">--%>
+                <ul style="padding-top: 20px" class="navbar-nav ml-auto">
+
+                <ul id="menu">
+                    <li>
+                        <a style=" color: whitesmoke"  href="${pageContext.request.contextPath}/Home/Index"><i class="fa fa-home fa-3x" aria-hidden="true"></i></a>
+                    </li>
+
+                    <li>
+                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/Home/Profile#v-pills-spending"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
+                    </li>
+
+                    <li>
+                        <a style="font-size:30px; color: whitesmoke" href="${pageContext.request.contextPath}/views/vwAccount/Login.jsp">Login</a>
+                    </li>
+
+                    <li>
+                        <a style="font-size:30px; color: whitesmoke"  href="${pageContext.request.contextPath}/views/vwAccount/Resign.jsp">Resign</a>
+                    </li>
+
+
+
+                </ul>
+
+<%--                <li class="nav-item active"> <a  class="nav-link" href="${pageContext.request.contextPath}/Home/Index"><i class="fa fa-home fa-5x" aria-hidden="true"></i></a></li>--%>
+<%--                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>--%>
+<%--                <li class="nav-item"><a style="color: white" class="nav-link" href="${pageContext.request.contextPath}/views/vwAccount/Login.jsp"> Login</a></li>--%>
+<%--                <li class="nav-item"><a style="color: white" class="nav-link" href="${pageContext.request.contextPath}/views/vwAccount/Resign.jsp">Apply </a></li>--%>
+
+
+                <li style="margin-top: 50px" class="nav-item dropdown">
+                    <a style="color: white" class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  <h4>Courses</h4>  </a>
+                    <ul style=" border: none; background-color: black" class="dropdown-menu">
+                        <li><a style="color: white"  class="dropdown-item" href="#"><h5> Web Develop</h5></a></li>
+                        <li><a style="color: white "  class="dropdown-item" href="#"> <h5>Game Develop</h5> </a></li>
+                        <li><a style="color: white"  class="dropdown-item" href="#"> <h5>Moblie Develop </h5></a></li>
                     </ul>
                 </li>
             </ul>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-                <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Dropdown right </a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
-                        <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
-                    </ul>
-                </li>
+            <ul style="padding-top: 20px" class="navbar-nav ml-auto">
+                <li class="nav-item"><a style="font-size: 30px; color: white" class="nav-link" href="#"> <h4>Contact Us</h4> </a></li>
             </ul>
         </div> <!-- navbar-collapse.// -->
     </nav>

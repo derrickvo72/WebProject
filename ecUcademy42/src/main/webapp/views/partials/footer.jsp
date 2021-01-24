@@ -69,3 +69,5 @@
         </div>
     </div>
 </section>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"> <i class="fa fa-angle-up" aria-hidden="true"></i> </button>
