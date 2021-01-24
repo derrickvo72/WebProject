@@ -108,8 +108,10 @@ CREATE TABLE `course` (
   `updated_at` date DEFAULT NULL,
   `course_link` longtext,
   `course_price` float DEFAULT NULL,
-  PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `category_id` int DEFAULT NULL,
+  PRIMARY KEY (`course_id`),
+  FULLTEXT KEY `course_name` (`course_name`,`course_fullinfo`,`course_lessinfo`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +120,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'Lập trình window cơ bản','Khóa học lập trình window cơ bản','Window cơ bản',5,20,'.png',NULL,NULL,NULL,20),(2,'Lập trình window nâng cao','Khóa học lập trình window nâng cao','Window nâng cao',5,30,'.png',NULL,NULL,NULL,20),(3,'Lập trình window siêu tốc','Khóa học lập trình window siêu tốc','Window siêu tốc',4.5,20,'.jpg',NULL,NULL,NULL,20),(4,'Lập trình window cho người mới bắt đầu','Khóa học lập trình window cho người mới bắt đầu','Window cơ bản',4,20,'.jpg',NULL,NULL,NULL,20),(5,'Lập trình web cơ bản','Khóa học lập trình web cơ bản','Web cơ bản',4,20,'.jpg',NULL,NULL,NULL,20),(6,'Nhập môn css, html5','Khóa học css, html5 cơ bản','Web cơ bản',4.5,20,'.jpg',NULL,NULL,NULL,20),(7,'Lập trình web với java servlet','Khóa học lập trình web với java servlet','Web java servlet cơ bản',5,30,'.jpg',NULL,NULL,NULL,20),(8,'Lập trình web nâng cao','Khóa học lập trình web nâng cao','Web nâng cao',5,30,'.jpg',NULL,NULL,NULL,20),(9,'Lập trình web với reactjs cơ bản','Khóa học lập trình web với reactjs cơ bản','Web react js cơ bản',5,25,'.png',NULL,NULL,NULL,20);
+INSERT INTO `course` VALUES (1,'Lập trình window cơ bản','Khóa học lập trình window cơ bản','Window cơ bản',5,20,'1.png',NULL,NULL,NULL,20,1),(2,'Lập trình window nâng cao','Khóa học lập trình window nâng cao','Window nâng cao',5,30,'2.png',NULL,NULL,NULL,20,1),(3,'Lập trình window siêu tốc','Khóa học lập trình window siêu tốc','Window siêu tốc',4.5,20,'3.jpg',NULL,NULL,NULL,20,1),(4,'Lập trình window cho người mới bắt đầu','Khóa học lập trình window cho người mới bắt đầu','Window cơ bản',4,20,'4.jpg',NULL,NULL,NULL,20,1),(5,'Lập trình web cơ bản','Khóa học lập trình web cơ bản','Web cơ bản',4,20,'5.jpg',NULL,NULL,NULL,20,2),(6,'Nhập môn css, html5','Khóa học css, html5 cơ bản','Web cơ bản',4.5,20,'6.jpg',NULL,NULL,NULL,20,2),(7,'Lập trình web với java servlet','Khóa học lập trình web với java servlet','Web java servlet cơ bản',5,30,'7.jpg',NULL,NULL,NULL,20,2),(8,'Lập trình web nâng cao','Khóa học lập trình web nâng cao','Web nâng cao',5,30,'8.jpg',NULL,NULL,NULL,20,2),(9,'Lập trình web với reactjs cơ bản','Khóa học lập trình web với reactjs cơ bản','Web react js cơ bản',5,25,'9.png',NULL,NULL,NULL,20,2);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,7 +202,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (-1,'student3','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0),(1,'admin1','123456',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,-1),(2,'student1','123456','Bùi Phúc Lâm',NULL,'M','0123456789','18110141@gmail.com','Bình Dương',NULL,NULL,0),(3,'student2','123456','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,0),(4,'teacher1','123456','Bùi Phúc Lâm',NULL,'M','0123456789','18110141@gmail.com','Bình Dương',NULL,NULL,1),(5,'teacher2','123456','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,1),(7,'student4','$2a$12$xzWXnMKdyIqkP8oEGZFGwOx24kxNG7ZSdfK1XauI.mxPyPKrwLZv2',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0);
+INSERT INTO `user` VALUES (-1,'student3','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','No company','2000-03-12','M','337621351','sagdjascvakbf@abscsd','An Phu - Thuan An - Binh Duong, An Phu - Thuan An - Binh Duong',NULL,NULL,0),(1,'admin1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,-1),(2,'student1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Bui Phuc Lam','2000-03-12','M','0123456789','18110141@gmail.com','Binh Duong',NULL,NULL,0),(3,'student2','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Vo Phu Duc','2000-01-01','M','0123456789','18110101@gmail.com','Quan 9',NULL,NULL,0),(4,'teacher1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Bui Phuc Lam','2000-08-12','M','01234567890','18110141@gmail.com','Binh Duong',NULL,NULL,1),(5,'teacher2','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,1),(7,'student4','$2a$12$xzWXnMKdyIqkP8oEGZFGwOx24kxNG7ZSdfK1XauI.mxPyPKrwLZv2',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -213,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-24  5:16:42
+-- Dump completed on 2021-01-24 22:53:13
