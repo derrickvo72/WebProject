@@ -94,4 +94,14 @@ public class userModel {
                     .executeAndFetch(course.class);
         }
     }
+    public static List<course> getListCartCourseByUserId(int user_id) {
+        final String sql = "select course.course_id, course.course_name, course.course_fullinfo, course.course_lessinfo, course.course_rate, course.course_lession, course.img,course.created_at, course.updated_at, course.course_link, course.course_price\n" +
+                "from user, cart, course\n" +
+                "where cart.user_id = :user_id and cart.course_id = course.course_id";
+        try (Connection con = dbUtils.getConnection()){
+            return con.createQuery(sql)
+                    .addParameter("user_id", user_id)
+                    .executeAndFetch(course.class);
+        }
+    }
 }

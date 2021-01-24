@@ -55,7 +55,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/views/vwProduct/Details.jsp';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -435,7 +435,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="slider-item">
                                             <div class="course__description"
-                                                 onclick="location.href='${pageContext.request.contextPath}/views/vwProduct/Details.jsp';">
+                                                 onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <h5 style="color: black" class="card-title">${c.course_name}</h5>

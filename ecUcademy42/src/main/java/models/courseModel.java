@@ -32,4 +32,22 @@ public class courseModel {
         }
 
     }
+    public static List<course> findCourseByCourse(course c){
+        final String sql = "SELECT * \n" +
+                "from course\n" +
+                "WHERE course_name = :courseName and course_fullinfo = :courseFullinfo and course_lessinfo = :courseLessinfo and " +
+                "created_at = :createdAt and course_link = :courseLink and course_price = :coursePrice and category_id = :category_id" +
+                "ORDER BY course_id DESC";
+        try (Connection con = dbUtils.getConnection()) {
+            return  con.createQuery(sql)
+                    .addParameter("courseName", c.getCourse_name())
+                    .addParameter("courseFullinfo", c.getCourse_fullinfo())
+                    .addParameter("courseLessinfo", c.getCourse_lessinfo())
+                    .addParameter("createdAt", c.getCreated_at())
+                    .addParameter("courseLink", c.getCourse_link())
+                    .addParameter("coursePrice", c.getCourse_price())
+                    .addParameter("category_id", c.getCategory_id())
+                    .executeAndFetch(course.class);
+        }
+    }
 }

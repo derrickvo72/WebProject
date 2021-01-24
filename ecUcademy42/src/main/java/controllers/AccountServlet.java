@@ -61,6 +61,10 @@ public class AccountServlet extends HttpServlet {
                 Date date = new Date();
                 course course = new course(coursename,coursecategory,coursefullinfo,courselessinfo,courseprice,date,courselink);
                 courseModel.add(course);
+//                List<course> coursesByInfo = courseModel.findCourseByCourse(course);
+//                course courseByInfo = coursesByInfo.get(0);
+//                System.out.print(courseByInfo.getCourse_id());
+//                courseModel.teaches(user.getUser_id(),courseByName.getCourse_id());
                 ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
             }
             else{
@@ -161,8 +165,9 @@ public class AccountServlet extends HttpServlet {
         session.setAttribute("auth", false);
         session.setAttribute("authUser", new user());
 
-        String url = request.getHeader("referer");
-        if (url == null) url = "/Home";
+//        String url = request.getHeader("referer");
+//        if (url == null)
+        String url = "/Home";
         ServletUtils.redirect(url, request, response);
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -179,9 +184,14 @@ public class AccountServlet extends HttpServlet {
                 int user_id = Integer.parseInt(request.getParameter("user_id"));
                 Optional<user> u = userModel.findByID(user_id);
                 if (u.isPresent()) {
-                    List<course> courses = userModel.getListCourseByUserId(user_id);
+                    List<course> courses;
                     List<user> users = userModel.findUserByID(user_id);
                     user user = users.get(0);
+                    if(user.getRole_id() == 0){
+                        courses = userModel.getListCourseByUserId(user_id);
+                    } else {
+                        courses = userModel.getListCourseByTeacherId(user_id);
+                    }
                     user.setCourses(courses);
                     request.setAttribute("user", user);
 

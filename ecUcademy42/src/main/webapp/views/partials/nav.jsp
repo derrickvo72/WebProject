@@ -81,11 +81,10 @@
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </li>
         <li><a href="#">Teach on Ucademy</a>
-        <ul style="min-width: 320px; min-height: 50px; padding: 2px ">
+            <ul style="min-width: 320px; min-height: 50px; padding: 2px ">
             <li class="teach-font" style="text-align: center">
                 <h4>Turn what you know into an opportunity and reach millions around the world.</h4>
                 <a href="${pageContext.request.contextPath}/Home/Index" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Learn more</a>
@@ -96,83 +95,89 @@
             <div class="form-group has-search" >
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
                 <input  type="text" class="form-control " placeholder="&#xf002;  Search everything!">
-
-
             </div>
         </li>
         <li class="dropdown" style="float: right;">
-            <a href="${pageContext.request.contextPath}/views/vwProduct/Cart.jsp"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
-            <div class="dropdown-content">
-                <div class="shopping-cart">
-                    <div class="shopping-cart-header">
-                        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
-                        <div class="shopping-cart-total">
-                            <span class="lighter-text">Total:</span>
-                            <span class="main-color-text">$2,229.97</span>
-                        </div>
-                    </div> <!--end shopping-cart-header -->
-                    <div class="shopping-cart-items">
-                        <div class="item-slot" id="item1">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-                            <span class="item-name">Sony DSC-RX100M III</span>
-                            <span class="item-price">$849.99</span>
-                            <p class="item-remove">Remove</p>
-                        </div>
-                        <div class="item-slot" id="item2">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
-                            <span class="item-name">KS Automatic Mechanic...</span>
-                            <span class="item-price">$1,249.99</span>
-                            <p class="item-remove">Remove</p>
-                        </div>
-                        <div class="item-slot" id="item3">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
-                            <span class="item-name">Kindle, 6" Glare-Free To...</span>
-                            <span class="item-price">$129.99</span>
-                            <p class="item-remove">Remove</p>
-                        </div>
-                    </div>
-
-                    <a href="#" class="button">Checkout</a>
-                </div> <!--end shopping-cart -->
-
-            </div> <!--end container -->
+            <c:choose>
+                <c:when test="${authUser.user_id==0}">
+                    <a href="${pageContext.request.contextPath}/Account/Login?"><i class="fa fa-shopping-cart" style="margin-left: 10px; margin-right: 10px;"></i></a>
+                </c:when>
+                    <c:otherwise>
+                        <a href="${pageContext.request.contextPath}/Home/Cart?user_id=${authUser.user_id}"><i class="fa fa-shopping-cart" style="margin-left: 10px; margin-right: 10px;"></i></a>
+                        </c:otherwise>
+            </c:choose>
         </li>
+<%--                <span class="badge">3</span></a>--%>
+<%--            <div class="dropdown-content">--%>
+<%--                <div class="shopping-cart">--%>
+<%--                    <div class="shopping-cart-header">--%>
+<%--                        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>--%>
+<%--                        <div class="shopping-cart-total">--%>
+<%--                            <span class="lighter-text">Total:</span>--%>
+<%--                            <span class="main-color-text">$2,229.97</span>--%>
+<%--                        </div>--%>
+<%--                    </div> <!--end shopping-cart-header -->--%>
+<%--                    <div class="shopping-cart-items">--%>
+<%--                        <div class="item-slot" id="item1">--%>
+<%--                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />--%>
+<%--                            <span class="item-name">Sony DSC-RX100M III</span>--%>
+<%--                            <span class="item-price">$849.99</span>--%>
+<%--                            <p class="item-remove">Remove</p>--%>
+<%--                        </div>--%>
+<%--                        <div class="item-slot" id="item2">--%>
+<%--                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />--%>
+<%--                            <span class="item-name">KS Automatic Mechanic...</span>--%>
+<%--                            <span class="item-price">$1,249.99</span>--%>
+<%--                            <p class="item-remove">Remove</p>--%>
+<%--                        </div>--%>
+<%--                        <div class="item-slot" id="item3">--%>
+<%--                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />--%>
+<%--                            <span class="item-name">Kindle, 6" Glare-Free To...</span>--%>
+<%--                            <span class="item-price">$129.99</span>--%>
+<%--                            <p class="item-remove">Remove</p>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <a href="#" class="button">Checkout</a>--%>
+<%--                </div> <!--end shopping-cart -->--%>
+
+<%--            </div> <!--end container -->--%>
+<%--        </li>--%>
         <c:choose>
             <c:when test="${auth}">
-                <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Hi, <b>${authUser.user_username}</b>!
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile?user_id=${authUser.user_id}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            Profile
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            Logout
-                        </a>
-                    </div>
-                </li>
-            </c:when>
-            <c:otherwise>
-                <li style="float: right; margin-right:10px;">
-                    <form action="${pageContext.request.contextPath}/Account/Login">
-                        <button  type="submit" class="btn btn-outline-primary">Log in</button>
-                    </form>
+            <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                Hi, <b>${authUser.user_username}</b>!
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile?user_id=${authUser.user_id}">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+        </c:when>
+        <c:otherwise>
+            <li style="float: right; margin-right:10px;">
+                <form action="${pageContext.request.contextPath}/Account/Login">
+                    <button  type="submit" class="btn btn-outline-primary" style="margin-left: 10px">Log in</button>
+                </form>
 
-                </li>
-                <li style="float: right;">
-                    <form action="${pageContext.request.contextPath}/Account/Sign">
-                        <input class="btn btn-primary" type="submit" value="Apply">
-                    </form>
-                </li>
-            </c:otherwise>
+            </li>
+            <li style="float: right; margin-left: 10px">
+                <form action="${pageContext.request.contextPath}/Account/Sign">
+                    <input class="btn btn-primary" type="submit" value="Apply">
+                </form>
+            </li>
+        </c:otherwise>
         </c:choose>
-
     </ul>
 </div>
 
@@ -197,17 +202,31 @@
                     </li>
 
                     <li>
-                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/views/vwProduct/Cart.jsp"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
+                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/Home/Cart?user_id=${authUser.user_id}"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
                     </li>
-
-                    <li>
-                        <a style="font-size:30px; color: whitesmoke" href="${pageContext.request.contextPath}/views/vwAccount/Login.jsp">Login</a>
-                    </li>
-
-                    <li>
-                        <a style="font-size:30px; color: whitesmoke"  href="${pageContext.request.contextPath}/views/vwAccount/Resign.jsp">Resign</a>
-                    </li>
-
+                    <c:choose>
+                        <c:when test="${auth}">
+                            <form id="frmLogoutRespon" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
+                            <li>
+                                <a style="font-size:30px; color: whitesmoke" href="${pageContext.request.contextPath}/Account/Profile?user_id=${authUser.user_id}">
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a style="font-size:30px; color: whitesmoke" href="javascript: $('#frmLogoutRespon').submit();">
+                                    Logout
+                                </a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <a style="font-size:30px; color: whitesmoke" href="${pageContext.request.contextPath}/Account/Login?">Login</a>
+                            </li>
+                            <li>
+                                <a style="font-size:30px; color: whitesmoke"  href="${pageContext.request.contextPath}/Account/Sign?">Resign</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
 
 
                 </ul>

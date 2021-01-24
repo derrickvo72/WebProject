@@ -69,12 +69,12 @@
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                     <c:choose>
                                         <c:when test="${user.role_id==0}">
-                                            <a style=" border-radius:100px; margin:0 20px 0 20px; color: white" class="btn btn-danger btn-md" id="v-pills-cart-tab"
-                                               data-toggle="pill"
-                                               href="#v-pills-cart" role="tab" aria-controls="v-pills-cart"
-                                               aria-selected="true">
-                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>
-                                            <hr class="new5">
+<%--                                            <a style=" border-radius:100px; margin:0 20px 0 20px; color: white" class="btn btn-danger btn-md" id="v-pills-cart-tab"--%>
+<%--                                               data-toggle="pill"--%>
+<%--                                               href="#v-pills-cart" role="tab" aria-controls="v-pills-cart"--%>
+<%--                                               aria-selected="true">--%>
+<%--                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>--%>
+<%--                                            <hr class="new5">--%>
                                         </c:when>
                                         <c:otherwise>
                                             <a style=" border-radius:100px ; margin:0 20px 0 20px; color: white" class="btn btn-success btn-md" id="v-pills-teaching-tab"

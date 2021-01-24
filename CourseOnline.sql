@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cart` (
+  `user_id` int DEFAULT NULL,
+  `course_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES (2,6),(2,7),(2,9);
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categorizes`
 --
 
@@ -110,8 +133,9 @@ CREATE TABLE `course` (
   `course_price` float DEFAULT NULL,
   `category_id` int DEFAULT NULL,
   PRIMARY KEY (`course_id`),
-  FULLTEXT KEY `course_name` (`course_name`,`course_fullinfo`,`course_lessinfo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  FULLTEXT KEY `course_name` (`course_name`,`course_fullinfo`,`course_lessinfo`),
+  FULLTEXT KEY `course_name_2` (`course_name`,`course_fullinfo`,`course_lessinfo`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +144,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'Lập trình window cơ bản','Khóa học lập trình window cơ bản','Window cơ bản',5,20,'1.png',NULL,NULL,NULL,20,1),(2,'Lập trình window nâng cao','Khóa học lập trình window nâng cao','Window nâng cao',5,30,'2.png',NULL,NULL,NULL,20,1),(3,'Lập trình window siêu tốc','Khóa học lập trình window siêu tốc','Window siêu tốc',4.5,20,'3.jpg',NULL,NULL,NULL,20,1),(4,'Lập trình window cho người mới bắt đầu','Khóa học lập trình window cho người mới bắt đầu','Window cơ bản',4,20,'4.jpg',NULL,NULL,NULL,20,1),(5,'Lập trình web cơ bản','Khóa học lập trình web cơ bản','Web cơ bản',4,20,'5.jpg',NULL,NULL,NULL,20,2),(6,'Nhập môn css, html5','Khóa học css, html5 cơ bản','Web cơ bản',4.5,20,'6.jpg',NULL,NULL,NULL,20,2),(7,'Lập trình web với java servlet','Khóa học lập trình web với java servlet','Web java servlet cơ bản',5,30,'7.jpg',NULL,NULL,NULL,20,2),(8,'Lập trình web nâng cao','Khóa học lập trình web nâng cao','Web nâng cao',5,30,'8.jpg',NULL,NULL,NULL,20,2),(9,'Lập trình web với reactjs cơ bản','Khóa học lập trình web với reactjs cơ bản','Web react js cơ bản',5,25,'9.png',NULL,NULL,NULL,20,2);
+INSERT INTO `course` VALUES (1,'Lập trình window cơ bản','Khóa học lập trình window cơ bản','Window cơ bản',5,20,'1.png',NULL,NULL,NULL,20,1),(2,'Lập trình window nâng cao','Khóa học lập trình window nâng cao','Window nâng cao',5,30,'2.png',NULL,NULL,NULL,20,1),(3,'Lập trình window siêu tốc','Khóa học lập trình window siêu tốc','Window siêu tốc',4.5,20,'3.jpg',NULL,NULL,NULL,20,1),(4,'Lập trình window cho người mới bắt đầu','Khóa học lập trình window cho người mới bắt đầu','Window cơ bản',4,20,'4.jpg',NULL,NULL,NULL,20,1),(5,'Lập trình web cơ bản','Khóa học lập trình web cơ bản','Web cơ bản',4,20,'5.jpg',NULL,NULL,NULL,20,2),(6,'Nhập môn css, html5','Khóa học css, html5 cơ bản','Web cơ bản',4.5,20,'6.jpg',NULL,NULL,NULL,20,2),(7,'Lập trình web với java servlet','Khóa học lập trình web với java servlet','Web java servlet cơ bản',5,30,'7.jpg',NULL,NULL,NULL,20,2),(8,'Lập trình web nâng cao','Khóa học lập trình web nâng cao','Web nâng cao',5,30,'8.jpg',NULL,NULL,NULL,20,2),(9,'Lập trình web với reactjs cơ bản','Khóa học lập trình web với reactjs cơ bản','Web react js cơ bản',5,25,'9.png',NULL,NULL,NULL,20,2),(16,'Khoc hoc Test ','123456','Testing',NULL,NULL,NULL,'2021-01-25',NULL,'https://www.facebook.com/',15,1),(17,'Khoc hoc Test ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18,'Khoc hoc Test ','123456','Testing',NULL,NULL,NULL,'2021-01-25',NULL,'https://www.facebook.com/',15,1),(19,'Khoc hoc Test ','123456','Testing',NULL,NULL,NULL,'2021-01-25',NULL,'https://www.facebook.com/',15,1),(20,'Khoc hoc Test ','123456','Testing',NULL,NULL,NULL,'2021-01-25',NULL,'https://www.facebook.com/',15,1),(21,'Khoc hoc Test ','123','Testing',NULL,NULL,NULL,'2021-01-25',NULL,'https://www.facebook.com/',15,1);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,4 +239,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-24 22:53:13
+-- Dump completed on 2021-01-25  4:19:23
