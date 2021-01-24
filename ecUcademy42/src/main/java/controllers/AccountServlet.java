@@ -1,7 +1,9 @@
 package controllers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import beans.course;
 import beans.user;
+import models.courseModel;
 import models.userModel;
 import utils.ServletUtils;
 
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -33,9 +37,84 @@ public class AccountServlet extends HttpServlet {
             case "/Logout":
                 postLogout(request, response);
                 break;
+            case "/Profile":
+                postProfile(request, response);
+                break;
             default:
                 ServletUtils.redirect("/NotFound", request, response);
                 break;
+        }
+    }
+    private void postProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int user_id = Integer.parseInt(request.getParameter("user_id"));
+        List<user> users = userModel.findUserByID(user_id);
+        user user = users.get(0);
+        if(user.getRole_id() == 1){
+            if(request.getParameter("coursename") != null){
+//                System.out.println(request.getParameter("coursename"));
+                String coursename = request.getParameter("coursename");
+                int coursecategory = Integer.parseInt(request.getParameter("coursecategory"));
+                String coursefullinfo = request.getParameter("coursefullinfo");
+                String courselessinfo = request.getParameter("courselessinfo");
+                String courselink = request.getParameter("courselink");
+                float courseprice = Float.parseFloat(request.getParameter("courseprice"));
+                Date date = new Date();
+                course course = new course(coursename,coursecategory,coursefullinfo,courselessinfo,courseprice,date,courselink);
+                courseModel.add(course);
+                ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
+            }
+            else{
+                String user_fullname = request.getParameter("fullname");
+                String user_address = request.getParameter("address");
+                String user_phone = request.getParameter("phone");
+                String user_email = request.getParameter("email");
+                Date user_birthday = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    user_birthday = formatter.parse(request.getParameter("birthday"));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                List<course> courses = userModel.getListCourseByUserId(user_id);
+                int gender = Integer.parseInt(request.getParameter("sex"));
+                if(gender==1||gender==0){
+                    user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "M",user_birthday);
+                    userModel.update(user1);
+                    user1.setCourses(courses);
+                }
+                else {
+                    user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "F",user_birthday);
+                    userModel.update(user1);
+                    user1.setCourses(courses);
+                }
+                ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
+            }
+        }
+        else{
+            String user_fullname = request.getParameter("fullname");
+            String user_address = request.getParameter("address");
+            String user_phone = request.getParameter("phone");
+            String user_email = request.getParameter("email");
+            Date user_birthday = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                user_birthday = formatter.parse(request.getParameter("birthday"));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            List<course> courses = userModel.getListCourseByUserId(user_id);
+            int gender = Integer.parseInt(request.getParameter("sex"));
+            if(gender==1||gender==0){
+                user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "M",user_birthday);
+                userModel.update(user1);
+                user1.setCourses(courses);
+            }
+            else {
+                user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "F",user_birthday);
+                userModel.update(user1);
+                user1.setCourses(courses);
+            }
+            ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
         }
     }
     private void postSign(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +129,7 @@ public class AccountServlet extends HttpServlet {
         ServletUtils.redirect("/Home", request, response);
     }
 
-    private void postLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void postLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -97,7 +176,19 @@ public class AccountServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwAccount/Login.jsp", request, response);
                 break;
             case "/Profile":
-                ServletUtils.forward("/views/vwAccount/Profile.jsp", request, response);
+                int user_id = Integer.parseInt(request.getParameter("user_id"));
+                Optional<user> u = userModel.findByID(user_id);
+                if (u.isPresent()) {
+                    List<course> courses = userModel.getListCourseByUserId(user_id);
+                    List<user> users = userModel.findUserByID(user_id);
+                    user user = users.get(0);
+                    user.setCourses(courses);
+                    request.setAttribute("user", user);
+
+                    ServletUtils.forward("/views/vwAccount/Profile.jsp", request, response);
+                } else {
+                    ServletUtils.redirect("/Account/Login", request, response);
+                }
                 break;
             case "/IsAvailable":
                 String username = request.getParameter("user");

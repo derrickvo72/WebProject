@@ -11,9 +11,19 @@ public class course {
     public course() {
     }
 
+    public course(String course_name, int category_id, String course_fullinfo, String course_lessinfo, float course_price, Date created_at, String course_link) {
+        this.course_name = course_name;
+        this.course_fullinfo = course_fullinfo;
+        this.course_lessinfo = course_lessinfo;
+        this.course_link = course_link;
+        this.created_at = created_at;
+        this.category_id = category_id;
+        this.course_price = course_price;
+    }
+
     public course(int course_id, String course_name, String course_fullinfo, String course_lessinfo,
                   float course_rate, int course_lession, String img, Date created_at, Date updated_at,
-                  String course_link, float course_price,int category_id, String category_name,
+                  String course_link, float course_price, int category_id, String category_name,
                   String category_info, int students) {
         this.course_name = course_name;
         this.course_fullinfo = course_fullinfo;

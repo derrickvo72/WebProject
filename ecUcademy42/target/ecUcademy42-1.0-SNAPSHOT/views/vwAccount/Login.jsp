@@ -26,10 +26,10 @@
                                     <label for="txtPassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i></label>
                                     <input type="password" name="password" id="txtPassword" placeholder="Password"/>
                                 </div>
-<%--                                <div class="form-group">--%>
-<%--                                    <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />--%>
-<%--                                    <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>--%>
-<%--                                </div>--%>
+                                    <%--                                <div class="form-group">--%>
+                                    <%--                                    <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />--%>
+                                    <%--                                    <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>--%>
+                                    <%--                                </div>--%>
                                 <c:if test="${hasError}">
                                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                         <strong>Login failed!</strong> ${errorMessage}

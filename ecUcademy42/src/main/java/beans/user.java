@@ -1,13 +1,139 @@
 package beans;
 
-import java.util.Date;
+import java.util.*;
 
 public class user {
     int user_id, role_id, user_wallet;
     String img,user_address,user_email,user_phone,user_gender,user_fullname,user_username,user_password;
     Date user_bday;
+    List<course> courses = new List<course>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<course> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] a) {
+            return null;
+        }
+
+        @Override
+        public boolean add(course course) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends course> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(int index, Collection<? extends course> c) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public course get(int index) {
+            return null;
+        }
+
+        @Override
+        public course set(int index, course element) {
+            return null;
+        }
+
+        @Override
+        public void add(int index, course element) {
+
+        }
+
+        @Override
+        public course remove(int index) {
+            return null;
+        }
+
+        @Override
+        public int indexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public int lastIndexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public ListIterator<course> listIterator() {
+            return null;
+        }
+
+        @Override
+        public ListIterator<course> listIterator(int index) {
+            return null;
+        }
+
+        @Override
+        public List<course> subList(int fromIndex, int toIndex) {
+            return null;
+        }
+    };
 
     public user() {
+    }
+
+    public user(int user_id, String user_fullname, String user_address, String user_phone, String user_email, String user_gender, Date user_bday) {
+        this.user_id = user_id;
+        this.user_address = user_address;
+        this.user_email = user_email;
+        this.user_phone = user_phone;
+        this.user_gender = user_gender;
+        this.user_fullname = user_fullname;
+        this.user_bday = user_bday;
     }
 
     public user(String user_username, String user_password, String user_email, int role_id) {
@@ -126,6 +252,14 @@ public class user {
 
     public void setUser_bday(Date user_bday) {
         this.user_bday = user_bday;
+    }
+
+    public List<course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<course> courses) {
+        this.courses = courses;
     }
 
     @Override

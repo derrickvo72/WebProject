@@ -147,7 +147,7 @@
                         Hi, <b>${authUser.user_username}</b>!
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile?user_id=${authUser.user_id}">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             Profile
                         </a>
@@ -162,13 +162,13 @@
             <c:otherwise>
                 <li style="float: right; margin-right:10px;">
                     <form action="${pageContext.request.contextPath}/Account/Login">
-                        <button style=" color: #5b9bd1; border: 2px solid #5b9bd1"  type="submit" class="btn btn-outline">Log in</button>
+                        <button  type="submit" class="btn btn-outline-primary">Log in</button>
                     </form>
 
                 </li>
                 <li style="float: right;">
                     <form action="${pageContext.request.contextPath}/Account/Sign">
-                        <input style="background-color: #5b9bd1" class="btn btn-primary" type="submit" value="Apply">
+                        <input class="btn btn-primary" type="submit" value="Apply">
                     </form>
                 </li>
             </c:otherwise>

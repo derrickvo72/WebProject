@@ -19,9 +19,10 @@ public class AuthenticationFilter implements Filter {
     HttpSession session = request.getSession();
     boolean auth = (boolean) session.getAttribute("auth");
     if (auth == false) {
-      // System.out.println(request.getRequestURI());
-      session.setAttribute("retUrl", request.getRequestURI());
-      ServletUtils.redirect("/Account/Login", request, (HttpServletResponse) resp);
+//       System.out.println(request.getRequestURI());
+      session.setAttribute("retUrl", "/ecUcademy42/Home");
+
+      ServletUtils.forward("/Account/Login?", request, (HttpServletResponse) resp);
       return;
     }
 

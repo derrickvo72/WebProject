@@ -20,7 +20,6 @@ public class SessionInitFilter implements Filter {
       session.setAttribute("auth", false);
       session.setAttribute("authUser", new user());
     }
-
     chain.doFilter(req, resp);
   }
 
