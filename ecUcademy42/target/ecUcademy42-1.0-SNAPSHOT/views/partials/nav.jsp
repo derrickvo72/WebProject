@@ -101,7 +101,7 @@
             </div>
         </li>
         <li class="dropdown" style="float: right;">
-            <a href="${pageContext.request.contextPath}/views/vwAccount/Profile.jsp#v-pills-cart-tab" id="cart"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
+            <a href="${pageContext.request.contextPath}/views/vwAccount/Profile.jsp#v-pills-cart" id="cart"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
             <div class="dropdown-content">
                 <div class="shopping-cart">
                     <div class="shopping-cart-header">
@@ -197,7 +197,7 @@
                     </li>
 
                     <li>
-                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/Home/Profile#v-pills-spending"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
+                        <a style=" color: whitesmoke" href="${pageContext.request.contextPath}/views/vwAccount/Profile.jsp#v-pills-cart?page=myCart"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
                     </li>
 
                     <li>
@@ -218,14 +218,14 @@
 <%--                <li class="nav-item"><a style="color: white" class="nav-link" href="${pageContext.request.contextPath}/views/vwAccount/Resign.jsp">Apply </a></li>--%>
 
 
-                <li style="margin-top: 50px" class="nav-item dropdown">
-                    <a style="color: white; display: flex" class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  <h4>Courses</h4>  </a>
-                    <ul style=" border: none; background-color: black" class="dropdown-menu">
-                        <li><a style="color: white"  class="dropdown-item" href="#"><h5> Web Develop</h5></a></li>
-                        <li><a style="color: white "  class="dropdown-item" href="#"> <h5>Window Develop</h5> </a></li>
-                        <li><a style="color: white"  class="dropdown-item" href="#"> <h5>Moblie Develop </h5></a></li>
-                    </ul>
-                </li>
+                    <li style="margin-top: 50px" class="nav-item dropdown" id="courses">
+                        <a style="color: white" class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  <h4>Courses</h4>  </a>
+                        <ul style=" border: none; background-color: black" class="dropdown-menu">
+                            <li><a style="color: white"  class="dropdown-item hover" href="#" ><h5> Web Develop</h5></a></li>
+                            <li><a style="color: white "  class="dropdown-item hover" href="#" > <h5>Game Develop</h5> </a></li>
+                            <li><a style="color: white"  class="dropdown-item hover" href="#" > <h5>Moblie Develop </h5></a></li>
+                        </ul>
+                    </li>
             </ul>
 
             <ul style="padding-top: 20px" class="navbar-nav ml-auto">
