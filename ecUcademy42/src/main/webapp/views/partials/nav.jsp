@@ -100,7 +100,10 @@
         <li style="text-align: center;">
             <div class="form-group has-search" >
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
-                <input  type="text" class="form-control " placeholder="&#xf002;  Search everything!">
+                    <form id="frmSearch" action="${pageContext.request.contextPath}/Home/Filter">
+                        <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
+                        <input  id="txtSearch" name="search" type="text" class="form-control " placeholder="&#xf002;  Search everything!">
+                    </form>
             </div>
         </li>
         <li class="dropdown" style="float: right;">
@@ -174,7 +177,7 @@
         <c:otherwise>
             <li style="float: right; margin-right:10px;">
                 <form action="${pageContext.request.contextPath}/Account/Login">
-                    <button  type="submit" class="btn btn-outline-primary" style="margin-left: 10px">Log in</button>
+                    <button type="submit" class="btn btn-outline-primary" style="margin-left: 10px">Log in</button>
                 </form>
 
             </li>

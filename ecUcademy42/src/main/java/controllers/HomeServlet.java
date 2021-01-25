@@ -57,7 +57,7 @@ public class HomeServlet extends HttpServlet {
                         courseModel.takes(userid, courseid);
                     }
                 }
-                System.out.print("aaaaaaaaAAAAAAA");
+//                System.out.print("aaaaaaaaAAAAAAA");
                 ServletUtils.redirect("/Home/Index",request,response);
                 break;
             case "/Detail":
@@ -71,7 +71,8 @@ public class HomeServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
                 break;
             case "/Filter":
-                ServletUtils.forward("/views/vwProduct/Filter.jsp",request,response);
+                String keyword = request.getParameter("search");
+                ServletUtils.forward("/views/vwProduct/Filter2.jsp",request,response);
                 break;
             case "/Cart":
                 int user_id = Integer.parseInt(request.getParameter("user_id"));

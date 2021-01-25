@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<%----%>
     <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
     <%--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>--%>
     <style>
@@ -36,6 +36,7 @@
         <%@include file="/WEB-INF/css/TabStackUser.css"%>
         <%@include file="/WEB-INF/css/Profile.css"%>
         <%@include file="/WEB-INF/css/Cart.css"%>
+<%--        <%@include file="/WEB-INF/css/Filter.css"%>--%>
     </style>
     <jsp:invoke fragment="css"/>
 </head>
@@ -52,8 +53,7 @@
     <jsp:include page="../../views/partials/footer.jsp"/>
 </div>
 
-
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -110,7 +110,15 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
+    document.getElementById("txtSearch")
+        .addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.key === "Enter") {
+                document.getElementById("btnSearch").click();
+            }
+        });
 </script>
+
 <%--<script>--%>
 <%--    const username = $('#txtUsername').val();--%>
 <%--    $.getJSON('${pageContext.request.contextPath}/Home/Buy/IsAvailable?user=' + username, function (data) {--%>
