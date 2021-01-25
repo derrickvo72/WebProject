@@ -18,31 +18,27 @@
             <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
                 <h5>Information </h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Register Now</a></li>
-                    <li><a href="">Advice</a></li>
-                    <li><a href="">Videos</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Services</a></li>
+                    <li><a href="${pageContext.request.contextPath}/views/vwAccount/Resign.jsp">Register Now</a></li>
+                    <li><a href="https://about.udemy.com/">About Us</a></li>
+                    <li><a href="https://about.udemy.com/blog/">Blog</a></li>
+                    <li><a href="https://support.udemy.com/hc/en-us">Supports</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2 footers-four">
                 <h5>Explore </h5>
                 <ul class="list-unstyled">
-                    <li><a href="">News</a></li>
-                    <li><a href="">Sitemap</a></li>
-                    <li><a href="">Testimonials</a></li>
-                    <li><a href="">Feedbacks</a></li>
-                    <li><a href="">User Agreement</a></li>
+                    <li><a href="https://www.udemy.com/mobile/">Get the app</a></li>
+                    <li><a href="https://www.udemy.com/sitemap/">Sitemap</a></li>
+                    <li><a href="https://www.udemy.com/affiliate/">Affiliate</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2 footers-five">
                 <h5>Company </h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Career</a></li>
-                    <li><a href="">For Parters</a></li>
-                    <li><a href="">Terms</a></li>
-                    <li><a href="">Policy</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="https://about.udemy.com/careers/">Career</a></li>
+                    <li><a href="https://about.udemy.com/careers/">For Parters</a></li>
+                    <li><a href="https://www.udemy.com/terms/privacy/">Policy</a></li>
+                    <li><a href="https://about.udemy.com/company/?locale=en-us#offices">Contact Us</a></li>
                 </ul>
             </div>
 

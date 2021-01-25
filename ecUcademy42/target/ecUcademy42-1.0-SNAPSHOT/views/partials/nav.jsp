@@ -106,10 +106,10 @@
         <li class="dropdown" style="float: right;">
             <c:choose>
                 <c:when test="${authUser.user_id==0}">
-                    <a href="${pageContext.request.contextPath}/Account/Login?"><i class="fa fa-shopping-cart" style="margin-left: 10px; margin-right: 10px;"></i></a>
+                    <a href="${pageContext.request.contextPath}/Account/Login?"><i class="fa fa-shopping-cart fa-2x" style="margin-left: 10px; margin-right: 10px;"></i></a>
                 </c:when>
                     <c:otherwise>
-                        <a href="${pageContext.request.contextPath}/Home/Cart?user_id=${authUser.user_id}"><i class="fa fa-shopping-cart" style="margin-left: 10px; margin-right: 10px;"></i></a>
+                        <a href="${pageContext.request.contextPath}/Home/Cart?user_id=${authUser.user_id}"><i class="fa fa-shopping-cart fa-2x" style="margin-left: 10px; margin-right: 10px;"></i></a>
                         </c:otherwise>
             </c:choose>
         </li>
