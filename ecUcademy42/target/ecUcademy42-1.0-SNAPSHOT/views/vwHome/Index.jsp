@@ -635,7 +635,7 @@
                                         src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
-                                    <h5 class="mb-0">Admin</h5>
+                                    <h5 class="mb-0"><i class="fa fa-user" aria-hidden="true"></i> Admin</h5>
                                     <p class="small text-muted">18110101</p>
                                     <ul class="social mb-0 list-inline mt-3">
                                         <li class="list-inline-item m-0"><a href="#" class="social-link"><i
@@ -660,8 +660,8 @@
                                         src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
-                                    <h5 class="mb-0">Admin</h5>
-                                    <p class="small text-muted">18110141</p>
+                                    <h5 class="mb-0"><i class="fa fa-user" aria-hidden="true"></i> Admin</h5>
+                                    <p class="small text-muted"> 18110141</p>
                                     <ul class="social mb-0 list-inline mt-3">
                                         <li class="list-inline-item m-0"><a href="#" class="social-link"><i
                                                 class="fa fa-facebook-f"></i></a></li>
@@ -685,8 +685,8 @@
                                         src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
-                                    <h5 class="mb-0">Associate</h5>
-                                    <p class="small text-muted">References</p>
+                                    <h5 class="mb-0"><i class="fa fa-question-circle" aria-hidden="true"></i> Support</h5>
+                                    <p class="small text-muted"><a style="color: #969696" href="https://support.udemy.com/hc/en-us">https://support.udemy.com/hc/en-us</a></p>
                                     <ul class="social mb-0 list-inline mt-3">
                                         <li class="list-inline-item m-0"><a href="#" class="social-link"><i
                                                 class="fa fa-facebook-f"></i></a></li>
@@ -710,8 +710,8 @@
                                         src="${pageContext.request.contextPath}/public/images/" alt=""
                                         class="card-img-top">
                                 <div class="p-4">
-                                    <h5 class="mb-0">Associate</h5>
-                                    <p class="small text-muted">References</p>
+                                    <h5 class="mb-0"><i class="fa fa-forumbee" aria-hidden="true"></i> Forum</h5>
+                                    <p class="small text-muted"><a style="color:#969696" href="https://about.udemy.com/blog/">https://about.udemy.com/blog/</a></p>
                                     <ul class="social mb-0 list-inline mt-3">
                                         <li class="list-inline-item m-0"><a href="#" class="social-link"><i
                                                 class="fa fa-facebook-f"></i></a></li>
