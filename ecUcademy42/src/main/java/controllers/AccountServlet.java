@@ -9,10 +9,8 @@ import utils.ServletUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -59,6 +57,30 @@ public class AccountServlet extends HttpServlet {
                 String courselink = request.getParameter("courselink");
                 float courseprice = Float.parseFloat(request.getParameter("courseprice"));
                 Date date = new Date();
+//                int nextCourse_id = courseModel.findNextId();
+//                Image
+                for (Part part : request.getParts()) {
+                    String contentDisp = part.getHeader("content-disposition");
+                    String[] items = contentDisp.split(";");
+                    for (String s : items) {
+                        String tmp = s.trim();
+                        if (tmp.startsWith("filename")) {
+                            int idx = tmp.indexOf('=') + 2;
+                            String filename = tmp.substring(idx, tmp.length() - 1);
+
+                            String targetDir = this.getServletContext().getRealPath("public") + "/../../../src/main/webapp/public/course/ ";
+                            File dir = new File(targetDir);
+                            if (!dir.exists()) {
+                                dir.mkdir();
+                            }
+
+                            String destination = targetDir + filename;
+                            System.out.print(filename);
+                            part.write(destination);
+                        }
+                    }
+                }
+//                /Image
                 course course = new course(coursename,coursecategory,coursefullinfo,courselessinfo,courseprice,date,courselink,user_id);
                 courseModel.add(course);
                 ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);

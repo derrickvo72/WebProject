@@ -86,4 +86,14 @@ public class courseModel {
                     .executeAndFetch(course.class);
         }
     }
+//    public static int findNextId(){
+//        final String sql = "SELECT AUTO_INCREMENT\n" +
+//                "FROM information_schema.TABLES\n" +
+//                "WHERE TABLE_SCHEMA = \"courseonline\"\n" +
+//                "AND TABLE_NAME = \"course\";";
+//        try (Connection con = dbUtils.getConnection()) {
+//            return con.createQuery(sql)
+//                    .executeAndFetchFirst();
+//        }
+//    }
 }

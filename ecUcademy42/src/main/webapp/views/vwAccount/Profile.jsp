@@ -245,8 +245,8 @@
                                         <div class="form-group">
                                             <h6>Thumbnail course</h6>
                                             <div style="margin-top: 1.2rem" class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile" name="filename">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                <input type="file" id="fuMain" name="fuMain">
+                                                <label class="custom-file-label" for="fuMain">Choose file</label>
                                             </div>
                                         </div>
                                         <div class="form-group">
