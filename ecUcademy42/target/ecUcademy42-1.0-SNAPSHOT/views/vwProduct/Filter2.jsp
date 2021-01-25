@@ -5,8 +5,9 @@
 <t:main>
     <jsp:body>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/public/content-filter-master/css/reset.css">
+<%--        <link rel="stylesheet" href="${pageContext.request.contextPath}/public/content-filter-master/css/reset.css">--%>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/public/content-filter-master/css/style.css">
+
 
         <header class="cd-header">
         </header>
@@ -119,9 +120,7 @@
 
             <a href="#0" class="cd-filter-trigger">Filters</a>
         </main>
-        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/modernizr.js"></script> <!-- Modernizr -->
-        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery-2.1.1.js"></script>
-        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery.mixitup.min.js"></script>
-        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/main.js"></script>
+
+
     </jsp:body>
 </t:main>
