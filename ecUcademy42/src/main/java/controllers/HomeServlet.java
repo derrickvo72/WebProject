@@ -57,7 +57,6 @@ public class HomeServlet extends HttpServlet {
                         courseModel.takes(userid, courseid);
                     }
                 }
-//                System.out.print("aaaaaaaaAAAAAAA");
                 ServletUtils.redirect("/Home/Index",request,response);
                 break;
             case "/Detail":
@@ -65,14 +64,15 @@ public class HomeServlet extends HttpServlet {
                 List<course> courses = courseModel.findCourseByCourseId(course_id);
                 System.out.print(courses.get(0).getCourse_id());
                 course course = courses.get(0);
-                System.out.print("course get ok");
                 request.setAttribute("course", course);
-                System.out.print("course add ok");
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
                 break;
             case "/Filter":
                 String keyword = request.getParameter("search");
-                ServletUtils.forward("/views/vwProduct/Filter2.jsp",request,response);
+                List<course> coursess = courseModel.fulltextsearch(keyword);
+                System.out.print(coursess.get(0).getCourse_name());
+                request.setAttribute("courses",coursess);
+                ServletUtils.forward("/views/vwProduct/Filter.jsp",request,response);
                 break;
             case "/Cart":
                 int user_id = Integer.parseInt(request.getParameter("user_id"));

@@ -2,177 +2,135 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<jsp:useBean id="courses" scope="request" type="java.util.List<beans.course>"/>
+
 <t:main>
-    <jsp:body>
+    <jsp:attribute name="css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <%--        <link rel="stylesheet" href="${pageContext.request.contextPath}/public/content-filter-master/css/reset.css">--%>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/public/content-filter-master/css/style.css">
+    </jsp:attribute>
+    <jsp:attribute name="js">
+        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery-2.1.1.js"></script>
+        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery.mixitup.min.js"></script>
+        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/public/content-filter-master/js/modernizr.js"></script>
+    </jsp:attribute>
+        <jsp:body>
+            <header class="cd-header">
+        </header>
+        <main class="cd-main-content">
+            <div class="cd-tab-filter-wrapper">
+                <div class="cd-tab-filter">
+                    <ul class="cd-filters">
+                        <li class="placeholder">
+                            <a data-type="all" >All</a> <!-- selected option on mobile -->
+                        </li>
+                        <li class="filter"><a class="selected"  data-type="all">All</a></li>
+                        <li class="filter" data-filter=".color-1"><a data-type="color-1">Window</a></li>
+                        <li class="filter" data-filter=".color-2"><a data-type="color-2">Web</a></li>
+                    </ul> <!-- cd-filters -->
+                </div> <!-- cd-tab-filter -->
+            </div> <!-- cd-tab-filter-wrapper -->
 
-        <style>
-            <%@include file="/WEB-INF/css/Filter.css"%>
-        </style>
+            <section class="cd-gallery">
+                <ul>
+                    <c:forEach var="course" items="${courses}">
+                        <li class="mix color-${course.category_id} check1 radio2 option3"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}"></li>
+                    </c:forEach>
+<%--                    <li class="mix color-2 check2 radio2 option2"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-2.jpg" alt="Image 2"></li>--%>
+<%--                    <li class="mix color-1 check3 radio3 option1"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-3.jpg" alt="Image 3"></li>--%>
+<%--                    <li class="mix color-1 check3 radio2 option4"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-4.jpg" alt="Image 4"></li>--%>
+<%--                    <li class="mix color-1 check1 radio3 option2"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-5.jpg" alt="Image 5"></li>--%>
+<%--                    <li class="mix color-2 check2 radio3 option3"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-6.jpg" alt="Image 6"></li>--%>
+<%--                    <li class="mix color-2 check2 radio2 option1"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-7.jpg" alt="Image 7"></li>--%>
+<%--                    <li class="mix color-1 check1 radio3 option4"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-8.jpg" alt="Image 8"></li>--%>
+<%--                    <li class="mix color-2 check1 radio2 option3"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-9.jpg" alt="Image 9"></li>--%>
+<%--                    <li class="mix color-1 check3 radio2 option4"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-10.jpg" alt="Image 10"></li>--%>
+<%--                    <li class="mix color-1 check3 radio3 option2"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-11.jpg" alt="Image 11"></li>--%>
+<%--                    <li class="mix color-2 check1 radio3 option1"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-12.jpg" alt="Image 12"></li>--%>
+                    <li class="gap"></li>
+                    <li class="gap"></li>
+                    <li class="gap"></li>
+                </ul>
+                <div class="cd-fail-message">No results found</div>
+            </section> <!-- cd-gallery -->
 
+            <div class="cd-filter">
+                <form>
+                    <div class="cd-filter-block">
+                        <h4>Search</h4>
 
-        <div class="container-fluid" style=" border: 4px solid red; height: auto; width: 100%;padding-top: 5rem">
-            <div class="row">
-                <div style="border: 4px solid blue;  text-align: left" class="col-lg-3">
-                    <div class="card-item">
+                        <div class="cd-filter-content">
+                            <input type="search" placeholder="Try 1...">
+                        </div> <!-- cd-filter-content -->
+                    </div> <!-- cd-filter-block -->
 
-                        <div class="processor p-2">
-                            <div class="heading d-flex justify-content-between align-items-center">
-                                <h6 class="text-uppercase">Categories</h6>
-                            </div>
+                    <div class="cd-filter-block">
+                        <h4>Check boxes</h4>
 
-                            <div class="profile-usermenu">
-                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill"
-                                       href="#v-pills-profile" role="tab" aria-controls="v-pills-home"
-                                       aria-selected="true">
-                                        <i class="fa fa-star" aria-hidden="true"></i>&ensp;  Lập trình Web</a>
+                        <ul class="cd-filter-content cd-filters list">
+                            <li>
+                                <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+                                <label class="checkbox-label" for="checkbox1">Option 1</label>
+                            </li>
 
-                                    <a class="nav-link" id="v-pills-total-tab" data-toggle="pill"
-                                       href="#v-pills-total" role="tab" aria-controls="v-pills-total"
-                                       aria-selected="false">
-                                        <i class="fa fa-star" aria-hidden="true"></i>&ensp; Lập trình C</a>
-                                </div>
-                            </div>
+                            <li>
+                                <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+                                <label class="checkbox-label" for="checkbox2">Option 2</label>
+                            </li>
 
-                        </div>
+                            <li>
+                                <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+                                <label class="checkbox-label" for="checkbox3">Option 3</label>
+                            </li>
+                        </ul> <!-- cd-filter-content -->
+                    </div> <!-- cd-filter-block -->
 
+                    <div class="cd-filter-block">
+                        <h4>Select</h4>
 
-                    </div>
-                </div>
+                        <div class="cd-filter-content">
+                            <div class="cd-select cd-filters">
+                                <select class="filter" name="selectThis" id="selectThis">
+                                    <option value="">Choose an option</option>
+                                    <option value=".option1">Option 1</option>
+                                    <option value=".option2">Option 2</option>
+                                    <option value=".option3">Option 3</option>
+                                    <option value=".option4">Option 4</option>
+                                </select>
+                            </div> <!-- cd-select -->
+                        </div> <!-- cd-filter-content -->
+                    </div> <!-- cd-filter-block -->
 
-<%-- Display theo loai               --%>
-                <div style="padding:0; border: 4px solid green;  text-align: center" class="col-lg-9">
+                    <div class="cd-filter-block">
+                        <h4>Radio buttons</h4>
 
+                        <ul class="cd-filter-content cd-filters list">
+                            <li>
+                                <input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
+                                <label class="radio-label" for="radio1">All</label>
+                            </li>
 
-                    <div class="card-item">
-                        <div class="col-md-12">
-                            <div class="profile-content">
-                                <div class="tab-content" id="v-pills-tabContent">
+                            <li>
+                                <input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
+                                <label class="radio-label" for="radio2">Choice 2</label>
+                            </li>
 
-                                    <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
-                                         aria-labelledby="v-pills-profile-tab">
-                                        <h3>Lap trinh Web</h3>
-                                        <hr style="border-top: 3px double #8c8b8b;">
+                            <li>
+                                <input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
+                                <label class="radio-label" for="radio3">Choice 3</label>
+                            </li>
+                        </ul> <!-- cd-filter-content -->
+                    </div> <!-- cd-filter-block -->
+                </form>
 
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="product py-4"> <span class="off bg-success">-25% OFF</span>
-                                                        <div class="text-center"> <img src="https://i.imgur.com/nOFet9u.jpg" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>XRD Active Shoes</h5> <span>$1,999.99</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="product py-4"> <span class="off bg-warning">SALE</span>
-                                                        <div class="text-center"> <img src="https://i.imgur.com/VY0R9aV.png" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Hygen Smart watch </h5> <span>$123.43</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="product py-4">
-                                                        <div class="text-center"> <img src="https://i.imgur.com/PSGrLdz.jpg" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Acer surface book 2.5</h5> <span>$1,999.99</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="product py-4"> <span class="off bg-success">-10% OFF</span>
-                                                        <div class="text-center"> <img src="https://i.imgur.com/OdRSpXG.jpg" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Dell XPS Surface</h5> <span>$1,245.89</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <a  class="cd-close">Close</a>
+            </div> <!-- cd-filter -->
 
-                                    <div  class="tab-pane fade" id="v-pills-total" role="tabpanel"
-                                         aria-labelledby="v-pills-total-tab">
-                                                <h3> Lap trinh C</h3>
-                                        <hr style="border-top: 3px double #8c8b8b;">
-
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="product py-4">
-                                                        <!-- <span class="off bg-success">-25% OFF</span> -->
-                                                        <div class="text-center"> <img src="https://i.imgur.com/X2AwTCY.jpg" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Acer surface book 5.5</h5> <span>$2,999.99</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="product py-4"> <span class="off bg-success">-5% OFF</span>
-                                                        <div class="text-center"> <img src="https://i.imgur.com/QQwcBpF.png" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Xps smart watch 5.0</h5> <span>$999.99</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="product py-4"> <span class="off bg-warning">SALE</span>
-                                                        <div class="text-center"> <img src="https://i.imgur.com/PSGrLdz.jpg" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Acer surface book 8.5</h5> <span>$3,999.99</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="product py-4">
-                                                        <div class="text-center"> <img src="https://i.imgur.com/OdRSpXG.jpg" width="200"> </div>
-                                                        <div class="about text-center">
-                                                            <h5>Dell surface book 5</h5> <span>$1,999.99</span>
-                                                        </div>
-                                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-
+            <a class="cd-filter-trigger">Filters</a>
+        </main>
 
 
     </jsp:body>
-
 </t:main>

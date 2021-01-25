@@ -6,15 +6,21 @@
 <jsp:useBean id="course" scope="request" type="beans.course"/>
 <jsp:useBean id="authUser" scope="session" type="beans.user"/>
 
+
 <t:main>
-    <jsp:body>
+    <jsp:attribute name="css">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-        <style>
-            <%@include file="/WEB-INF/css/InfoProduct.css"%>
-        </style>
+        <style><%@include file="/WEB-INF/css/InfoProduct.css"%></style>
+    </jsp:attribute>
+    <jsp:attribute name="js">
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
+    </jsp:attribute>
+    <jsp:body>
+
+
 
 
         <div class="container-fluid" style=" height: auto; width: 100%;padding-top: 5rem">
@@ -353,7 +359,7 @@
                         <div class="col-md-12">
                             <div class="well well-sm">
                                 <div class="text-right">
-                                    <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a
+                                    <a class="btn btn-success btn-green"  id="open-review-box">Leave a
                                         Review</a>
                                 </div>
 

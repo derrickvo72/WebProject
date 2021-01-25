@@ -73,4 +73,17 @@ public class courseModel {
             return Optional.ofNullable(listtake.get(0));
         }
     }
+    public static List<course> fulltextsearch(String keyword){
+        final String sql = "SELECT *\n" +
+                "FROM  course\n" +
+                "WHERE\n" +
+                "    MATCH(course_name, course_fullinfo, course_lessinfo) \n" +
+                "    AGAINST(:keyword);";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("keyword", keyword)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(course.class);
+        }
+    }
 }

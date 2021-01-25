@@ -130,11 +130,8 @@
 <%--    });--%>
 <%--    $('#txtUsername').select();--%>
 <%--</script>--%>
-<script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
-<script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery-2.1.1.js"></script>
-<script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery.mixitup.min.js"></script>
-<script src="${pageContext.request.contextPath}/public/content-filter-master/js/main.js"></script>
-<script src="${pageContext.request.contextPath}/public/content-filter-master/js/modernizr.js"></script>
+
+
 <jsp:invoke fragment="js"/>
 </body>
 
