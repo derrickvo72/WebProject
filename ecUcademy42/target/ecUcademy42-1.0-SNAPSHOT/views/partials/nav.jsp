@@ -113,6 +113,7 @@
                         </c:otherwise>
             </c:choose>
         </li>
+
 <%--                <span class="badge">3</span></a>--%>
 <%--            <div class="dropdown-content">--%>
 <%--                <div class="shopping-cart">--%>

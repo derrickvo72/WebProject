@@ -173,7 +173,8 @@
                                     <div class="item">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
-                                                <div class="course__description">
+                                                <div class="course__description"
+                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -257,8 +258,6 @@
 
                         </c:forEach>
                     </div>
-
-
                 </div>
 
                 <div class="tab-pane container fade" id="tab3">
@@ -269,7 +268,8 @@
                                     <div class="item">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
-                                                <div class="course__description">
+                                                <div class="course__description"
+                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -588,8 +588,6 @@
                         </c:forEach>
                     </div>
                 </div>
-
-
 
 <%--                <div class="col-lg-3 col-md-3 col-sm-3">--%>
 <%--                    <div class="row">--%>
