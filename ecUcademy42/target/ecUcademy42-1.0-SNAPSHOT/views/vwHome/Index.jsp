@@ -2,7 +2,10 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <jsp:useBean id="courses" scope="request" type="java.util.List<beans.course>"/>
+<jsp:useBean id="authUser" scope="session" type="beans.user"/>
+
 <t:main>
     <jsp:body>
 
@@ -55,7 +58,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail?course_id=${c.course_id}';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -123,10 +126,10 @@
                                                                 <%--                           Rating --%>
 
                                                             <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
-                                                                <a style="font-size: smaller" href="#"
+                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                    class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
-                                                                        aria-hidden="true"></i> Add to cart</a>
+                                                                        aria-hidden="true"></i> Buy now!</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -242,10 +245,10 @@
                                                                 <%--                           Rating --%>
 
                                                             <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
-                                                                <a style="font-size: smaller" href="#"
+                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                    class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
-                                                                        aria-hidden="true"></i> Add to cart</a>
+                                                                        aria-hidden="true"></i> Buy now!</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -337,10 +340,10 @@
                                                                 <%--                           Rating --%>
 
                                                             <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
-                                                                <a style="font-size: smaller" href="#"
+                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                    class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
-                                                                        aria-hidden="true"></i> Add to cart</a>
+                                                                        aria-hidden="true"></i> Buy now!</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -403,10 +406,10 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-12 col-xs-6"
                                                          style="text-align: right">
-                                                        <a style="font-size: smaller" href="#"
+                                                        <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                            class="AddCart btn btn-info"><i
                                                                 class="fa fa-shopping-cart"
-                                                                aria-hidden="true"></i> Add to cart</a>
+                                                                aria-hidden="true"></i> Buy now!</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -500,10 +503,10 @@
                                                         </div>
                                                         <div class="col-md-6 col-sm-12 col-xs-6"
                                                              style="text-align: right">
-                                                            <a style="font-size: smaller" href="#"
+                                                            <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                class="AddCart btn btn-info"><i
                                                                     class="fa fa-shopping-cart"
-                                                                    aria-hidden="true"></i> Add to cart</a>
+                                                                    aria-hidden="true"></i> Buy now!</a>
                                                         </div>
                                                     </div>
                                                 </div>

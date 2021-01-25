@@ -285,10 +285,12 @@ figure {
   margin-top: 16px; }
 
 .signup-image-link {
-  font-size: 14px;
+  font-size: 20px;
   color: #222;
   display: block;
-  text-align: center; }
+  text-align: center;
+  background-color: #007bff;
+}
 
 .term-service {
   font-size: 13px;

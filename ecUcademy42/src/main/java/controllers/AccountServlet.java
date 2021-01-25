@@ -59,12 +59,8 @@ public class AccountServlet extends HttpServlet {
                 String courselink = request.getParameter("courselink");
                 float courseprice = Float.parseFloat(request.getParameter("courseprice"));
                 Date date = new Date();
-                course course = new course(coursename,coursecategory,coursefullinfo,courselessinfo,courseprice,date,courselink);
+                course course = new course(coursename,coursecategory,coursefullinfo,courselessinfo,courseprice,date,courselink,user_id);
                 courseModel.add(course);
-//                List<course> coursesByInfo = courseModel.findCourseByCourse(course);
-//                course courseByInfo = coursesByInfo.get(0);
-//                System.out.print(courseByInfo.getCourse_id());
-//                courseModel.teaches(user.getUser_id(),courseByName.getCourse_id());
                 ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
             }
             else{
@@ -191,6 +187,7 @@ public class AccountServlet extends HttpServlet {
                         courses = userModel.getListCourseByUserId(user_id);
                     } else {
                         courses = userModel.getListCourseByTeacherId(user_id);
+                        System.out.print("Ok!");
                     }
                     user.setCourses(courses);
                     request.setAttribute("user", user);

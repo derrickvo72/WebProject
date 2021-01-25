@@ -84,13 +84,12 @@ public class userModel {
         }
     }
     public static List<course> getListCourseByTeacherId(int teacherID) {
-        final String sql = "select course.course_id, course.course_name, course.course_fullinfo, course.course_lessinfo, course.course_rate, course.course_lession, course.img,\n" +
-                "course.created_at, course.updated_at, course.course_link, course.course_price\n" +
-                "from course, teaches\n" +
-                "where teaches.user_id = :teacherID and teaches.course_id = course.course_id";
+        final String sql = "SELECT * FROM courseonline.course\n" +
+                "where teacher=:teacherID";
         try (Connection con = dbUtils.getConnection()){
             return con.createQuery(sql)
                     .addParameter("teacherID", teacherID)
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(course.class);
         }
     }

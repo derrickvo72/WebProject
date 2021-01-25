@@ -361,8 +361,8 @@
                                                 <tr>
                                                     <th class="border-0 text-uppercase small font-weight-bold">Course</th>
                                                     <th class="border-0 text-uppercase small font-weight-bold">Description</th>
-                                                    <th class="border-0 text-uppercase small font-weight-bold">Link</th>
                                                     <th class="border-0 text-uppercase small font-weight-bold">Price</th>
+                                                    <th class="border-0 text-uppercase small font-weight-bold"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -370,8 +370,8 @@
                                                     <tr>
                                                         <td>${c.course_name}</td>
                                                         <td>${c.course_fullinfo}</td>
-                                                        <td>${c.course_link}</td>
                                                         <td>${c.course_price}</td>
+                                                        <td><a href="${pageContext.request.contextPath}/Home/Detail?course_id=${c.course_id}" type="button" style="border-radius:60%; padding-bottom: 0px; padding-top: 0px;" class="btn btn-info">i</a></td>
                                                     </tr>
                                                 </c:forEach>
                                                 </tbody>

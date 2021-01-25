@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<jsp:useBean id="course" scope="request" type="beans.course"/>
+<jsp:useBean id="authUser" scope="session" type="beans.user"/>
 
 <t:main>
     <jsp:body>
@@ -23,7 +27,7 @@
                                     <div class="preview col-md-12">
 
                                         <div style="border: 4px solid #428bca;" class="preview-pic tab-content">
-                                            <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                                            <div class="tab-pane active" id="pic-1"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}" /></div>
 <%--                                            <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>--%>
 <%--                                            <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>--%>
 <%--                                            <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>--%>
@@ -40,28 +44,29 @@
                                     </div>
                                     <div class="details col-md-12">
                                         <div style="margin-top: 10px;" class="rating">
-                                            <span class="review-no">24/01/2021</span> &ensp;
+<%--                                            <fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" />--%>
+                                            <span class="review-no"><fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" /></span> &ensp;
                                             <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i> 1000 reviews</span>
                                         </div>
 
                                         <h5 class="sizes">Tác giả:
-                                            <span class="size" data-toggle="tooltip" title="small">Lê Văn A</span>
+                                            <span class="size" data-toggle="tooltip" title="small">${course.teacher_name}</span>
                                         </h5>
                                         <h5 class="sizes">Loại:
-                                            <span class="size" data-toggle="tooltip" title="small">Lập trình Web</span>
+                                            <span class="size" data-toggle="tooltip" title="small">${course.category_name}</span>
                                         </h5>
                                         <h5 class="sizes">Liên kết:
                                             <span class="size" data-toggle="tooltip" title="small">
-                                                <a style="color: black" href="https://www.w3schools.com/">ABC</a>
+                                                <a style="color: black" href="${course.course_link}">${course.course_link}</a>
                                             </span>
                                         </h5>
 
                                         <h3 style="margin-top: 10px;" class="product-title">
-                                            Lập trình C cáp tốc
+                                            ${course.course_name}
                                         </h3>
 
                                         <p class="product-description">
-                                            Đây là khóa học sẽ giúp bạn luyện kĩ năng cấp tốc
+                                            ${course.course_fullinfo}
                                         </p>
                                         <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 
@@ -70,10 +75,14 @@
 <%--                                            <span class="color green not-available" data-toggle="tooltip" title="Not In store"></span>--%>
 <%--                                            <span class="color blue"></span>--%>
 <%--                                        </h5>--%>
-                                        <h4 class="price">current price: <span>$180</span></h4>
+                                        <h4 class="price">current price: <span>$${course.course_price}</span></h4>
 
                                         <div class="action">
-                                            <button style="background-color: red" class="add-to-cart btn btn-default" type="button">Buy</button>
+                                            <form id="frmBuy" method="get" action="${pageContext.request.contextPath}/Home/Buy">
+                                                <input type="hidden" name="course_id" value="${course.course_id}">
+                                                <input type="hidden" name="user_id" value="${authUser.user_id}">
+                                            </form>
+                                            <button style="background-color: red" class="add-to-cart btn btn-default" onclick="javascript: $('#frmBuy').submit();" type="button">Buy</button>
                                             <button class="add-to-cart btn btn-default" type="button">Add to cart</button>
                                             <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
                                         </div>
@@ -86,7 +95,7 @@
 
                 </div>
 
-                    <div style="text-align: center" class="col-lg-6">
+                <div style="text-align: center" class="col-lg-6">
                         <div class="card">
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
@@ -94,11 +103,40 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-md-6 text-center">
                                         <h1 class="rating-num">
-                                            4.0</h1>
+                                            ${course.course_rate}</h1>
                                         <div class="rating">
-                                            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-                            </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-                            </span><span class="glyphicon glyphicon-star-empty"></span>
+                                            <c:set var="rating" value="${course.course_rate}"/>
+                                            <fmt:formatNumber value="${rating}" maxFractionDigits="0"
+                                                              var="whole"/>
+                                            <c:set var="fraction" value="${rating-whole}"/>
+                                            <c:set var="nonerate" value="${5-whole}"/>
+                                            <c:choose>
+                                                <c:when test="${fraction<0}">
+                                                    <c:set var="rating" value="${whole-1}"/>
+                                                    <c:set var="fraction" value="1"/>
+                                                    <c:forEach begin="1" end="${rating}">
+                                                        <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+                                                    </c:forEach>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:forEach begin="1" end="${whole}">
+                                                        <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+                                                    </c:forEach>
+                                                    <c:choose>
+                                                        <c:when test="${fraction>0}">
+                                                            <c:set var="nonerate" value="${5-whole-1}"/>
+                                                        </c:when>
+                                                    </c:choose>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <c:choose>
+                                                <c:when test="${fraction>0}">
+                                                    <i class="fa fa-star-half-o fa-4x" aria-hidden="true"></i>
+                                                </c:when>
+                                            </c:choose>
+                                            <c:forEach begin="1" end="${nonerate}">
+                                                <i class="fa fa-star-o fa-4x" aria-hidden="true"></i>
+                                            </c:forEach>
                                         </div>
                                         <div>
                                             <span class="glyphicon glyphicon-user"></span>1,050,008 total

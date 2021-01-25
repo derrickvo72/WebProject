@@ -110,8 +110,18 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-
 </script>
+<%--<script>--%>
+<%--    const username = $('#txtUsername').val();--%>
+<%--    $.getJSON('${pageContext.request.contextPath}/Home/Buy/IsAvailable?user=' + username, function (data) {--%>
+<%--        if (data === true) {--%>
+<%--            $('#buy-form').off('submit').submit();--%>
+<%--        } else {--%>
+<%--            alert('Not available.');--%>
+<%--        }--%>
+<%--    });--%>
+<%--    $('#txtUsername').select();--%>
+<%--</script>--%>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
 <jsp:invoke fragment="js"/>
 </body>

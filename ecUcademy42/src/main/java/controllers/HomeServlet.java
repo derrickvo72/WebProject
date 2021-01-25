@@ -3,6 +3,7 @@ package controllers;
 
 
 import beans.course;
+import beans.take;
 import beans.user;
 import models.courseModel;
 import models.userModel;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +48,26 @@ public class HomeServlet extends HttpServlet {
             case "/Profile":
                 ServletUtils.forward("/views/vwAccount/Profile.jsp",request,response);
                 break;
+            case "/Buy":
+                int courseid = Integer.parseInt(request.getParameter("course_id"));
+                int userid = Integer.parseInt(request.getParameter("user_id"));
+                if (userid != 0) {
+                    Optional<take> take = courseModel.gettake(userid, courseid);
+                    if (!take.isPresent()) {
+                        courseModel.takes(userid, courseid);
+                    }
+                }
+                System.out.print("aaaaaaaaAAAAAAA");
+                ServletUtils.redirect("/Home/Index",request,response);
+                break;
             case "/Detail":
+                int course_id = Integer.parseInt(request.getParameter("course_id"));
+                List<course> courses = courseModel.findCourseByCourseId(course_id);
+                System.out.print(courses.get(0).getCourse_id());
+                course course = courses.get(0);
+                System.out.print("course get ok");
+                request.setAttribute("course", course);
+                System.out.print("course add ok");
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
                 break;
             case "/Filter":
