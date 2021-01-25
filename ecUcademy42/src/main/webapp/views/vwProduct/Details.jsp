@@ -21,6 +21,7 @@
             <div class="row">
 
                 <div style="text-align: left" class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="container-fliud">
                                 <div class="wrapper row">
@@ -92,7 +93,21 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="col-lg-12" style="padding-top: 50px;">
+                        <h2 style="font-family: monospace">All lessions</h2>
+                        <div class="card p-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="user d-flex flex-row align-items-center">
+                                    <i style="padding-right: 10px" class="fa fa-play" aria-hidden="true"></i><span>
+                                    <a href="#"><small style="font-size:18px;font-family:monospace " class="font-weight-bold text-primary">Lap trinh vui nhon</small>
+                                    </a><small style="font-size:18px; padding-left: 10px" class="font-weight-bold">c#</small></span></div>
+                            </div>
+                            <div class="action d-flex justify-content-between mt-2 align-items-center">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div style="text-align: center" class="col-lg-6">
