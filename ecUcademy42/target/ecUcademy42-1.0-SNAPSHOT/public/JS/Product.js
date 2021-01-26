@@ -35,16 +35,33 @@ $(function(){
 
     });
 
-    $('.starrr').on('starrr:change', function(e, value){
-        ratingsField.val(value);
-    });
+    // $('.starrr').on('starrr:change', function(e, value){
+    //     ratingsField.val(value);
+    // });
 });
 
 
-
+// $('#star1').click(function(){
+//     $('#ratings-hidden').val(1);
+// });
+// $('#star2').click(function(){
+//     $('#ratings-hidden').val(2);
+// });
+// $('#star3').click(function(){
+//     $('#ratings-hidden').val(3);
+// });
+// $('#star4').click(function(){
+//     $('#ratings-hidden').val(4);
+// });
+// $('#star5').click(function(){
+//
+// });
 // Rating
 function add(ths,sno){
 
+    // $('#ratings-hidden').val(sno);
+    // document.getElementById('ratings-hidden').value=sno.innerHTML;
+    $("#ratings-hidden").attr("value", sno);
 
     for (var i=1;i<=5;i++){
         var cur=document.getElementById("star"+i)

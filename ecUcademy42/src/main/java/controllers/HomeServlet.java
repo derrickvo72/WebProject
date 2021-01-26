@@ -48,46 +48,6 @@ public class HomeServlet extends HttpServlet {
             case "/Profile":
                 ServletUtils.forward("/views/vwAccount/Profile.jsp",request,response);
                 break;
-            case "/Buy":
-                int courseid = Integer.parseInt(request.getParameter("course_id"));
-                int userid = Integer.parseInt(request.getParameter("user_id"));
-                if (userid != 0) {
-                    Optional<take> take = courseModel.gettake(userid, courseid);
-                    if (!take.isPresent()) {
-                        courseModel.takes(userid, courseid);
-                    }
-                }
-                ServletUtils.redirect("/Home/Index",request,response);
-                break;
-            case "/Detail":
-                int course_id = Integer.parseInt(request.getParameter("course_id"));
-                List<course> courses = courseModel.findCourseByCourseId(course_id);
-                System.out.print(courses.get(0).getCourse_id());
-                course course = courses.get(0);
-                request.setAttribute("course", course);
-                ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
-                break;
-            case "/Filter":
-                String keyword = request.getParameter("search");
-                List<course> coursess = courseModel.fulltextsearch(keyword);
-                System.out.print(coursess.get(0).getCourse_name());
-                request.setAttribute("courses",coursess);
-                ServletUtils.forward("/views/vwProduct/Filter.jsp",request,response);
-                break;
-            case "/Cart":
-                int user_id = Integer.parseInt(request.getParameter("user_id"));
-                Optional<user> u = userModel.findByID(user_id);
-                if (u.isPresent()) {
-                    List<course> cartcourses = userModel.getListCartCourseByUserId(user_id);
-                    List<user> users = userModel.findUserByID(user_id);
-                    user user = users.get(0);
-                    user.setCartcourses(cartcourses);
-                    request.setAttribute("user", user);
-                    ServletUtils.forward("/views/vwHome/Cart.jsp", request, response);
-                } else {
-                    ServletUtils.redirect("/Account/Login", request, response);
-                }
-                break;
             default:
                 ServletUtils.redirect("/views/vwHome/404.jsp",request,response);
                 break;

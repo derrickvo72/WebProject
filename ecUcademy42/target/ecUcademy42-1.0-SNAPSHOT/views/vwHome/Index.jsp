@@ -58,7 +58,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail?course_id=${c.course_id}';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -126,7 +126,7 @@
                                                                 <%--                           Rating --%>
 
                                                             <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
-                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
+                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Product/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                    class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
                                                                         aria-hidden="true"></i> Buy now!</a>
@@ -177,7 +177,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -245,7 +245,7 @@
                                                                 <%--                           Rating --%>
 
                                                             <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
-                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
+                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Product/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                    class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
                                                                         aria-hidden="true"></i> Buy now!</a>
@@ -272,7 +272,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -340,7 +340,7 @@
                                                                 <%--                           Rating --%>
 
                                                             <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
-                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
+                                                                <a style="font-size: smaller" href="${pageContext.request.contextPath}/Product/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                    class="AddCart btn btn-info"><i
                                                                         class="fa fa-shopping-cart"
                                                                         aria-hidden="true"></i> Buy now!</a>
@@ -406,7 +406,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-sm-12 col-xs-6"
                                                          style="text-align: right">
-                                                        <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
+                                                        <a style="font-size: smaller" href="${pageContext.request.contextPath}/Product/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                            class="AddCart btn btn-info"><i
                                                                 class="fa fa-shopping-cart"
                                                                 aria-hidden="true"></i> Buy now!</a>
@@ -438,7 +438,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="slider-item">
                                             <div class="course__description"
-                                                 onclick="location.href='${pageContext.request.contextPath}/Home/Detail';">
+                                                 onclick="location.href='${pageContext.request.contextPath}/Product/Detail';">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -503,7 +503,7 @@
                                                         </div>
                                                         <div class="col-md-6 col-sm-12 col-xs-6"
                                                              style="text-align: right">
-                                                            <a style="font-size: smaller" href="${pageContext.request.contextPath}/Home/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
+                                                            <a style="font-size: smaller" href="${pageContext.request.contextPath}/Product/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
                                                                class="AddCart btn btn-info"><i
                                                                     class="fa fa-shopping-cart"
                                                                     aria-hidden="true"></i> Buy now!</a>

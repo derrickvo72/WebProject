@@ -36,7 +36,7 @@
             <section class="cd-gallery">
                 <ul>
                     <c:forEach var="course" items="${courses}">
-                        <li class="mix color-${course.category_id} check1 radio2 option3"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}"></li>
+                        <li class="mix color-${course.category_id} check${course.course_id} radio2 option3"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}"></li>
                     </c:forEach>
 <%--                    <li class="mix color-2 check2 radio2 option2"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-2.jpg" alt="Image 2"></li>--%>
 <%--                    <li class="mix color-1 check3 radio3 option1"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-3.jpg" alt="Image 3"></li>--%>

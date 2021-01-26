@@ -7,6 +7,7 @@ import models.courseModel;
 import models.userModel;
 import utils.ServletUtils;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -163,9 +164,15 @@ public class AccountServlet extends HttpServlet {
                 session.setAttribute("auth", true);
                 session.setAttribute("authUser", user.get());
 
-                String url = (String) session.getAttribute("retUrl");
+                String url = request.getParameter("retUrl");
+//                System.out.println(url);
                 if (url == null) url = "/Home";
                 ServletUtils.redirect(url, request, response);
+//                if(retUrl == null) {
+//                    ServletUtils.forward("/views/vwHome/Index.jsp", request, response);
+//                }
+//                RequestDispatcher dispatcher = request.getRequestDispatcher(retUrl);
+//                dispatcher.forward(request,response);
             } else {
                 request.setAttribute("hasError", true);
                 request.setAttribute("errorMessage", "Invalid password.");
@@ -183,9 +190,9 @@ public class AccountServlet extends HttpServlet {
         session.setAttribute("auth", false);
         session.setAttribute("authUser", new user());
 
-//        String url = request.getHeader("referer");
-//        if (url == null)
-        String url = "/Home";
+        String url = request.getHeader("referer");
+        if (url == null)
+            url = "/Home";
         ServletUtils.redirect(url, request, response);
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -195,6 +202,9 @@ public class AccountServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwAccount/Resign.jsp", request, response);
                 break;
             case "/Login":
+//                String retUrl = request.getParameter("retUrl");
+//                System.out.println(retUrl + " from Get");
+//                request.setAttribute("retUrl", retUrl);
                 request.setAttribute("hasError", false);
                 ServletUtils.forward("/views/vwAccount/Login.jsp", request, response);
                 break;
@@ -216,7 +226,7 @@ public class AccountServlet extends HttpServlet {
 
                     ServletUtils.forward("/views/vwAccount/Profile.jsp", request, response);
                 } else {
-                    ServletUtils.redirect("/Account/Login", request, response);
+                    ServletUtils.forward("/Account/Login", request, response);
                 }
                 break;
             case "/IsAvailable":

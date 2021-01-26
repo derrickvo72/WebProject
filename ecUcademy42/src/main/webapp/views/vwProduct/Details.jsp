@@ -6,7 +6,6 @@
 <jsp:useBean id="course" scope="request" type="beans.course"/>
 <jsp:useBean id="authUser" scope="session" type="beans.user"/>
 
-
 <t:main>
     <jsp:attribute name="css">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -20,34 +19,22 @@
     </jsp:attribute>
     <jsp:body>
 
-
-
+        <c:set var="urlid" value="${urlwithid}"/>
+        <jsp:include page="../partials/nav.jsp" flush="true">
+            <jsp:param name="urlwithid" value="${urlid}"/>
+        </jsp:include>
 
         <div class="container-fluid" style=" height: auto; width: 100%;padding-top: 5rem">
             <div class="row">
-
                 <div style="text-align: left" class="col-lg-6">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="container-fliud">
                                 <div class="wrapper row">
                                     <div class="preview col-md-12">
-
                                         <div style="border: 4px solid #428bca;" class="preview-pic tab-content">
                                             <div class="tab-pane active" id="pic-1"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}" /></div>
-<%--                                            <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>--%>
-<%--                                            <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>--%>
-<%--                                            <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>--%>
-<%--                                            <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>--%>
                                         </div>
-<%--                                        <ul class="preview-thumbnail nav nav-tabs">--%>
-<%--                                            <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>--%>
-<%--                                            <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>--%>
-<%--                                            <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>--%>
-<%--                                            <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>--%>
-<%--                                            <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>--%>
-<%--                                        </ul>--%>
-
                                     </div>
                                     <div class="details col-md-12">
                                         <div style="margin-top: 10px;" class="rating">
@@ -100,7 +87,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-12" style="padding-top: 50px;">
                         <h2 style="font-family: monospace">All lessions</h2>
                         <div class="card p-3">
@@ -108,14 +94,14 @@
                                 <div class="user d-flex flex-row align-items-center">
                                     <i style="padding-right: 10px" class="fa fa-play" aria-hidden="true"></i><span>
                                     <a href="#"><small style="font-size:18px;font-family:monospace " class="font-weight-bold text-primary">Lap trinh vui nhon</small>
-                                    </a><small style="font-size:18px; padding-left: 10px" class="font-weight-bold">c#</small></span></div>
+                                    </a><small style="font-size:18px; padding-left: 10px" class="font-weight-bold">c#</small></span>
+                                </div>
                             </div>
                             <div class="action d-flex justify-content-between mt-2 align-items-center">
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div style="text-align: center" class="col-lg-6">
                         <div class="card">
                     <div class="row">
@@ -232,7 +218,52 @@
                             </div>
                         </div>
                     </div>
+                            <div class="row" style="padding: 0px;">
+                                <div class="col-md-12">
+                                    <div class="well well-sm">
+                                        <div class="text-right">
+                                            <c:choose>
+                                                <c:when test="${auth}">
+                                                    <a class="btn btn-success btn-green"  id="open-review-box">Leave a Review</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <form action="${pageContext.request.contextPath}/Account/Login">
+                                                        <input type="hidden" name="retUrl" value="${urlid}">
+                                                        <button type="submit" class="btn btn-success btn-green">Leave a Review</button>
+                                                    </form>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </div>
 
+                                        <div class="row" id="post-review-box" style="display:none;">
+                                            <div class="col-md-12">
+                                                        <form accept-charset="UTF-8" action="" method="post">
+                                                            <input type="hidden" name="retUrl" value="${urlid}">
+                                                            <input name="userid" type="hidden" value="${authUser.user_id}">
+                                                            <input name="courseid" type="hidden" value="${course.course_id}">
+                                                            <input id="ratings-hidden" name="rating" type="hidden">
+                                                            <textarea class="rateform form-control animated" cols="50" id="new-review"
+                                                                      name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+                                                            <div class="text-right">
+                                                                <div style=" padding-bottom: 5px; text-align: right;">
+                                                                    <span class="fa fa-star fa-2x" id="star1" onclick="add(this,1)"></span>
+                                                                    <span class="fa fa-star fa-2x" id="star2" onclick="add(this,2)"></span>
+                                                                    <span class="fa fa-star fa-2x" id="star3" onclick="add(this,3)"></span>
+                                                                    <span class="fa fa-star fa-2x" id="star4" onclick="add(this,4)"></span>
+                                                                    <span class="fa fa-star fa-2x" id="star5" onclick="add(this,5)"></span>
+                                                                </div>
+                                                                <a class="btn btn-danger btn-sm" href="#" id="close-review-box"
+                                                                   style="display:none; margin-right: 10px;">
+                                                                    <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                                                                <button class="btn btn-success btn-sm" type="submit">Save</button>
+                                                            </div>
+                                                        </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <hr/>
@@ -354,53 +385,9 @@
 <%--                            <h4>Rating breakdown</h4>--%>
 <%--                        </div>--%>
 <%--                    </div>--%>
-
-                    <div class="row" style="padding: 0px;">
-                        <div class="col-md-12">
-                            <div class="well well-sm">
-                                <div class="text-right">
-                                    <a class="btn btn-success btn-green"  id="open-review-box">Leave a
-                                        Review</a>
-                                </div>
-
-                                <div class="row" id="post-review-box" style="display:none;">
-                                    <div class="col-md-12">
-                                        <form accept-charset="UTF-8" action="" method="post">
-                                            <input id="ratings-hidden" name="rating" type="hidden">
-                                            <textarea class="rateform form-control animated" cols="50" id="new-review"
-                                                      name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-                                            <div class="text-right">
-                                                <div style=" padding-bottom: 5px; text-align: right;">
-                                                    <span class="fa fa-star fa-2x" id="star1" onclick="add(this,1)"></span>
-                                                    <span class="fa fa-star fa-2x" id="star2" onclick="add(this,2)"></span>
-                                                    <span class="fa fa-star fa-2x" id="star3" onclick="add(this,3)"></span>
-                                                    <span class="fa fa-star fa-2x" id="star4" onclick="add(this,4)"></span>
-                                                    <span class="fa fa-star fa-2x" id="star5" onclick="add(this,5)"></span>
-                                                </div>
-                                                <a class="btn btn-danger btn-sm" href="#" id="close-review-box"
-                                                   style="display:none; margin-right: 10px;">
-                                                    <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                                                <button class="btn btn-success btn-lg" type="submit">Save</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
-                        </div>
-
                 </div>
-
             </div>
-
-
-
         </div>
-
-
-
     </jsp:body>
-
 </t:main>

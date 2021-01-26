@@ -18,6 +18,7 @@
                         <div class="signin-form">
                             <h2 style="font-family:monospace!important; " class="form-title">Login</h2>
                             <form method="POST" class="register-form" id="login-form">
+                                <input type="hidden" name="retUrl" value="${param.retUrl}">
                                 <div class="form-group">
                                     <label for="txtUsername"><i class="fa fa-user fa-2x" aria-hidden="true"></i></label>
                                     <input style="font-family:monospace!important; font-size: 25px" type="text" name="username" id="txtUsername" placeholder="Username"/>

@@ -2,6 +2,11 @@
 
 <jsp:useBean id="authUser" scope="session" type="beans.user"/>
 
+<%
+    String urlwithid = request.getParameter("urlwithid");
+    if(urlwithid == null) urlwithid = "";
+%>
+
 <div class="container-multi menu-lg">
     <ul class="menu clearfix" style="margin-bottom: 0px;">
         <li><a href="${pageContext.request.contextPath}/Home/Index">Home</a></li>
@@ -100,7 +105,7 @@
         <li style="text-align: center;">
             <div class="form-group has-search" >
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
-                    <form id="frmSearch" action="${pageContext.request.contextPath}/Home/Filter">
+                    <form id="frmSearch" action="${pageContext.request.contextPath}/Product/Filter">
                         <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
                         <input  id="txtSearch" name="search" type="text" class="form-control " placeholder="&#xf002;  Search everything!">
                     </form>
@@ -177,6 +182,7 @@
         <c:otherwise>
             <li style="float: right; margin-right:10px;">
                 <form action="${pageContext.request.contextPath}/Account/Login">
+                    <input type="hidden" name="retUrl" value="${param.urlwithid}">
                     <button type="submit" class="btn btn-outline-primary" style="margin-left: 10px">Log in</button>
                 </form>
 

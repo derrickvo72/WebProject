@@ -47,32 +47,6 @@ public class courseModel {
                     .executeAndFetch(course.class);
         }
     }
-    public static void takes(int user_id, int course_id) {
-        final String sql = "INSERT INTO takes (user_id, course_id) " +
-                "VALUES (:user_id,:course_id)\n";
-        try (Connection con = dbUtils.getConnection()) {
-            con.createQuery(sql)
-                    .addParameter("course_id",course_id)
-                    .addParameter("user_id",user_id)
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-        }
-
-    }
-    public static Optional<take> gettake(int userid, int courseid){
-        final String sql = "select * from takes where user_id = :user_id and course_id = :course_id";
-        try (Connection con = dbUtils.getConnection()) {
-            List<take> listtake = con.createQuery(sql)
-                    .addParameter("course_id", courseid)
-                    .addParameter("user_id", userid)
-                    .throwOnMappingFailure(false)
-                    .executeAndFetch(take.class);
-            if (listtake.size() == 0) {
-                return Optional.empty();
-            }
-            return Optional.ofNullable(listtake.get(0));
-        }
-    }
     public static List<course> fulltextsearch(String keyword){
         final String sql = "SELECT *\n" +
                 "FROM  course\n" +
