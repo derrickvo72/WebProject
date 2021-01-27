@@ -2,6 +2,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <jsp:useBean id="course" scope="request" type="beans.course"/>
 <jsp:useBean id="authUser" scope="session" type="beans.user"/>
@@ -12,11 +13,19 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
         <style><%@include file="/WEB-INF/css/InfoProduct.css"%></style>
         <style><%@include file="/WEB-INF/css/multimenu.css"%></style>
+        <style><%@include file="/WEB-INF/css/Detail.css"%></style>
     </jsp:attribute>
     <jsp:attribute name="js">
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
+<%--        <script>--%>
+<%--            var stickyNote = $('#divComment')[0].outerHTML;--%>
+<%--            $('#btnSave').click(function(){--%>
+<%--                $stickyNote = $(stickyNote);--%>
+<%--                $stickyNote.appendTo($('#divReviewArea'))--%>
+<%--            })--%>
+<%--        </script>--%>
     </jsp:attribute>
     <jsp:body>
 
@@ -24,7 +33,30 @@
         <jsp:include page="../partials/nav.jsp" flush="true">
             <jsp:param name="urlwithid" value="${urlid}"/>
         </jsp:include>
-
+        <c:set var="star5" value="0"/>
+        <c:set var="star4" value="0"/>
+        <c:set var="star3" value="0"/>
+        <c:set var="star2" value="0"/>
+        <c:set var="star1" value="0"/>
+        <c:forEach var="star" items="${course.takes}">
+            <c:choose>
+                <c:when test="${star.rating==5}">
+                    <c:set var="star5" value="${star5+1}"/>
+                </c:when>
+                <c:when test="${star.rating==4}">
+                    <c:set var="star4" value="${star4+1}"/>
+                </c:when>
+                <c:when test="${star.rating==3}">
+                    <c:set var="star3" value="${star3+1}"/>
+                </c:when>
+                <c:when test="${star.rating==2}">
+                    <c:set var="star2" value="${star2+1}"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="star1" value="${star1+1}"/>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
         <div class="container-fluid" style=" height: auto; width: 100%;padding-top: 5rem">
             <div class="row">
                 <div style="text-align: left" class="col-lg-6">
@@ -41,7 +73,7 @@
                                         <div style="margin-top: 10px;" class="rating">
 <%--                                            <fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" />--%>
                                             <span class="review-no"><fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" /></span> &ensp;
-                                            <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i> 1000 reviews</span>
+                                            <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i>${fn:length(course.takes)} reviews</span>
                                         </div>
 
                                         <h5 class="sizes">Tác giả:
@@ -63,7 +95,6 @@
                                         <p class="product-description">
                                             ${course.course_fullinfo}
                                         </p>
-                                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 
 <%--                                        <h5 class="colors">colors:--%>
 <%--                                            <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>--%>
@@ -123,12 +154,12 @@
                                                     <c:set var="rating" value="${whole-1}"/>
                                                     <c:set var="fraction" value="1"/>
                                                     <c:forEach begin="1" end="${rating}">
-                                                        <i style="color: #ff9f1a" class="fa fa-star fa-4x" aria-hidden="true"></i>
+                                                        <i style="color: #ff9f1a" class="fa fa-star fa-3x" aria-hidden="true"></i>
                                                     </c:forEach>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <c:forEach begin="1" end="${whole}">
-                                                        <i style="color: #ff9f1a" class="fa fa-star fa-4x" aria-hidden="true"></i>
+                                                        <i style="color: #ff9f1a" class="fa fa-star fa-3x" aria-hidden="true"></i>
                                                     </c:forEach>
                                                     <c:choose>
                                                         <c:when test="${fraction>0}">
@@ -139,11 +170,11 @@
                                             </c:choose>
                                             <c:choose>
                                                 <c:when test="${fraction>0}">
-                                                    <i style="color: #ff9f1a" class="fa fa-star-half-o fa-4x" aria-hidden="true"></i>
+                                                    <i style="color: #ff9f1a" class="fa fa-star-half-o fa-3x" aria-hidden="true"></i>
                                                 </c:when>
                                             </c:choose>
                                             <c:forEach begin="1" end="${nonerate}">
-                                                <i style="color: #ff9f1a" class="fa fa-star-o fa-4x" aria-hidden="true"></i>
+                                                <i style="color: #ff9f1a" class="fa fa-star-o fa-3x" aria-hidden="true"></i>
                                             </c:forEach>
                                         </div>
                                         <div>
@@ -158,8 +189,8 @@
                                             <div class="col-xs-8 col-md-9">
                                                 <div class="progress progress-striped">
                                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                        <span class="sr-only">80%</span>
+                                                         aria-valuemin="0" aria-valuemax="100" style="width: ${star5/fn:length(course.takes)*100}%">
+<%--                                                        <span class="sr-only">80%</span>--%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,8 +201,8 @@
                                             <div class="col-xs-8 col-md-9">
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                        <span class="sr-only">60%</span>
+                                                         aria-valuemin="0" aria-valuemax="100" style="width: ${star4/fn:length(course.takes)*100}%">
+<%--                                                        <span class="sr-only">60%</span>--%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,8 +213,8 @@
                                             <div class="col-xs-8 col-md-9">
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
-                                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                        <span class="sr-only">40%</span>
+                                                         aria-valuemin="0" aria-valuemax="100" style="width: ${star3/fn:length(course.takes)*100}%">
+<%--                                                        <span class="sr-only">40%</span>--%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -194,8 +225,8 @@
                                             <div class="col-xs-8 col-md-9">
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20"
-                                                         aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                                        <span class="sr-only">20%</span>
+                                                         aria-valuemin="0" aria-valuemax="100" style="width: ${star2/fn:length(course.takes)*100}%">
+<%--                                                        <span class="sr-only">20%</span>--%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,8 +237,8 @@
                                             <div class="col-xs-8 col-md-9">
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
-                                                         aria-valuemin="0" aria-valuemax="100" style="width: 15%">
-                                                        <span class="sr-only">15%</span>
+                                                         aria-valuemin="0" aria-valuemax="100" style="width: ${star1/fn:length(course.takes)*100}%">
+<%--                                                        <span class="sr-only">15%</span>--%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -243,7 +274,7 @@
                                                             <input name="userid" type="hidden" value="${authUser.user_id}">
                                                             <input name="courseid" type="hidden" value="${course.course_id}">
                                                             <input id="ratings-hidden" name="rating" type="hidden">
-                                                            <textarea class="rateform form-control animated" cols="50" id="new-review"
+                                                            <textarea class="rateform form-control animated" cols="50" id="txtComment"
                                                                       name="comment" placeholder="Enter your review here..." rows="5"></textarea>
                                                             <div class="text-right">
                                                                 <div style=" padding-bottom: 5px; text-align: right;">
@@ -256,7 +287,7 @@
                                                                 <a class="btn btn-danger btn-sm" href="#" id="close-review-box"
                                                                    style="display:none; margin-right: 10px;">
                                                                     <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                                                                <button class="btn btn-success btn-sm" type="submit">Save</button>
+                                                                <button class="btn btn-success btn-sm" id="btnSave" type="submit">Save</button>
                                                             </div>
                                                         </form>
                                             </div>
@@ -268,107 +299,56 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <hr/>
-                            <div class="review-block">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                        <div class="review-block-name"><a href="#">nktailor</a></div>
-                                        <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="review-block-rate">
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-grey btn-xs"
-                                                    aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-grey btn-xs"
-                                                    aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
+                            <div class="review-block" id="divReviewArea">
+                                <div id="divComment">
+                                    <c:forEach var="take" items="${course.takes}">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                                                <div class="review-block-name"><a>${take.user_fullname}</a></div>
+                                                <div class="review-block-date">${take.ratingdate}</div>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="review-block-rate">
+                                                    <c:set var="rating" value="${take.rating}"/>
+                                                    <fmt:formatNumber value="${rating}" maxFractionDigits="0"
+                                                                      var="whole"/>
+                                                    <c:set var="fraction" value="${rating-whole}"/>
+                                                    <c:set var="nonerate" value="${5-whole}"/>
+                                                    <c:choose>
+                                                        <c:when test="${fraction<0}">
+                                                            <c:set var="rating" value="${whole-1}"/>
+                                                            <c:set var="fraction" value="1"/>
+                                                            <c:forEach begin="1" end="${rating}">
+                                                                <i style="color: #ff9f1a" class="fa fa-star fa-3x" aria-hidden="true"></i>
+                                                            </c:forEach>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <c:forEach begin="1" end="${whole}">
+                                                                <i style="color: #ff9f1a" class="fa fa-star fa-3x" aria-hidden="true"></i>
+                                                            </c:forEach>
+                                                            <c:choose>
+                                                                <c:when test="${fraction>0}">
+                                                                    <c:set var="nonerate" value="${5-whole-1}"/>
+                                                                </c:when>
+                                                            </c:choose>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <c:choose>
+                                                        <c:when test="${fraction>0}">
+                                                            <i style="color: #ff9f1a" class="fa fa-star-half-o fa-3x" aria-hidden="true"></i>
+                                                        </c:when>
+                                                    </c:choose>
+                                                    <c:forEach begin="1" end="${nonerate}">
+                                                        <i style="color: #ff9f1a" class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+                                                    </c:forEach>
+                                                </div>
+                                                <div class="review-block-description">${take.comment}</div>
+                                            </div>
                                         </div>
-                                        <div class="review-block-title">this was nice in buy</div>
-                                        <div class="review-block-description">this was nice in buy. this was nice in buy. this
-                                            was nice in buy. this was nice in buy this was nice in buy this was nice in buy this
-                                            was nice in buy this was nice in buy
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                        <div class="review-block-name"><a href="#">nktailor</a></div>
-                                        <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="review-block-rate">
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-grey btn-xs"
-                                                    aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-grey btn-xs"
-                                                    aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                        </div>
-                                        <div class="review-block-title">this was nice in buy</div>
-                                        <div class="review-block-description">this was nice in buy. this was nice in buy. this
-                                            was nice in buy. this was nice in buy this was nice in buy this was nice in buy this
-                                            was nice in buy this was nice in buy
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                        <div class="review-block-name"><a href="#">nktailor</a></div>
-                                        <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="review-block-rate">
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-grey btn-xs"
-                                                    aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-grey btn-xs"
-                                                    aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                            </button>
-                                        </div>
-                                        <div class="review-block-title">this was nice in buy</div>
-                                        <div class="review-block-description">this was nice in buy. this was nice in buy. this
-                                            was nice in buy. this was nice in buy this was nice in buy this was nice in buy this
-                                            was nice in buy this was nice in buy
-                                        </div>
-                                    </div>
+                                        <hr/>
+                                    </c:forEach>
+
                                 </div>
                             </div>
                         </div>

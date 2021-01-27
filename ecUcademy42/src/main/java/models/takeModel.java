@@ -36,7 +36,7 @@ public class takeModel {
             return Optional.ofNullable(listtake.get(0));
         }
     }
-    public static void rating(int userid, int courseid, int rating, String comment, LocalDateTime ratingdate){
+    public static void rating(int userid, int courseid, int rating, String comment, String ratingdate){
         final String sql = "UPDATE takes \n" +
                 "SET  rating = :rating,  comment = :comment, ratingdate = :ratingdate\n" +
                 "WHERE user_id = :userId  AND course_id = :courseId \n";
@@ -48,6 +48,18 @@ public class takeModel {
                     .addParameter("comment",comment)
                     .addParameter("ratingdate",ratingdate)
                     .executeUpdate();
+        }
+    }
+    public static List<take> getAllByCourseId(int course_id){
+        String sql = "select takes.user_id,course_id,complete,rating,comment,startdate,ratingdate,user_fullname\n" +
+                "FROM takes, user\n" +
+                "WHERE course_id = :course_id and takes.user_id = user.user_id\n" +
+                "ORDER by ratingdate DESC";
+        try(Connection con = dbUtils.getConnection()){
+            return con.createQuery(sql)
+                    .addParameter("course_id",course_id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(take.class);
         }
     }
 }

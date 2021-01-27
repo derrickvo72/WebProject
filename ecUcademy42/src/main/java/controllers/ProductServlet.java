@@ -35,23 +35,26 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void postComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int rating = Integer.parseInt(request.getParameter("rating"));
-    int userid = Integer.parseInt(request.getParameter("userid"));
-    int courseid = Integer.parseInt(request.getParameter("courseid"));
-    System.out.println(request.getParameter("rating"));
-        System.out.println(request.getParameter("userid"));
-        System.out.println(request.getParameter("courseid"));
-        System.out.println(request.getParameter("comment"));
-    String comment = request.getParameter("comment");
-//  Datetime now
-    LocalDateTime myDateObj = LocalDateTime.now();
-    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-    String formattedDate = myDateObj.format(myFormatObj);
-
-    takeModel.rating(userid,courseid,rating,comment,myDateObj);
-    String url = request.getParameter("retUrl");
-    if (url == null) url = "/Home";
-    ServletUtils.redirect(url, request, response);
+    try {
+        int rating = Integer.parseInt(request.getParameter("rating"));
+        int userid = Integer.parseInt(request.getParameter("userid"));
+        int courseid = Integer.parseInt(request.getParameter("courseid"));
+        String comment = request.getParameter("comment");
+        if(comment==null) comment="";
+        //  Datetime now
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            String formattedDate = myDateObj.format(myFormatObj);
+        takeModel.rating(userid,courseid,rating,comment,formattedDate);
+        String url = request.getParameter("retUrl");
+        if (url == null) url = "/Home";
+        ServletUtils.redirect(url, request, response);
+    }
+    catch (Exception e){
+        String url = request.getParameter("retUrl");
+        if (url == null) url = "/Home";
+        ServletUtils.redirect(url, request, response);
+    }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -90,6 +93,8 @@ public class ProductServlet extends HttpServlet {
                 List<course> courses = courseModel.findCourseByCourseId(course_id);
                 System.out.print(courses.get(0).getCourse_id());
                 course course = courses.get(0);
+                List<take> takes = takeModel.getAllByCourseId(course_id);
+                course.setTakes(takes);
                 request.setAttribute("course", course);
                 request.setAttribute("urlwithid", str);
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);

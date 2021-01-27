@@ -1,43 +1,40 @@
 package beans;
 
+import java.time.LocalDateTime;
+
 public class take {
-    int userid, courseid, rating;
+    int user_id, course_id, rating;
     float complete;
-    String comment;
+    String comment,startdate, ratingdate, user_fullname;
 
     public take() {
     }
 
-    public take(int userid, int courseid, int rating, float complete, String comment) {
-
-        this.userid = userid;
-        this.courseid = courseid;
+    public take(int user_id, int course_id, int rating, float complete, String comment, String startdate, String ratingdate, String user_fullname) {
+        this.user_id = user_id;
+        this.course_id = course_id;
         this.rating = rating;
         this.complete = complete;
         this.comment = comment;
+        this.startdate = startdate;
+        this.ratingdate = ratingdate;
+        this.user_fullname = user_fullname;
     }
 
-    public take(int userid, int courseid, int rating, String comment) {
-        this.userid = userid;
-        this.courseid = courseid;
-        this.rating = rating;
-        this.comment = comment;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public int getUserid() {
-        return userid;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public int getCourse_id() {
+        return course_id;
     }
 
-    public int getCourseid() {
-        return courseid;
-    }
-
-    public void setCourseid(int courseid) {
-        this.courseid = courseid;
+    public void setCourse_id(int course_id) {
+        this.course_id = course_id;
     }
 
     public int getRating() {
@@ -62,5 +59,29 @@ public class take {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(String startdate) {
+        this.startdate = startdate;
+    }
+
+    public String getRatingdate() {
+        return ratingdate;
+    }
+
+    public void setRatingdate(String ratingdate) {
+        this.ratingdate = ratingdate;
+    }
+
+    public String getUser_fullname() {
+        return user_fullname;
+    }
+
+    public void setUser_fullname(String user_fullname) {
+        this.user_fullname = user_fullname;
     }
 }

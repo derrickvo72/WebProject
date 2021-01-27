@@ -1,29 +1,133 @@
 package beans;
 
-import java.util.Date;
+import java.util.*;
 
 public class course {
     String course_name,course_fullinfo,course_lessinfo,img,course_link,category_name,category_info,teacher_name;
     Date created_at,updated_at;
     int course_lession,course_id,category_id,students,teacher_id;
     float course_rate,course_price;
+    List<take> takes = new List<take>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<take> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] a) {
+            return null;
+        }
+
+        @Override
+        public boolean add(take take) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends take> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(int index, Collection<? extends take> c) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public take get(int index) {
+            return null;
+        }
+
+        @Override
+        public take set(int index, take element) {
+            return null;
+        }
+
+        @Override
+        public void add(int index, take element) {
+
+        }
+
+        @Override
+        public take remove(int index) {
+            return null;
+        }
+
+        @Override
+        public int indexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public int lastIndexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public ListIterator<take> listIterator() {
+            return null;
+        }
+
+        @Override
+        public ListIterator<take> listIterator(int index) {
+            return null;
+        }
+
+        @Override
+        public List<take> subList(int fromIndex, int toIndex) {
+            return null;
+        }
+    };
 
     public course() {
     }
 
-    public course(String course_name, int category_id, String course_fullinfo, String course_lessinfo, float course_price,
-                  Date created_at, String course_link, int teacher_id) {
-        this.course_name = course_name;
-        this.course_fullinfo = course_fullinfo;
-        this.course_lessinfo = course_lessinfo;
-        this.course_link = course_link;
-        this.created_at = created_at;
-        this.category_id = category_id;
-        this.course_price = course_price;
-        this.teacher_id = teacher_id;
-    }
-
-    public course(String course_name, String course_fullinfo, String course_lessinfo, String img, String course_link, String category_name, String category_info, String teacher_name, Date created_at, Date updated_at, int course_lession, int course_id, int category_id, int students, int teacher_id, float course_rate, float course_price) {
+    public course(String course_name, String course_fullinfo, String course_lessinfo, String img, String course_link, String category_name, String category_info, String teacher_name, Date created_at, Date updated_at, int course_lession, int course_id, int category_id, int students, int teacher_id, float course_rate, float course_price, List<take> takes) {
         this.course_name = course_name;
         this.course_fullinfo = course_fullinfo;
         this.course_lessinfo = course_lessinfo;
@@ -41,7 +145,22 @@ public class course {
         this.teacher_id = teacher_id;
         this.course_rate = course_rate;
         this.course_price = course_price;
+        this.takes = takes;
     }
+
+    public course(String course_name, int category_id, String course_fullinfo, String course_lessinfo, float course_price,
+                  Date created_at, String course_link, int teacher_id) {
+        this.course_name = course_name;
+        this.course_fullinfo = course_fullinfo;
+        this.course_lessinfo = course_lessinfo;
+        this.course_link = course_link;
+        this.created_at = created_at;
+        this.category_id = category_id;
+        this.course_price = course_price;
+        this.teacher_id = teacher_id;
+    }
+
+
 
     public String getCourse_name() {
         return course_name;
@@ -176,5 +295,13 @@ public class course {
 
     public void setTeacher_id(int teacher_id) {
         this.teacher_id = teacher_id;
+    }
+
+    public List<take> getTakes() {
+        return takes;
+    }
+
+    public void setTakes(List<take> takes) {
+        this.takes = takes;
     }
 }
