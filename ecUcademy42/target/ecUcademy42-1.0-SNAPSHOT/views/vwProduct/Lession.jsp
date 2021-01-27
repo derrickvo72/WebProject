@@ -1,11 +1,16 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ taglib prefix="e" tagdir="/WEB-INF/tags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<e:main>
-    <jsp:body>
-
-        a
-
-    </jsp:body>
-</e:main>
+<%--
+  Created by IntelliJ IDEA.
+  User: PC
+  Date: 27/01/2021
+  Time: 17:12
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
+    <title>$Title$</title>
+  </head>
+  <body>
+  $END$
+  </body>
+</html>
