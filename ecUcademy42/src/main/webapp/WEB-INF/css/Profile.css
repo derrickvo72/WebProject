@@ -124,11 +124,16 @@ input.hiddenbtn {
     color: white;
 }
 .nav-link{
-    color:#5b9bd1;
+    color:black;
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-    color: white;
-    background-color: #5b9bd1;
+    color: black;
+    border-bottom: 4px solid #007bff;
+    background:none;
+    border-radius: 0px;
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+
 }
 .profile-usertitle .btn-outline-primary{
     border: 2px solid  #5b9bd1;

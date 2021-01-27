@@ -11,6 +11,7 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
         <style><%@include file="/WEB-INF/css/InfoProduct.css"%></style>
+        <style><%@include file="/WEB-INF/css/multimenu.css"%></style>
     </jsp:attribute>
     <jsp:attribute name="js">
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -122,12 +123,12 @@
                                                     <c:set var="rating" value="${whole-1}"/>
                                                     <c:set var="fraction" value="1"/>
                                                     <c:forEach begin="1" end="${rating}">
-                                                        <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+                                                        <i style="color: #ff9f1a" class="fa fa-star fa-4x" aria-hidden="true"></i>
                                                     </c:forEach>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <c:forEach begin="1" end="${whole}">
-                                                        <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+                                                        <i style="color: #ff9f1a" class="fa fa-star fa-4x" aria-hidden="true"></i>
                                                     </c:forEach>
                                                     <c:choose>
                                                         <c:when test="${fraction>0}">
@@ -138,11 +139,11 @@
                                             </c:choose>
                                             <c:choose>
                                                 <c:when test="${fraction>0}">
-                                                    <i class="fa fa-star-half-o fa-4x" aria-hidden="true"></i>
+                                                    <i style="color: #ff9f1a" class="fa fa-star-half-o fa-4x" aria-hidden="true"></i>
                                                 </c:when>
                                             </c:choose>
                                             <c:forEach begin="1" end="${nonerate}">
-                                                <i class="fa fa-star-o fa-4x" aria-hidden="true"></i>
+                                                <i style="color: #ff9f1a" class="fa fa-star-o fa-4x" aria-hidden="true"></i>
                                             </c:forEach>
                                         </div>
                                         <div>

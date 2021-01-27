@@ -8,34 +8,51 @@
 
 <t:main>
     <jsp:body>
-
 <%--Gioi thieu--%>
-        <div class="container-fluid" style="padding-top: 15px; padding-bottom: 15px;">
-            <div class=”row banner”>
-                <div class="carousel slide" data-ride="carousel" style="width: 100%;">
-                    <div class="carousel-inner">
-                        <div class="carousel-caption" style="top:4rem">
-                            <div class="col-md-6">
-                                <h1>
-                                    <div style="color: black" class="goo" contenteditable="false">
-                                        <h1 style="color: black">Dream up</h1>
-                                        <div class="col-md-12">"Ambition accepted.</div>
-                                        <div class="col-md-12"> Learn the latest skills to reach your professional goals
-                                            !"<br></div>
-                                    </div>
-                                </h1>
+        <div class="container-lg" style="padding-top: 15px; padding-bottom: 15px;">
+            <div class="carousel slide" data-ride="carousel" style="width: 100%;">
+                <div class="carousel-inner">
+                    <div  class="carousel-caption" style="top:15%; transform: translateY(-50)">
+                        <div style="top:5rem" class="context-panel">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h1 style="font-family:cursive; color: white">Welcom to Udemy</h1>
+                                    <div style="padding:0 0 0 20px; font-size: larger; font-family:cursive;" class="col-md-12"> "Learn the latest skills to reach your professional goals
+                                        !"<br></div>
+                                </div>
+                                <div  class="col-lg-12">
+                                    <form style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0">
+                                        <input style="width: 100%" class="form-control mr-sm-2" type="search" placeholder="What do you want to learn" aria-label="Search">
+                                    </form>
+                                </div>
                             </div>
-                        </div><!-- end carousel-caption -->
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" style="width: 100%; height: 450px !important;"
-                                 src="https://img-a.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?eBgLZCuUdmIEKzDIAdHnHY-aazMOGaZrvKreZzUx9seLi3COdWShrPJiUqNeYQCtm-ElFkFzt0zIXLSCrjA5XQEB7yjRYC1ZD5Cyi2p-07xbjw_88AKlp0gDI_-6ALB2mVGbsdDbJcff_bqUzHbQluVqEIf8IVps_BifwhhFON1Xx-EHBhrReQ"
-                                 alt="First slide">
                         </div>
+
+                        <div style="top:0rem" class="context-panel-2">
+
+                        </div>
+                    </div><!-- end carousel-caption -->
+
+
+
+                    <div class="carousel-item active">
+                        <div class="d-block w-100" style="background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%); width: 100%; height: 450px !important;" >
+                            <div id ="bubble">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-python"></i>
+                                <i class="fab fa-angular"></i>
+                                <i class="fab fa-js-square"></i>
+                                <i class="fab fa-node-js"></i>
+                                <i class="fab fa-react"></i>
+                                <i class="fab fa-java"></i>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-
 <%--Cac khoa hoc theo tab--%>
         <div class="container-lg">
             <!-- tab -->
@@ -100,12 +117,12 @@
                                                                         <c:set var="rating" value="${whole-1}"/>
                                                                         <c:set var="fraction" value="1"/>
                                                                         <c:forEach begin="1" end="${rating}">
-                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            <i style="color: #f0ad4e" class="fa fa-star" aria-hidden="true"></i>
                                                                         </c:forEach>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <c:forEach begin="1" end="${whole}">
-                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                            <i style="color: #f0ad4e"  class="fa fa-star" aria-hidden="true"></i>
                                                                         </c:forEach>
                                                                         <c:choose>
                                                                             <c:when test="${fraction>0}">
@@ -116,11 +133,11 @@
                                                                 </c:choose>
                                                                 <c:choose>
                                                                     <c:when test="${fraction>0}">
-                                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                                        <i style="color: #f0ad4e"  class="fa fa-star-half-o" aria-hidden="true"></i>
                                                                     </c:when>
                                                                 </c:choose>
                                                                 <c:forEach begin="1" end="${nonerate}">
-                                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                    <i style="color: #f0ad4e"  class="fa fa-star-o" aria-hidden="true"></i>
                                                                 </c:forEach>
                                                             </div>
                                                                 <%--                           Rating --%>
@@ -189,7 +206,7 @@
                                                             <div class="center-2"><span class="dot"></span> <b>Updated ${c.updated_at}</b></div>
                                                         </div>
                                                         <div class="col-sm-12 pt-2">
-                                                            <div class="p3"><i>${c.course_fullinfo}</i></div>
+                                                            <div  class="p3"><i>${c.course_fullinfo}</i></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -618,7 +635,7 @@
             <div class="row">
                 <div class="col-md-12 pt-5">
                     <form method="get" action="https://fontawesome.com/v4.7.0/icon/thumbs-up">
-                        <button style="background-color: #6394f8" type="submit" class="btn btn-primary btn-lg">Get more</button>
+                        <button style="background-color: #007bff" type="submit" class="btn btn-primary btn-lg">Get more</button>
                     </form>
                 </div>
             </div>

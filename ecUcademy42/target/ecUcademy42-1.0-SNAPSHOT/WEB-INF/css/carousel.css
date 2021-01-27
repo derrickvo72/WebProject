@@ -111,7 +111,7 @@
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: #5b9bd1;
+    background-color: #007bff;
     color: white;
     cursor: pointer;
     padding: 0 15px 0 15px;
@@ -121,4 +121,142 @@
 
 #myBtn:hover {
     background-color: #555;
+}
+
+/*sualaitab*/
+
+/*animation*/
+#bubble {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+}
+
+#bubble i {
+    -webkit-animation: ball 5s linear infinite;
+    animation: ball 5s linear infinite;
+    font-size: 36px;
+    opacity: 0;
+}
+
+#bubble i:nth-child(1) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    color: darkorange;
+}
+#bubble i:nth-child(2) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    color: blue;
+}
+#bubble i:nth-child(3) {
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    color: yellow;
+}
+#bubble i:nth-child(4) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    color: red;
+}
+#bubble i:nth-child(5) {
+    -webkit-animation-delay: 6s;
+    animation-delay: 6s;
+    color: rebeccapurple;
+}
+#bubble i:nth-child(6) {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    color: green;
+}
+#bubble i:nth-child(7) {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    color: blue;
+}
+#bubble i:nth-child(8) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    color: darkorange;
+}
+#bubble img {
+    -webkit-animation: ball 5s linear infinite;
+    animation: ball 5s linear infinite;
+    font-size: 36px;
+    opacity: 0;
+}
+
+@-webkit-keyframes ball {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        -webkit-transform: translateY(-50vh);
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: translateY(-80vh);
+        transform: translateY(-80vh);
+        opacity: 0.3;
+    }
+}
+
+@keyframes ball {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        -webkit-transform: translateY(-50vh);
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: translateY(-80vh);
+        transform: translateY(-80vh);
+        opacity: 0.3;
+    }
+}
+
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+
+
+.modal-body {
+    position:relative;
+    padding:0px;
+}
+.close {
+    position:absolute;
+    right:-30px;
+    top:0;
+    z-index:999;
+    font-size:2rem;
+    font-weight: normal;
+    color:#fff;
+    opacity:1;
 }

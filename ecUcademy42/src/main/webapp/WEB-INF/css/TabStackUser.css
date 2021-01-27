@@ -172,7 +172,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(173,216,230,1.0);
+    background: #007bff;
     /*background: rgba(0, 0, 0, 0.5); !* Black background with 0.5 opacity *!*/
     color: #fff;
     visibility: hidden;
@@ -239,8 +239,8 @@
     margin-top: 0px;
 }
 .btn-info,.btn-info:visited,.btn-info:hover{
-    background-color: #21BBD8;
-    border-color: #21BBD8;
+    background-color: #007bff;
+    border-color: #007bff;
 }
 .btn-info{
     margin-left:5px;
@@ -282,7 +282,7 @@
     /*background:#ffe799;*/
 }
 .p3 {
-    font-family: Tahoma, Verdana, sans-serif;
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
     color: black;
     font-weight: bold;
 }

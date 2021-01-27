@@ -7,6 +7,8 @@
     if(urlwithid == null) urlwithid = "";
 %>
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="container-multi menu-lg">
     <ul class="menu clearfix" style="margin-bottom: 0px;">
         <li><a href="${pageContext.request.contextPath}/Home/Index">Home</a></li>
@@ -107,7 +109,7 @@
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
                     <form id="frmSearch" action="${pageContext.request.contextPath}/Product/Filter">
                         <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
-                        <input  id="txtSearch" name="search" type="text" class="form-control " placeholder="&#xf002;  Search everything!">
+                        <input  id="txtSearch" name="search" type="text" class="form-control" placeholder="&#xf002;  Search everything!">
                     </form>
             </div>
         </li>
@@ -183,7 +185,7 @@
             <li style="float: right; margin-right:10px;">
                 <form action="${pageContext.request.contextPath}/Account/Login">
                     <input type="hidden" name="retUrl" value="${param.urlwithid}">
-                    <button type="submit" class="btn btn-outline-primary" style="margin-left: 10px">Log in</button>
+                    <button id="BtnLogin" type="submit" class="btn btn-outline-primary">Log in</button>
                 </form>
 
             </li>
