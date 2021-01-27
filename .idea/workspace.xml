@@ -27,31 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98a0b648-8b3a-437a-9bbd-06444fe29af1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/public/images/bubble.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwProduct/Lession.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/ecUcademy42.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/ecUcademy42.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/java/controllers/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/java/controllers/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/Profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/TabStackUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/TabStackUser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/carousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/multimenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/css/multimenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/tags/main.tag" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/WEB-INF/tags/main.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/partials/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/partials/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwHome/Index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwHome/Index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwProduct/Details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwProduct/Details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/Profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/TabStackUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/TabStackUser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/carousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/multimenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/css/multimenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/tags/main.tag" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/WEB-INF/tags/main.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/partials/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/partials/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwHome/Index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwHome/Index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwProduct/Details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwProduct/Details.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="98a0b648-8b3a-437a-9bbd-06444fe29af1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +105,7 @@
   <component name="RunManager">
     <configuration name="Tomcat 9.0.40" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.40" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8070/ecUcademy42/" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/ecUcademy42/" />
       <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
@@ -141,7 +117,6 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_ecUcademy42_2" />
-        <option name="HTTP_PORT" value="8070" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -235,6 +210,7 @@
       <workItem from="1611743593993" duration="297000" />
       <workItem from="1611751560188" duration="10227000" />
       <workItem from="1611762055413" duration="336000" />
+      <workItem from="1611763126476" duration="17000" />
     </task>
     <servers />
   </component>
@@ -263,10 +239,10 @@
     </state>
     <state x="218" y="7" key="#Project_Structure/0.0.1474.864@0.0.1474.864" timestamp="1611304246751" />
     <state x="0" y="0" key="#Project_Structure/68.0.1298.768@68.0.1298.768" timestamp="1610209257680" />
-    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611762091843">
+    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611763142074">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1474.864@0.0.1474.864" timestamp="1611762091843" />
+    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1474.864@0.0.1474.864" timestamp="1611763142074" />
     <state x="171" y="0" width="1092" height="768" key="#com.intellij.execution.impl.EditConfigurationsDialog/68.0.1298.768@68.0.1298.768" timestamp="1611560565762" />
     <state x="522" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1611688244923">
       <screen x="68" y="0" width="1298" height="768" />
