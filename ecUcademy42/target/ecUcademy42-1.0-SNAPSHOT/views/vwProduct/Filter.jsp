@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:useBean id="courses" scope="request" type="java.util.List<beans.course>"/>
 
@@ -35,8 +36,89 @@
 
             <section class="cd-gallery">
                 <ul>
-                    <c:forEach var="course" items="${courses}">
-                        <li class="mix color-${course.category_id} check${course.course_id} radio2 option3"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}"></li>
+                    <c:forEach var="c" items="${courses}">
+                        <li class="mix color-${c.category_id} check${c.course_id} radio2 option3">
+                            <div class="slider-item">
+                            <div class="course__description"
+                                 onclick="location.href='${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}';">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h5 style="color: black" class="card-title">${c.course_name}</h5>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="center-1"><b>Best seller</b></div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="center-2"><span class="dot"></span> <b>Updated ${c.updated_at}</b></div>
+                                    </div>
+                                    <div class="col-sm-12 pt-2">
+                                        <div class="p3"><i>${c.course_fullinfo}</i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-image">
+                                <img src="${pageContext.request.contextPath}/public/course/${c.course_id}/${c.img}"
+                                     class="img-responsive" alt="a" onerror="this.onerror=null; this.src='../public/images/onlineedu-960x540-1.jpg'"/>
+                            </div>
+                            <div class="slider-main-detail">
+                                <div class="slider-detail">
+                                    <div class="product-detail">
+                                        <h5>${c.course_name}</h5>
+                                        <h5 class="detail-price">$${c.course_price}</h5>
+                                    </div>
+                                </div>
+                                <div class="cart-section">
+                                    <div class="row">
+
+                                            <%--                           Rating --%>
+                                        <div class="col-md-6 col-sm-12 col-xs-6 review">
+                                            <c:set var="rating" value="${c.course_rate}"/>
+                                            <fmt:formatNumber value="${rating}" maxFractionDigits="0"
+                                                              var="whole"/>
+                                            <c:set var="fraction" value="${rating-whole}"/>
+                                            <c:set var="nonerate" value="${5-whole}"/>
+                                            <c:choose>
+                                                <c:when test="${fraction<0}">
+                                                    <c:set var="rating" value="${whole-1}"/>
+                                                    <c:set var="fraction" value="1"/>
+                                                    <c:forEach begin="1" end="${rating}">
+                                                        <i style="color: #f0ad4e" class="fa fa-star" aria-hidden="true"></i>
+                                                    </c:forEach>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:forEach begin="1" end="${whole}">
+                                                        <i style="color: #f0ad4e"  class="fa fa-star" aria-hidden="true"></i>
+                                                    </c:forEach>
+                                                    <c:choose>
+                                                        <c:when test="${fraction>0}">
+                                                            <c:set var="nonerate" value="${5-whole-1}"/>
+                                                        </c:when>
+                                                    </c:choose>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <c:choose>
+                                                <c:when test="${fraction>0}">
+                                                    <i style="color: #f0ad4e"  class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </c:when>
+                                            </c:choose>
+                                            <c:forEach begin="1" end="${nonerate}">
+                                                <i style="color: #f0ad4e"  class="fa fa-star-o" aria-hidden="true"></i>
+                                            </c:forEach>
+                                        </div>
+                                            <%--                           Rating --%>
+
+                                        <div class="col-md-6 col-sm-12 col-xs-6" style="text-align: right">
+                                            <a style="font-size: smaller" href="${pageContext.request.contextPath}/Product/Buy?course_id=${c.course_id}&user_id=${authUser.user_id}"
+                                               class="AddCart btn btn-info"><i
+                                                    class="fa fa-shopping-cart"
+                                                    aria-hidden="true"></i> Buy now!</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </li>
+<%--                        <li class="mix color-${course.category_id} check${course.course_id} radio2 option3"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}"></li>--%>
                     </c:forEach>
 <%--                    <li class="mix color-2 check2 radio2 option2"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-2.jpg" alt="Image 2"></li>--%>
 <%--                    <li class="mix color-1 check3 radio3 option1"><img src="${pageContext.request.contextPath}/public/content-filter-master/img/img-3.jpg" alt="Image 3"></li>--%>

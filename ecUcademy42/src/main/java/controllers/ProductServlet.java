@@ -87,11 +87,10 @@ public class ProductServlet extends HttpServlet {
                     str=str+"&";
                     str.substring(0, str.lastIndexOf("&"));
                 }
-                System.out.println(str.substring(0,str.length()-1));
+//                System.out.println(str.substring(0,str.length()-1));
 
                 int course_id = Integer.parseInt(request.getParameter("course_id"));
                 List<course> courses = courseModel.findCourseByCourseId(course_id);
-                System.out.print(courses.get(0).getCourse_id());
                 course course = courses.get(0);
                 List<take> takes = takeModel.getAllByCourseId(course_id);
                 course.setTakes(takes);
@@ -102,7 +101,9 @@ public class ProductServlet extends HttpServlet {
             case "/Filter":
                 String keyword = request.getParameter("search");
                 List<course> coursess = courseModel.fulltextsearch(keyword);
-                System.out.print(coursess.get(0).getCourse_name());
+                if(coursess == null) {
+                    coursess = courseModel.getAll();
+                }
                 request.setAttribute("courses",coursess);
                 ServletUtils.forward("/views/vwProduct/Filter.jsp",request,response);
                 break;

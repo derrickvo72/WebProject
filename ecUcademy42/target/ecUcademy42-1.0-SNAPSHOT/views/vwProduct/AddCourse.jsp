@@ -59,7 +59,7 @@
                                     <form>
                                         <div class="form-row">
                                             <div class="col-7">
-                                                <input width="100%" type="text" class="form-control" placeholder="City">
+                                                <input type="text" class="form-control" placeholder="City">
                                             </div>
                                         </div>
                                     </form>

@@ -38,7 +38,11 @@
         <c:set var="star3" value="0"/>
         <c:set var="star2" value="0"/>
         <c:set var="star1" value="0"/>
+        <c:set var="bought" value="0"/>
         <c:forEach var="star" items="${course.takes}">
+            <c:if test="${star.user_id==authUser.user_id}">
+                <c:set var="bought" value="1"/>
+            </c:if>
             <c:choose>
                 <c:when test="${star.rating==5}">
                     <c:set var="star5" value="${star5+1}"/>
@@ -66,23 +70,24 @@
                                 <div class="wrapper row">
                                     <div class="preview col-md-12">
                                         <div style="border: 4px solid #428bca;" class="preview-pic tab-content">
-                                            <div class="tab-pane active" id="pic-1"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}" /></div>
+                                            <div class="tab-pane active" id="pic-1"><img src="${pageContext.request.contextPath}/public/course/${course.course_id}/${course.img}"
+                                                                                         onerror="this.onerror=null; this.src='../public/images/onlineedu-960x540-1.jpg'"/></div>
                                         </div>
                                     </div>
                                     <div class="details col-md-12">
                                         <div style="margin-top: 10px;" class="rating">
 <%--                                            <fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" />--%>
                                             <span class="review-no"><fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" /></span> &ensp;
-                                            <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i>${fn:length(course.takes)} reviews</span>
+                                            <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i> ${fn:length(course.takes)} reviews</span>
                                         </div>
 
-                                        <h5 class="sizes">Tác giả:
+                                        <h5 class="sizes">Teacher:
                                             <span class="size" data-toggle="tooltip" title="small">${course.teacher_name}</span>
                                         </h5>
-                                        <h5 class="sizes">Loại:
+                                        <h5 class="sizes">Category:
                                             <span class="size" data-toggle="tooltip" title="small">${course.category_name}</span>
                                         </h5>
-                                        <h5 class="sizes">Liên kết:
+                                        <h5 class="sizes">Link:
                                             <span class="size" data-toggle="tooltip" title="small">
                                                 <a style="color: black" href="${course.course_link}">${course.course_link}</a>
                                             </span>
@@ -102,34 +107,35 @@
 <%--                                            <span class="color blue"></span>--%>
 <%--                                        </h5>--%>
                                         <h4 class="price">current price: <span>$${course.course_price}</span></h4>
-
-                                        <div class="action">
-                                            <form id="frmBuy" method="get" action="${pageContext.request.contextPath}/Home/Buy">
-                                                <input type="hidden" name="course_id" value="${course.course_id}">
-                                                <input type="hidden" name="user_id" value="${authUser.user_id}">
-                                            </form>
-                                            <button style="background-color: red" class="add-to-cart btn btn-default" onclick="javascript: $('#frmBuy').submit();" type="button">Buy</button>
-                                            <button class="add-to-cart btn btn-default" type="button">Add to cart</button>
-                                            <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12" style="padding-top: 50px;">
-                        <h2 style="font-family: monospace">All lessions</h2>
-                        <div class="card p-3">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="user d-flex flex-row align-items-center">
-                                    <i style="padding-right: 10px" class="fa fa-play" aria-hidden="true"></i><span>
+                                        <c:choose>
+                                            <c:when test="${bought==1}">
+                                                <h2 style="font-family: monospace">All lessions</h2>
+                                                <div class="card p-3">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="user d-flex flex-row align-items-center">
+                                                            <i style="padding-right: 10px" class="fa fa-play" aria-hidden="true"></i><span>
                                     <a href="#"><small style="font-size:18px;font-family:monospace " class="font-weight-bold text-primary">Lap trinh vui nhon</small>
                                     </a><small style="font-size:18px; padding-left: 10px" class="font-weight-bold">c#</small></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="action d-flex justify-content-between mt-2 align-items-center">
+                                                    </div>
+                                                </div>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <div class="action">
+                                                    <form id="frmBuy" method="get" action="${pageContext.request.contextPath}/Home/Buy">
+                                                        <input type="hidden" name="course_id" value="${course.course_id}">
+                                                        <input type="hidden" name="user_id" value="${authUser.user_id}">
+                                                    </form>
+                                                    <button style="background-color: red" class="add-to-cart btn btn-default" onclick="javascript: $('#frmBuy').submit();" type="button">Buy</button>
+                                                    <button class="add-to-cart btn btn-default" type="button">Add to cart</button>
+                                                    <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                                                </div>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="action d-flex justify-content-between mt-2 align-items-center">
                             </div>
                         </div>
                     </div>
@@ -178,7 +184,7 @@
                                             </c:forEach>
                                         </div>
                                         <div>
-                                            <span class="glyphicon glyphicon-user"></span>1,050,008 total
+                                            <span class="glyphicon glyphicon-user"></span>${course.students} total
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-md-6">
@@ -256,13 +262,20 @@
                                         <div class="text-right">
                                             <c:choose>
                                                 <c:when test="${auth}">
-                                                    <a class="btn btn-success btn-green"  id="open-review-box">Leave a Review</a>
+                                                    <c:choose>
+                                                        <c:when test="${bought==1}">
+                                                            <a class="btn btn-success btn-green"  id="open-review-box">Leave a Review</a>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            Buy to review
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <form action="${pageContext.request.contextPath}/Account/Login">
-                                                        <input type="hidden" name="retUrl" value="${urlid}">
-                                                        <button type="submit" class="btn btn-success btn-green">Leave a Review</button>
-                                                    </form>
+                                                            <form action="${pageContext.request.contextPath}/Account/Login">
+                                                                <input type="hidden" name="retUrl" value="${urlid}">
+                                                                <button type="submit" class="btn btn-success btn-green">Leave a Review</button>
+                                                            </form>
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>

@@ -38,9 +38,9 @@
                     <div class="col-md-3">
                         <div class="profile-sidebar">
                             <!-- SIDEBAR USERPIC -->
-                            <div class="profile-userpic">
+                            <div class="profile-userpic" >
                                 <input type="file" name="upAvatar" value="" id="upAvatar" class="hiddenbtn"
-                                       data-errormsg="PhotoUploadErrorMsg">
+                                       data-errormsg="PhotoUploadErrorMsg" form="frmInfomation">
                                 <img class="Avatar" id="Avatar" alt="Avatar" src=""
                                      onerror="this.onerror=null; this.src='../public/images/defaultavatar.jpg'"/>
                                     <%--                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="avatar">--%>
@@ -94,7 +94,7 @@
                                     <a class="nav-link" id="v-pills-total-tab" data-toggle="pill"
                                        href="#v-pills-total" role="tab" aria-controls="v-pills-total"
                                        aria-selected="false">
-                                        <i class="fa fa-star" aria-hidden="true"></i>&ensp; My course</a>
+                                        <i class="fa fa-star" aria-hidden="true"></i> &ensp; My course</a>
 
                                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill"
                                        href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
@@ -114,7 +114,7 @@
                                      aria-labelledby="v-pills-profile-tab">
                                     <h3><i class="fa fa-user" aria-hidden="true"></i> About me</h3>
                                     <hr style="border-top: 3px double #8c8b8b;">
-                                    <form method="post">
+                                    <form method="post" id="frmInfomation">
                                         <div class="form-group">
                                             <h6>FullName</h6>
                                             <input style="width: 100%" type="fullname" class="form-control" name="fullname" id="txtFullname"
@@ -359,19 +359,19 @@
                                             <table class="table">
                                                 <thead>
                                                 <tr>
-                                                    <th class="border-0 text-uppercase small font-weight-bold">Course</th>
-                                                    <th class="border-0 text-uppercase small font-weight-bold">Description</th>
-                                                    <th class="border-0 text-uppercase small font-weight-bold">Price</th>
-                                                    <th class="border-0 text-uppercase small font-weight-bold"></th>
+                                                    <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;">Course</th>
+                                                    <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;">Description</th>
+                                                    <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;">Price</th>
+                                                    <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <c:forEach var="c" items="${user.courses}">
                                                     <tr>
-                                                        <td>${c.course_name}</td>
-                                                        <td>${c.course_fullinfo}</td>
-                                                        <td>${c.course_price}</td>
-                                                        <td><a href="${pageContext.request.contextPath}/Home/Detail?course_id=${c.course_id}" type="button" style="border-radius:60%; padding-bottom: 0px; padding-top: 0px;" class="btn btn-info">i</a></td>
+                                                        <td style="font-size: 16px;">${c.course_name}</td>
+                                                        <td style="font-size: 16px;">${c.course_fullinfo}</td>
+                                                        <td style="font-size: 16px;">${c.course_price}</td>
+                                                        <td><a href="${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}" type="button" style="border-radius:60%; padding-bottom: 0px; padding-top: 0px;" class="btn btn-info">i</a></td>
                                                     </tr>
                                                 </c:forEach>
                                                 </tbody>

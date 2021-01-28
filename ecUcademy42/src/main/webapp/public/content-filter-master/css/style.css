@@ -24,12 +24,12 @@ html * {
 body {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
-    color: #331d35;
+    color: #117ba4;
     background-color: #e7e7e7;
 }
 
 a {
-    color: #41307c;
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -43,7 +43,7 @@ Main Components
 .cd-header {
     position: relative;
     height: 50px;
-    background-color: #331d35;
+    background-color: #117ba4;
 }
 
 .cd-header h1 {
@@ -171,7 +171,7 @@ xtab-filter
     top: 0;
     left: 0;
     background-color: #ffffff;
-    box-shadow: inset 0 -2px 0 #41307c;
+    box-shadow: inset 0 -2px 0 #007bff;
 }
 
 .cd-tab-filter li {
@@ -193,7 +193,7 @@ xtab-filter
 }
 
 .cd-tab-filter a.selected {
-    background: #41307c;
+    background: #117ba4;
     color: #ffffff;
 }
 
@@ -207,7 +207,7 @@ xtab-filter
 }
 
 .cd-tab-filter.is-open ul {
-    box-shadow: inset 0 -2px 0 #41307c, 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -2px 0 #007bff, 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .cd-tab-filter.is-open ul li {
@@ -251,13 +251,13 @@ xtab-filter
         font-size: 1.3rem;
     }
     .no-touch .cd-tab-filter a:hover {
-        color: #41307c;
+        color: #007bff;
     }
     .cd-tab-filter a.selected {
         background: transparent;
-        color: #41307c;
+        color: #007bff;
         /* create border bottom using box-shadow property */
-        box-shadow: inset 0 -2px 0 #41307c;
+        box-shadow: inset 0 -2px 0 #007bff;
     }
     .cd-tab-filter.is-open ul li {
         display: inline-block;
@@ -392,7 +392,7 @@ xfilter
     left: 0;
     height: 50px;
     width: 100%;
-    background-color: #41307c;
+    background-color: #007bff;
     z-index: 2;
 }
 
@@ -410,7 +410,7 @@ xfilter
     color: #ffffff;
     font-size: 1.3rem;
     text-align: center;
-    background: #37296a;
+    background: #007bff;
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     -moz-transition: opacity 0.3s;
@@ -419,7 +419,7 @@ xfilter
 }
 
 .no-touch .cd-filter .cd-close:hover {
-    background: #32255f;
+    background: #007bff;
 }
 
 .cd-filter.filter-is-visible {
@@ -480,7 +480,7 @@ xfilter
         transition: color 0.3s;
     }
     .no-touch .cd-filter-trigger:hover {
-        color: #41307c;
+        color: #007bff;
     }
     .cd-filter-trigger.filter-is-visible,
     .cd-filter-trigger.filter-is-visible:hover {
@@ -516,7 +516,7 @@ xcustom form elements
 }
 
 .no-touch .cd-filter-block h4:hover {
-    color: #41307c;
+    color: #007bff;
 }
 
 .cd-filter-block h4::before {
@@ -575,7 +575,7 @@ xcustom form elements
 .cd-filter-block select:focus {
     outline: none;
     background-color: #ffffff;
-    border-color: #41307c;
+    border-color: #007bff;
 }
 
 .cd-filter-block input[type='search'] {
@@ -705,8 +705,8 @@ xcustom form elements
 
 .cd-filter-block input[type=radio]:checked+label::before,
 .cd-filter-block input[type=checkbox]:checked+label::before {
-    border-color: #41307c;
-    background-color: #41307c;
+    border-color: #007bff;
+    background-color: #007bff;
 }
 
 .cd-filter-block input[type=radio]:checked+label::after,

@@ -58,7 +58,7 @@ public class AccountServlet extends HttpServlet {
                 String courselink = request.getParameter("courselink");
                 float courseprice = Float.parseFloat(request.getParameter("courseprice"));
                 Date date = new Date();
-//                int nextCourse_id = courseModel.findNextId();
+                int nextCourse_id = courseModel.findNextId();
 //                Image
                 for (Part part : request.getParts()) {
                     String contentDisp = part.getHeader("content-disposition");
@@ -69,7 +69,7 @@ public class AccountServlet extends HttpServlet {
                             int idx = tmp.indexOf('=') + 2;
                             String filename = tmp.substring(idx, tmp.length() - 1);
 
-                            String targetDir = this.getServletContext().getRealPath("public") + "/../../../src/main/webapp/public/course/ ";
+                            String targetDir = this.getServletContext().getRealPath("public") + "/../../../src/main/webapp/public/course/" + nextCourse_id + "/";
                             File dir = new File(targetDir);
                             if (!dir.exists()) {
                                 dir.mkdir();

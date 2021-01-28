@@ -21,9 +21,13 @@
                                         !"<br></div>
                                 </div>
                                 <div  class="col-lg-12">
-                                    <form style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0">
-                                        <input style="width: 100%" class="form-control mr-sm-2" type="search" placeholder="What do you want to learn" aria-label="Search">
+                                    <form id="frmSearch" style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/Product/Filter">
+                                        <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
+                                        <input  id="txtSearch" name="search" type="text" class="form-control mr-sm-2" placeholder="What do you want to learn?">
                                     </form>
+<%--                                    <form style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0">--%>
+<%--                                        <input style="width: 100%" class="form-control mr-sm-2" type="search" placeholder="What do you want to learn" aria-label="Search">--%>
+<%--                                    </form>--%>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +97,7 @@
                                                 </div>
                                                 <div class="slider-image">
                                                     <img src="${pageContext.request.contextPath}/public/course/${c.course_id}/${c.img}"
-                                                         class="img-responsive" alt="a"/>
+                                                         class="img-responsive" alt="a" onerror="this.onerror=null; this.src='../public/images/onlineedu-960x540-1.jpg'"/>
                                                 </div>
                                                 <div class="slider-main-detail">
                                                     <div class="slider-detail">
@@ -212,7 +216,7 @@
                                                 </div>
                                                 <div class="slider-image">
                                                     <img src="${pageContext.request.contextPath}/public/course/${c.course_id}${c.img}"
-                                                         class="img-responsive" alt="a"/>
+                                                         class="img-responsive" alt="a" onerror="this.onerror=null; this.src='../public/images/onlineedu-960x540-1.jpg'"/>
                                                 </div>
                                                 <div class="slider-main-detail">
                                                     <div class="slider-detail">
@@ -307,7 +311,7 @@
                                                 </div>
                                                 <div class="slider-image">
                                                     <img src="${pageContext.request.contextPath}/public/course/${c.course_id}${c.img}"
-                                                         class="img-responsive" alt="a"/>
+                                                         class="img-responsive" alt="a" onerror="this.onerror=null; this.src='../public/images/onlineedu-960x540-1.jpg'"/>
                                                 </div>
                                                 <div class="slider-main-detail">
                                                     <div class="slider-detail">
@@ -442,10 +446,10 @@
         </div>
 
 <%--Top courses--%>
-        <div class="container-lg" style="padding:30px 0 30px 0">
-            <div class="row">
+        <div class="container-lg">
+            <div class="container-lg">
                 <div class col-md-12>
-                    <h1 style="color: black;">Top courses</h1>
+                    <h1 style="color: black;">TOP COURSES</h1>
                 </div>
             </div>
             <div class="container-lg">
@@ -455,7 +459,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="slider-item">
                                             <div class="course__description"
-                                                 onclick="location.href='${pageContext.request.contextPath}/Product/Detail';">
+                                                 onclick="location.href='${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}';">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -472,8 +476,8 @@
                                                 </div>
                                             </div>
                                             <div class="slider-image">
-                                                <img src="${pageContext.request.contextPath}/public/course/${c.course_id}${c.img}"
-                                                     class="img-responsive" alt="a"/>
+                                                <img src="${pageContext.request.contextPath}/public/course/${c.course_id}/${c.img}"
+                                                     class="img-responsive" alt="a" onerror="this.onerror=null; this.src='../public/images/onlineedu-960x540-1.jpg'"/>
                                             </div>
                                             <div class="slider-main-detail">
                                                 <div class="slider-detail">

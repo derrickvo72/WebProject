@@ -50,7 +50,7 @@ input.hiddenbtn {
 .profile-usertitle-job {
     text-transform: uppercase;
     color: #5b9bd1;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -125,12 +125,14 @@ input.hiddenbtn {
 }
 .nav-link{
     color:black;
+    font-size: 16px;
     font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
     color: black;
     border-bottom: 4px solid #007bff;
     background:none;
+    font-size: 16px;
     border-radius: 0px;
     font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
 

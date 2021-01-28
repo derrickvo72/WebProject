@@ -191,7 +191,7 @@
             </li>
             <li style="float: right; margin-left: 10px">
                 <form action="${pageContext.request.contextPath}/Account/Sign">
-                    <input class="btn btn-primary" type="submit" value="Apply">
+                    <input class="btn btn-primary" type="submit" id="txtApply" value="Apply">
                 </form>
             </li>
         </c:otherwise>
