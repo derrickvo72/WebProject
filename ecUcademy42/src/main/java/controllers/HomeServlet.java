@@ -48,8 +48,11 @@ public class HomeServlet extends HttpServlet {
             case "/Profile":
                 ServletUtils.forward("/views/vwAccount/Profile.jsp",request,response);
                 break;
-            case "/Less":
-                ServletUtils.forward("/views/vwAccount/Lession.jsp",request,response);
+            case "/Learn":
+                ServletUtils.forward("/views/vwProduct/Lession.jsp",request,response);
+                break;
+            case "/Add":
+                ServletUtils.forward("/views/vwProduct/AddCourse.jsp",request,response);
                 break;
             default:
                 ServletUtils.redirect("/views/vwHome/404.jsp",request,response);

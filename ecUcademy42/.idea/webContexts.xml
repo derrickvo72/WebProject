@@ -12,7 +12,9 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwHome/Login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwHome" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwHome/Profile.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwHome" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwHome/dbUser.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwHome" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwProduct/AddCourse.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwProduct" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwProduct/Filter.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwProduct" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/vwProduct/Lession.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/vwProduct" />
       </map>
     </option>
   </component>

@@ -1,0 +1,43 @@
+
+#playlist{
+    padding: 10px;
+}
+#playlist  h4{
+    color: white;
+    font-size: 30px;
+}
+.playvideo{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.courseName{
+    width: 80%;
+    display: inline-block;
+}
+.courseTime{
+
+    /*background: yellow;*/
+    display: inline-block;
+    text-align:right;
+    color: white;
+}
+#playlist ul li{
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.courseName a{
+    color: white;
+    font-size: 25px;
+}
+.coursetime a{
+    color: black;
+    font-size: 25px;
+}
+/*.active{*/
+/*    color: yellow !important;*/
+/*}*/
