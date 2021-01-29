@@ -60,11 +60,7 @@
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-<<<<<<< Updated upstream
     margin-bottom: 25px;
-=======
-    margin-bottom: 40px;
->>>>>>> Stashed changes
     /*position: relative;*/
 }
 .form-row .name {
@@ -96,7 +92,6 @@
 .col-9 {
     padding: 0 15px;
     position: relative;
-<<<<<<< Updated upstream
     width: 100%;
     min-height: 1px;
 }
@@ -421,331 +416,6 @@ input {
     -moz-box-shadow: none;
     box-shadow: none;
     width: 100%;
-=======
-    width: 100%;
-    min-height: 1px;
-}
-.col-3 {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 25%;
-    -moz-box-flex: 0;
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
-}
-@media (max-width: 767px) {
-    .col-3 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 35%;
-        -moz-box-flex: 0;
-        -ms-flex: 0 0 35%;
-        flex: 0 0 35%;
-        max-width: 35%;
-    }
-}
-.col-9 {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 75%;
-    -moz-box-flex: 0;
-    -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
-    max-width: 75%;
-}
-@media (max-width: 767px) {
-    .col-9 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 65%;
-        -moz-box-flex: 0;
-        -ms-flex: 0 0 65%;
-        flex: 0 0 65%;
-        max-width: 65%;
-    }
-}
-html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-* {
-    padding: 0;
-    margin: 0;
-}
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-}
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-blockquote,
-p,
-pre,
-dl,
-dd,
-ol,
-ul,
-figure,
-hr,
-fieldset,
-legend {
-    margin: 0;
-    padding: 0;
-}
-li > ol,
-li > ul {
-    margin-bottom: 0;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-fieldset {
-    min-width: 0;
-    border: 0;
-}
-button {
-    outline: none;
-    background: 0 0;
-    border: none;
-}
-.page-wrapper {
-    min-height: 100vh;
-}
-body {
-    font-family: open sans, arial, helvetica neue, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 400;
-}
-h1 {
-    font-size: 36px;
-}
-h2 {
-    font-size: 30px;
-}
-h3 {
-    font-size: 24px;
-}
-h4 {
-    font-size: 18px;
-}
-h5 {
-    font-size: 15px;
-}
-h6 {
-    font-size: 13px;
-}
-.bg-blue {
-    background: #2c6ed5;
-}
-.bg-red {
-    background: #fa4251;
-}
-.bg-gra-01 {
-    background: -webkit-gradient(
-            linear,
-            left bottom,
-            left top,
-            from(#fbc2eb),
-            to(#a18cd1)
-    );
-    background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
-}
-.bg-gra-02 {
-    background: -webkit-gradient(
-            linear,
-            left bottom,
-            right top,
-            from(#fc2c77),
-            to(#6c4079)
-    );
-    background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-    background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-    background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-    background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
-}
-.bg-gra-03 {
-    background: -webkit-gradient(
-            linear,
-            left bottom,
-            right top,
-            from(#08aeea),
-            to(#b721ff)
-    );
-    background: -webkit-linear-gradient(bottom left, #08aeea 0%, #b721ff 100%);
-    background: -moz-linear-gradient(bottom left, #08aeea 0%, #b721ff 100%);
-    background: -o-linear-gradient(bottom left, #08aeea 0%, #b721ff 100%);
-    background: linear-gradient(to top right, #08aeea 0%, #b721ff 100%);
-}
-.p-t-100 {
-    padding-top: 100px;
-}
-.p-t-130 {
-    padding-top: 130px;
-}
-.p-t-180 {
-    padding-top: 180px;
-}
-.p-t-45 {
-    padding-top: 45px;
-}
-.p-t-20 {
-    padding-top: 20px;
-}
-.p-t-15 {
-    padding-top: 15px;
-}
-.p-t-10 {
-    padding-top: 10px;
-}
-.p-t-30 {
-    padding-top: 30px;
-}
-.p-b-100 {
-    padding-bottom: 100px;
-}
-.p-b-50 {
-    padding-bottom: 50px;
-}
-.m-r-45 {
-    margin-right: 45px;
-}
-.m-r-55 {
-    margin-right: 55px;
-}
-.m-b-55 {
-    margin-bottom: 55px;
-}
-.wrapper {
-    margin: 0 auto;
-}
-.wrapper--w960 {
-    max-width: 960px;
-}
-.wrapper--w790 {
-    max-width: 790px;
-}
-.wrapper--w780 {
-    max-width: 780px;
-}
-.wrapper--w680 {
-    max-width: 680px;
-}
-.btn {
-    display: inline-block;
-    line-height: 50px;
-    padding: 0 50px;
-    -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #fff;
-    font-family: inherit;
-}
-.btn--radius {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-.btn--radius-2 {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-.btn--pill {
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-}
-.btn--green {
-    background: #57b846;
-}
-.btn--green:hover {
-    background: #4dae3c;
-}
-.btn--blue {
-    background: #4272d7;
-}
-.btn--blue:hover {
-    background: #3868cd;
-}
-.btn--red {
-    background: #ff4b5a;
-}
-.btn--red:hover {
-    background: #eb3746;
-}
-td.active {
-    background-color: #2c6ed5;
-}
-input[type="datei"] {
-    padding: 14px;
-}
-.table-condensed td,
-.table-condensed th {
-    font-size: 14px;
-    font-family: roboto, arial, helvetica neue, sans-serif;
-    font-weight: 400;
-}
-.daterangepicker td {
-    width: 40px;
-    height: 30px;
-}
-.daterangepicker {
-    border: none;
-    -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-    display: none;
-    border: 1px solid #e0e0e0;
-    margin-top: 5px;
-}
-.daterangepicker::after,
-.daterangepicker::before {
-    display: none;
-}
-.daterangepicker thead tr th {
-    padding: 10px 0;
-}
-.daterangepicker .table-condensed th select {
-    border: 1px solid #ccc;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    font-size: 14px;
-    padding: 5px;
-    outline: none;
-}
-input {
-    outline: none;
-    margin: 0;
-    border: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    width: 100%;
->>>>>>> Stashed changes
     font-size: 14px;
     font-family: inherit;
 }
@@ -810,7 +480,6 @@ input {
     content: "";
     position: absolute;
     display: none;
-<<<<<<< Updated upstream
 }
 .input--style-5 {
     background: #e5e5e5;
@@ -843,40 +512,6 @@ input {
     width: 100%;
     position: relative;
 }
-=======
-}
-.input--style-5 {
-    background: #e5e5e5;
-    line-height: 50px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 0 22px;
-    font-size: 16px;
-    color: #555;
-}
-.input-group-desc {
-    position: relative;
-}
-@media (max-width: 767px) {
-    .input-group-desc {
-        margin-bottom: 40px;
-    }
-}
-.input-group {
-    position: relative;
-    margin: 0;
-}
-.label {
-    color: #555;
-    font-size: 15px;
-    font-weight: 700;
-}
-.label--block {
-    width: 100%;
-    position: relative;
-}
->>>>>>> Stashed changes
 .label--desc {
     position: relative;
     text-transform: capitalize;
@@ -1021,15 +656,12 @@ b {
     overflow-y: scroll;
     max-height:650px;
 }
-<<<<<<< Updated upstream
 .card-5 .card-body.course{
     width: 100%;
     padding: 0;
     height: 100%;
     overflow-y: visible;
 }
-=======
->>>>>>> Stashed changes
 .card-5 .card-body::-webkit-scrollbar {
     width: 12px;
 }
@@ -1037,7 +669,6 @@ b {
 .card-5 .card-body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background :rgba(0,0,0,0.2);
-<<<<<<< Updated upstream
 }
 @media (max-width: 767px) {
     .card-5 .card-body {
@@ -1204,49 +835,3 @@ select {
     display: inline-block;
     width: 75%;
 }
-=======
-}
-@media (max-width: 767px) {
-    .card-5 .card-body {
-        padding: 40px 30px;
-        padding-bottom: 50px;
-    }
-}
-
-#select_form option{
-    background:white;
-}
-#select_form:focus{
-    background: rgb(229, 229, 229);
-
-}
-
-.example{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.courseList{
-    margin-top: 10px;
-}
-.courseList h4{
-    display:flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.courseList ul{
-    list-style: none;
-    margin-bottom: 20px ;
-}
-.courseList ul li{
-    padding-left: 50px;
-    margin-top: 10px;
-}
-
-.courseList ul li a{
-    text-decoration: none;
-    color:black;
-    font-size: 14px;
-}
->>>>>>> Stashed changes
