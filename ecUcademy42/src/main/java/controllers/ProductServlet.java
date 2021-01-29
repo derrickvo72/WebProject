@@ -99,12 +99,25 @@ public class ProductServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
                 break;
             case "/Filter":
-                String keyword = request.getParameter("search");
-                List<course> coursess = courseModel.fulltextsearch(keyword);
+                int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+                int recordsPerPage = Integer.parseInt(request.getParameter("recordsPerPage"));
+                String search = request.getParameter("search");
+                List<course> coursess = courseModel.fulltextsearch(search,currentPage,recordsPerPage);
+                int rows = courseModel.getNumberOfRowsSearch(search);
                 if(coursess == null) {
                     coursess = courseModel.getAll();
+//                    rows = courseModel.getNumberOfRows(currentPage,recordsPerPage);
                 }
+                int nOfPages = rows / recordsPerPage;
+                if (nOfPages % recordsPerPage > 0) {
+                    nOfPages++;
+                }
+                System.out.println(nOfPages);
+                request.setAttribute("noOfPages", nOfPages);
+                request.setAttribute("currentPage", currentPage);
+                request.setAttribute("recordsPerPage", recordsPerPage);
                 request.setAttribute("courses",coursess);
+                request.setAttribute("search",search);
                 ServletUtils.forward("/views/vwProduct/Filter.jsp",request,response);
                 break;
             case "/Cart":

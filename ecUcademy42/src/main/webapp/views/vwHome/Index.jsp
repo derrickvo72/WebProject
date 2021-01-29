@@ -23,6 +23,8 @@
                                 <div  class="col-lg-12">
                                     <form id="frmSearch" style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/Product/Filter">
                                         <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
+                                        <input name="currentPage" value="1" type="hidden">
+                                        <input name="recordsPerPage" value="8" type="hidden">
                                         <input  id="txtSearch" name="search" type="text" class="form-control mr-sm-2" placeholder="What do you want to learn?">
                                     </form>
 <%--                                    <form style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0">--%>

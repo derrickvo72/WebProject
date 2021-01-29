@@ -45,16 +45,33 @@ public class courseModel {
                     .executeAndFetch(course.class);
         }
     }
-    public static List<course> fulltextsearch(String keyword){
+    public static List<course> fulltextsearch(String keyword, int currentPage, int recordsPerPage){
         final String sql = "SELECT *\n" +
                 "FROM  course\n" +
                 "WHERE\n" +
                 "    MATCH(course_name, course_fullinfo, course_lessinfo) \n" +
-                "    AGAINST(:keyword);";
+                "    AGAINST(:keyword) \n" +
+                "LIMIT :start,:limit";
         try (Connection con = dbUtils.getConnection()) {
             return con.createQuery(sql)
                     .addParameter("keyword", keyword)
+                    .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
+                    .addParameter("limit", recordsPerPage)
                     .executeAndFetch(course.class);
+        }
+    }
+    public static Integer getNumberOfRowsSearch(String keyword){
+        final String sql = "SELECT COUNT(*)\n" +
+                "FROM (SELECT *\n" +
+                "\tFROM  course\n" +
+                "\tWHERE\n" +
+                "    \tMATCH(course_name, course_fullinfo, course_lessinfo) \n" +
+                "    \tAGAINST(:keyword)\n" +
+                ") as numberofrows";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("keyword", keyword)
+                    .executeAndFetchFirst(Integer.class);
         }
     }
     public static Integer findNextId(){
