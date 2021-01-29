@@ -4,8 +4,7 @@ import java.util.*;
 
 public class user {
     int user_id, role_id, user_wallet;
-    String img,user_address,user_email,user_phone,user_gender,user_fullname,user_username,user_password;
-    Date user_bday;
+    String img,user_address,user_email,user_phone,user_gender,user_fullname,user_username,user_password,user_bday;
     List<course> courses = new List<course>() {
         @Override
         public int size() {
@@ -250,7 +249,7 @@ public class user {
     public user() {
     }
 
-    public user(int user_id, String user_fullname, String user_address, String user_phone, String user_email, String user_gender, Date user_bday) {
+    public user(int user_id, String user_fullname, String user_address, String user_phone, String user_email, String user_gender, String user_bday, String img) {
         this.user_id = user_id;
         this.user_address = user_address;
         this.user_email = user_email;
@@ -258,6 +257,7 @@ public class user {
         this.user_gender = user_gender;
         this.user_fullname = user_fullname;
         this.user_bday = user_bday;
+        this.img = img;
     }
 
     public user(String user_username, String user_password, String user_email, int role_id) {
@@ -267,7 +267,7 @@ public class user {
         this.user_password = user_password;
     }
 
-    public user(int user_id, int role_id, int user_wallet, String img, String user_address, String user_email, String user_phone, String user_gender, String user_fullname, String user_username, String user_password, Date user_bday) {
+    public user(int user_id, int role_id, int user_wallet, String img, String user_address, String user_email, String user_phone, String user_gender, String user_fullname, String user_username, String user_password, String user_bday) {
         this.user_id = user_id;
         this.role_id = role_id;
         this.user_wallet = user_wallet;
@@ -370,11 +370,11 @@ public class user {
         this.user_password = user_password;
     }
 
-    public Date getUser_bday() {
+    public String getUser_bday() {
         return user_bday;
     }
 
-    public void setUser_bday(Date user_bday) {
+    public void setUser_bday(String user_bday) {
         this.user_bday = user_bday;
     }
 

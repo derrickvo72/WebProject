@@ -9,20 +9,28 @@ import utils.ServletUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.lang.String;
+import org.apache.commons.io.FilenameUtils;
 
 @WebServlet(name = "AccountServlet" ,urlPatterns = "/Account/*")
+@MultipartConfig(
+        fileSizeThreshold = 2 * 1024 * 1024,
+        maxFileSize = 50 * 1024 * 1024,
+        maxRequestSize = 50 * 1024 * 1024
+)
 public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getPathInfo();
@@ -50,7 +58,6 @@ public class AccountServlet extends HttpServlet {
         user user = users.get(0);
         if(user.getRole_id() == 1){
             if(request.getParameter("coursename") != null){
-//                System.out.println(request.getParameter("coursename"));
                 String coursename = request.getParameter("coursename");
                 int coursecategory = Integer.parseInt(request.getParameter("coursecategory"));
                 String coursefullinfo = request.getParameter("coursefullinfo");
@@ -74,7 +81,7 @@ public class AccountServlet extends HttpServlet {
                             if (!dir.exists()) {
                                 dir.mkdir();
                             }
-
+                            filename = nextCourse_id + "." + FilenameUtils.getExtension(filename);
                             String destination = targetDir + filename;
                             System.out.print(filename);
                             part.write(destination);
@@ -91,26 +98,43 @@ public class AccountServlet extends HttpServlet {
                 String user_address = request.getParameter("address");
                 String user_phone = request.getParameter("phone");
                 String user_email = request.getParameter("email");
-                Date user_birthday = new Date();
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                try {
-                    user_birthday = formatter.parse(request.getParameter("birthday"));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                String user_bday = request.getParameter("birthday");
                 List<course> courses = userModel.getListCourseByUserId(user_id);
-                int gender = Integer.parseInt(request.getParameter("sex"));
+                int gender = Integer.parseInt(request.getParameter("Gender"));
+                beans.user user1;
+                //Image
+                String img = null;
+                for (Part part : request.getParts()) {
+                    String contentDisp = part.getHeader("content-disposition");
+                    String[] items = contentDisp.split(";");
+                    for (String s : items) {
+                        String tmp = s.trim();
+                        if (tmp.startsWith("filename")) {
+                            int idx = tmp.indexOf('=') + 2;
+                            String filename = tmp.substring(idx, tmp.length() - 1);
+                            String targetDir2 = this.getServletContext().getRealPath("public") + "/user/" + user_id + "/";
+                            String targetDir = this.getServletContext().getRealPath("public") + "/../../../src/main/webapp/public/user/" + user_id + "/";
+                            File dir = new File(targetDir);
+                            if (!dir.exists()) {
+                                dir.mkdir();
+                            }
+                            filename = user_id + "." + FilenameUtils.getExtension(filename);
+                            part.write(targetDir + filename);
+                            part.write(targetDir2 + filename);
+                            img = filename;
+                        }
+                    }
+                }
+                //Image
                 if(gender==1||gender==0){
-                    user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "M",user_birthday);
-                    userModel.update(user1);
-                    user1.setCourses(courses);
+                    user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "M", user_bday,img);
                 }
                 else {
-                    user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "F",user_birthday);
-                    userModel.update(user1);
-                    user1.setCourses(courses);
+                    user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "F", user_bday,img);
                 }
-                ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
+                userModel.update(user1);
+                user1.setCourses(courses);
+                ServletUtils.redirect("/Account/Profile?user_id=" + user_id, request, response);
             }
         }
         else{
@@ -118,26 +142,44 @@ public class AccountServlet extends HttpServlet {
             String user_address = request.getParameter("address");
             String user_phone = request.getParameter("phone");
             String user_email = request.getParameter("email");
-            Date user_birthday = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                user_birthday = formatter.parse(request.getParameter("birthday"));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+            String user_bday = request.getParameter("birthday");
             List<course> courses = userModel.getListCourseByUserId(user_id);
-            int gender = Integer.parseInt(request.getParameter("sex"));
+            int gender;
+            gender = Integer.parseInt(request.getParameter("Gender"));
+            beans.user user1;
+            //                Image
+            String img = null;
+            for (Part part : request.getParts()) {
+                String contentDisp = part.getHeader("content-disposition");
+                String[] items = contentDisp.split(";");
+                for (String s : items) {
+                    String tmp = s.trim();
+                    if (tmp.startsWith("filename")) {
+                        int idx = tmp.indexOf('=') + 2;
+                        String filename = tmp.substring(idx, tmp.length() - 1);
+                        String targetDir2 = this.getServletContext().getRealPath("public") + "/user/" + user_id + "/";
+                        String targetDir = this.getServletContext().getRealPath("public") + "/../../../src/main/webapp/public/user/" + user_id + "/";
+                        File dir = new File(targetDir);
+                        if (!dir.exists()) {
+                            dir.mkdir();
+                        }
+                        filename = user_id + "." + FilenameUtils.getExtension(filename);
+                        part.write(targetDir + filename);
+                        part.write(targetDir2 + filename);
+                        img = filename;
+                    }
+                }
+            }
+//                /Image
             if(gender==1||gender==0){
-                user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "M",user_birthday);
-                userModel.update(user1);
-                user1.setCourses(courses);
+                user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "M", user_bday,img);
             }
             else {
-                user user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "F",user_birthday);
-                userModel.update(user1);
-                user1.setCourses(courses);
+                user1 = new user(user_id, user_fullname, user_address, user_phone, user_email, "F", user_bday,img);
             }
-            ServletUtils.redirect("/Account/Profile?user_id=" + String.valueOf(user_id), request, response);
+            userModel.update(user1);
+            user1.setCourses(courses);
+            ServletUtils.redirect("/Account/Profile?user_id=" + user_id, request, response);
         }
     }
     private void postSign(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

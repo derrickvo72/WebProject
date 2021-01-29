@@ -212,7 +212,7 @@ CREATE TABLE `user` (
   `user_username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `user_password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `user_fullname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `user_bday` date DEFAULT NULL,
+  `user_bday` text,
   `user_gender` varchar(1) DEFAULT NULL,
   `user_phone` varchar(45) DEFAULT NULL,
   `user_email` longtext,
@@ -230,7 +230,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (-1,'student3','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','No company','2000-03-12','M','337621351','sagdjascvakbf@abscsd','An Phu - Thuan An - Binh Duong, An Phu - Thuan An - Binh Duong',NULL,NULL,0),(1,'admin1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,-1),(2,'student1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Bui Phuc Lam','2000-03-12','M','0123456789','18110141@gmail.com','Binh Duong',NULL,NULL,0),(3,'student2','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Vo Phu Duc','2000-01-01','M','0123456789','18110101@gmail.com','Quan 9',NULL,NULL,0),(4,'teacher1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Bui Phuc Lam','2000-08-12','M','01234567890','18110141@gmail.com','Binh Duong',NULL,NULL,1),(5,'teacher2','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,1),(7,'student4','$2a$12$xzWXnMKdyIqkP8oEGZFGwOx24kxNG7ZSdfK1XauI.mxPyPKrwLZv2',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0);
+INSERT INTO `user` VALUES (-1,'student3','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','No company','2000-03-12','M','337621351','sagdjascvakbf@abscsd','An Phu - Thuan An - Binh Duong, An Phu - Thuan An - Binh Duong',NULL,NULL,0),(1,'admin1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,-1),(2,'student1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','No company','06-01-2021','M','337621351','','An Phu - Thuan An - Binh Duong, An Phu - Thuan An - Binh Duong',NULL,'2.jpg',0),(3,'student2','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Vo Phu Duc','2000-01-01','M','0123456789','18110101@gmail.com','Quan 9',NULL,NULL,0),(4,'teacher1','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Bui Phuc Lam','2000-08-12','M','01234567890','18110141@gmail.com','Binh Duong',NULL,NULL,1),(5,'teacher2','$2a$12$Dm5Pu9iN0QIFdBfKsQuEjuRAdBq.4WQBwwzWD3XITMtywweAHaDUS','Võ Phú Đức',NULL,'M','0123456789','18110101@gmail.com','Quận 9',NULL,NULL,1),(7,'student4','$2a$12$xzWXnMKdyIqkP8oEGZFGwOx24kxNG7ZSdfK1XauI.mxPyPKrwLZv2',NULL,NULL,NULL,NULL,'sagdjascvakbf@abscsd',NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -243,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-29  2:51:21
+-- Dump completed on 2021-01-30  4:15:13

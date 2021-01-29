@@ -14,9 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
     <script>
         $('#txtBirthday').datetimepicker({
-            format: 'd/m/Y',
+            format: 'd-m-Y',
             timepicker: false,
-            mask: false,
+            mask: true,
             // onload:function(dp,$input) {
             //     value = $input;
             // }
@@ -41,7 +41,7 @@
                             <div class="profile-userpic" >
                                 <input type="file" name="upAvatar" value="" id="upAvatar" class="hiddenbtn"
                                        data-errormsg="PhotoUploadErrorMsg" form="frmInfomation">
-                                <img class="Avatar" id="Avatar" alt="Avatar" src=""
+                                <img class="Avatar" id="Avatar" alt="Avatar" src="${pageContext.request.contextPath}/public/user/${user.user_id}/${user.img}"
                                      onerror="this.onerror=null; this.src='../public/images/defaultavatar.jpg'"/>
                                     <%--                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="avatar">--%>
                             </div>
@@ -114,23 +114,23 @@
                                      aria-labelledby="v-pills-profile-tab">
                                     <h3><i class="fa fa-user" aria-hidden="true"></i> About me</h3>
                                     <hr style="border-top: 3px double #8c8b8b;">
-                                    <form method="post" id="frmInfomation">
+                                    <form method="post" id="frmInfomation" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <h6>FullName</h6>
-                                            <input style="width: 100%" type="fullname" class="form-control" name="fullname" id="txtFullname"
+                                            <input style="width: 100%" type="text" class="form-control" name="fullname" id="txtFullname"
                                                    value="${user.user_fullname}" aria-describedby="emailHelp" placeholder="Enter full name">
                                         </div>
 
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-6">
-                                                    <h6>Birthday</h6>
-                                                    <fmt:formatDate value="${user.user_bday}" pattern="dd/MM/yyyy" var="myDate" />
-                                                    <input id="txtBirthday" style="width: 100%" class="form-control" name="birthday" value="${myDate}">
+                                                    <h6 for="txtBirthday">Birthday</h6>
+<%--                                                    <fmt:formatDate value="${user.user_bday}" pattern="dd/MM/yyyy" var="myDate" />--%>
+                                                    <input type="text" id="txtBirthday" style="width: 100%" class="form-control" name="birthday" value="${user.user_bday}">
                                                 </div>
                                                 <div class="col-6">
                                                     <h6>Sex</h6>
-                                                    <select class="custom-select mr-sm-2" name="sex" id="cbSex">
+                                                    <select class="custom-select mr-sm-2" name="Gender" id="cbSex">
                                                         <c:choose>
                                                             <c:when test="${user.user_gender==''}">
                                                                 <option value="1">Male</option>
@@ -138,7 +138,7 @@
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <c:choose>
-                                                                    <c:when test="${user.user_gender='F'}">
+                                                                    <c:when test="${user.user_gender=='F'}">
                                                                         <option value="1">Male</option>
                                                                         <option value="2" selected="selected">Female</option>
                                                                     </c:when>
@@ -157,17 +157,17 @@
 
                                         <div class="form-group">
                                             <h6>Phone</h6>
-                                            <input style="width: 100%" type="phone" class="form-control" name="phone" id="txtPhone"
+                                            <input style="width: 100%" type="text" class="form-control" name="phone" id="txtPhone"
                                                    value="${user.user_phone}" aria-describedby="emailHelp" placeholder="Phone">
                                         </div>
                                         <div class="form-group">
                                             <h6>Address</h6>
-                                            <input style="width: 100%" type="address" class="form-control" name="address" id="txtAddress"
+                                            <input style="width: 100%" type="text" class="form-control" name="address" id="txtAddress"
                                                    value="${user.user_address}" aria-describedby="emailHelp" placeholder="Address">
                                         </div>
                                         <div class="form-group">
-                                            <h6>Email</h6>
-                                            <input style="width: 100%" type="email" class="form-control" name="email" id="txtEmail"
+                                            <h6 for="txtEmail">Email</h6>
+                                            <input style="width: 100%" type="text" class="form-control" name="email" id=""
                                                    value="${user.user_email}" aria-describedby="emailHelp" placeholder="Email">
                                         </div>
                                         <div class="form-group">

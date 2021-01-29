@@ -59,7 +59,7 @@ public class userModel {
     }
     public static void update(user u) {
         final String sql = "UPDATE user SET  user_fullname = :userFullname, user_bday = :userBday, user_gender = :userGender, " +
-                "user_phone = :userPhone, user_email = :userEmail, user_address = :userAddress WHERE user_id = :userId \n";
+                "user_phone = :userPhone, user_email = :userEmail, user_address = :userAddress, img = :img WHERE user_id = :userId \n";
         try (Connection con = dbUtils.getConnection()) {
             con.createQuery(sql)
                     .addParameter("userId", u.getUser_id())
@@ -69,6 +69,7 @@ public class userModel {
                     .addParameter("userPhone", u.getUser_phone())
                     .addParameter("userEmail", u.getUser_email())
                     .addParameter("userAddress", u.getUser_address())
+                    .addParameter("img", u.getImg())
                     .executeUpdate();
         }
     }
