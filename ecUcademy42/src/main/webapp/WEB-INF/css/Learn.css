@@ -38,6 +38,11 @@
     color: black;
     font-size: 25px;
 }
-/*.active{*/
-/*    color: yellow !important;*/
-/*}*/
+.playlist ul::-webkit-scrollbar {
+    width: 12px;
+}
+.playlist ul::-webkit-scrollbar-thumb {
+    height: 50px;
+    border-radius: 10px;
+    background :rgba(0,0,0,0.2);
+}
