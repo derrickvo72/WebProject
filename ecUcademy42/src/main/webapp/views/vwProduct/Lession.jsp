@@ -53,12 +53,7 @@
       {
         $('.courseNameLink').click(function (e){
           e.preventDefault()
-          //console.log()
           let listItem=$('#listIems').children();
-          // listItem.forEach(e=>{
-          //     e.querySelectorAll('.changeActive').forEach(t=>t.classList.remove('active'))
-          // })
-          // e.currentTarget.classList.toggle("active")
           let srcVideo=e.currentTarget.dataset.namevideo
           let video=$('#changeVideo')
           video.attr('src',srcVideo)
