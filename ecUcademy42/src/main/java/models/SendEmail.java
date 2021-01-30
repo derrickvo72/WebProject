@@ -17,7 +17,6 @@ public class SendEmail {
         return String.format("%06d", number);
     }
 
-    //send email to the user email
     public boolean sendEmail(String email, String otpcode) {
         boolean test = false;
 
@@ -25,10 +24,8 @@ public class SendEmail {
         String password = "Talatama0988962252";
 
         try {
-
-            // your host email smtp server details
             Properties pr = new Properties();
-            pr.setProperty("mail.smtp.host", "smtp.mail.com");
+            pr.setProperty("mail.smtp.host", "smtp.gmail.com");
             pr.setProperty("mail.smtp.port", "587");
             pr.setProperty("mail.smtp.auth", "true");
             pr.setProperty("mail.smtp.starttls.enable", "true");
@@ -46,7 +43,6 @@ public class SendEmail {
             mess.setFrom(new InternetAddress(fromEmail));
             mess.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
             mess.setSubject("User Email Verification");
-
             mess.setText("Please verify your email using this code: " + otpcode);
             Transport.send(mess);
 
