@@ -17,6 +17,8 @@ public class courseModel {
             return con.createQuery(sql).executeAndFetch(course.class);
         }
     }
+
+
     public static void add(course c) {
         final String sql = "INSERT INTO course (course_name, course_fullinfo, course_lessinfo, created_at, course_link, course_price, category_id, teacher) " +
                 "VALUES (:courseName,:courseFullinfo,:courseLessinfo,:createdAt,:courseLink,:coursePrice,:category_id,:teacher_id)\n";
@@ -82,6 +84,34 @@ public class courseModel {
         try (Connection con = dbUtils.getConnection()) {
             return con.createQuery(sql)
                     .executeAndFetchFirst(Integer.class);
+        }
+    }
+
+    public static List<course> getAllCourse(){
+        String sql = "select * from course";
+        try(Connection con = dbUtils.getConnection()){
+            return con.createQuery(sql).executeAndFetch(course.class);
+        }
+    }
+    public static Integer getNumberOfRowsAll(){
+        final String sql = "SELECT COUNT(*)\n" +
+                "FROM (SELECT *\n" +
+                "\tFROM  course\n" +
+                ") as numberofrows";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .executeAndFetchFirst(Integer.class);
+        }
+    }
+    public static List<course> paginationCourse(int currentPage, int recordsPerPage){
+        final String sql = "SELECT *\n" +
+                "FROM  course\n" +
+                "LIMIT :start,:limit";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
+                    .addParameter("limit", recordsPerPage)
+                    .executeAndFetch(course.class);
         }
     }
 }

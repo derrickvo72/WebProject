@@ -104,4 +104,24 @@ public class userModel {
                     .executeAndFetch(course.class);
         }
     }
+
+    public static List<user> getAll(int currentPage, int recordsPerPage){
+        final String sql = "select * from user " +
+                "LIMIT :start,:limit";
+        try (Connection con = dbUtils.getConnection()){
+            return con.createQuery(sql)
+                    .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
+                    .addParameter("limit", recordsPerPage)
+                    .executeAndFetch(user.class);
+        }
+    }
+    public static Integer getNumberOfRowsAll(){
+        final String sql = "SELECT COUNT(*)\n" +
+                "FROM (select * from user\n" +
+                ") as numberofrows";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .executeAndFetchFirst(Integer.class);
+        }
+    }
 }

@@ -37,6 +37,7 @@
         <%@include file="/WEB-INF/css/TabStackUser.css"%>
         <%@include file="/WEB-INF/css/Profile.css"%>
         <%@include file="/WEB-INF/css/Cart.css"%>
+        <%@include file="/WEB-INF/css/Manager.css"%>
 <%--        <%@include file="/WEB-INF/css/Filter.css"%>--%>
     </style>
     <jsp:invoke fragment="css"/>

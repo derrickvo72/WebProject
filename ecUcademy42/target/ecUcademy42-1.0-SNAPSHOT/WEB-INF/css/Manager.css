@@ -1,0 +1,236 @@
+.AddForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapX{
+    background: rgba(0,0,0,0.2);
+    justify-content: center;
+    display: flex;
+}
+.IDname{
+    display: inline-block;
+}
+.formX{
+   display: inline-block;
+    width: 100%;
+    outline: none;
+    cursor: text;
+}
+.cusForm{
+    width: 500px;
+}
+.headAdd{
+    margin: 10px;
+    padding-bottom: 10px;
+    color: #515783;
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+}
+
+/*custom trang chính*/
+.row{
+    margin-left:0px;
+    margin-right:0px;
+}
+
+#wrapper {
+    padding-left: 70px;
+    transition: all .4s ease 0s;
+    height: 100%
+}
+
+#sidebar-wrapper {
+    margin-left: -150px;
+    left: 70px;
+    width: 150px;
+    background: #222;
+    position: fixed;
+    height: 100%;
+    z-index: 10000;
+    transition: all .4s ease 0s;
+}
+
+.sidebar-nav {
+    display: block;
+    float: left;
+    width: 150px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#page-content-wrapper {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+}
+#wrapper.active {
+    padding-left: 150px;
+}
+#wrapper.active #sidebar-wrapper {
+    left: 150px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+#sidebar_menu li a, .sidebar-nav li a {
+    color: white;
+    display: block;
+    float: left;
+    text-decoration: none;
+    width: 150px;
+    background: #252525;
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #1A1A1A;
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -o-transition: background .5s;
+    -ms-transition: background .5s;
+    transition: background .5s;
+}
+#sidebar li a{
+    color: white!important;
+}
+.sidebar_name {
+    padding-top: 25px;
+    color: #fff;
+    opacity: .7;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+    text-indent: 20px;
+}
+
+.sidebar-nav li a {
+    color: #999999;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 100%;
+    line-height: 60px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#main_name{
+    float: left;
+    padding-top:0px;
+    color: white!important;
+    width: 40%;
+    height: 62px;
+    display: flex;
+    align-items: center;
+}
+#main_icon
+{
+    float: right;
+    padding-top:0px;
+    color: white!important;
+    width: 60%;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sub_icon
+{
+    float:right;
+    padding-right: 65px;
+    padding-top:10px;
+}
+.content-header {
+    height: 65px;
+    line-height: 65px;
+}
+.glyphicon-align-justify:before{
+    content: "\e055";
+}
+.content-header h1 {
+    margin: 0;
+    margin-left: 20px;
+    line-height: 65px;
+    display: inline-block;
+}
+
+@media (max-width:767px) {
+    #wrapper {
+        padding-left: 70px;
+        transition: all .4s ease 0s;
+    }
+    #sidebar-wrapper {
+        left: 70px;
+    }
+    #wrapper.active {
+        padding-left: 150px;
+    }
+    #wrapper.active #sidebar-wrapper {
+        left: 150px;
+        width: 150px;
+        transition: all .4s ease 0s;
+    }
+}
+
+.contentX{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-bottom: 10px;
+}
+.tabcontent{
+    margin-top: 15px;
+    display: none;
+    width: 100%;
+    /*border: none;*/
+    height: 550px;
+    border: 2px solid blue;
+}
+
+.form-control:focus {
+    outline: 0 !important;
+    border-color: initial;
+    box-shadow: none;
+}
+.searchdiv{
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*padding-bottom: 10px;*/
+    width: 100%;
+}
+.searchdiv .form-control{
+    border:1px solid #495057;
+}
+.pag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    border: 2px solid yellow;
+}
