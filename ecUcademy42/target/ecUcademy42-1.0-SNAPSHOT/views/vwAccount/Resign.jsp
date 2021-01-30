@@ -7,26 +7,78 @@
   </jsp:attribute>
 
     <jsp:attribute name="js">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/app-ajax.js" type="text/javascript"></script>
     <script>
-        $('#register-form').on('submit', function (e) {
-            e.preventDefault();
+        $(document).ready(function(){
+        <%--    $('#register-form').on('submit', function (e) {--%>
+        <%--    e.preventDefault();--%>
+        <%--    const username = $('#txtUsername').val();--%>
+        <%--    const password = $('#txtPassword').val();--%>
+        <%--    const repassword = $('#txtRe_password').val();--%>
+        <%--    const email = $('#txtEmail').val();--%>
+        <%--    const agree = $('#agree-term').val();--%>
+        <%--    if (username.length === 0) {--%>
+        <%--        alert('Invalid username!');--%>
+        <%--        return;--%>
+        <%--    }--%>
+        <%--    if (email.length === 0) {--%>
+        <%--        alert('Invalid email!');--%>
+        <%--        return;--%>
+        <%--    }--%>
+        <%--    if (password.length === 0) {--%>
+        <%--        alert('Invalid password!');--%>
+        <%--        return;--%>
+        <%--    }--%>
+        <%--    if (repassword.length === 0) {--%>
+        <%--        alert('Please repeat your password!');--%>
+        <%--        return;--%>
+        <%--    }--%>
+        <%--    if (!(repassword === password)) {--%>
+        <%--        alert('Please repeat your password correctly!');--%>
+        <%--        return;--%>
+        <%--    }--%>
+        <%--    if (agree.length === 0||agree === null) {--%>
+        <%--        alert('Please agree our terms and services!');--%>
+        <%--        return;--%>
+        <%--    }--%>
 
-            const username = $('#txtUsername').val();
-            if (username.length === 0) {
-                alert('Invalid username!');
-                return;
-            }
-
-            $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data) {
-                if (data === true) {
-                    $('#register-form').off('submit').submit();
-                } else {
-                    alert('Not available.');
+        <%--    $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data) {--%>
+        <%--        if (data === true) {--%>
+        <%--            $('#register-form').off('submit').submit();--%>
+        <%--        } else {--%>
+        <%--            alert('Not available username!');--%>
+        <%--            return;--%>
+        <%--        }--%>
+        <%--    });--%>
+        <%--});--%>
+            $(document).on("click", "#btnOTP", function() {
+            var email = $("#txtEmail").val();
+            var dataString = "email=" + email;
+            $.ajax({
+                url  : "OTPServlet",
+                type : "POST",
+                cache:false,
+                data : dataString,
+                success:function(result){
+                    if (result == "yes") {
+                        // $("#otpForm,.alert-success").show();
+                        // $(".success-message").html("OTP sent your email address!");
+                        alert("Success!");
+                    }
+                    else {
+                        // $(".error-message").html("Please enter valid email!");
+                        alert("Error!");
+                    }
                 }
             });
         });
-
-        $('#txtUsername').select();
+            // $(document).on("click", "#btnOTP", function() {
+            //     $.get("OTPServlet", function(responseText) {
+            //         alert(responseText);
+            //     });
+            // });
+        });
     </script>
   </jsp:attribute>
 
@@ -48,6 +100,13 @@
                                     <label for="txtEmail"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></label>
                                     <input style="font-family:monospace!important; font-size: 20px" type="email" name="email" id="txtEmail" placeholder="Email"/>
                                 </div>
+                                <div class="form-group form-button">
+                                    <input style="font-family:monospace!important; font-size: 16px; background-color: grey" type="button" name="otp" id="btnOTP" class="form-submit w-100" value="Send OTP"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtOTP"><i class="fa fa-mobile fa-2x" aria-hidden="true"></i></label>
+                                    <input style="font-family:monospace!important; font-size: 20px" type="text" name="otp" id="txtOTP" placeholder="OTP code"/>
+                                </div>
                                 <div class="form-group">
                                     <label for="txtPassword"><i class="fa fa-unlock-alt fa-2x" aria-hidden="true"></i></label>
                                     <input style="font-family:monospace!important; font-size: 20px" type="password" name="password" id="txtPassword" placeholder="Password"/>
@@ -56,10 +115,6 @@
                                     <label for="txtRe_password"><i class="fa fa-key fa-2x" aria-hidden="true"></i></label>
                                     <input style="font-family:monospace!important; font-size: 20px" type="password" name="re_password" id="txtRe_password" placeholder="Repeat your password"/>
                                 </div>
-                                <div class="form-group">
-                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                    <label style="font-family: monospace" for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                                </div>
                                 <div style="text-align: center" class="form-group form-button">
                                     <input style="font-family:monospace!important; font-weight: bold; font-size: 18px; background-color: #007bff" type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                                 </div>
@@ -67,7 +122,11 @@
                         </div>
                         <div class="signup-image">
                             <figure><img src="${pageContext.request.contextPath}/public/colorlib-regform/colorlib-regform-7/images/signup-image.jpg" alt="sing Res image"></figure>
-                            <a style="font-size:18px;color: white; background-color:#007bff; " href="${pageContext.request.contextPath}/Account/Login?" class="signup-image-link">I am already member</a>
+                            <a style="font-size:18px;color: white; background-color:#007bff; margin-bottom: 20px" href="${pageContext.request.contextPath}/Account/Login?" class="signup-image-link">I am already member</a>
+                            <div class="alert alert-success alert-dismissible" style="display: none;">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <span class="success-message"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
