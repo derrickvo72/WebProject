@@ -207,8 +207,8 @@ public class AccountServlet extends HttpServlet {
                 session.setAttribute("authUser", user.get());
 
                 String url = request.getParameter("retUrl");
-//                System.out.println(url);
-                if (url == null) url = "/Home";
+                System.out.println(url);
+                if (url == null || url == "") url = "/Home";
                 ServletUtils.redirect(url, request, response);
 //                if(retUrl == null) {
 //                    ServletUtils.forward("/views/vwHome/Index.jsp", request, response);

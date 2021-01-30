@@ -105,22 +105,26 @@ public class userModel {
         }
     }
 
-    public static List<user> getAll(int currentPage, int recordsPerPage){
-        final String sql = "select * from user " +
+    public static List<user> getAll(int role_id, int currentPage, int recordsPerPage){
+        final String sql = "select * from user \n" +
+                "where role_id = :role_id\n" +
                 "LIMIT :start,:limit";
         try (Connection con = dbUtils.getConnection()){
             return con.createQuery(sql)
                     .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
                     .addParameter("limit", recordsPerPage)
+                    .addParameter("role_id", role_id)
                     .executeAndFetch(user.class);
         }
     }
-    public static Integer getNumberOfRowsAll(){
-        final String sql = "SELECT COUNT(*)\n" +
-                "FROM (select * from user\n" +
-                ") as numberofrows";
+    public static Integer getNumberOfRowsAll(int role_id){
+        final String sql = "select count(*) \n" +
+                "from (select * \n" +
+                "from user \n" +
+                "where role_id = :role_id) as numberofrows;";
         try (Connection con = dbUtils.getConnection()) {
             return con.createQuery(sql)
+                    .addParameter("role_id", role_id)
                     .executeAndFetchFirst(Integer.class);
         }
     }

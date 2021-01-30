@@ -61,15 +61,15 @@ public class AdminServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwProduct/AddCourse.jsp",request,response);
                 break;
             case "/Ad":
-                int currentPage = 1, recordsPerPage = 2;
+                int currentPage = 1, recordsPerPage = 15;
                 if(request.getParameter("currentPage")!=null){
                     currentPage = Integer.parseInt(request.getParameter("currentPage"));
                 }
                 int rows = 0;
                 int id = Integer.parseInt(request.getParameter("id"));
-                if(id == 1) {
-                    List<user> users = userModel.getAll(currentPage,recordsPerPage);
-                    rows = userModel.getNumberOfRowsAll();
+                if(id != 2) {
+                    List<user> users = userModel.getAll(id, currentPage,recordsPerPage);
+                    rows = userModel.getNumberOfRowsAll(id);
                     int nOfPages = rows / recordsPerPage;
                     if (nOfPages % recordsPerPage > 0) {
                         nOfPages++;
@@ -77,6 +77,16 @@ public class AdminServlet extends HttpServlet {
                     request.setAttribute("noOfPages", nOfPages);
                     request.setAttribute("currentPage", currentPage);
                     request.setAttribute("users", users);
+                } else {
+                    List<course> courses = courseModel.paginationCourse(currentPage,recordsPerPage);
+                    rows = courseModel.getNumberOfRowsAll();
+                    int nOfPages = rows / recordsPerPage;
+                    if (nOfPages % recordsPerPage > 0) {
+                        nOfPages++;
+                    }
+                    request.setAttribute("noOfPages", nOfPages);
+                    request.setAttribute("currentPage", currentPage);
+                    request.setAttribute("courses", courses);
                 }
                 request.setAttribute("id", id);
                 ServletUtils.forward("/views/vwManager/Admin2.jsp",request,response);
@@ -85,7 +95,30 @@ public class AdminServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwManager/AddUser.jsp",request,response);
                 break;
             case "/Edit":
-                ServletUtils.forward("/views/vwManager/EditManager.jsp",request,response);
+                int idd = Integer.parseInt(request.getParameter("id"));
+                if(idd!=2) {
+                    int user_id = Integer.parseInt(request.getParameter("user_id"));
+                    Optional<user> u = userModel.findByID(user_id);
+                    if (u.isPresent()) {
+                        List<user> users = userModel.findUserByID(user_id);
+                        user user = users.get(0);
+                        request.setAttribute("user", user);
+                        request.setAttribute("id",idd);
+                        ServletUtils.forward("/views/vwManager/EditManager.jsp",request,response);
+                    }
+                } else {
+                    int course_id = Integer.parseInt(request.getParameter("course_id"));
+                    Optional<course> c = courseModel.findByID(course_id);
+                    if (c.isPresent()) {
+                        List<course> courses = courseModel.findCourseByID(course_id);
+                        course course = courses.get(0);
+                        request.setAttribute("course", course);
+                        request.setAttribute("id",idd);
+                        ServletUtils.forward("/views/vwManager/EditManager.jsp",request,response);
+                    }
+                }
+                request.setAttribute("id",idd);
+                ServletUtils.forward("/views/vwManager/Admin2.jsp",request,response);
                 break;
             default:
                 ServletUtils.redirect("/views/vwHome/404.jsp",request,response);

@@ -9,7 +9,7 @@
 <t:main>
     <jsp:body>
 <%--Gioi thieu--%>
-        <div class="container-lg" style="padding-top: 15px; padding-bottom: 15px;">
+        <div class="container-fluid" style="padding-top: 15px; padding-bottom: 15px;">
             <div class="carousel slide" data-ride="carousel" style="width: 100%;">
                 <div class="carousel-inner">
                     <div  class="carousel-caption" style="top:15%; transform: translateY(-50)">

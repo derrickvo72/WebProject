@@ -1,10 +1,12 @@
 package models;
 
 import beans.course;
+import beans.user;
 import org.sql2o.Connection;
 import utils.dbUtils;
 
 import java.util.List;
+import java.util.Optional;
 
 public class courseModel {
     public static List<course> getAll(){
@@ -93,6 +95,30 @@ public class courseModel {
             return con.createQuery(sql).executeAndFetch(course.class);
         }
     }
+
+    public static Optional<course> findByID(int course_id) {
+        final String sql = "select * from course where course_id = :course_id";
+        try (Connection con = dbUtils.getConnection()) {
+            List<course> list = con.createQuery(sql)
+                    .addParameter("course_id", course_id)
+                    .executeAndFetch(course.class);
+
+            if (list.size() == 0) {
+                return Optional.empty();
+            }
+            return Optional.ofNullable(list.get(0));
+        }
+    }
+
+    public static List<course> findCourseByID(int courseID) {
+        final String sql = "select * from course where course_id = :courseID";
+        try (Connection con = dbUtils.getConnection()){
+            return con.createQuery(sql)
+                    .addParameter("courseID", courseID)
+                    .executeAndFetch(course.class);
+        }
+    }
+
     public static Integer getNumberOfRowsAll(){
         final String sql = "SELECT COUNT(*)\n" +
                 "FROM (SELECT *\n" +

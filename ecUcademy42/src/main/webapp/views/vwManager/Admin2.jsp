@@ -3,14 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:choose>
-    <c:when test="${id==1}">
+    <c:when test="${id!=2}">
         <jsp:useBean id="users" scope="request" type="java.util.List<beans.user>" />
     </c:when>
-    <c:when test="">
-
-    </c:when>
     <c:otherwise>
-
+        <jsp:useBean id="courses" scope="request" type="java.util.List<beans.course>" />
     </c:otherwise>
 </c:choose>
 <%--<jsp:useBean id="courses" scope="request" type="java.util.List<beans.course>" />--%>
@@ -35,15 +32,15 @@
                                 <h4>Menu</h4>
                             </div>
                             <div class="list-group list-group-flush">
-                                <a href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=1" class="list-group-item list-group-item-action">
+                                <a href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=0" class="list-group-item list-group-item-action">
                                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                                     Students
                                 </a>
-                                <a href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=2" class="list-group-item list-group-item-action">
+                                <a href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=1" class="list-group-item list-group-item-action">
                                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                                     Teachers
                                 </a>
-                                <a href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=3" class="list-group-item list-group-item-action">
+                                <a href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=2" class="list-group-item list-group-item-action">
                                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                                     Courses
                                 </a>
@@ -75,34 +72,66 @@
                                                     </form>
                                                 </div>
                                             </div>
-
-                                            <thead>
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">User</th>
-                                                <th scope="col">&nbsp</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <c:forEach var="item" items="${users}">
-                                                <tr style="border-bottom: 2px solid #dee2e6">
-                                                    <th scope="row">${item.user_id}</th>
-                                                    <td>${item.user_username}</td>
-                                                    <td class="text-right">
-                                                        <a class="btn btn-sm btn-outline-primary"
-                                                           href="${pageContext.request.contextPath}/views/vwManager/EditManager.jsp"
-                                                           role="button">
-                                                            <i class="fas fa-cart-arrow-down"></i>
-                                                        </a>
-                                                        <a class="btn btn-sm btn-outline-primary"
-                                                           href="${pageContext.request.contextPath}/views/vwManager/EditManager.jsp"
-                                                           role="button">
-                                                            <i class="fas fa-user-edit"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                            </tbody>
+                                            <c:choose>
+                                                <c:when test="${id!=2}">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">User</th>
+                                                        <th scope="col">&nbsp</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <c:forEach var="item" items="${users}">
+                                                        <tr style="border-bottom: 2px solid #dee2e6">
+                                                            <th scope="row">${item.user_id}</th>
+                                                            <td>${item.user_username}</td>
+                                                            <td class="text-right">
+                                                                <a class="btn btn-sm btn-outline-primary"
+                                                                   href="${pageContext.request.contextPath}/Admin/Manager/Edit?id=${id}&user_id=${item.user_id}"
+                                                                   role="button">
+                                                                    <i class="fas fa-cart-arrow-down"></i>
+                                                                </a>
+                                                                <a class="btn btn-sm btn-outline-primary"
+                                                                   href="${pageContext.request.contextPath}/Admin/Manager/Edit?id=${id}&user_id=${item.user_id}"
+                                                                   role="button">
+                                                                    <i class="fas fa-user-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                    </tbody>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">&nbsp</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <c:forEach var="item" items="${courses}">
+                                                        <tr style="border-bottom: 2px solid #dee2e6">
+                                                            <th scope="row">${item.course_id}</th>
+                                                            <td>${item.course_name}</td>
+                                                            <td class="text-right">
+                                                                <a class="btn btn-sm btn-outline-primary"
+                                                                   href="${pageContext.request.contextPath}/Admin/Manager/Edit?id=${id}&course_id=${item.course_id}"
+                                                                   role="button">
+                                                                    <i class="fas fa-cart-arrow-down"></i>
+                                                                </a>
+                                                                <a class="btn btn-sm btn-outline-primary"
+                                                                   href="${pageContext.request.contextPath}/Admin/Manager/Edit?id=${id}&course_id=${item.course_id}"
+                                                                   role="button">
+                                                                    <i class="fas fa-user-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                    </tbody>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </table>
                                     </div>
                                 </div>

@@ -2,6 +2,15 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:choose>
+    <c:when test="${id!=2}">
+        <jsp:useBean id="user" scope="request" type="beans.user"/>
+    </c:when>
+    <c:otherwise>
+        <jsp:useBean id="course" scope="request" type="beans.course"/>
+    </c:otherwise>
+</c:choose>
+
 <t:main>
     <jsp:body>
         <style>
@@ -14,30 +23,58 @@
 
                 <div class="AddForm">
                     <div class="container-ls wrapX">
-                        <form class="cusForm" method="post">
+                        <form class="container" method="post">
                             <div style="display: flex; justify-content: center" class="card-heading">
                                 <h2 class="headAdd">
-                                    Edit User
+                                    <c:choose>
+                                        <c:when test="${id!=2}">
+                                            Edit user ${user.user_id}
+                                        </c:when>
+                                        <c:otherwise>
+                                            Edit course ${course.course_id}
+                                        </c:otherwise>
+                                    </c:choose>
                                 </h2>
                             </div>
                             <div style="width: 100%"  class="cart-icon">
-                                <div class="form-group">
-                                    <div class="IDname">ID</div>
-                                    <input type="text" readonly class="form-control formX" autofocus>
+                                <div class="row" style="width: 100%">
+                                    <c:if test="${id!=2}">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="IDname">ID</div>
+                                                <input type="text" readonly class="form-control formX" autofocus value="${user.user_id}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="IDname">Role</div>
+                                                <input placeholder="User role" type="text" class="form-control formX" autofocus value="${user.role_id}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="IDname">Username</div>
+                                                <input placeholder="Username" type="text" class="form-control formX" autofocus value="${user.user_username}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="IDname">Password</div>
+                                                <input placeholder="*******" type="text" class="form-control formX" autofocus value="${user.user_password}">
+                                            </div>
+                                        </div>
+                                    </c:if>
                                 </div>
-                                <div class="form-group">
-                                    <div class="IDname">User name</div>
-                                    <input placeholder="Username" type="text" class="form-control formX" autofocus>
-                                </div>
+
                             </div>
                             <div style="padding-right: 0; width: 100%; justify-content: flex-end; display: flex" class="cart-body">
                                 <a class="btn btn-primary"
-                                   href="${pageContext.request.contextPath}/Admin/Manager/Ad" role="button">
+                                   href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=${id}" role="button">
                                     <i class="fa fa-backward" aria-hidden="true"></i>
                                     List
                                 </a>
                                 <button style="margin-left: 10px" type="submit" class="btn btn-danger">
-                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                     Delete
                                 </button>
                                 <button style="margin-left: 10px" type="submit" class="btn btn-success">

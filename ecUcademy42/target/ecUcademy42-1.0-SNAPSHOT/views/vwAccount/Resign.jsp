@@ -10,74 +10,69 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/app-ajax.js" type="text/javascript"></script>
     <script>
+        var otpkey = "";
         $(document).ready(function(){
-        <%--    $('#register-form').on('submit', function (e) {--%>
-        <%--    e.preventDefault();--%>
-        <%--    const username = $('#txtUsername').val();--%>
-        <%--    const password = $('#txtPassword').val();--%>
-        <%--    const repassword = $('#txtRe_password').val();--%>
-        <%--    const email = $('#txtEmail').val();--%>
-        <%--    const agree = $('#agree-term').val();--%>
-        <%--    if (username.length === 0) {--%>
-        <%--        alert('Invalid username!');--%>
-        <%--        return;--%>
-        <%--    }--%>
-        <%--    if (email.length === 0) {--%>
-        <%--        alert('Invalid email!');--%>
-        <%--        return;--%>
-        <%--    }--%>
-        <%--    if (password.length === 0) {--%>
-        <%--        alert('Invalid password!');--%>
-        <%--        return;--%>
-        <%--    }--%>
-        <%--    if (repassword.length === 0) {--%>
-        <%--        alert('Please repeat your password!');--%>
-        <%--        return;--%>
-        <%--    }--%>
-        <%--    if (!(repassword === password)) {--%>
-        <%--        alert('Please repeat your password correctly!');--%>
-        <%--        return;--%>
-        <%--    }--%>
-        <%--    if (agree.length === 0||agree === null) {--%>
-        <%--        alert('Please agree our terms and services!');--%>
-        <%--        return;--%>
-        <%--    }--%>
-
-        <%--    $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data) {--%>
-        <%--        if (data === true) {--%>
-        <%--            $('#register-form').off('submit').submit();--%>
-        <%--        } else {--%>
-        <%--            alert('Not available username!');--%>
-        <%--            return;--%>
-        <%--        }--%>
-        <%--    });--%>
-        <%--});--%>
-            $(document).on("click", "#btnOTP", function() {
-            var email = $("#txtEmail").val();
-            var dataString = "email=" + email;
-            $.ajax({
-                url  : "OTPServlet",
-                type : "POST",
-                cache:false,
-                data : dataString,
-                success:function(result){
-                    if (result == "yes") {
-                        // $("#otpForm,.alert-success").show();
-                        // $(".success-message").html("OTP sent your email address!");
-                        alert("Success!");
-                    }
-                    else {
-                        // $(".error-message").html("Please enter valid email!");
-                        alert("Error!");
-                    }
+            $('#register-form').on('submit', function (e) {
+                e.preventDefault();
+                const username = $('#txtUsername').val();
+                const password = $('#txtPassword').val();
+                const repassword = $('#txtRe_password').val();
+                const email = $('#txtEmail').val();
+                const otpans = $('#txtOTP').val();
+                if (username.length === 0) {
+                    alert('Invalid username!');
+                    return;
                 }
+                if (otpans != otpkey) {
+                    alert('Wrong OTP code!');
+                    return;
+                }
+                if (email.length === 0) {
+                    alert('Invalid email!');
+                    return;
+                }
+                if (password.length === 0) {
+                    alert('Invalid password!');
+                    return;
+                }
+                if (repassword.length === 0) {
+                    alert('Please repeat your password!');
+                    return;
+                }
+                if (!(repassword === password)) {
+                    alert('Please repeat your password correctly!');
+                    return;
+                }
+
+                $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data) {
+                    if (data === true) {
+                        $('#register-form').off('submit').submit();
+                    } else {
+                        alert('Not available username!');
+                        return;
+                    }
+                });
             });
-        });
-            // $(document).on("click", "#btnOTP", function() {
-            //     $.get("OTPServlet", function(responseText) {
-            //         alert(responseText);
-            //     });
-            // });
+            $(document).on("click", "#btnOTP", function() {
+                const email = $("#txtEmail").val();
+                ctx = "${pageContext.request.contextPath}"
+                $.ajax({
+                    type : "POST",
+                    url  : ctx + "/OTPServlet",
+                    data : {email: email},
+                    success:function(result){
+                        if (result != "no") {
+                            otpkey = result;
+                            $("#otpForm,.alert-success").show();
+                            $(".success-message").html("OTP sent your email address!");
+                        }
+                        else {
+                            $("#otpForm,.alert-success").show();
+                            $(".error-message").html("Something wrong!");
+                        }
+                    }
+                });
+            });
         });
     </script>
   </jsp:attribute>
@@ -90,7 +85,7 @@
                 <div class="container-ls">
                     <div class="signup-content">
                         <div class="signup-form">
-                            <h2 style="font-family: monospace;" class="form-title">Sign up</h2>
+                            <h2 style="font-family: monospace;" id="test" class="form-title">Sign up</h2>
                             <form method="POST" class="register-form" id="register-form">
                                 <div class="form-group">
                                     <label for="txtUsername"><i class="fa fa-user fa-2x" aria-hidden="true"></i></label>
@@ -126,6 +121,7 @@
                             <div class="alert alert-success alert-dismissible" style="display: none;">
                                 <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <span class="success-message"></span>
+                                <span class="error-message" style="color:red;"></span>
                             </div>
                         </div>
                     </div>
