@@ -41,8 +41,8 @@
                             <div class="profile-userpic" >
                                 <input type="file" name="upAvatar" value="" id="upAvatar" class="hiddenbtn"
                                        data-errormsg="PhotoUploadErrorMsg" form="frmInfomation">
-                                <img class="Avatar" id="Avatar" alt="Avatar" src="${pageContext.request.contextPath}/public/user/${user.user_id}/${user.img}"
-                                     onerror="this.onerror=null; this.src='../public/images/defaultavatar.jpg'"/>
+                                <figure><img class="Avatar" id="Avatar" alt="Avatar" src="${pageContext.request.contextPath}/public/user/${user.user_id}/${user.img}"
+                                             onerror="this.onerror=null; this.src='../public/images/defaultavatar.jpg'"/></figure>
                                     <%--                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="avatar">--%>
                             </div>
                             <!-- END SIDEBAR USERPIC -->
@@ -361,15 +361,30 @@
                                                     <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;">Description</th>
                                                     <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;">Price</th>
                                                     <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;"></th>
+                                                    <th class="border-0 text-uppercase large font-weight-bold" style="font-size: 16px;"></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <c:forEach var="c" items="${user.courses}">
                                                     <tr>
                                                         <td style="font-size: 16px;">${c.course_name}</td>
-                                                        <td style="font-size: 16px;">${c.course_fullinfo}</td>
+                                                        <td style="font-size: 16px;">${c.course_lessinfo}</td>
                                                         <td style="font-size: 16px;">${c.course_price}</td>
-                                                        <td><a href="${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}" type="button" style="border-radius:60%; padding-bottom: 0px; padding-top: 0px;" class="btn btn-info">i</a></td>
+<%--                                                        <td><a href="${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}" type="button" style="border-radius:60%; padding-bottom: 0px; padding-top: 0px;" class="btn btn-info">i</a></td>--%>
+                                                        <td class="text-right">
+                                                            <a class="btn btn-sm btn-outline-primary"
+                                                               href="${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}"
+                                                               role="button">
+                                                                <i class="fas fa-cart-arrow-down"></i>
+                                                            </a>
+                                                            <c:if test="${user.role_id==1}">
+                                                                <a class="btn btn-sm btn-outline-primary"
+                                                                   href="${pageContext.request.contextPath}/Account/Add?course_id=${c.course_id}&user_id=${user.user_id}"
+                                                                   role="button">
+                                                                    <i class="fas fa-user-edit"></i>
+                                                                </a>
+                                                            </c:if>
+                                                        </td>
                                                     </tr>
                                                 </c:forEach>
                                                 </tbody>
@@ -404,11 +419,11 @@
 
                                 </div>
 
-                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                                     aria-labelledby="v-pills-settings-tab">
-                                    <h3><i class="fa fa-bars" aria-hidden="true"></i> Setting</h3>
-                                    <hr style="border-top: 3px double #8c8b8b;">
-                                </div>
+<%--                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"--%>
+<%--                                     aria-labelledby="v-pills-settings-tab">--%>
+<%--                                    <h3><i class="fa fa-bars" aria-hidden="true"></i> Setting</h3>--%>
+<%--                                    <hr style="border-top: 3px double #8c8b8b;">--%>
+<%--                                </div>--%>
                             </div>
                         </div>
                     </div>

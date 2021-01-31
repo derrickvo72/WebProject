@@ -111,6 +111,8 @@
                         <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
                         <input name="currentPage" value="1" type="hidden">
                         <input name="recordsPerPage" value="8" type="hidden">
+                        <input name="category" value="0" type="hidden">
+                        <input name="sort" value="0" type="hidden">
                         <input  id="txtSearch" name="search" type="text" class="form-control" placeholder="&#xf002;  Search everything!">
                     </form>
             </div>

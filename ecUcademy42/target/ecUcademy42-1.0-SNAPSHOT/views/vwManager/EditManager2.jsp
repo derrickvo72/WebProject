@@ -23,7 +23,7 @@
 
                 <div class="AddForm">
                     <div class="container-ls wrapX">
-                        <form class="container" method="post" id="update" action="${pageContext.request.contextPath}/Admin/Manager/Update?id=${id}">
+                        <form class="container" method="post">
                             <div style="display: flex; justify-content: center" class="card-heading">
                                 <h2 class="headAdd">
                                     <c:choose>
@@ -42,25 +42,25 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="IDname">ID</div>
-                                                <input type="text" name="userid" readonly class="form-control formX" value="${user.user_id}">
+                                                <input type="text" readonly class="form-control formX" value="${user.user_id}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="IDname">Role</div>
-                                                <input placeholder="User role" name="role" type="text" class="form-control formX" value="${user.role_id}">
+                                                <input placeholder="User role" type="text" class="form-control formX" value="${user.role_id}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="IDname">Username</div>
-                                                <input placeholder="Username" name="username" type="text" class="form-control formX" value="${user.user_username}">
+                                                <input placeholder="Username" type="text" class="form-control formX" value="${user.user_username}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="IDname">Password</div>
-                                                <input placeholder="Password" name="password" type="text" class="form-control formX" value="${user.user_password}">
+                                                <input placeholder="Password" type="text" class="form-control formX" value="${user.user_password}">
                                             </div>
                                         </div>
                                     </c:if>
@@ -74,12 +74,16 @@
                                     <i class="fa fa-backward" aria-hidden="true"></i>
                                     List
                                 </a>
-                                <a class="btn btn-primary" style="background-color: red"
+                                <a class="btn btn-primary"
                                    href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=${id}" role="button">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                     Delete
                                 </a>
-                                <input class="btn btn-primary" style="background-color:forestgreen;" type="submit" form="update">
+                                <a class="btn btn-primary"
+                                   href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=${id}" role="button">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                    Save
+                                </a>
                             </div>
                         </form>
                     </div>

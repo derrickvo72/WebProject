@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:useBean id="courses" scope="request" type="java.util.List<beans.course>"/>
-
+<%--var jspo = '<%=request.getParameter("category")%>';--%>
 <t:main>
     <jsp:attribute name="css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -16,6 +16,11 @@
         <script src="${pageContext.request.contextPath}/public/content-filter-master/js/jquery.mixitup.min.js"></script>
         <script src="${pageContext.request.contextPath}/public/content-filter-master/js/main.js"></script>
         <script src="${pageContext.request.contextPath}/public/content-filter-master/js/modernizr.js"></script>
+        <script>
+            // $('#category').change(function() {
+            //     alert(window.location.href + "&category="+jspo);
+            // });
+        </script>
     </jsp:attribute>
     <jsp:body>
         <header class="cd-header">
@@ -155,69 +160,69 @@
             <div class="cd-filter">
                 <form>
                     <div class="cd-filter-block">
-                        <h4>Search</h4>
-
-                        <div class="cd-filter-content">
-                            <input type="search" placeholder="Try 1...">
-                        </div> <!-- cd-filter-content -->
-                    </div> <!-- cd-filter-block -->
-
-                    <div class="cd-filter-block">
-                        <h4>Check boxes</h4>
-
-                        <ul class="cd-filter-content cd-filters list">
-                            <li>
-                                <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-                                <label class="checkbox-label" for="checkbox1">Option 1</label>
-                            </li>
-
-                            <li>
-                                <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
-                                <label class="checkbox-label" for="checkbox2">Option 2</label>
-                            </li>
-
-                            <li>
-                                <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
-                                <label class="checkbox-label" for="checkbox3">Option 3</label>
-                            </li>
-                        </ul> <!-- cd-filter-content -->
-                    </div> <!-- cd-filter-block -->
-
-                    <div class="cd-filter-block">
                         <h4>Select</h4>
-
                         <div class="cd-filter-content">
                             <div class="cd-select cd-filters">
-                                <select class="filter" name="selectThis" id="selectThis">
-                                    <option value="">Choose an option</option>
-                                    <option value=".option1">Option 1</option>
-                                    <option value=".option2">Option 2</option>
-                                    <option value=".option3">Option 3</option>
-                                    <option value=".option4">Option 4</option>
+                                <select class="filter" name="sort" id="sort" onchange="javascript:location.href = this.value;">
+                                    <c:choose>
+                                        <c:when test="${sort==-1}">
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=${category}&sort=0">Defalt</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=${category}&sort=-1" selected>Rate</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=${category}&sort=0">Defalt</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=${category}&sort=-1">Rate</option>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </select>
                             </div> <!-- cd-select -->
                         </div> <!-- cd-filter-content -->
                     </div> <!-- cd-filter-block -->
-
                     <div class="cd-filter-block">
-                        <h4>Radio buttons</h4>
-
-                        <ul class="cd-filter-content cd-filters list">
-                            <li>
-                                <input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
-                                <label class="radio-label" for="radio1">All</label>
-                            </li>
-
-                            <li>
-                                <input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
-                                <label class="radio-label" for="radio2">Choice 2</label>
-                            </li>
-
-                            <li>
-                                <input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
-                                <label class="radio-label" for="radio3">Choice 3</label>
-                            </li>
-                        </ul> <!-- cd-filter-content -->
+                        <h4>Select</h4>
+                        <div class="cd-filter-content">
+                            <div class="cd-select cd-filters">
+                                <select class="filter" name="category" id="category" onchange="javascript:location.href = this.value;">
+                                    <c:choose>
+                                        <c:when test="${category==1}">
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=0&sort=${sort}">All</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=1&sort=${sort}" selected>Window</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=2&sort=${sort}">Web</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=3&sort=${sort}">Design</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=4&sort=${sort}">Office</option>
+                                        </c:when>
+                                        <c:when test="${category==2}">
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=0&sort=${sort}">All</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=1&sort=${sort}">Window</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=2&sort=${sort}" selected>Web</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=3&sort=${sort}">Design</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=4&sort=${sort}">Office</option>
+                                        </c:when>
+                                        <c:when test="${category==3}">
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=0&sort=${sort}">All</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=1&sort=${sort}">Window</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=2&sort=${sort}">Web</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=3&sort=${sort}" selected>Design</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=4&sort=${sort}">Office</option>
+                                        </c:when>
+                                        <c:when test="${category==4}">
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=0&sort=${sort}">All</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=1&sort=${sort}">Window</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=2&sort=${sort}">Web</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=3&sort=${sort}">Design</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=4&sort=${sort}" selected>Office</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=0&sort=${sort}">All</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=1&sort=${sort}">Window</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=2&sort=${sort}">Web</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=3&sort=${sort}">Design</option>
+                                            <option value="/ecUcademy42/Product/Filter?currentPage=${currentPage}&recordsPerPage=8&search=${search}&category=4&sort=${sort}">Office</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </select>
+                            </div> <!-- cd-select -->
+                        </div> <!-- cd-filter-content -->
                     </div> <!-- cd-filter-block -->
                 </form>
 

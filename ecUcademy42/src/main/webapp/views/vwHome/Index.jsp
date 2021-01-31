@@ -25,6 +25,8 @@
                                         <button id="btnSearch" type="submit" style="position: absolute; left: -9999px"></button>
                                         <input name="currentPage" value="1" type="hidden">
                                         <input name="recordsPerPage" value="8" type="hidden">
+                                        <input name="category" value="0" type="hidden">
+                                        <input name="sort" value="0" type="hidden">
                                         <input  id="txtSearch" name="search" type="text" class="form-control mr-sm-2" placeholder="What do you want to learn?">
                                     </form>
 <%--                                    <form style="border:none;padding:20px 35px 20px 35px" class="form-inline my-2 my-lg-0">--%>
@@ -194,7 +196,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>
@@ -288,7 +290,7 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="slider-item">
                                                 <div class="course__description"
-                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail';">
+                                                     onclick="location.href='${pageContext.request.contextPath}/Product/Detail?course_id=${c.course_id}';">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <h5 style="color: black" class="card-title">${c.course_name}</h5>

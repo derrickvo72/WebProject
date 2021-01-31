@@ -122,12 +122,127 @@ public class course {
             return null;
         }
     };
+    List<lession> lessions = new List<lession>() {
+        @Override
+        public int size() {
+            return 0;
+        }
 
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<lession> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] a) {
+            return null;
+        }
+
+        @Override
+        public boolean add(lession lession) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends lession> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(int index, Collection<? extends lession> c) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public lession get(int index) {
+            return null;
+        }
+
+        @Override
+        public lession set(int index, lession element) {
+            return null;
+        }
+
+        @Override
+        public void add(int index, lession element) {
+
+        }
+
+        @Override
+        public lession remove(int index) {
+            return null;
+        }
+
+        @Override
+        public int indexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public int lastIndexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public ListIterator<lession> listIterator() {
+            return null;
+        }
+
+        @Override
+        public ListIterator<lession> listIterator(int index) {
+            return null;
+        }
+
+        @Override
+        public List<lession> subList(int fromIndex, int toIndex) {
+            return null;
+        }
+    };
     public course() {
     }
 
 
-    public course(String course_name, String course_fullinfo, String course_lessinfo, String img, String course_link, String category_name, String category_info, String teacher_name, String created_at, String updated_at, int course_lession, int course_id, int category_id, int students, int teacher, float course_rate, float course_price, List<take> takes) {
+    public course(String course_name, String course_fullinfo, String course_lessinfo, String img, String course_link, String category_name, String category_info, String teacher_name, String created_at, String updated_at, int course_lession, int course_id, int category_id, int students, int teacher, float course_rate, float course_price, List<take> takes, List<lession> lessions) {
         this.course_name = course_name;
         this.course_fullinfo = course_fullinfo;
         this.course_lessinfo = course_lessinfo;
@@ -146,6 +261,7 @@ public class course {
         this.course_rate = course_rate;
         this.course_price = course_price;
         this.takes = takes;
+        this.lessions = lessions;
     }
 
     public course(String course_name, int category_id, String course_fullinfo, String course_lessinfo, float course_price,
@@ -318,5 +434,13 @@ public class course {
 
     public void setTeacher(int teacher) {
         this.teacher = teacher;
+    }
+
+    public List<lession> getLessions() {
+        return lessions;
+    }
+
+    public void setLessions(List<lession> lessions) {
+        this.lessions = lessions;
     }
 }

@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Optional;
+import org.apache.commons.lang.StringEscapeUtils;
 
 @WebServlet(name = "ProductServlet",urlPatterns = "/Product/*")
 public class ProductServlet extends HttpServlet {
@@ -61,15 +62,24 @@ public class ProductServlet extends HttpServlet {
         String path= request.getPathInfo();
         switch (path){
             case "/Buy":
+                String retUrl = request.getParameter("retUrl");
                 int courseid = Integer.parseInt(request.getParameter("course_id"));
                 int userid = Integer.parseInt(request.getParameter("user_id"));
                 if (userid != 0) {
                     Optional<take> take = takeModel.gettake(userid, courseid);
                     if (!take.isPresent()) {
                         takeModel.takes(userid, courseid);
+                        System.out.println(retUrl);
+                        if (retUrl == null || retUrl == "") retUrl = "/Home";
+                        request.setAttribute("retUrl",retUrl);
+                        ServletUtils.redirect(retUrl, request, response);
                     }
                 }
-                ServletUtils.redirect("/Home/Index",request,response);
+                else {
+                    System.out.println(retUrl);
+                    request.setAttribute("retUrl",retUrl);
+                    ServletUtils.redirect("/Account/Login", request, response);
+                }
                 break;
             case "/Detail":
 
@@ -94,19 +104,28 @@ public class ProductServlet extends HttpServlet {
                 course course = courses.get(0);
                 List<take> takes = takeModel.getAllByCourseId(course_id);
                 course.setTakes(takes);
+//                course.setCourse_fullinfo(StringEscapeUtils.unescapeHtml(course.getCourse_fullinfo()));
                 request.setAttribute("course", course);
                 request.setAttribute("urlwithid", str);
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
                 break;
             case "/Filter":
+                int category = 0;
                 int currentPage = 1;
+                int sort = 0;
+                if((request.getParameter("sort")!=null)&&(request.getParameter("sort")!="")){
+                    sort =  Integer.parseInt(request.getParameter("sort"));
+                }
+                if((request.getParameter("category")!=null)&&(request.getParameter("category")!="")){
+                    category =  Integer.parseInt(request.getParameter("category"));
+                }
                 if(request.getParameter("currentPage")!=null){
                     currentPage = Integer.parseInt(request.getParameter("currentPage"));
                 }
                 int recordsPerPage = 8;
                 String search = request.getParameter("search");
-                List<course> coursess = courseModel.fulltextsearch(search,currentPage,recordsPerPage);
-                int rows = courseModel.getNumberOfRowsSearch(search);
+                List<course> coursess = courseModel.fulltextsearch(search,currentPage,recordsPerPage,category,sort);
+                int rows = courseModel.getNumberOfRowsSearch(search,category);
                 if(coursess == null) {
                     coursess = courseModel.getAll();
 //                    rows = courseModel.getNumberOfRows(currentPage,recordsPerPage);
@@ -121,6 +140,8 @@ public class ProductServlet extends HttpServlet {
                 request.setAttribute("recordsPerPage", recordsPerPage);
                 request.setAttribute("courses",coursess);
                 request.setAttribute("search",search);
+                request.setAttribute("category",category);
+                request.setAttribute("sort",sort);
                 ServletUtils.forward("/views/vwProduct/Filter.jsp",request,response);
                 break;
             case "/Cart":

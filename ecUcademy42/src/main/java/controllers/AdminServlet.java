@@ -6,6 +6,7 @@ import beans.user;
 import models.categoryModel;
 import models.courseModel;
 import models.userModel;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import utils.ServletUtils;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -31,13 +33,26 @@ public class AdminServlet extends HttpServlet {
 //                deleteCategory(request,response);
                 break;
             case "/Update":
-//                updateCategory(request,response);
+                updateCategory(request,response);
                 break;
             default:
                 ServletUtils.redirect("/NotFound",request,response);
                 break;
         }
 
+    }
+    private void updateCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        if(id!=2){
+            int userid = Integer.parseInt(request.getParameter("userid"));
+            int role = Integer.parseInt(request.getParameter("role"));
+            userModel.updaterole(userid,role);
+            List<user> users = userModel.findUserByID(userid);
+            user user = users.get(0);
+            request.setAttribute("user", user);
+            request.setAttribute("id",id);
+            ServletUtils.forward("/views/vwManager/EditManager.jsp",request,response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -62,11 +77,14 @@ public class AdminServlet extends HttpServlet {
                 break;
             case "/Ad":
                 int currentPage = 1, recordsPerPage = 15;
-                if(request.getParameter("currentPage")!=null){
+                if(request.getParameter("currentPage")!=null&&request.getParameter("currentPage")!=""){
                     currentPage = Integer.parseInt(request.getParameter("currentPage"));
                 }
                 int rows = 0;
-                int id = Integer.parseInt(request.getParameter("id"));
+                int id = 0;
+                if(request.getParameter("id")!=null&&request.getParameter("id")!=""){
+                    id = Integer.parseInt(request.getParameter("id"));
+                }
                 if(id != 2) {
                     List<user> users = userModel.getAll(id, currentPage,recordsPerPage);
                     rows = userModel.getNumberOfRowsAll(id);
@@ -118,7 +136,7 @@ public class AdminServlet extends HttpServlet {
                     }
                 }
                 request.setAttribute("id",idd);
-                ServletUtils.forward("/views/vwManager/Admin2.jsp",request,response);
+//                ServletUtils.redirect("/views/vwManager/Admin2.jsp",request,response);
                 break;
             default:
                 ServletUtils.redirect("/views/vwHome/404.jsp",request,response);

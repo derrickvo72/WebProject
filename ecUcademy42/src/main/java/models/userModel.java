@@ -57,6 +57,15 @@ public class userModel {
                     .executeUpdate();
         }
     }
+    public static void updaterole(int user_id,int role_id){
+        final String sql = "UPDATE user SET  role_id = :role_id WHERE user_id = :user_id";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("user_id", user_id)
+                    .addParameter("role_id", role_id)
+                    .executeUpdate();
+        }
+    }
     public static void update(user u) {
         final String sql = "UPDATE user SET  user_fullname = :userFullname, user_bday = :userBday, user_gender = :userGender, " +
                 "user_phone = :userPhone, user_email = :userEmail, user_address = :userAddress, img = :img WHERE user_id = :userId \n";

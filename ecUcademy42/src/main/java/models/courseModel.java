@@ -1,8 +1,10 @@
 package models;
 
 import beans.course;
+import beans.lession;
 import beans.user;
 import org.sql2o.Connection;
+import org.sql2o.DelegatingResultSetHandler;
 import utils.dbUtils;
 
 import java.util.List;
@@ -74,6 +76,14 @@ public class courseModel {
                     .executeUpdate();
         }
     }
+    public static List<lession> getLessionById(int course_id){
+        final String sql = "SELECT lession_id, course_id, lession_link FROM lessions WHERE course_id = :course_id \n";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("course_id",course_id)
+                    .executeAndFetch(lession.class);
+        }
+    }
     public static List<course> findCourseByCourseId(int course_id){
         final String sql = "select course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,course.img," +
                 "created_at,updated_at,course_link,course_price,course.category_id,category.category_name,category.category_info,teacher,user.user_fullname as teacher_name, count(takes.user_id) as students\n" +
@@ -85,22 +95,46 @@ public class courseModel {
                     .executeAndFetch(course.class);
         }
     }
-    public static List<course> fulltextsearch(String keyword, int currentPage, int recordsPerPage){
-        final String sql = "SELECT *\n" +
+    public static List<course> fulltextsearch(String keyword, int currentPage, int recordsPerPage, int category, int sort){
+        String sql_1 = "";
+        if(sort==-1) {
+            sql_1 = "order by course_rate desc \n";
+        }
+        final String sql = "(SELECT *\n" +
                 "FROM  course\n" +
                 "WHERE\n" +
                 "    MATCH(course_name, course_fullinfo, course_lessinfo) \n" +
-                "    AGAINST(:keyword) \n" +
+                "    AGAINST(:keyword)) \n" + sql_1 +
                 "LIMIT :start,:limit";
-        try (Connection con = dbUtils.getConnection()) {
-            return con.createQuery(sql)
-                    .addParameter("keyword", keyword)
-                    .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
-                    .addParameter("limit", recordsPerPage)
-                    .executeAndFetch(course.class);
+        final String sql2 = "SELECT * \n" +
+                "From (SELECT *\n" +
+                "\tFROM  course\n" +
+                "\tWHERE\n" +
+                "    \tMATCH(course_name, course_fullinfo, course_lessinfo) \n" +
+                "    \tAGAINST(:keyword)) as Win\n" +
+                "WHERE category_id = :category\n" + sql_1 +
+                "LIMIT :start,:limit";
+        if(category==0)
+        {
+            try (Connection con = dbUtils.getConnection()) {
+                return con.createQuery(sql)
+                        .addParameter("keyword", keyword)
+                        .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
+                        .addParameter("limit", recordsPerPage)
+                        .executeAndFetch(course.class);
+            }
+        } else {
+            try (Connection con = dbUtils.getConnection()) {
+                return con.createQuery(sql2)
+                        .addParameter("keyword", keyword)
+                        .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
+                        .addParameter("limit", recordsPerPage)
+                        .addParameter("category", category)
+                        .executeAndFetch(course.class);
+            }
         }
     }
-    public static Integer getNumberOfRowsSearch(String keyword){
+    public static Integer getNumberOfRowsSearch(String keyword, int category) {
         final String sql = "SELECT COUNT(*)\n" +
                 "FROM (SELECT *\n" +
                 "\tFROM  course\n" +
@@ -108,23 +142,50 @@ public class courseModel {
                 "    \tMATCH(course_name, course_fullinfo, course_lessinfo) \n" +
                 "    \tAGAINST(:keyword)\n" +
                 ") as numberofrows";
-        try (Connection con = dbUtils.getConnection()) {
-            return con.createQuery(sql)
-                    .addParameter("keyword", keyword)
-                    .executeAndFetchFirst(Integer.class);
-        }
-    }
-    public static Integer findNextId(){
-        final String sql = "SELECT AUTO_INCREMENT\n" +
-                "FROM information_schema.TABLES\n" +
-                "WHERE TABLE_SCHEMA = \"courseonline\"\n" +
-                "AND TABLE_NAME = \"course\";";
-        try (Connection con = dbUtils.getConnection()) {
-            return con.createQuery(sql)
-                    .executeAndFetchFirst(Integer.class);
-        }
-    }
+        final String sql2 = "SELECT COUNT(*)\n" +
+                "FROM (SELECT *\n" +
+                "FROM  course\n" +
+                "WHERE\n" +
+                "MATCH(course_name, course_fullinfo, course_lessinfo) \n" +
+                "AGAINST(:keyword)) as numberofrows\n" +
+                "WHERE category_id = :category";
+        if (category == 0) {
+            try (Connection con = dbUtils.getConnection()) {
+                return con.createQuery(sql)
+                        .addParameter("keyword", keyword)
+                        .executeAndFetchFirst(Integer.class);
+            }
+        } else {
+            try (Connection con = dbUtils.getConnection()) {
+                return con.createQuery(sql2)
+                        .addParameter("keyword", keyword)
+                        .addParameter("category", category)
+                        .executeAndFetchFirst(Integer.class);
+            }
 
+        }
+    }
+//    public static Integer findNextId(){
+////        final String sql = "SELECT AUTO_INCREMENT\n" +
+////                "FROM information_schema.TABLES\n" +
+////                "WHERE TABLE_SCHEMA = \"courseonline\"\n" +
+////                "AND TABLE_NAME = \"course\";";
+//        final String sql = "SELECT LAST_INSERT_ID()";
+//        try (Connection con = dbUtils.getConnection()) {
+//            return con.createQuery(sql)
+//                    .executeAndFetchFirst(Integer.class);
+//        }
+//    }
+    public static List<course> lastCourse(){
+        final String sql = "select *\n" +
+                "from course\n" +
+                "order by created_at desc\n" +
+                "limit 1";
+        try (Connection con = dbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(course.class);
+        }
+    }
     public static List<course> getAllCourse(){
         String sql = "select * from course";
         try(Connection con = dbUtils.getConnection()){

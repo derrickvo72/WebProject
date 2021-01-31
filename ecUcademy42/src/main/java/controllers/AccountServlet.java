@@ -2,6 +2,7 @@ package controllers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import beans.course;
+import beans.lession;
 import beans.user;
 import models.courseModel;
 import models.userModel;
@@ -19,10 +20,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 import java.lang.String;
 import org.apache.commons.io.FilenameUtils;
 
@@ -58,7 +56,7 @@ public class AccountServlet extends HttpServlet {
     }
     private void postAddCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int user_id = Integer.parseInt(request.getParameter("user_id"));
-        int course_id = courseModel.findNextId();
+//        int course_id = courseModel.findNextId();
         int category = 1;
         float course_price = 0;
         String filename = "";
@@ -79,7 +77,7 @@ public class AccountServlet extends HttpServlet {
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String created_at = myDateObj.format(myFormatObj);
         if((request.getParameter("course_id"))!=null&&(request.getParameter("course_id")!="")){
-            course_id = Integer.parseInt(request.getParameter("course_id"));
+            int course_id = Integer.parseInt(request.getParameter("course_id"));
             String update_at = created_at;
 //----------------------------------------------------------------------
             for (Part part : request.getParts()) {
@@ -105,10 +103,24 @@ public class AccountServlet extends HttpServlet {
             }
             course course = new course(course_name,category,course_fullinfo,course_lessinfo,course_price,filename,update_at,course_id,user_id);
             courseModel.update(course);
+            try{
+                courseModel.deleteLessions(course_id);
+                String[] lessions = request.getParameterValues("lessions");
+                for (String lession : lessions) {
+                    courseModel.addLessions(course_id,lession);
+                }
+            }catch (Exception e){ }
+            List<lession> lessions = courseModel.getLessionById(course_id);
+            course.setLessions(lessions);
             request.setAttribute("course",course);
             request.setAttribute("user_id",user_id);
             ServletUtils.forward("/views/vwProduct/AddCourse.jsp",request,response);
         } else {
+            course course = new course(course_name,category,course_fullinfo,course_lessinfo,course_price,filename,created_at,user_id);
+            courseModel.add(course);
+            List<course> lastcourses = courseModel.lastCourse();
+            course lastcourse = lastcourses.get(0);
+            int course_id = lastcourse.getCourse_id();
 //--------------------------------------------------------------------
             for (Part part : request.getParts()) {
                 String contentDisp = part.getHeader("content-disposition");
@@ -132,13 +144,15 @@ public class AccountServlet extends HttpServlet {
                 }
             }
 //------------------------------------------------------------/Image
-            course course = new course(course_name,category,course_fullinfo,course_lessinfo,course_price,filename,created_at,user_id);
-            courseModel.add(course);
-            courseModel.deleteLessions(course_id);
-            String[] lessions = request.getParameterValues("lessions");
-            for (String lession : lessions) {
-                courseModel.addLessions(course_id,lession);
-            }
+            try{
+                courseModel.deleteLessions(course_id);
+                String[] lessions = request.getParameterValues("lessions");
+                for (String lession : lessions) {
+                    courseModel.addLessions(course_id,lession);
+                }
+            }catch (Exception e){ }
+            List<lession> lessions = courseModel.getLessionById(course_id);
+            course.setLessions(lessions);
             request.setAttribute("course",course);
             request.setAttribute("user_id",user_id);
             ServletUtils.forward("/views/vwProduct/AddCourse.jsp",request,response);
@@ -302,9 +316,10 @@ public class AccountServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwAccount/Resign.jsp", request, response);
                 break;
             case "/Login":
-//                String retUrl = request.getParameter("retUrl");
-//                System.out.println(retUrl + " from Get");
-//                request.setAttribute("retUrl", retUrl);
+                String retUrl = request.getParameter("retUrl");
+                System.out.println(retUrl);
+                if (retUrl == null || retUrl == "") retUrl = "/Home";
+                request.setAttribute("retUrl",retUrl);
                 request.setAttribute("hasError", false);
                 ServletUtils.forward("/views/vwAccount/Login.jsp", request, response);
                 break;
@@ -340,7 +355,7 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "/Add":
                 int user_id2 = -9999;
-                if(request.getParameter("user_id")!=null&&request.getParameter("user_id")!=""){
+                if((request.getParameter("user_id")!=null)&&(request.getParameter("user_id")!="")){
                     user_id2 = Integer.parseInt(request.getParameter("user_id"));
                 }
                 Optional<user> u2 = userModel.findByID(user_id2);
@@ -355,19 +370,138 @@ public class AccountServlet extends HttpServlet {
                     ServletUtils.forward("/Account/Login", request, response);
                     break;
                 }
-                if(request.getParameter("course_id")!=null&&request.getParameter("course_id")!="")
+                if((request.getParameter("course_id")!=null)&&(request.getParameter("course_id")!=""))
                 {
                     int course_id = Integer.parseInt(request.getParameter("course_id"));
                     Optional<course> c = courseModel.findByID(course_id);
                     if (c.isPresent()) {
                         List<course> courses = courseModel.findCourseByCourseId(user_id2);
                         course course = courses.get(0);
+                        List<lession> lessions = courseModel.getLessionById(course_id);
+                        course.setLessions(lessions);
                         request.setAttribute("course", course);
                         request.setAttribute("user_id",user_id2);
                         ServletUtils.forward("/views/vwProduct/AddCourse.jsp",request,response);
                     }
                 }else {
                     course course = new course();
+                    List<lession> lessions = new List<beans.lession>() {
+                        @Override
+                        public int size() {
+                            return 0;
+                        }
+
+                        @Override
+                        public boolean isEmpty() {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean contains(Object o) {
+                            return false;
+                        }
+
+                        @Override
+                        public Iterator<beans.lession> iterator() {
+                            return null;
+                        }
+
+                        @Override
+                        public Object[] toArray() {
+                            return new Object[0];
+                        }
+
+                        @Override
+                        public <T> T[] toArray(T[] a) {
+                            return null;
+                        }
+
+                        @Override
+                        public boolean add(beans.lession lession) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean remove(Object o) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean containsAll(Collection<?> c) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean addAll(Collection<? extends beans.lession> c) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean addAll(int index, Collection<? extends beans.lession> c) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean removeAll(Collection<?> c) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean retainAll(Collection<?> c) {
+                            return false;
+                        }
+
+                        @Override
+                        public void clear() {
+
+                        }
+
+                        @Override
+                        public beans.lession get(int index) {
+                            return null;
+                        }
+
+                        @Override
+                        public beans.lession set(int index, beans.lession element) {
+                            return null;
+                        }
+
+                        @Override
+                        public void add(int index, beans.lession element) {
+
+                        }
+
+                        @Override
+                        public beans.lession remove(int index) {
+                            return null;
+                        }
+
+                        @Override
+                        public int indexOf(Object o) {
+                            return 0;
+                        }
+
+                        @Override
+                        public int lastIndexOf(Object o) {
+                            return 0;
+                        }
+
+                        @Override
+                        public ListIterator<beans.lession> listIterator() {
+                            return null;
+                        }
+
+                        @Override
+                        public ListIterator<beans.lession> listIterator(int index) {
+                            return null;
+                        }
+
+                        @Override
+                        public List<beans.lession> subList(int fromIndex, int toIndex) {
+                            return null;
+                        }
+                    };
+                    course.setLessions(lessions);
                     request.setAttribute("course",course);
                     ServletUtils.forward("/views/vwProduct/AddCourse.jsp",request,response);
                 }

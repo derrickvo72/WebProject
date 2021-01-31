@@ -13,24 +13,28 @@
             <div class="wrapper wrapper--w790 col-md-5" style="padding-right: 5px" >
                 <div class="card card-5" style="width: 100%;height: 100%;">
                     <div class="card-heading">
-                        <h2 class="title">Course</h2>
+                        <h2 class="title">Lessions</h2>
                     </div>
                     <div class="card-body row course" style="width: 100%; padding:0;">
-                        <div  class="col-md-12 example" >
-                            <img class="displayed" src="https://www.w3schools.com/css/paris.jpg " alt="Paris"
-                                 style="width:80%">
-                        </div>
                         <div class="col-md-12 courseList">
                             <div class="form-row" id="Lessions">
                                 <div class="changeLession">
                                     <button onclick="getCourse()" class="btn-cus btn--radius-2 btn--blue" id="AddLess" type="submit">&ensp;Add Lessions&ensp;</button>
                                 </div>
                             </div>
-                            <ul id="list" style="width:100%; max-height: 200px; border: 4px solid #e5e5e5">
+                            <ul id="list" style="width:100%; max-height: 550px; border: 4px solid #e5e5e5">
                                 <li id="create" style="display: none">
                                     <input class="lessionName" type="text">
                                     <button  onclick="delCourse(this)" style="justify-items: end" class="btn-cus btn--radius-2 btn--red" type="submit">Delete</button>
                                 </li>
+                                <c:if test="${course_id!=null}">
+                                    <c:forEach var="lession" items="${course.lessions}">
+                                        <li id="create">
+                                            <input class="lessionName" type="text" form="frmAddCourse" name="lessions" value="${lession.lession_link}">
+                                            <button  onclick="delCourse(this)" style="justify-items: end" class="btn-cus btn--radius-2 btn--red" type="submit">Delete</button>
+                                        </li>
+                                    </c:forEach>
+                                </c:if>
                             </ul>
                         </div>
                     </div>
@@ -50,7 +54,7 @@
                                 <div class="name">Thumbnail's course</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input style="line-height: 50px" type="file" class="custom-file-input input--style-5" id="customFile" name="img">
+                                        <input style="line-height: 50px" type="file" class="custom-file-input input--style-5" id="customFile" name="img" value="${course.img}">
                                         <label style="background-color: #e5e5e5;top: 50%;" class="custom-file-label" for="customFile" >Choose file</label>
                                     </div>
                                 </div>
@@ -59,7 +63,7 @@
                                 <div class="name">Course's name</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="text" name="course_name">
+                                        <input class="input--style-5" type="text" name="course_name" value="${course.course_name}">
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +71,7 @@
                                 <div class="name">Summary</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="text" name="course_lessinfo">
+                                        <input class="input--style-5" type="text" name="course_lessinfo" value="${course.course_lessinfo}">
                                     </div>
                                 </div>
                             </div>
@@ -77,9 +81,32 @@
                                 <div class="value">
                                     <div class="input-group ">
                                         <select class="form-control round " style="height: 50px;" id="category">
-                                            <option value="1">Window</option>
-                                            <option value="2">Web</option>
-                                            <option value="3">Design</option>
+                                            <c:choose>
+                                                <c:when test="${course.category_id==1}">
+                                                    <option value="1" selected>Window</option>
+                                                    <option value="2">Web</option>
+                                                    <option value="3">Design</option>
+                                                    <option value="4">Office</option>
+                                                </c:when>
+                                                <c:when test="${course.category_id==2}">
+                                                    <option value="1">Window</option>
+                                                    <option value="2" selected>Web</option>
+                                                    <option value="3">Design</option>
+                                                    <option value="4">Office</option>
+                                                </c:when>
+                                                <c:when test="${course.category_id==3}">
+                                                    <option value="1">Window</option>
+                                                    <option value="2">Web</option>
+                                                    <option value="3" selected>Design</option>
+                                                    <option value="4">Office</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="1">Window</option>
+                                                    <option value="2">Web</option>
+                                                    <option value="3">Design</option>
+                                                    <option value="4" selected>Office</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </select>
                                     </div>
                                 </div>
@@ -88,7 +115,7 @@
                                 <div class="name">Detail</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <textarea class="input--style-5" style="width:100%" name="course_fullinfo"></textarea>
+                                        <textarea class="input--style-5" style="width:100%" name="course_fullinfo">${course.course_fullinfo}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +123,7 @@
                                 <div class="name">Price</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="text" name="course_price">
+                                        <input class="input--style-5" type="text" name="course_price" value="${course.course_price}">
                                     </div>
                                 </div>
                             </div>

@@ -17,18 +17,21 @@
     </jsp:attribute>
     <jsp:attribute name="js">
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script  type="text/javascript" src="${pageContext.request.contextPath}/public/JS/Product.js"></script>
-<%--        <script>--%>
-<%--            var stickyNote = $('#divComment')[0].outerHTML;--%>
-<%--            $('#btnSave').click(function(){--%>
-<%--                $stickyNote = $(stickyNote);--%>
-<%--                $stickyNote.appendTo($('#divReviewArea'))--%>
-<%--            })--%>
-<%--        </script>--%>
+        <script>
+            $(document).ready(function() {
+                <%--$("#description").after("${course.course_fullinfo}");--%>
+                <%--alert("${course.course_fullinfo}");--%>
+            });
+            <%--$( window ).on( "load", function() {--%>
+            <%--    $("#description").after("${course.course_fullinfo}");--%>
+            <%--    alert("${course.course_fullinfo}");--%>
+            <%--});--%>
+        </script>
     </jsp:attribute>
     <jsp:body>
-
         <c:set var="urlid" value="${urlwithid}"/>
         <jsp:include page="../partials/nav.jsp" flush="true">
             <jsp:param name="urlwithid" value="${urlid}"/>
@@ -77,7 +80,7 @@
                                     <div class="details col-md-12">
                                         <div style="margin-top: 10px;" class="rating">
 <%--                                            <fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" />--%>
-                                            <span class="review-no"><fmt:formatDate value="${course.created_at}" pattern="dd-MM-yyyy" /></span> &ensp;
+                                            <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i> ${course.created_at} </span> &ensp;
                                             <span class="review-no"><i class="fa fa-eye" aria-hidden="true"></i> ${fn:length(course.takes)} reviews</span>
                                         </div>
 
@@ -87,17 +90,12 @@
                                         <h5 class="sizes">Category:
                                             <span class="size" data-toggle="tooltip" title="small">${course.category_name}</span>
                                         </h5>
-                                        <h5 class="sizes">Link:
-                                            <span class="size" data-toggle="tooltip" title="small">
-                                                <a style="color: black" href="${course.course_link}">${course.course_link}</a>
-                                            </span>
-                                        </h5>
-
                                         <h3 style="margin-top: 10px;" class="product-title">
                                             ${course.course_name}
                                         </h3>
 
-                                        <p class="product-description">
+                                        <p class="product-description" id="description">
+<%--                                            <div id="description"></div>--%>
                                             ${course.course_fullinfo}
                                         </p>
 
@@ -124,11 +122,12 @@
                                             </c:when>
                                             <c:otherwise>
                                                 <div class="action">
-                                                    <form id="frmBuy" method="get" action="${pageContext.request.contextPath}/Home/Buy">
+                                                    <form id="frmBuy" method="get" action="${pageContext.request.contextPath}/Product/Buy">
                                                         <input type="hidden" name="course_id" value="${course.course_id}">
                                                         <input type="hidden" name="user_id" value="${authUser.user_id}">
+                                                        <input type="hidden" name="retUrl" value="${urlwithid}">
                                                     </form>
-                                                    <button style="background-color: red" class="add-to-cart btn btn-default" onclick="javascript: $('#frmBuy').submit();" type="button">Buy</button>
+                                                    <button style="background-color: red" class="add-to-cart btn btn-default" onclick="javascript: $('#frmBuy').submit();" type="submit">Buy</button>
                                                     <button class="add-to-cart btn btn-default" type="button">Add to cart</button>
                                                     <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
                                                 </div>
