@@ -60,7 +60,7 @@
             </div>
         </div>
 <%--Cac khoa hoc theo tab--%>
-        <div class="container-lg">
+        <div class="container-fluid">
             <!-- tab -->
             <ul class="nav nav-pills" style="padding-bottom: 10px">
                 <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Web develop</a></li>
@@ -71,7 +71,7 @@
             <div class="tab-content">
 
 
-                <div class="tab-pane container active" id="tab1">
+                <div class="tab-pane container-fluid active" id="tab1">
                     <div class="owl-carousel owl-theme">
                         <c:forEach var="c" items="${courses}">
                             <c:choose>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane container fade" id="tab2">
+                <div class="tab-pane container-fluid fade" id="tab2">
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
 
@@ -286,7 +286,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane container fade" id="tab3">
+                <div class="tab-pane container-fluid fade" id="tab3">
                     <div class="owl-carousel owl-theme">
                         <c:forEach var="c" items="${courses}">
                             <c:choose>
@@ -448,13 +448,13 @@
         </div>
 
 <%--Top courses--%>
-        <div class="container-lg">
-            <div class="container-lg">
+        <div class="container-fluid">
+            <div class="container-fluid">
                 <div class col-md-12>
                     <h1 style="color: black;">TOP COURSES</h1>
                 </div>
             </div>
-            <div class="container-lg">
+            <div class="container-fluid">
                 <div class="owl-carousel owl-theme">
                     <c:forEach begin="0" end="4" var="c" items="${courses}">
                                 <div class="item">
@@ -558,7 +558,7 @@
         </div>
 
 <%--So nguoi dang ki theo muc--%>
-        <div class="container-lg" style="padding-top: 20px; padding-bottom: 20px;">
+        <div class="container-fluid" style=" padding-top: 20px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-md-12">
                     <h1 style="color: black;">Featured topics by category </h1>
@@ -649,10 +649,10 @@
 
 <%--Intro team--%>
         <div class="container-fluid">
-            <div class="container py-5">
-                <h2 class="font-weight-bold mb-2">Our Team</h2>
-                <p class="font-italic text-muted mb-4">WEB DEVELOPER.</p>
-                <div class="row mt-5 mb-5">
+            <div class="container-fluid">
+                <h2 style="padding-left: 15px" class="font-weight-bold mb-2">Our Team</h2>
+                <p  class="font-italic text-muted mb-4 pl-3">WEB DEVELOPER.</p>
+                <div class="row mt-5 mb-5 pl-1">
                     <div class="col-sm-3 mb-3">
                         <!-- Card-->
                         <div class="card border-dark">
