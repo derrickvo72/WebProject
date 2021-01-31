@@ -41,8 +41,11 @@
                             </c:choose>
                         </c:forEach>
                         <c:if test="${currentPage!=noOfPages}">
-                            <li class="page-item"><a class="page-link"
-                                                     href="${pageContext.request.contextPath}/Product/Filter?currentPage=${currentPage+1}&recordsPerPage=8&search=${search}">Next</a></li>
+                            <c:if test="${noOfPages>0}">
+                                <li class="page-item"><a class="page-link"
+                                                         href="${pageContext.request.contextPath}/Product/Filter?currentPage=${currentPage+1}&recordsPerPage=8&search=${search}">Next</a></li>
+
+                            </c:if>
                         </c:if>
                             <%--                        <li class="placeholder">--%>
                             <%--                            <a data-type="all" >All</a> <!-- selected option on mobile -->--%>

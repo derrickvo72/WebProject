@@ -16,7 +16,7 @@
         $('#txtBirthday').datetimepicker({
             format: 'd-m-Y',
             timepicker: false,
-            mask: true,
+            mask: false,
             // onload:function(dp,$input) {
             //     value = $input;
             // }
@@ -77,10 +77,8 @@
 <%--                                            <hr class="new5">--%>
                                         </c:when>
                                         <c:otherwise>
-                                            <a style=" border-radius:100px ; margin:0 20px 0 20px; color: white" class="btn btn-success btn-md" id="v-pills-teaching-tab"
-                                               data-toggle="pill"
-                                               href="#v-pills-teaching" role="tab" aria-controls="v-pills-teaching"
-                                               aria-selected="true">
+                                            <a style=" border-radius:100px ; margin:0 20px 0 20px; color: white" class="btn btn-success btn-md"
+                                               href="${pageContext.request.contextPath}/Account/Add?course_id=&user_id=${user.user_id}" role="tab" aria-controls="v-pills-teaching">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> &ensp; Teaching</a>
                                             <hr class="new5">
                                         </c:otherwise>

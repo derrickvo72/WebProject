@@ -99,8 +99,11 @@ public class ProductServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwProduct/Details.jsp",request,response);
                 break;
             case "/Filter":
-                int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-                int recordsPerPage = Integer.parseInt(request.getParameter("recordsPerPage"));
+                int currentPage = 1;
+                if(request.getParameter("currentPage")!=null){
+                    currentPage = Integer.parseInt(request.getParameter("currentPage"));
+                }
+                int recordsPerPage = 8;
                 String search = request.getParameter("search");
                 List<course> coursess = courseModel.fulltextsearch(search,currentPage,recordsPerPage);
                 int rows = courseModel.getNumberOfRowsSearch(search);

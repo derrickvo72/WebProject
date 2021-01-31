@@ -110,7 +110,7 @@ public class AdminServlet extends HttpServlet {
                     int course_id = Integer.parseInt(request.getParameter("course_id"));
                     Optional<course> c = courseModel.findByID(course_id);
                     if (c.isPresent()) {
-                        List<course> courses = courseModel.findCourseByID(course_id);
+                        List<course> courses = courseModel.findCourseByCourseId(course_id);
                         course course = courses.get(0);
                         request.setAttribute("course", course);
                         request.setAttribute("id",idd);

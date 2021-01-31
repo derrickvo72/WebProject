@@ -22,21 +22,57 @@ public class courseModel {
 
 
     public static void add(course c) {
-        final String sql = "INSERT INTO course (course_name, course_fullinfo, course_lessinfo, created_at, course_link, course_price, category_id, teacher) " +
-                "VALUES (:courseName,:courseFullinfo,:courseLessinfo,:createdAt,:courseLink,:coursePrice,:category_id,:teacher_id)\n";
+        final String sql = "INSERT INTO course (course_name, course_fullinfo, course_lessinfo, created_at, img, course_price, category_id, teacher) " +
+                "VALUES (:courseName,:courseFullinfo,:courseLessinfo,:createdAt,:img,:coursePrice,:category_id,:teacher_id)\n";
         try (Connection con = dbUtils.getConnection()) {
             con.createQuery(sql)
                     .addParameter("courseName", c.getCourse_name())
                     .addParameter("courseFullinfo", c.getCourse_fullinfo())
                     .addParameter("courseLessinfo", c.getCourse_lessinfo())
                     .addParameter("createdAt", c.getCreated_at())
-                    .addParameter("courseLink", c.getCourse_link())
+                    .addParameter("img", c.getImg())
                     .addParameter("coursePrice", c.getCourse_price())
                     .addParameter("category_id", c.getCategory_id())
                     .addParameter("teacher_id", c.getTeacher())
                     .executeUpdate();
         }
 
+    }
+    public static void update(course c) {
+        final String sql = "UPDATE course SET  course_name = :courseName, course_fullinfo = :courseFullinfo, " +
+                "course_lessinfo = :courseLessinfo, img = :img, updated_at = :updatedAt, " +
+                "course_price = :coursePrice, category_id = :categoryId, teacher = :teacher " +
+                "WHERE course_id = :courseId \n";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("courseName", c.getCourse_name())
+                    .addParameter("courseFullinfo", c.getCourse_fullinfo())
+                    .addParameter("courseLessinfo", c.getCourse_lessinfo())
+                    .addParameter("img", c.getImg())
+                    .addParameter("updatedAt", c.getUpdated_at())
+                    .addParameter("coursePrice", c.getCourse_price())
+                    .addParameter("categoryId", c.getCategory_id())
+                    .addParameter("teacher", c.getTeacher())
+                    .addParameter("courseId", c.getCourse_id())
+                    .executeUpdate();
+        }
+    }
+    public static void deleteLessions(int course_id){
+        final String sql = "DELETE from lessions WHERE course_id = :course_id";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("course_id",course_id)
+                    .executeUpdate();
+        }
+    }
+    public static void addLessions(int course_id, String lession_link){
+        final String sql = "INSERT INTO lessions (course_id, lession_link) VALUES (:course_id,:lession_link)\n";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("course_id",course_id)
+                    .addParameter("lession_link",lession_link)
+                    .executeUpdate();
+        }
     }
     public static List<course> findCourseByCourseId(int course_id){
         final String sql = "select course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,course.img," +
@@ -110,14 +146,14 @@ public class courseModel {
         }
     }
 
-    public static List<course> findCourseByID(int courseID) {
-        final String sql = "select * from course where course_id = :courseID";
-        try (Connection con = dbUtils.getConnection()){
-            return con.createQuery(sql)
-                    .addParameter("courseID", courseID)
-                    .executeAndFetch(course.class);
-        }
-    }
+//    public static List<course> findCourseByID(int courseID) {
+//        final String sql = "select * from course where course_id = :courseID";
+//        try (Connection con = dbUtils.getConnection()){
+//            return con.createQuery(sql)
+//                    .addParameter("courseID", courseID)
+//                    .executeAndFetch(course.class);
+//        }
+//    }
 
     public static Integer getNumberOfRowsAll(){
         final String sql = "SELECT COUNT(*)\n" +

@@ -12,10 +12,10 @@ import java.io.IOException;
 @WebServlet(name = "DefaultServlet", urlPatterns = "/")
 public class DefaultServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("/views/404.jsp",request,response);
+        ServletUtils.forward("/views/vwHome/404.jsp",request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("/views/404.jsp",request,response);
+        ServletUtils.forward("/views/vwHome/404.jsp",request,response);
     }
 }

@@ -21,5 +21,6 @@
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/Account/Profile</url-pattern>
+        <url-pattern>/Account/Add</url-pattern>
     </filter-mapping>
 </web-app>

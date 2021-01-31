@@ -90,20 +90,20 @@
                 </li>
             </ul>
         </li>
-        <li><a href="#">Teach on Ucademy</a>
-            <ul style="min-width: 320px; min-height: 50px; padding: 2px ">
-            <li class="teach-font" style="text-align: center">
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <h5>Turn what you know into an opportunity and reach millions around the world</h5>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-                <a href="${pageContext.request.contextPath}/Home/Index" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Learn more</a>
-            </li>
-        </ul>
-        </li>
+<%--        <li><a href="#">Teach on Ucademy</a>--%>
+<%--            <ul style="min-width: 320px; min-height: 50px; padding: 2px ">--%>
+<%--            <li class="teach-font" style="text-align: center">--%>
+<%--                <div class="row">--%>
+<%--                    <div class="col-md-1"></div>--%>
+<%--                    <div class="col-md-10">--%>
+<%--                        <h5>Turn what you know into an opportunity and reach millions around the world</h5>--%>
+<%--                    </div>--%>
+<%--                    <div class="col-md-1"></div>--%>
+<%--                </div>--%>
+<%--                <a href="${pageContext.request.contextPath}/Home/Index" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Learn more</a>--%>
+<%--            </li>--%>
+<%--        </ul>--%>
+<%--        </li>--%>
         <li style="text-align: center;">
             <div class="form-group has-search" >
 <%--                <span class="fa fa-search form-control-feedback errspan"></span>--%>
