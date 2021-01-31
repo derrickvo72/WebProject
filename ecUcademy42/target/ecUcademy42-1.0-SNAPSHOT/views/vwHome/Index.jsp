@@ -545,23 +545,15 @@
                 <br>
                 <a style="color:white; border: 1px solid white" class="btn btn-outline-info btn-lg" href="#" role="button">Learn more</a>
             </div>
-            <div id ="bubble2">
-<%--                <i class="fas fa-laptop-code"></i>--%>
-<%--                <i class="fas fa-code"></i>--%>
-<%--                <i class="fab fa-aws"></i>--%>
-<%--                <i class="fas fa-terminal"></i>--%>
-<%--                <i class="fas fa-file"></i>--%>
-<%--                <i class="fas fa-rocket"></i>--%>
-<%--                <i class="fas fa-robot"></i>--%>
-<%--                <i class="fab fa-java"></i>--%>
-                <i class="fab fa-microsoft"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-facebook-square"></i>
-                <i class="fab fa-google"></i>
-                <i class="fab fa-instagram-square"></i>
-                <i class="fab fa-twitter-square"></i>
-                 <i class="fab fa-apple"></i>
-                <i class="fab fa-tiktok"></i>
+            <div id="bubble3" style="z-index: 1">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Bill2.png">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Bezos.png" alt="">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Mark2.png" alt="">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Steven2.png" alt="">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Larry.png" alt="">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Sergey.png" alt="">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Elon2.png" alt="">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Ellision.png" alt="">
             </div>
         </div>
 <%--So nguoi dang ki theo muc--%>
@@ -762,17 +754,17 @@
 <%--Gioi thieu 3--%>
         <div class="jumbotron-teaching jumbotron-fruid-teaching" style="display: block;">
             <div class="context-white">
-                <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" alt=""
-                     style="width: 400px; height: 400px;">
+                <img src="${pageContext.request.contextPath}/public/DecoImage/Lecture.png" alt="Lecture"
+                     style="width: 450px; height: 400px;">
             </div>
-
             <div class="container-fluid">
                 <div class="res-text" style="background-color: #fbfbf8">
                     <div class="res-content">
-                        <p style="font-size: medium; color: black;" class="lead">
-                        <h5 style="color: black; font-size: 2em"><b>Become an instructor</b></h5>
-                        Top instructors from around the world teach millions of students on Udemy. We provide the tools
-                        and skills to teach what you love</p>
+                        <h5 style="color: black;"><b>Become an instructor</b></h5>
+                        <p style="font-size: 15px; color: black;" class="lead">
+                            Top instructors from around the world teach millions of students on Udemy. We provide the
+                            tools
+                            and skills to teach what you love</p>
                         <br>
                         <a style="background-color: #007bff;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start
                             teaching today</b></a>
@@ -792,16 +784,29 @@
                             <br>
                         </c:forEach>
                     </div>
-                    <div class="col-md-5">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
+                    <div class="col-md-5"
+                         style="z-index: 10; display: flex; justify-content: center; align-items: center">
+                        <img width="350px" height="200px"
+                             src="${pageContext.request.contextPath}/public/DecoImage/Bill4.png">
                     </div>
-                    <div class="col-md-5" style="margin: 0; padding:30px 15px 0px 15px;">
-                        <h2 style="color: white">Transform your life through education</h2>
-                        <h5>Mohamad Alaloush launched a new career in software development by taking courses on Udemy.
+                    <div class="col-md-5" style="z-index:10;margin: 0; padding:30px 15px 0px 15px;">
+                        <h1 style="color: white">Transform life through education</h1>
+                        <h5>Bill Gates launched a new career in software development by taking courses on Udemy.
                             What will you be able to do?</h5>
                     </div>
                 </div>
+
+                <div id="bubble2">
+                    <i class="fab fa-windows"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-apple"></i>
+                    <i class="fab fa-tiktok"></i>
+                </div>
+
             </div>
         </div>
 
