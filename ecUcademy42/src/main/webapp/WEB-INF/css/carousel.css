@@ -12,7 +12,8 @@
     position: relative;
     overflow: hidden;
     /*https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-ufb.jpg*/
-    background: url(https://s.udemycdn.com/browse_components/shared-assets/purple-intersect.svg) repeat-x #6e1a52;
+    /*background:  repeat-x #4481eb;*/
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)
 }
 .jumbotron-fruid{
     width: 100%;
@@ -125,6 +126,28 @@
 
 /*sualaitab*/
 
+
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+
+
+.modal-body {
+    position:relative;
+    padding:0px;
+}
+.close {
+    position:absolute;
+    right:-30px;
+    top:0;
+    z-index:999;
+    font-size:2rem;
+    font-weight: normal;
+    color:#fff;
+    opacity:1;
+}
 /*animation*/
 #bubble {
     width: 100%;
@@ -136,14 +159,13 @@
     position: absolute;
     bottom: 0;
 }
-
 #bubble i {
     -webkit-animation: ball 5s linear infinite;
     animation: ball 5s linear infinite;
-    font-size: 36px;
+    font-size: 100px;
     opacity: 0;
+    font-weight: bold;
 }
-
 #bubble i:nth-child(1) {
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
@@ -184,11 +206,113 @@
     animation-delay: 4s;
     color: darkorange;
 }
-#bubble img {
+@-webkit-keyframes ball {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        -webkit-transform: translateY(-50vh);
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: translateY(-80vh);
+        transform: translateY(-80vh);
+        opacity: 0.3;
+    }
+}
+@keyframes ball {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        -webkit-transform: translateY(-50vh);
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: translateY(-80vh);
+        transform: translateY(-80vh);
+        opacity: 0.3;
+    }
+}
+
+
+/*anamtion2*/
+#bubble2 {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+}
+
+#bubble2 i {
     -webkit-animation: ball 5s linear infinite;
     animation: ball 5s linear infinite;
-    font-size: 36px;
+    font-size: 100px;
     opacity: 0;
+    font-weight: bold;
+}
+
+#bubble2 i:nth-child(1) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    color: darkorange;
+}
+#bubble2 i:nth-child(2) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    color: blue;
+}
+#bubble2 i:nth-child(3) {
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    color: yellow;
+}
+#bubble2 i:nth-child(4) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    color: red;
+}
+#bubble2 i:nth-child(5) {
+    -webkit-animation-delay: 6s;
+    animation-delay: 6s;
+    color: rebeccapurple;
+}
+#bubble2 i:nth-child(6) {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    color: green;
+}
+#bubble2 i:nth-child(7) {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    color: blue;
+}
+#bubble2 i:nth-child(8) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    color: darkorange;
 }
 
 @-webkit-keyframes ball {
@@ -239,24 +363,118 @@
     }
 }
 
-.modal-dialog {
-    max-width: 800px;
-    margin: 30px auto;
+/*Animation3*/
+#bubble2 {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
 }
 
-
-
-.modal-body {
-    position:relative;
-    padding:0px;
+#bubble2 i {
+    -webkit-animation: ball 5s linear infinite;
+    animation: ball 5s linear infinite;
+    font-size: 100px;
+    opacity: 0;
+    font-weight: bold;
 }
-.close {
-    position:absolute;
-    right:-30px;
-    top:0;
-    z-index:999;
-    font-size:2rem;
-    font-weight: normal;
-    color:#fff;
-    opacity:1;
+
+#bubble2 i:nth-child(1) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    color: white;
+}
+#bubble2 i:nth-child(2) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    color: red;
+}
+#bubble2 i:nth-child(3) {
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    color: blue;
+}
+#bubble2 i:nth-child(4) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    color: white;
+}
+#bubble2 i:nth-child(5) {
+    -webkit-animation-delay: 6s;
+    animation-delay: 5s;
+    color:rgba(193, 53, 132, 1);
+    /*background: #f09433;*/
+    /*background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);*/
+    /*background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);*/
+    /*background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);*/
+    /*!*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );*!*/
+}
+#bubble2 i:nth-child(6) {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    color: blue;
+}
+#bubble2 i:nth-child(7) {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    color: white;
+}
+#bubble2 i:nth-child(8) {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    color: white;
+    background: black;
+    padding: 8px;
+}
+
+@-webkit-keyframes ball {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        -webkit-transform: translateY(-50vh);
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: translateY(-80vh);
+        transform: translateY(-80vh);
+        opacity: 0.3;
+    }
+}
+
+@keyframes ball {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        -webkit-transform: translateY(-50vh);
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: translateY(-80vh);
+        transform: translateY(-80vh);
+        opacity: 0.3;
+    }
 }

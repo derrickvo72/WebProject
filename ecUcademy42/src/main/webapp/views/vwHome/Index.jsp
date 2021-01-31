@@ -38,11 +38,8 @@
 
                         </div>
                     </div><!-- end carousel-caption -->
-
-
-
                     <div class="carousel-item active">
-                        <div class="d-block w-100" style="background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%); width: 100%; height: 450px !important;" >
+                        <div class="d-block w-100" style="background:  repeat-x #4481eb;; width: 100%; height: 450px !important;" >
                             <div id ="bubble">
                                 <i class="fab fa-html5"></i>
                                 <i class="fab fa-css3-alt"></i>
@@ -62,15 +59,13 @@
 <%--Cac khoa hoc theo tab--%>
         <div class="container-fluid">
             <!-- tab -->
-            <ul class="nav nav-pills" style="padding-bottom: 10px">
+            <ul  class="nav nav-pills" style="display: flex; justify-content: center; align-items: center; padding-bottom: 10px">
                 <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link active">Web develop</a></li>
                 <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link">Window develop</a></li>
                 <li class="nav-item"><a href="#tab3" data-toggle="tab" class="nav-link">Mobile develop</a></li>
 <%--                <li class="nav-item"><a href="#tab4" data-toggle="tab" class="nav-link">Design</a></li>--%>
             </ul>
             <div class="tab-content">
-
-
                 <div class="tab-pane container-fluid active" id="tab1">
                     <div class="owl-carousel owl-theme">
                         <c:forEach var="c" items="${courses}">
@@ -167,7 +162,6 @@
                         </c:forEach>
                     </div>
                 </div>
-
                 <div class="tab-pane container-fluid fade" id="tab2">
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -285,7 +279,6 @@
                         </c:forEach>
                     </div>
                 </div>
-
                 <div class="tab-pane container-fluid fade" id="tab3">
                     <div class="owl-carousel owl-theme">
                         <c:forEach var="c" items="${courses}">
@@ -380,7 +373,6 @@
                         </c:forEach>
                     </div>
                 </div>
-
                 <div class="tab-pane container fade" id="tab4">
                     <div class="owl-carousel owl-theme">
                         <c:forEach begin="1" end="8">
@@ -443,7 +435,6 @@
                         </c:forEach>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -542,21 +533,37 @@
             </div>
 
         </div>
-
 <%--Gioi thieu 2--%>
         <div class="jumbotron jumbotron-fruid">
-            <div class="container text-white" style="text-align: center">
+            <div  class="container text-white pl-5 pr-5"  style="text-align: center">
                 <h5 class="display-4"><b>Become an good developer</b></h5>
                     <%--<hr class="my-4">--%>
-                <p style="font-size: medium" class="lead text-white">"No one in the brief history of computing has ever
+                <p style="font-size: 25px" class="lead text-white">"No one in the brief history of computing has ever
                     written a piece of perfect software. It's unlikely that you'll be the first." - Andy Hunt.</p>
-                <p style="font-size: medium" class="lead text-white">"One of the best programming skills you can have is
+                <p style="font-size: 25px" class="lead text-white">"One of the best programming skills you can have is
                     knowing when to walk away for awhile." - Oscar Godson</p>
                 <br>
                 <a style="color:white; border: 1px solid white" class="btn btn-outline-info btn-lg" href="#" role="button">Learn more</a>
             </div>
+            <div id ="bubble2">
+<%--                <i class="fas fa-laptop-code"></i>--%>
+<%--                <i class="fas fa-code"></i>--%>
+<%--                <i class="fab fa-aws"></i>--%>
+<%--                <i class="fas fa-terminal"></i>--%>
+<%--                <i class="fas fa-file"></i>--%>
+<%--                <i class="fas fa-rocket"></i>--%>
+<%--                <i class="fas fa-robot"></i>--%>
+<%--                <i class="fab fa-java"></i>--%>
+                <i class="fab fa-microsoft"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-instagram-square"></i>
+                <i class="fab fa-twitter-square"></i>
+                 <i class="fab fa-apple"></i>
+                <i class="fab fa-tiktok"></i>
+            </div>
         </div>
-
 <%--So nguoi dang ki theo muc--%>
         <div class="container-fluid" style=" padding-top: 20px; padding-bottom: 20px;">
             <div class="row">
@@ -564,9 +571,7 @@
                     <h1 style="color: black;">Featured topics by category </h1>
                 </div>
             </div>
-
             <div class="row">
-
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="row">
                         <div class="col-sm-12 pt-5"><h4>Web Develop</h4></div>
@@ -646,7 +651,6 @@
                 </div>
             </div>
         </div>
-
 <%--Intro team--%>
         <div class="container-fluid">
             <div class="container-fluid">
@@ -755,7 +759,6 @@
                 </div>
             </div>
         </div>
-
 <%--Gioi thieu 3--%>
         <div class="jumbotron-teaching jumbotron-fruid-teaching" style="display: block;">
             <div class="context-white">
@@ -771,7 +774,7 @@
                         Top instructors from around the world teach millions of students on Udemy. We provide the tools
                         and skills to teach what you love</p>
                         <br>
-                        <a style="background-color: #003640;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start
+                        <a style="background-color: #007bff;" class="btn btn-primary btn-lg" href="#" role="button"><b>Start
                             teaching today</b></a>
                     </div>
                 </div>
@@ -781,7 +784,7 @@
 <%--Jumbotron video--%>
         <div class="container-fluid" style="margin: 0;">
             <div class="jumbotron text-white jumbotron-image shadow  d-flex "
-                 style="background-color: #003640;
+                 style="background-color: #ddd6f3!important;
                     width: 100%; flex-wrap: wrap; align-content: center">
                 <div class="row">
                     <div class="col-md-2">
