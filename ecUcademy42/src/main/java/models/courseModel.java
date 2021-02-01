@@ -14,7 +14,7 @@ public class courseModel {
     public static List<course> getAll(){
         String sql = "select course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,course.img,created_at,updated_at,course_link,course_price,category.category_id,category.category_name,category.category_info, user.user_fullname as teacher_name ,teacher, count(takes.user_id) as students\n" +
                 "from  user, category,course LEFT JOIN takes on (course.course_id = takes.course_id)\n" +
-                "where course.category_id = category.category_id and user.user_id = course.teacher\n" +
+                "where course.category_id = category.category_id and user.user_id = course.teacher and deactive=0\n" +
                 "group BY course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,img,created_at,updated_at,course_link,course_price,category.category_id,category.category_name,category.category_info, teacher_name, teacher\n" +
                 "ORDER BY course_rate DESC, students DESC";
         try(Connection con = dbUtils.getConnection()){
@@ -95,7 +95,7 @@ public class courseModel {
     }
     public static List<course> findCourseByCourseId(int course_id){
         final String sql = "select course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,course.img," +
-                "created_at,updated_at,course_link,course_price,course.category_id,category.category_name,category.category_info,teacher,user.user_fullname as teacher_name, count(takes.user_id) as students\n" +
+                "created_at,updated_at,course_link,course_price,course.category_id,category.category_name,category.category_info,teacher,user.user_fullname as teacher_name, count(takes.user_id) as students,deactive\n" +
                 "from course, category, user, takes\n" +
                 "where course.category_id = category.category_id and course.teacher = user.user_id and takes.course_id = course.course_id and course.course_id = :course_id";
         try (Connection con = dbUtils.getConnection()) {
@@ -247,12 +247,12 @@ public class courseModel {
         }
     }
     public static void updateStatus(int course_id, int deactive) {
-        final String sql = "UPDATE course SET  deactive = :deactive" +
-                "WHERE course_id = :course_id \n";
+        final String sql = "UPDATE course SET  deactive = :deactive WHERE course_id = :courseId \n";
+
         try (Connection con = dbUtils.getConnection()) {
             con.createQuery(sql)
                     .addParameter("deactive", deactive)
-                    .addParameter("course_id", course_id)
+                    .addParameter("courseId", course_id)
                     .executeUpdate();
         }
     }

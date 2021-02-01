@@ -80,7 +80,7 @@
                                     <%--                                <label for="select_form" class="name">Subject</label>--%>
                                 <div class="value">
                                     <div class="input-group ">
-                                        <select class="form-control round " style="height: 50px;" id="category">
+                                        <select class="form-control round " style="height: 50px;" id="category" name="category">
                                             <c:choose>
                                                 <c:when test="${course.category_id==1}">
                                                     <option value="1" selected>Window</option>

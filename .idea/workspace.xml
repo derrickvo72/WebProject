@@ -27,7 +27,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98a0b648-8b3a-437a-9bbd-06444fe29af1" name="Default Changelist" comment="" />
+    <list default="true" id="98a0b648-8b3a-437a-9bbd-06444fe29af1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fef1528-154e-4eb9-9fe0-f502fe5c70b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7fef1528-154e-4eb9-9fe0-f502fe5c70b1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/java/models/courseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/java/models/courseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwHome/Index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwHome/Index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwManager/EditManager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwManager/EditManager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwProduct/AddCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/src/main/webapp/views/vwProduct/AddCourse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwHome/Index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwHome/Index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwManager/EditManager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwManager/EditManager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwProduct/AddCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/ecUcademy42/target/ecUcademy42-1.0-SNAPSHOT/views/vwProduct/AddCourse.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +69,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="E:\Giáo trình\WEB\Tools\ideaIU-2020.2.4.win\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -227,6 +239,7 @@
       <workItem from="1612091533399" duration="1205000" />
       <workItem from="1612096618340" duration="24812000" />
       <workItem from="1612140572556" duration="4470000" />
+      <workItem from="1612145500761" duration="2952000" />
     </task>
     <servers />
   </component>
@@ -255,10 +268,10 @@
     </state>
     <state x="218" y="7" key="#Project_Structure/0.0.1474.864@0.0.1474.864" timestamp="1611304246751" />
     <state x="0" y="0" key="#Project_Structure/68.0.1298.768@68.0.1298.768" timestamp="1610209257680" />
-    <state x="171" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612141252349">
-      <screen x="68" y="0" width="1298" height="768" />
+    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612145539657">
+      <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1474.864@0.0.1474.864" timestamp="1612091587307" />
+    <state x="117" y="0" width="1089" height="864" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1474.864@0.0.1474.864" timestamp="1612145539657" />
     <state x="171" y="0" width="1092" height="768" key="#com.intellij.execution.impl.EditConfigurationsDialog/68.0.1298.768@68.0.1298.768" timestamp="1612141252349" />
     <state x="518" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612036756853">
       <screen x="0" y="0" width="1474" height="864" />
