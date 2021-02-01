@@ -353,6 +353,15 @@ public class AccountServlet extends HttpServlet {
                 out.print(!user.isPresent());
                 out.flush();
                 break;
+            case "/IsEmailAvailable":
+                String email = request.getParameter("email");
+                Optional<user> usere = userModel.findByEmail(email);
+                PrintWriter out2 = response.getWriter();
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                out2.print(!usere.isPresent());
+                out2.flush();
+                break;
             case "/Add":
                 int user_id2 = -9999;
                 if((request.getParameter("user_id")!=null)&&(request.getParameter("user_id")!="")){

@@ -23,6 +23,20 @@ public class userModel {
             return Optional.ofNullable(list.get(0));
         }
     }
+    public static Optional<user> findByEmail(String email) {
+        final String sql = "select * from user where user_email = :email";
+        try (Connection con = dbUtils.getConnection()) {
+            List<user> list = con.createQuery(sql)
+                    .addParameter("email", email)
+                    .executeAndFetch(user.class);
+
+            if (list.size() == 0) {
+                return Optional.empty();
+            }
+
+            return Optional.ofNullable(list.get(0));
+        }
+    }
     public static Optional<user> findByID(int user_id) {
         final String sql = "select * from user where user_id = :user_id";
         try (Connection con = dbUtils.getConnection()) {

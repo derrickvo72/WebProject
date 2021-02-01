@@ -111,9 +111,11 @@
                                                 <div class="card p-3">
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="user d-flex flex-row align-items-center">
-                                                            <i style="padding-right: 10px" class="fa fa-play" aria-hidden="true"></i><span>
-                                    <a href="#"><small style="font-size:18px;font-family:monospace " class="font-weight-bold text-primary">Lap trinh vui nhon</small>
-                                    </a><small style="font-size:18px; padding-left: 10px" class="font-weight-bold">c#</small></span>
+                                                            <form id="frmLearn" method="get" action="${pageContext.request.contextPath}/Product/Learn">
+                                                                <input type="hidden" name="course_id" value="${course.course_id}">
+                                                                <input type="hidden" name="retUrl" value="${urlwithid}">
+                                                            </form>
+                                                            <button class="btn btn-default" type="submit" onclick="javascript: $('#frmLearn').submit();">View all lessions</button>
                                                         </div>
                                                     </div>
                                                     <div class="action d-flex justify-content-between mt-2 align-items-center">

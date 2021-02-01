@@ -46,9 +46,18 @@
 
                 $.getJSON('${pageContext.request.contextPath}/Account/IsAvailable?user=' + username, function (data) {
                     if (data === true) {
-                        $('#register-form').off('submit').submit();
+                        // $('#register-form').off('submit').submit();
                     } else {
                         alert('Not available username!');
+                        return;
+                    }
+                });
+                $.getJSON('${pageContext.request.contextPath}/Account/IsEmailAvailable?email=' + email, function (data) {
+                    if (data === true) {
+                        alert('Successful!');
+                        $('#register-form').off('submit').submit();
+                    } else {
+                        alert('Not available email!');
                         return;
                     }
                 });

@@ -22,5 +22,6 @@
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/Account/Profile</url-pattern>
         <url-pattern>/Account/Add</url-pattern>
+        <url-pattern>/Admin/Manager</url-pattern>
     </filter-mapping>
 </web-app>

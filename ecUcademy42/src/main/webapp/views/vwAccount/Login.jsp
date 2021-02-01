@@ -3,6 +3,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <t:main>
+    <jsp:attribute name="js">
+        <script>
+            $(document).ready(function() {
+                $('#login-form').on('submit', function (e){
+                    e.preventDefault();
+                    const username = $('#txtUsername').val();
+                    const password = $('#txtPassword').val();
+                    if (username.length === 0) {
+                        alert('Invalid username!');
+                        return;
+                    }
+                    if (password.length === 0) {
+                        alert('Invalid password!');
+                        return;
+                    }
+                    $('#login-form').off('submit').submit();
+                })
+            });
+        </script>
+    </jsp:attribute>
     <jsp:body>
         <div class="main">
 

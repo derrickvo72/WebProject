@@ -2,6 +2,8 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<jsp:useBean id="lessions" scope="request" class="beans.lession"/>
+
 <t:main>
   <jsp:body>
     <style>
@@ -25,24 +27,26 @@
             <iframe width="100%" height=600 id="changeVideo" src="https://www.youtube.com/embed/_YEb82IF1KM?autoplay=1"  frameborder="0" allowfullscreen></iframe>
           </div>
           <ul id="listIems">
-            <li>
-              <div class="courseName">
-                  <%--                                <a class="courseNameLink" href="#" data-namevideo="${pageContext.request.contextPath}/public/Xem ví dụ.mp4">Bai 1</a>--%>
-                <a class="courseNameLink changeActive " href="#" data-namevideo="https://www.youtube.com/embed/_YEb82IF1KM">Bai 1</a>
-              </div>
-              <div class="courseTime">
-                <h5 class="changeActive ">14:15</h5>
-              </div>
-            </li>
-            <li>
-              <div class="courseName">
-                  <%--                                <a class="courseNameLink"  href="#" data-namevideo="${pageContext.request.contextPath}/public/Course- LẬP TRÌNH WEB - 18110CL2A.mp4">Bai 2</a>--%>
-                <a class="courseNameLink changeActive" href="#" data-namevideo="https://www.youtube.com/embed/3_7lIeySBao">Bai 2</a>
-              </div>
-              <div class="courseTime">
-                <h5 class="changeActive">12:15</h5>
-              </div>
-            </li>
+            <c:forEach var="lession" items="${lessions}">
+              <li>
+                <div class="courseName">
+                    <%--                                <a class="courseNameLink" href="#" data-namevideo="${pageContext.request.contextPath}/public/Xem ví dụ.mp4">Bai 1</a>--%>
+                  <a class="courseNameLink changeActive " href="#" data-namevideo="${lession}"></a>
+                </div>
+                  <%--              <div class="courseTime">--%>
+                  <%--                <h5 class="changeActive ">14:15</h5>--%>
+                  <%--              </div>--%>
+              </li>
+            </c:forEach>
+<%--            <li>--%>
+<%--              <div class="courseName">--%>
+<%--                  &lt;%&ndash;                                <a class="courseNameLink"  href="#" data-namevideo="${pageContext.request.contextPath}/public/Course- LẬP TRÌNH WEB - 18110CL2A.mp4">Bai 2</a>&ndash;%&gt;--%>
+<%--                <a class="courseNameLink changeActive" href="#" data-namevideo="https://www.youtube.com/embed/3_7lIeySBao">Bai 2</a>--%>
+<%--              </div>--%>
+<%--              <div class="courseTime">--%>
+<%--                <h5 class="changeActive">12:15</h5>--%>
+<%--              </div>--%>
+<%--            </li>--%>
           </ul>
         </div>
       </div>

@@ -1,6 +1,7 @@
 package controllers;
 
 import beans.course;
+import beans.lession;
 import beans.take;
 import beans.user;
 import models.courseModel;
@@ -157,6 +158,17 @@ public class ProductServlet extends HttpServlet {
                 } else {
                     ServletUtils.redirect("/Account/Login", request, response);
                 }
+                break;
+            case "/Learn":
+                if(request.getParameter("course_id")!=null&&request.getParameter("course_id")!=""){
+                    int course_id2 = Integer.parseInt(request.getParameter("course_id"));
+                    List<lession> lessions = courseModel.getLessionById(course_id2);
+                    request.setAttribute("lessions",lessions);
+                    ServletUtils.forward("/views/vwProduct/Lession.jsp",request,response);
+                } else {
+
+                }
+
                 break;
             default:
                 ServletUtils.redirect("/views/vwHome/404.jsp",request,response);
