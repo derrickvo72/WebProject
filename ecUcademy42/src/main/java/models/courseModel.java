@@ -93,17 +93,25 @@ public class courseModel {
                     .executeAndFetch(lession.class);
         }
     }
-    public static List<course> findCourseByCourseId(int course_id){
-        final String sql = "select course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,course.img," +
-                "created_at,updated_at,course_link,course_price,course.category_id,category.category_name,category.category_info,teacher,user.user_fullname as teacher_name, count(takes.user_id) as students,deactive\n" +
-                "from course, category, user, takes\n" +
-                "where course.category_id = category.category_id and course.teacher = user.user_id and takes.course_id = course.course_id and course.course_id = :course_id";
-        try (Connection con = dbUtils.getConnection()) {
-            return  con.createQuery(sql)
-                    .addParameter("course_id", course_id)
-                    .executeAndFetch(course.class);
-        }
+//    public static List<course> findCourseByCourseId(int course_id){
+//        final String sql = "select course.course_id,course_name,course_fullinfo,course_lessinfo,course_rate,course_lession,course.img," +
+//                "created_at,updated_at,course_link,course_price,course.category_id,category.category_name,category.category_info,teacher,user.user_fullname as teacher_name, count(takes.user_id) as students,deactive\n" +
+//                "from course, category, user, takes\n" +
+//                "where course.category_id = category.category_id and course.teacher = user.user_id and takes.course_id = course.course_id and course.course_id = :course_id";
+//        try (Connection con = dbUtils.getConnection()) {
+//            return  con.createQuery(sql)
+//                    .addParameter("course_id", course_id)
+//                    .executeAndFetch(course.class);
+//        }
+//    }
+public static List<course> findCourseByCourseId(int course_id){
+    final String sql = "SELECT course_id, course_name, course_fullinfo, course_lessinfo, course_rate, course_lession, img, created_at, updated_at, course_link, course_price, category_id, teacher, deactive FROM course WHERE course_id = :course_id \n";
+    try (Connection con = dbUtils.getConnection()) {
+        return  con.createQuery(sql)
+                .addParameter("course_id", course_id)
+                .executeAndFetch(course.class);
     }
+}
     public static List<course> fulltextsearch(String keyword, int currentPage, int recordsPerPage, int category, int sort){
         String sql_1 = "";
         if(sort==-1) {
