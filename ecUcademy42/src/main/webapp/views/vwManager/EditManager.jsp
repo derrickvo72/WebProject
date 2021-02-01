@@ -38,32 +38,38 @@
                             </div>
                             <div style="width: 100%"  class="cart-icon">
                                 <div class="row" style="width: 100%">
-                                    <c:if test="${id!=2}">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">ID</div>
-                                                <input type="text" name="userid" readonly class="form-control formX" value="${user.user_id}">
+                                    <c:choose>
+                                        <c:when test="${id!=2}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="hidden" name="userid" value="${user.user_id}">
+                                                    <div class="IDname">Username</div>
+                                                    <input placeholder="Username" name="username" type="text" class="form-control formX" value="${user.user_username}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">Role</div>
-                                                <input placeholder="User role" name="role" type="text" class="form-control formX" value="${user.role_id}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="IDname">Role</div>
+                                                    <input placeholder="User role" name="role" type="text" class="form-control formX" value="${user.role_id}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">Username</div>
-                                                <input placeholder="Username" name="username" type="text" class="form-control formX" value="${user.user_username}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="hidden" name="courseid" value="${course.course_id}">
+                                                    <div class="IDname">Username</div>
+                                                    <input placeholder="Username" name="coursename" type="text" class="form-control formX" value="${course.course_name}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">Password</div>
-                                                <input placeholder="Password" name="password" type="text" class="form-control formX" value="${user.user_password}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="IDname">Role</div>
+                                                    <input placeholder="User role" name="deactive" type="text" class="form-control formX" value="${course.deactive}">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </c:if>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
 
                             </div>
@@ -74,11 +80,22 @@
                                     <i class="fa fa-backward" aria-hidden="true"></i>
                                     List
                                 </a>
-                                <a class="btn btn-primary" style="background-color: red"
-                                   href="${pageContext.request.contextPath}/Admin/Manager/Ad?id=${id}" role="button">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                    Delete
-                                </a>
+                                <c:choose>
+                                    <c:when test="${id!=2}">
+                                        <a class="btn btn-primary" style="background-color: red"
+                                           href="${pageContext.request.contextPath}/Admin/Manager/Delete?id=${id}&user_id=${user.user_id}" role="button">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                            Delete
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="btn btn-primary" style="background-color: red"
+                                           href="${pageContext.request.contextPath}/Admin/Manager/Delete?id=${id}&course_id=${course.course_id}" role="button">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                            Delete
+                                        </a>
+                                    </c:otherwise>
+                                </c:choose>
                                 <input class="btn btn-primary" style="background-color:forestgreen;" type="submit" form="update">
                             </div>
                         </form>

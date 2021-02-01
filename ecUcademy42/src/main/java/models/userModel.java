@@ -96,6 +96,15 @@ public class userModel {
                     .executeUpdate();
         }
     }
+    public static void delete(int user_id){
+        final String sql = "DELETE FROM user\n" +
+                "WHERE user_id = :user_id";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("user_id", user_id)
+                    .executeUpdate();
+        }
+    }
     public static List<course> getListCourseByUserId(int userId) {
         final String sql = "select course.course_id, course.course_name, course.course_fullinfo, course.course_lessinfo, course.course_rate, course.course_lession, course.img,\n" +
                 "course.created_at, course.updated_at, course.course_link, course.course_price\n" +

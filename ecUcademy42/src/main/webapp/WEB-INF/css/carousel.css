@@ -492,7 +492,7 @@
     animation: ballX  5s linear infinite;
     opacity: 0;
     width: 150px;
-    height:auto;
+    height:150px;
 }
 
 #bubble3 img:nth-child(1) {

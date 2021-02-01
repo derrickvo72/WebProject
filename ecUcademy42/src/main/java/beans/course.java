@@ -4,7 +4,7 @@ import java.util.*;
 
 public class course {
     String course_name,course_fullinfo,course_lessinfo,img,course_link,category_name,category_info,teacher_name,created_at,updated_at;
-    int course_lession,course_id,category_id,students,teacher;
+    int course_lession,course_id,category_id,students,teacher,deactive;
     float course_rate,course_price;
     List<take> takes = new List<take>() {
         @Override
@@ -242,7 +242,7 @@ public class course {
     }
 
 
-    public course(String course_name, String course_fullinfo, String course_lessinfo, String img, String course_link, String category_name, String category_info, String teacher_name, String created_at, String updated_at, int course_lession, int course_id, int category_id, int students, int teacher, float course_rate, float course_price, List<take> takes, List<lession> lessions) {
+    public course(String course_name, String course_fullinfo, String course_lessinfo, String img, String course_link, String category_name, String category_info, String teacher_name, String created_at, String updated_at, int course_lession, int course_id, int category_id, int students, int teacher, int deactive, float course_rate, float course_price, List<take> takes, List<lession> lessions) {
         this.course_name = course_name;
         this.course_fullinfo = course_fullinfo;
         this.course_lessinfo = course_lessinfo;
@@ -258,6 +258,7 @@ public class course {
         this.category_id = category_id;
         this.students = students;
         this.teacher = teacher;
+        this.deactive = deactive;
         this.course_rate = course_rate;
         this.course_price = course_price;
         this.takes = takes;
@@ -442,5 +443,13 @@ public class course {
 
     public void setLessions(List<lession> lessions) {
         this.lessions = lessions;
+    }
+
+    public int getDeactive() {
+        return deactive;
+    }
+
+    public void setDeactive(int deactive) {
+        this.deactive = deactive;
     }
 }

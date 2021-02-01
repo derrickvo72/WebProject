@@ -24,8 +24,8 @@ public class courseModel {
 
 
     public static void add(course c) {
-        final String sql = "INSERT INTO course (course_name, course_fullinfo, course_lessinfo, created_at, img, course_price, category_id, teacher) " +
-                "VALUES (:courseName,:courseFullinfo,:courseLessinfo,:createdAt,:img,:coursePrice,:category_id,:teacher_id)\n";
+        final String sql = "INSERT INTO course (course_name, course_fullinfo, course_lessinfo, created_at, img, course_price, category_id, teacher, deactive) " +
+                "VALUES (:courseName,:courseFullinfo,:courseLessinfo,:createdAt,:img,:coursePrice,:category_id,:teacher_id,0)\n";
         try (Connection con = dbUtils.getConnection()) {
             con.createQuery(sql)
                     .addParameter("courseName", c.getCourse_name())
@@ -56,6 +56,15 @@ public class courseModel {
                     .addParameter("categoryId", c.getCategory_id())
                     .addParameter("teacher", c.getTeacher())
                     .addParameter("courseId", c.getCourse_id())
+                    .executeUpdate();
+        }
+    }
+    public static void delete(int course_id){
+        final String sql = "DELETE FROM course\n" +
+                "WHERE course_id = :course_id";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("course_id", course_id)
                     .executeUpdate();
         }
     }
@@ -104,14 +113,14 @@ public class courseModel {
                 "FROM  course\n" +
                 "WHERE\n" +
                 "    MATCH(course_name, course_fullinfo, course_lessinfo) \n" +
-                "    AGAINST(:keyword)) \n" + sql_1 +
+                "    AGAINST(:keyword) and deactive=0) \n" + sql_1 +
                 "LIMIT :start,:limit";
         final String sql2 = "SELECT * \n" +
                 "From (SELECT *\n" +
                 "\tFROM  course\n" +
                 "\tWHERE\n" +
                 "    \tMATCH(course_name, course_fullinfo, course_lessinfo) \n" +
-                "    \tAGAINST(:keyword)) as Win\n" +
+                "    \tAGAINST(:keyword) and deactive=0) as Win\n" +
                 "WHERE category_id = :category\n" + sql_1 +
                 "LIMIT :start,:limit";
         if(category==0)
@@ -235,6 +244,16 @@ public class courseModel {
                     .addParameter("start", currentPage * recordsPerPage - recordsPerPage)
                     .addParameter("limit", recordsPerPage)
                     .executeAndFetch(course.class);
+        }
+    }
+    public static void updateStatus(int course_id, int deactive) {
+        final String sql = "UPDATE course SET  deactive = :deactive" +
+                "WHERE course_id = :course_id \n";
+        try (Connection con = dbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("deactive", deactive)
+                    .addParameter("course_id", course_id)
+                    .executeUpdate();
         }
     }
 }

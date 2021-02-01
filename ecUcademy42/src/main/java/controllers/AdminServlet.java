@@ -52,6 +52,15 @@ public class AdminServlet extends HttpServlet {
             request.setAttribute("user", user);
             request.setAttribute("id",id);
             ServletUtils.forward("/views/vwManager/EditManager.jsp",request,response);
+        } else {
+            int courseid = Integer.parseInt(request.getParameter("courseid"));
+            int deactive = Integer.parseInt(request.getParameter("deactive"));
+            courseModel.updateStatus(courseid,deactive);
+            List<course> courses = courseModel.findCourseByCourseId(courseid);
+            course course = courses.get(0);
+            request.setAttribute("course", course);
+            request.setAttribute("id",id);
+            ServletUtils.forward("/views/vwManager/EditManager.jsp",request,response);
         }
     }
 
@@ -109,8 +118,17 @@ public class AdminServlet extends HttpServlet {
                 request.setAttribute("id", id);
                 ServletUtils.forward("/views/vwManager/Admin2.jsp",request,response);
                 break;
-            case "/Plus":
-                ServletUtils.forward("/views/vwManager/AddUser.jsp",request,response);
+            case "/Delete":
+                int iddelete = Integer.parseInt(request.getParameter("id"));
+                if(iddelete!=2){
+                    int user_id = Integer.parseInt(request.getParameter("user_id"));
+                    userModel.delete(user_id);
+                } else {
+                    int course_id = Integer.parseInt(request.getParameter("course_id"));
+                    courseModel.delete(course_id);
+                }
+                request.setAttribute("id", iddelete);
+                ServletUtils.forward("/views/vwManager/Admin2.jsp",request,response);
                 break;
             case "/Edit":
                 int idd = Integer.parseInt(request.getParameter("id"));

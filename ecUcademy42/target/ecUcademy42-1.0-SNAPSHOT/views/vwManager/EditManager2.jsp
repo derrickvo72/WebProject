@@ -38,32 +38,36 @@
                             </div>
                             <div style="width: 100%"  class="cart-icon">
                                 <div class="row" style="width: 100%">
-                                    <c:if test="${id!=2}">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">ID</div>
-                                                <input type="text" readonly class="form-control formX" value="${user.user_id}">
+                                    <c:choose>
+                                        <c:when test="${id!=2}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="IDname">Username</div>
+                                                    <input type="text" readonly class="form-control formX" value="${user.user_username}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">Role</div>
-                                                <input placeholder="User role" type="text" class="form-control formX" value="${user.role_id}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="IDname">Role</div>
+                                                    <input placeholder="User role" type="text" class="form-control formX" value="${user.role_id}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">Username</div>
-                                                <input placeholder="Username" type="text" class="form-control formX" value="${user.user_username}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="IDname">ID</div>
+                                                    <input type="text" class="form-control formX" value="${user.user_id}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="IDname">Password</div>
-                                                <input placeholder="Password" type="text" class="form-control formX" value="${user.user_password}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="IDname">Role</div>
+                                                    <input placeholder="User role" type="text" class="form-control formX" value="${user.role_id}">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </c:if>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
 
                             </div>
