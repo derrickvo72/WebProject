@@ -58,14 +58,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <input type="hidden" name="courseid" value="${course.course_id}">
-                                                    <div class="IDname">Username</div>
-                                                    <input placeholder="Username" name="coursename" type="text" class="form-control formX" value="${course.course_name}">
+                                                    <div class="IDname">Course name</div>
+                                                    <input placeholder="Coursename" name="coursename" type="text" class="form-control formX" value="${course.course_name}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <div class="IDname">Role</div>
-                                                    <input placeholder="User role" name="deactive" type="text" class="form-control formX" value="${course.deactive}">
+                                                    <div class="IDname">Status</div>
+                                                    <input placeholder="Status" name="deactive" type="text" class="form-control formX" value="${course.deactive}">
                                                 </div>
                                             </div>
                                         </c:otherwise>
